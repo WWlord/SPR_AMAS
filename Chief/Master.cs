@@ -20,8 +20,8 @@ namespace Chief
 {
     public partial class Master : Form
     {
-        private AMAS_DBI.Class_syb_acc AMAS_access;
-        private ClassStructure.Structure StructMyOrg;
+        private Class_syb_acc AMAS_access;
+        private Structure StructMyOrg;
         private ClassPattern.FIleSystemShow FSS;
 
         private RegisrationSettings RegProperty = new RegisrationSettings();
@@ -43,13 +43,13 @@ namespace Chief
         
 
         private ChefSettings frmSettings1 = new ChefSettings();
-        private AMASControlRegisters.Document_Viewer document_View;
-        private AMASControlRegisters.Document_Viewer document_New;
-        private AMASControlRegisters.Document_Viewer Mail_document;
-        private AMASControlRegisters.Document_Viewer document_one_View;
+        private Document_Viewer document_View;
+        private Document_Viewer document_New;
+        private Document_Viewer Mail_document;
+        private Document_Viewer document_one_View;
         private UCDocsTree DocsTree;
 
-        public Master(AMAS_DBI.Class_syb_acc S_acc)
+        public Master(Class_syb_acc S_acc)
         {
             InitializeComponent();
             Resizzze();
@@ -63,7 +63,7 @@ namespace Chief
             lbErrorsLog.ValueMember = "ErrId";
             ModuleId = (int)ClassErrorProvider.ErrorBBLProvider.Modules.Master;
             tcALARM.SelectedIndexChanged += new EventHandler(tcALARM_SelectedIndexChanged);
-            btnChangePassword.Click += new EventHandler(btnChangePassword_Click);
+            btnChangePassword.Click += new EventHandler(BtnChangePassword_Click);
             this.Load += new EventHandler(Master_Load);
             this.FormClosing += new FormClosingEventHandler(Master_FormClosing);
             ALARMView();
@@ -107,8 +107,10 @@ namespace Chief
             ResolutionsListRefresh();
 
             Show_one_document();
-            DocsTree = new UCDocsTree(AMAS_access, document_one_View);
-            DocsTree.Dock = DockStyle.Fill;
+            DocsTree = new UCDocsTree(AMAS_access, document_one_View)
+            {
+                Dock = DockStyle.Fill
+            };
             DocsTree.SendToBack();
             this.splitContainer1.Panel1.Controls.Add(this.DocsTree);
 
@@ -223,14 +225,14 @@ namespace Chief
                 if (AMAS_access.GetRights.Post)
                 {
                     this.toolStripMain.Items["tsMail"].Visible = true;
-                    Mail_document = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
+                    Mail_document = new Document_Viewer(AMAS_access, null);
                     this.Mail_document.Dock = System.Windows.Forms.DockStyle.Fill;
-                    this.Mail_document.Location = new System.Drawing.Point(0, 0);
+                    this.Mail_document.Location = new Point(0, 0);
                     this.Mail_document.Name = "Mail_document";
                     this.Mail_document.New_document = true;
                     this.Mail_document.Doc_ID = 0;
                     this.Mail_document.Sender = 0;
-                    this.Mail_document.Size = new System.Drawing.Size(622, 355);
+                    this.Mail_document.Size = new Size(622, 355);
                     this.Mail_document.TabIndex = 0;
                     Mail_document.Dock = DockStyle.Fill;
                     Mail_document.Visible = true;
@@ -299,7 +301,7 @@ namespace Chief
             Resizzze();
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void BtnChangePassword_Click(object sender, EventArgs e)
         {
             bool res = true;
             if (tbPassword.Text.CompareTo(tbPasswordConfirm.Text) == 0)
@@ -786,7 +788,7 @@ namespace Chief
             }
         }
 
-        private void btnRunk_Click(object sender, EventArgs e)
+        private void BtnRunk_Click(object sender, EventArgs e)
         {
             if (lbEmployee.DataSource != null)
                 if (lbRank.DataSource != null)
@@ -801,7 +803,7 @@ namespace Chief
 
         }
 
-        private void btnUnrank_Click(object sender, EventArgs e)
+        private void BtnUnrank_Click(object sender, EventArgs e)
         {
             if (lbUnrank.DataSource != null)
                 if (AMASCommand.UnrankDegree((int)lbUnrank.SelectedValue))
@@ -857,14 +859,14 @@ namespace Chief
             this.lvALARM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvALARM.ForeColor = System.Drawing.Color.BlueViolet;
             this.lvALARM.LargeImageList = this.imageListLarge;
-            this.lvALARM.Location = new System.Drawing.Point(0, 0);
-            this.lvALARM.Margin = new System.Windows.Forms.Padding(4);
+            this.lvALARM.Location = new Point(0, 0);
+            this.lvALARM.Margin = new Padding(4);
             this.lvALARM.Name = "lvALARM";
-            this.lvALARM.Size = new System.Drawing.Size(510, 493);
+            this.lvALARM.Size = new Size(510, 493);
             this.lvALARM.SmallImageList = this.imageListSmall;
             this.lvALARM.TabIndex = 12;
             this.lvALARM.View = System.Windows.Forms.View.LargeIcon;
-            this.lvALARM.SelectedIndexChanged += new System.EventHandler(this.lvALARM_SelectedIndexChanged);
+            this.lvALARM.SelectedIndexChanged += new EventHandler(this.lvALARM_SelectedIndexChanged);
             this.lvALARM.DoubleClick += new EventHandler(lvALARM_DoubleClick);
             lvALARM.Sorting = SortOrder.Ascending;
 
@@ -1173,14 +1175,14 @@ namespace Chief
 
         private void Show_document(Control Tab)
         {
-            document_View = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
+            document_View = new Document_Viewer(AMAS_access, null);
             this.document_View.Doc_ID = 0;
             this.document_View.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_View.Location = new System.Drawing.Point(250, 0);
+            this.document_View.Location = new Point(250, 0);
             this.document_View.Name = "document_View" + Tab.Name.Trim();
             this.document_View.New_document = false;
             this.document_View.Sender = 0;
-            this.document_View.Size = new System.Drawing.Size(this.tcALARM.Size.Width - 250, 521);
+            this.document_View.Size = new Size(this.tcALARM.Size.Width - 250, 521);
             this.document_View.TabIndex = 3;
             Tab.Controls.Add(this.document_View);
             document_View.Doc_ID = Convert.ToInt32(Tab.Name.Substring(1));
@@ -1188,10 +1190,10 @@ namespace Chief
 
         private void Fill_document(Control Tab,int kod)
         {
-            document_View = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
+            document_View = new Document_Viewer(AMAS_access, null);
             this.document_View.Doc_ID = 0;
             this.document_View.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_View.Location = new System.Drawing.Point(250, 0);
+            this.document_View.Location = new Point(250, 0);
             this.document_View.Name = "document_Fill" + kod.ToString();
             this.document_View.New_document = false;
             this.document_View.Sender = 0;
@@ -1204,14 +1206,14 @@ namespace Chief
 
         private void Show_one_document()
         {
-            document_one_View = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
+            document_one_View = new Document_Viewer(AMAS_access, null);
             this.document_one_View.Doc_ID = 0;
             this.document_one_View.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_one_View.Location = new System.Drawing.Point(250, 0);
+            this.document_one_View.Location = new Point(250, 0);
             this.document_one_View.Name = "document_one_View";
             this.document_one_View.New_document = false;
             this.document_one_View.Sender = 0;
-            this.document_one_View.Size = new System.Drawing.Size(this.tcALARM.Size.Width - 250, 521);
+            this.document_one_View.Size = new Size(this.tcALARM.Size.Width - 250, 521);
             this.document_one_View.TabIndex = 3;
             this.panelALARM.Controls.Add(this.document_one_View);
             this.document_one_View.SendToBack();
@@ -1238,7 +1240,7 @@ namespace Chief
 
         string[] CED_sql;
 
-        private void alarm_messages()
+        private void Alarm_messages()
         {
             string sql;
             listViewCED.Items.Clear();
@@ -1544,7 +1546,7 @@ namespace Chief
         private void treeViewCED_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tcALARM.TabPages.Clear();
-            alarm_messages();
+            Alarm_messages();
         }
 
         private void listViewCED_SelectedIndexChanged(object sender, EventArgs e)
@@ -1578,7 +1580,7 @@ namespace Chief
 
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private void ButtonSelect_Click(object sender, EventArgs e)
         {
             AMAS_Query.Class_AMAS_Query.DocIndex = DocEnumeration.NewsDocs.Value;
 

@@ -20,10 +20,10 @@ namespace AMASWebService
     [ToolboxItem(false)]
     // Чтобы разрешить вызывать веб-службу из сценария с помощью ASP.NET AJAX, раскомментируйте следующую строку. 
     // [System.Web.Script.Services.ScriptService]
-    public class Service_AMAS : System.Web.Services.WebService
+    public class Service_AMAS : WebService
     {
         Structure EntStructure = null;
-        AMAS_DBI.Class_syb_acc AmasAcc=null;
+        Class_syb_acc AmasAcc =null;
 
         [WebMethod]
         public bool Connect(string select_ServerDB, string userName, string Password)

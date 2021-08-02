@@ -31,9 +31,9 @@ namespace Chief
             // peopleRegister1
             // 
             this.peopleRegister1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.peopleRegister1.Location = new System.Drawing.Point(3, 3);
+            this.peopleRegister1.Location = new Point(3, 3);
             this.peopleRegister1.Name = "peopleRegister1";
-            this.peopleRegister1.Size = new System.Drawing.Size(611, 216);
+            this.peopleRegister1.Size = new Size(611, 216);
             this.peopleRegister1.TabIndex = 0;
 
             juridicRegister1 = new AMASControlRegisters.JuridicRegister();
@@ -42,9 +42,9 @@ namespace Chief
             // juridicRegister1
             // 
             this.juridicRegister1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.juridicRegister1.Location = new System.Drawing.Point(3, 3);
+            this.juridicRegister1.Location = new Point(3, 3);
             this.juridicRegister1.Name = "juridicRegister1";
-            this.juridicRegister1.Size = new System.Drawing.Size(611, 216);
+            this.juridicRegister1.Size = new Size(611, 216);
             this.juridicRegister1.TabIndex = 0;
 
             peopleRegister1.connect(ACC);

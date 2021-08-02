@@ -13,7 +13,7 @@ namespace ClassPattern
         public enum ExecModule {Resourse=1, Master}
 
         private ExecModule ExeMod = ExecModule.Master;
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
         private System.Windows.Forms.TreeView KTExplorer;
         private System.Windows.Forms.WebBrowser www;
         System.Windows.Forms.TreeNode KTNod = null;
@@ -41,15 +41,15 @@ namespace ClassPattern
             this.Assign.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 this.íàçíà÷èòüToolStripMenuItem});
             this.Assign.Name = "Assign";
-            this.Assign.Size = new System.Drawing.Size(153, 48);
+            this.Assign.Size = new Size(153, 48);
             this.Assign.Text = "Íàçíà÷èòü";
             // 
             // íàçíà÷èòüToolStripMenuItem
             // 
             this.íàçíà÷èòüToolStripMenuItem.Name = "íàçíà÷èòüToolStripMenuItem";
-            this.íàçíà÷èòüToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.íàçíà÷èòüToolStripMenuItem.Size = new Size(152, 22);
             this.íàçíà÷èòüToolStripMenuItem.Text = "Íàçíà÷èòü";
-            this.íàçíà÷èòüToolStripMenuItem.Click += new System.EventHandler(this.íàçíà÷èòüToolStripMenuItem_Click);
+            this.íàçíà÷èòüToolStripMenuItem.Click += new EventHandler(this.íàçíà÷èòüToolStripMenuItem_Click);
             this.Assign.ResumeLayout(false);
             KTExplorer.Refresh();
             PickFile.FilePicked += new FileDirExplorer.FilePathHandler(PickFile_FilePicked);
@@ -108,7 +108,7 @@ namespace ClassPattern
             }
         }
 
-        private void T_list(System.Windows.Forms.TreeNode Nod)
+        private void List(System.Windows.Forms.TreeNode Nod)
         {
             System.Windows.Forms.TreeNode nnn;
             if (Nod != null)
@@ -144,7 +144,7 @@ namespace ClassPattern
             if (KTNod != e.Node)
             {
                 KTNod = e.Node;
-                T_list(KTNod);
+                List(KTNod);
             }
         }
 

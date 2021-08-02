@@ -13,15 +13,15 @@ namespace AMAS_DBI
 {
     public static class AMASCommand
     {
-        private static AMAS_DBI.Class_syb_acc SyB_Acc;
+        private static Class_syb_acc SyB_Acc;
 
-        public static void AccessCommands(AMAS_DBI.Class_syb_acc acc)
+        public static void AccessCommands(Class_syb_acc acc)
         {
             SyB_Acc = acc;
             SyB_Acc.MyRights = Roles_Employee_list(SyB_Acc.Current_User);
         }
 
-        public static AMAS_DBI.Class_syb_acc Access
+        public static Class_syb_acc Access
         {
             get { return SyB_Acc; }
         }
@@ -1773,8 +1773,10 @@ namespace AMAS_DBI
                     {
                         id = (int)reader.GetValue(0);
                         name = (string)reader.GetValue(1);
-                        Ath = new CommonClass.ArrayThree(name.Trim(), id);
-                        Ath.FId = (int)reader.GetValue(2);
+                        Ath = new CommonClass.ArrayThree(name.Trim(), id)
+                        {
+                            FId = (int)reader.GetValue(2)
+                        };
                         roles.Add(Ath);
                     }
                 }
@@ -1807,8 +1809,10 @@ namespace AMAS_DBI
                     {
                         id = (int)reader.GetValue(0);
                         name = (string)reader.GetValue(1);
-                        Ath = new CommonClass.ArrayThree(name.Trim(), id);
-                        Ath.FId = (int)reader.GetValue(2);
+                        Ath = new CommonClass.ArrayThree(name.Trim(), id)
+                        {
+                            FId = (int)reader.GetValue(2)
+                        };
                         roles.Add(Ath);
                     }
                 }
@@ -2900,7 +2904,7 @@ namespace AMAS_DBI
             return Ident;
         }
 
-        public static int Append_Indoor_document(int kind, int tema, string annotation, int parentDoc)
+        public static int Append_Indoor_document(int kind, int tema, string annotation, int parentDoc, bool From_pattern)
         {
             int Ident = Add_FlowDocument(kind, parentDoc, annotation);
             try
@@ -2922,7 +2926,17 @@ namespace AMAS_DBI
                         SyB_Acc.SQLCommand.Parameters.Add("@tema", SqlDbType.Int);
                         SyB_Acc.SQLCommand.Parameters[count].Direction = ParameterDirection.Input;
                         SyB_Acc.SQLCommand.Parameters[count].Value = tema;
+                        count++;
                     }
+
+                    //int aq;
+                    //if (From_pattern)  { aq = 1; } else { aq = 0; };
+                    sql += ",@From_pattern";
+                    SyB_Acc.SQLCommand.CommandText += ",From_pattern";
+                    SyB_Acc.SQLCommand.Parameters.Add("@From_pattern", SqlDbType.Bit);
+                    SyB_Acc.SQLCommand.Parameters[count].Direction = ParameterDirection.Input;
+                    SyB_Acc.SQLCommand.Parameters[count].Value = From_pattern?1:0;
+
                     SyB_Acc.SQLCommand.CommandText += ")" + sql + ")";
                     SyB_Acc.SQLCommand.ExecuteNonQuery();
                 }
@@ -4262,6 +4276,30 @@ namespace AMAS_DBI
             return ret;
         }
 
+        public static bool Is_from_Pettarn(int DOC)
+        {
+            bool fromPatt = false;
+            System.Data.SqlClient.SqlDataReader reader = null;
+            try
+            {
+                SyB_Acc.SQLCommand.Parameters.Clear();
+                SyB_Acc.SQLCommand.CommandType = CommandType.Text;
+                SyB_Acc.SQLCommand.CommandText = "select top 1 From_pattern from dbo.rkk_indoor_document where kod=@doc";
+                SyB_Acc.SQLCommand.Parameters.Add("@doc", SqlDbType.Int);
+                SyB_Acc.SQLCommand.Parameters[0].Value = DOC;
+                SyB_Acc.SQLCommand.Parameters[0].Direction = ParameterDirection.Input;
+                reader = SyB_Acc.SQLCommand.ExecuteReader(); ;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    int ii= reader.GetInt32(0);
+                    if (ii == 1) fromPatt = true; else fromPatt = false;
+                }
+            }
+            catch { fromPatt = false; }
+
+            return fromPatt;
+        }
 
         public static string CreateOutDoc(int DOC)
         {
@@ -5599,7 +5637,7 @@ namespace AMAS_DBI
                 return res;
             }
 
-            public static CommonValues.PlaceLevel IsInside(int TheAddress, int AtAddress)
+            public static PlaceLevel IsInside(int TheAddress, int AtAddress)
             {
                 PlaceLevel ret = PlaceLevel.NothingLevel;
                 SyB_Acc.SQLCommand.Parameters.Clear();

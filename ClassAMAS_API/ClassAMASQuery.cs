@@ -146,7 +146,7 @@ namespace AMAS_Query
             get 
             {
                 string Sql="";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql= "select org_cod,e_mail,org from dba.foundation";
@@ -165,7 +165,7 @@ namespace AMAS_Query
              get
              {
                  string Sql = "";
-                 switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                 switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                  {
                      case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                          Sql = "select * from dba.sub_org";
@@ -183,7 +183,7 @@ namespace AMAS_Query
             get
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.sub_population";
@@ -200,7 +200,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select fio,name,cod from dba.ent_employee,dba.jrd_degree where jrd_degree.degree=ent_employee.degree and jrd_degree.juridic=" + juridic.ToString() + " order by fio ";
@@ -218,7 +218,7 @@ namespace AMAS_Query
             get
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.degree";
@@ -238,7 +238,7 @@ namespace AMAS_Query
             get
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_state where id=sinonim order by state";
@@ -255,7 +255,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select pop_state.id as state, pop_city.id as city, pop_street.id as street, pop_house.id as house ";
@@ -285,7 +285,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + sta_id.ToString() + " order by name_city";
@@ -302,7 +302,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + trc_id.ToString() + " order by name_city";
@@ -319,7 +319,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + areal_id.ToString() + " order by name_city";
@@ -336,7 +336,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_street where id=sinonim and cit_id=" + cit_id.ToString() + " order by streetname";
@@ -353,7 +353,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_street where id=sinonim and cit_id=" + district_id.ToString() + " order by streetname";
@@ -370,7 +370,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_house where id=sinonim and str_id=" + str_id.ToString() + " order by h_int";
@@ -387,7 +387,7 @@ namespace AMAS_Query
         {
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select * from dba.pip_flat where id=sinonim and hou_id=" + hou_id.ToString() + " order by f_int";
@@ -406,7 +406,7 @@ namespace AMAS_Query
             get
             {
                 string Sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select current user as usr_id";
@@ -424,7 +424,7 @@ namespace AMAS_Query
             get 
             { 
                 string Sql="";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select Full_name from dba.jrd_juridic join dba.foundation on jrd_juridic.id=foundation.org";
@@ -442,7 +442,7 @@ namespace AMAS_Query
             get 
             { 
                 string Sql="";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         Sql = "select pip_state.state, pip_city.name_city,pip_street.streetname, pip_house.house, pip_flat.flat from dba.pip_state join dba.pip_city join dba.pip_street join dba.pip_house join dba.pip_flat join dba.jrd_juridic join dba.foundation on jrd_juridic.id=foundation.org";
@@ -499,7 +499,7 @@ namespace AMAS_Query
             if (year >1990)
             {
                 if (for_ > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select id, cod from dba.heap_dep_degrees where ins_date >cast('" + executed.ToString("yyyy.MM.dd") + "' as date) and cod=" + (string)Convert.ToString(for_) + " order by ins_date asc";
@@ -511,7 +511,7 @@ namespace AMAS_Query
             }
             else
             {
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select id, cod from dba.heap_dep_degrees where cod=" + (string)Convert.ToString(for_) + " order by ins_date asc";
@@ -528,7 +528,7 @@ namespace AMAS_Query
         {
             string sql = "";
             if (moving > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql =  "select for_ from dba.heap_moving where for_ is not null and moving = " + (string)Convert.ToString(moving) + " order by id asc";
@@ -544,7 +544,7 @@ namespace AMAS_Query
         {
             string sql = "";
             if (Id > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select employee.family + ' ' + employee.name + ' ' + employee.father as fio, employee.employee,heap_dep_degrees.cod,jrd_degree.name as rank, jrd_degree.degree as decod, heap_dep_degrees.department as department from dba.employee join dba.heap_dep_degrees on employee.employee=heap_dep_degrees.employee join dba.jrd_degree on heap_dep_degrees.degree=jrd_degree.degree where heap_dep_degrees.id  =" + (string)Convert.ToString(Id);
@@ -560,7 +560,7 @@ namespace AMAS_Query
         {
             string sql = "";
             if (for_ > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql= "select jrd_degree.name, ent_employee.short_fio  from dba.jrd_degree join dba.dep_degrees join dba.ent_employee on dep_degrees.cod=ent_employee.cod where dep_degrees.cod=" + (string)Convert.ToString(for_);
@@ -594,7 +594,7 @@ namespace AMAS_Query
         {
             string sql = "";
             if (for_ > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select short_fio from dba.ent_employee where cod=" + (string)Convert.ToString(for_);
@@ -610,7 +610,7 @@ namespace AMAS_Query
         {
             string sql = "";
             if (for_ > 0)
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select employee.family + ' ' + employee.name + ' ' + employee.father as fio, employee.employee,dep_degrees.cod,jrd_degree.name as rank, jrd_degree.degree as decod, dep_degrees.department as department from dba.employee join dba.dep_degrees on employee.employee=dep_degrees.employee join dba.jrd_degree where dep_degrees.cod  =" + (string)Convert.ToString(for_);
@@ -625,7 +625,7 @@ namespace AMAS_Query
         public static string Get_department_of_movie(int Department)
         {
              string sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql= "select jrd_department.department, jrd_department.name from dba.jrd_department where jrd_department.department  =" + (string)Convert.ToString(Department);
@@ -640,7 +640,7 @@ namespace AMAS_Query
         public static string Get_movies_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.moving_order_degree where document  =" + (string)Convert.ToString(Doc_id) + " order by moving asc";
@@ -655,7 +655,7 @@ namespace AMAS_Query
         public static string Get_own_movies_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "call dba.main_exec_docs(@document=" + (string)Convert.ToString(Doc_id) + ")";
@@ -670,7 +670,7 @@ namespace AMAS_Query
         public static string Get_Vizy_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.vizing where document=" + Convert.ToString(Doc_id) + " order by dat_change asc";
@@ -685,7 +685,7 @@ namespace AMAS_Query
         public static string Get_own_Vizy_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "call dba.main_vizing_docs(@document=" + Convert.ToString(Doc_id) + ")";
@@ -700,7 +700,7 @@ namespace AMAS_Query
         public static string Get_news_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.news where document=" + Convert.ToString(Doc_id) + " order by news asc";
@@ -715,7 +715,7 @@ namespace AMAS_Query
         public static string Get_own_news_of_doc(int Doc_id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "call dba.main_news_docs(@document=" + Convert.ToString(Doc_id) + ")";
@@ -739,7 +739,7 @@ namespace AMAS_Query
             get
             { 
                 string sql= "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select * from dba.flow_document";
@@ -759,7 +759,7 @@ namespace AMAS_Query
             get
             {
                 string sql= "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select * from dba.flow_document where kod in (select document from dba.vizing)";
@@ -785,7 +785,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs " + Between_dates();
@@ -796,7 +796,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_new " + Between_dates();
@@ -807,7 +807,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_send:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_send " + Between_dates();
@@ -818,7 +818,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_send_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_send_exec " + Between_dates();
@@ -829,7 +829,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_exec " + Between_dates();
@@ -840,7 +840,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_send_partly_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_send_partly_exec " + Between_dates();
@@ -851,7 +851,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executor_docs_new_repeat:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_new_repeat " + Between_dates();
@@ -862,7 +862,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.WellcomeDocs.Filters.executing_docs_alarm:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_docs_alarm " + Between_dates();
@@ -890,7 +890,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs" + Between_dates();
@@ -901,7 +901,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_new " + Between_dates();
@@ -912,7 +912,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_send:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_send" + Between_dates();
@@ -923,7 +923,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_send_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_send_exec " + Between_dates();
@@ -934,7 +934,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_exec " + Between_dates();
@@ -945,7 +945,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_send_partly_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_send_partly_exec " + Between_dates();
@@ -956,7 +956,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.exe_in_docs_new_repeat:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_new_repeat " + Between_dates();
@@ -967,7 +967,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.IndoorDosc.Filters.executing_in_docs_alarm:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.exe_in_docs_alarm " + Between_dates();
@@ -994,7 +994,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.OutDocs.Filters.out_docs_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.out_docs_new " + Between_dates();
@@ -1005,7 +1005,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OutDocs.Filters.out_docs_send:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.out_docs_send " + Between_dates();
@@ -1054,7 +1054,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs " + Between_dates();
@@ -1065,7 +1065,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_new " + Between_dates();
@@ -1076,7 +1076,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_send:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_send " + Between_dates();
@@ -1087,7 +1087,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_send_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_send_exec " + Between_dates();
@@ -1098,7 +1098,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_signing:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_signing " + Between_dates();
@@ -1109,7 +1109,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_signed:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_signed " + Between_dates();
@@ -1120,7 +1120,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_not_signed:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_not_signed " + Between_dates();
@@ -1131,7 +1131,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.OwnDocs.Filters.own_docs_alarm:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.own_docs_alarm " + Between_dates();
@@ -1161,7 +1161,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.NewsDocs.Filters.executor_news:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_news " + Between_dates();
@@ -1172,7 +1172,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.NewsDocs.Filters.executor_news_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_news_new " + Between_dates();
@@ -1183,7 +1183,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.NewsDocs.Filters.executor_news_old:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_news_old " + Between_dates();
@@ -1194,7 +1194,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.NewsDocs.Filters.executor_news_alarm:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.executor_news_alarm " + Between_dates();
@@ -1221,7 +1221,7 @@ namespace AMAS_Query
                     switch (FiltrIndex)
                     {
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs " + Between_dates();
@@ -1232,7 +1232,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs_new:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs_new " + Between_dates();
@@ -1243,7 +1243,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs_send:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs_send " + Between_dates();
@@ -1254,7 +1254,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs_send_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs_send_exec " + Between_dates();
@@ -1265,7 +1265,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs_exec:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs_exec " + Between_dates();
@@ -1276,7 +1276,7 @@ namespace AMAS_Query
                             }
                             break;
                         case (int)DocEnumeration.VizingDocs.Filters.vizing_docs_alarm:
-                            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                             {
                                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                                     FiltrSql = "dba.vizing_docs_alarm " + Between_dates();
@@ -1301,7 +1301,7 @@ namespace AMAS_Query
 
                 case DocEnumeration.ArchiveDocs.Value:
                     Indoor_or_Out_docs = true;
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             FiltrSql = "dba.archive_of_employee ";
@@ -1435,7 +1435,7 @@ namespace AMAS_Query
             switch (Doc_Filtre)
             {
                 case 0:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.documents ";
@@ -1446,7 +1446,7 @@ namespace AMAS_Query
                     }
                     Tree_SQL_query = " ";
                     Tree_SQL_order = " order by kod desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.documents";
@@ -1455,7 +1455,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dba.documents";
@@ -1464,7 +1464,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dba.documents";
@@ -1473,7 +1473,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dba.documents";
@@ -1482,7 +1482,7 @@ namespace AMAS_Query
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_Cast_date = "documents.date_f";
@@ -1494,7 +1494,7 @@ namespace AMAS_Query
                     break;
                     
                 case 1:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select documents.* from dba.documents";
@@ -1503,7 +1503,7 @@ namespace AMAS_Query
                             Tree_SQL = "select rkk_documents.* from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_query = " where kod in (select document from dba.moving)";
@@ -1513,7 +1513,7 @@ namespace AMAS_Query
                             break;
                     }
                     Tree_SQL_order = "  order by kod desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.documents";
@@ -1522,7 +1522,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dba.documents";
@@ -1531,7 +1531,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dba.documents";
@@ -1540,7 +1540,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dba.documents";
@@ -1549,7 +1549,7 @@ namespace AMAS_Query
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_Cast_date = "documents.date_f";
@@ -1561,7 +1561,7 @@ namespace AMAS_Query
                     break;
                     
                 case 2:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.documents";
@@ -1570,7 +1570,7 @@ namespace AMAS_Query
                             Tree_SQL = "select * from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_query = " where kod not in(select document from dba.moving)";
@@ -1580,7 +1580,7 @@ namespace AMAS_Query
                             break;
                     }
                     Tree_SQL_order = " order by kod desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.documents";
@@ -1589,7 +1589,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dba.documents";
@@ -1598,7 +1598,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dba.documents";
@@ -1607,7 +1607,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dba.documents";
@@ -1616,7 +1616,7 @@ namespace AMAS_Query
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_Cast_date = "documents.date_f";
@@ -1628,7 +1628,7 @@ namespace AMAS_Query
                     break;
                     
                 case 3:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.archive";
@@ -1639,7 +1639,7 @@ namespace AMAS_Query
                     }
                     Tree_SQL_query = " ";
                     Tree_SQL_order = " order by kod desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.archive";
@@ -1648,7 +1648,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_archive";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , date_f ) as Year from dba.archive";
@@ -1657,7 +1657,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , date_f ) as Year from dbo.rkk_archive";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , date_f ) as month from dba.archive";
@@ -1666,7 +1666,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , date_f ) as month from dbo.rkk_archive";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , date_f ) as day from dba.archive";
@@ -1679,7 +1679,7 @@ namespace AMAS_Query
                     break;
                     
                 case 4:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.documents";
@@ -1688,7 +1688,7 @@ namespace AMAS_Query
                             Tree_SQL = "select * from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_query = " where kod in (select document from dba.moving join dba.employees on pattern=employee  where exe_doc is not null and indoor_name like current user)";
@@ -1698,7 +1698,7 @@ namespace AMAS_Query
                             break;
                     }
                     Tree_SQL_order = " order by kod desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.documents";
@@ -1707,7 +1707,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dba.documents";
@@ -1716,7 +1716,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , documents.date_f ) as Year from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dba.documents";
@@ -1725,7 +1725,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , documents.date_f ) as month from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dba.documents";
@@ -1734,7 +1734,7 @@ namespace AMAS_Query
                             Tree_SQL_day = "select distinct datepart( day , documents.date_f ) as day from dbo.rkk_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_Cast_date = "documents.date_f";
@@ -1746,7 +1746,7 @@ namespace AMAS_Query
                     break;
                     
                 case 5:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.ready_documents";
@@ -1757,7 +1757,7 @@ namespace AMAS_Query
                     }
                     Tree_SQL_query = " ";
                     Tree_SQL_order = " order by date_o desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.ready_documents";
@@ -1766,7 +1766,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.rkk_ready_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , ready_documents.date_o ) as Year from dba.ready_documents";
@@ -1775,7 +1775,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , rkk_ready_documents.date_o ) as Year from dbo.rkk_ready_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , ready_documents.date_o ) as month from dba.ready_documents";
@@ -1784,7 +1784,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select distinct datepart( month , rkk_ready_documents.date_o ) as month from dbo.rkk_ready_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , ready_documents.date_o ) as day from dba.ready_documents";
@@ -1797,7 +1797,7 @@ namespace AMAS_Query
                     break;
                     
                 case 6:
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL = "select * from dba.finish_documents";
@@ -1808,7 +1808,7 @@ namespace AMAS_Query
                     }
                     Tree_SQL_query = " ";
                     Tree_SQL_order = " order by date_o desc";
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_count = "select count(*) as cnt from dba.finish_documents";
@@ -1817,7 +1817,7 @@ namespace AMAS_Query
                             Tree_SQL_count = "select count(*) as cnt from dbo.out_finish_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_year = "select distinct datepart( year , finish_documents.date_f ) as Year from dba.finish_documents";
@@ -1826,7 +1826,7 @@ namespace AMAS_Query
                             Tree_SQL_year = "select distinct datepart( year , out_finish_documents.date_f ) as Year from dbo.out_finish_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_month = "select distinct datepart( month , finish_documents.date_f ) as month from dba.finish_documents";
@@ -1835,7 +1835,7 @@ namespace AMAS_Query
                             Tree_SQL_month = "select  distinct datepart( month , out_finish_documents.date_f ) as month from dbo.out_finish_documents";
                             break;
                     }
-                    switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                    switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                     {
                         case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                             Tree_SQL_day = "select distinct datepart( day , finish_documents.date_f ) as day from dba.finish_documents";
@@ -1881,12 +1881,12 @@ namespace AMAS_Query
             return "select * from dbo.RKK_flow_document where parent_Document=" + DocID.ToString();
         }
 
-        public static AMAS_DBI.Class_syb_acc.PrepareParameters[] PrepareDate()
+        public static Class_syb_acc.PrepareParameters[] PrepareDate()
         {
-            AMAS_DBI.Class_syb_acc.PrepareParameters[] pD= new Class_syb_acc.PrepareParameters[2];
+            Class_syb_acc.PrepareParameters[] pD= new Class_syb_acc.PrepareParameters[2];
             try
             {
-                pD[0] = new AMAS_DBI.Class_syb_acc.PrepareParameters("@from", SqlDbType.DateTime, From_Date);
+                pD[0] = new Class_syb_acc.PrepareParameters("@from", SqlDbType.DateTime, From_Date);
             }
             catch
             {
@@ -1894,7 +1894,7 @@ namespace AMAS_Query
             }
             try
             {
-                pD[1] = new AMAS_DBI.Class_syb_acc.PrepareParameters("@to", SqlDbType.DateTime, To_Date);
+                pD[1] = new Class_syb_acc.PrepareParameters("@to", SqlDbType.DateTime, To_Date);
             }
             catch
             {
@@ -1919,7 +1919,7 @@ namespace AMAS_Query
         public static string EnterpriceDeps()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select name, department, under from dba.department order by under asc, order_sub desc";
@@ -1934,7 +1934,7 @@ namespace AMAS_Query
         public static string EnterpriceSubDeps()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.our_employees order by department";
@@ -1949,7 +1949,7 @@ namespace AMAS_Query
         public static string EnterpriceUnderDepts()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select department from dba.my_department";
@@ -1964,18 +1964,22 @@ namespace AMAS_Query
         public static string Degrees_in_Dep(long dep)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
-            sql = "select  degree.name,dep_degrees.leader,dep_degrees.cod,'?' as fio from dba.degree,dba.dep_degrees  where dep_degrees.employee is Null and degree.degree= dep_degrees.degree and dep_degrees.department =" + dep.ToString();
-            sql += " union ";
-            sql += "select  degree.name,dep_degrees.leader,dep_degrees.cod,employee.family + ' ' + employee.name + ' ' + employee.father  as fio from dba.degree join dba.dep_degrees, dba.employee  where employee.employee= dep_degrees.employee and dep_degrees.department =" + dep.ToString();
-            break;
+                    sql = "select  degree.name,dep_degrees.leader,dep_degrees.cod,'?' as fio from dba.degree,dba.dep_degrees  where dep_degrees.employee is Null and degree.degree= dep_degrees.degree and dep_degrees.department =" + dep.ToString();
+                    sql += " union ";
+                    sql += "select  degree.name,dep_degrees.leader,dep_degrees.cod,employee.family + ' ' + employee.name + ' ' + employee.father  as fio from dba.degree join dba.dep_degrees, dba.employee  where employee.employee= dep_degrees.employee and dep_degrees.department =" + dep.ToString();
+                    break;
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
                     sql = "select  rtrim(org_degree.name) as name,emp_dep_degrees.leader,emp_dep_degrees.cod,'?' as fio, emp_dep_degrees.employee from dbo.org_degree,dbo.emp_dep_degrees  where emp_dep_degrees.employee is Null and org_degree.degree= emp_dep_degrees.degree and emp_dep_degrees.deleted is null and emp_dep_degrees.department =" + dep.ToString();
-            sql += " union ";
-            sql += "select  rtrim(org_degree.name) as name,emp_dep_degrees.leader,emp_dep_degrees.cod,rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.name) + ' ' + rtrim(emp_employee.father) as fio, emp_dep_degrees.employee from dbo.org_degree join dbo.emp_dep_degrees on org_degree.degree= emp_dep_degrees.degree, dbo.emp_employee  where emp_employee.employee= emp_dep_degrees.employee and emp_dep_degrees.deleted is null and emp_dep_degrees.department =" + dep.ToString();
-            break;
+                    sql += " union ";
+                    // sql += "select  rtrim(org_degree.name) as name,emp_dep_degrees.leader,emp_dep_degrees.cod,rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.name) + ' ' + rtrim(emp_employee.father) as fio, emp_dep_degrees.employee from dbo.org_degree join dbo.emp_dep_degrees on org_degree.degree= emp_dep_degrees.degree, dbo.emp_employee  where emp_employee.employee= emp_dep_degrees.employee and emp_dep_degrees.deleted is null and emp_dep_degrees.department =" + dep.ToString();
+                    sql += "select  trim(org_degree.name) as name,dbo.emp_ent_employee.leader,dbo.emp_ent_employee.cod,emp_ent_employee.fio, ";
+                    sql += "dbo.emp_ent_employee.employee ";
+                    sql += "from dbo.org_degree join dbo.emp_ent_employee on org_degree.degree = dbo.emp_ent_employee.degree ";
+                    sql += "where dbo.emp_ent_employee.deleted is null and dbo.emp_ent_employee.department =" + dep.ToString();
+                    break;
             }
             return sql;
         }
@@ -1983,7 +1987,7 @@ namespace AMAS_Query
         public static string Structure_Is_Moving(long document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select count(moving) as cnt from dba.moving,dba.employees where moving.document=" + (string)Convert.ToString(document) + " and moving.pattern=employees.employee and indoor_name like current user and main_executor=1";
@@ -1998,7 +2002,7 @@ namespace AMAS_Query
         public static string Structure_employee(string Emp)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.our_employees where cod=" + Emp;
@@ -2013,7 +2017,7 @@ namespace AMAS_Query
         public static string Structure_signatures()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.wfl_sign";
@@ -2028,7 +2032,7 @@ namespace AMAS_Query
         public static string Groups_listing()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.groups order by denote";
@@ -2043,7 +2047,7 @@ namespace AMAS_Query
         public static string My_Groups_listing()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.groups order by denote";
@@ -2058,7 +2062,7 @@ namespace AMAS_Query
         public static string Group_Employee(int grp)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
     
@@ -2078,7 +2082,7 @@ namespace AMAS_Query
         public static string Get_Employee_of_Group(int IdWgp)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2099,7 +2103,7 @@ namespace AMAS_Query
         {
             {
                 string sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select * from dba.dep_instructions";
@@ -2116,7 +2120,7 @@ namespace AMAS_Query
         {
             {
                 string sql = "";
-                switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
                 {
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                         sql = "select * from dba.rank_instructions";
@@ -2134,7 +2138,7 @@ namespace AMAS_Query
         public static string Documentcontent(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.stuff where document=" + document.ToString();
@@ -2149,7 +2153,7 @@ namespace AMAS_Query
         public static string DocumentCorrect(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.stuff where document=" + document.ToString();
@@ -2171,7 +2175,7 @@ namespace AMAS_Query
         public static string MetadataCommon(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.flow_document where kod=" + document.ToString();
@@ -2186,7 +2190,7 @@ namespace AMAS_Query
         public static string MetadataWellcome(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.wellcome_document where kod=" + document.ToString();
@@ -2201,7 +2205,7 @@ namespace AMAS_Query
         public static string MetadataIndoor(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.Indoor_document where kod=" + document.ToString();
@@ -2216,7 +2220,7 @@ namespace AMAS_Query
         public static string MetadataOutdoc(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.out_document where kod=" + document.ToString();
@@ -2231,7 +2235,7 @@ namespace AMAS_Query
         public static string MetadatArchive(int document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.archive_document where kod=" + document.ToString();
@@ -2246,7 +2250,7 @@ namespace AMAS_Query
         public static string MetadatExecutors(int document, bool Archive, bool Owntasks)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     if (Archive)
@@ -2303,7 +2307,7 @@ namespace AMAS_Query
         public static string MetadatAutor(int autor)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.autor where id  =" + autor.ToString();
@@ -2318,7 +2322,7 @@ namespace AMAS_Query
         public static string MetadataOrg(int enterprice)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "Select *from dba.jrd_juridic where id  =" + enterprice.ToString();
@@ -2333,7 +2337,7 @@ namespace AMAS_Query
         public static string MetadataLeader(int employee)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.leaders where cod  =" + employee.ToString();
@@ -2348,7 +2352,7 @@ namespace AMAS_Query
         public static string MetadataEmployee(int employee)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.employee where employee  =" + employee.ToString();
@@ -2363,7 +2367,7 @@ namespace AMAS_Query
         public static string MetadataKind(int kind)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.kind where kod=" + kind.ToString();
@@ -2378,7 +2382,7 @@ namespace AMAS_Query
         public static string MetadataTema(int Tema)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.Tema where Tema=" + Tema.ToString();
@@ -2393,7 +2397,7 @@ namespace AMAS_Query
         public static string MetadataComing(int Coming)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.Coming where cod=" + Coming.ToString();
@@ -2408,7 +2412,7 @@ namespace AMAS_Query
         public static string MetadataSender(int Sender)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.employee where employee  =" + Sender.ToString();
@@ -2423,7 +2427,7 @@ namespace AMAS_Query
         public static string MetadataFormular(int Document)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select flow_formular.*,ent_employee.fio from dba.flow_formular join dba.ent_employee on flow_formular.who_have=ent_employee.id where kod=" + Document.ToString();
@@ -2440,7 +2444,7 @@ namespace AMAS_Query
         public static string Wflow_comings()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2456,7 +2460,7 @@ namespace AMAS_Query
         public static string Wflow_kinds()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2469,10 +2473,27 @@ namespace AMAS_Query
             return sql;
         }
 
+
+        public static string Wellcome_kinds()
+        {
+            string sql = "";
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            {
+                case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+
+                    sql = "select * from dba.kinds order by kind";
+                    break;
+                case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                    sql = "select * from dbo.Wellcome_kinds order by kind";
+                    break;
+            }
+            return sql;
+        }
+
         public static string Wflow_temy(int kind)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select tema.description_ ,tema.tema from dba.tema join dba.tema_for_kind where kind=" + kind.ToString() + " order by description_";
@@ -2487,7 +2508,7 @@ namespace AMAS_Query
         public static string Wflow_Clue()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select flow_document.* from dba.flow_document join dba.out_document on flow_document.kod=out_document.kod order by find_cod";
@@ -2502,7 +2523,7 @@ namespace AMAS_Query
         public static string Wflow_Folder()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "";
@@ -2517,7 +2538,7 @@ namespace AMAS_Query
         public static string Wflow_attached_organizations()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.selected_org order by full_name";
@@ -2532,7 +2553,7 @@ namespace AMAS_Query
         public static string Wflow_organization(int id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.selected_org where kod="+id.ToString();
@@ -2547,7 +2568,7 @@ namespace AMAS_Query
         public static string Wflow_attached_degrees(int ORG)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.jrd_degree where juridic=" +ORG.ToString()+ " order by name";
@@ -2562,7 +2583,7 @@ namespace AMAS_Query
         public static string Wflow_attached_employees(int Degree)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.leaders where degree=" +Degree.ToString()+ " order by fio";
@@ -2577,7 +2598,7 @@ namespace AMAS_Query
         public static string Wflow_attached_Autors()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.selected_autors order by fio";
@@ -2592,7 +2613,7 @@ namespace AMAS_Query
         public static string Wflow_Autor(int id)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
                     sql = "select * from dba.selected_autors where kod=" + id.ToString();
@@ -2609,7 +2630,7 @@ namespace AMAS_Query
         public static string Registrator_selected_autors()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2625,7 +2646,7 @@ namespace AMAS_Query
         public static string Registrator_selected_Orgs()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2643,7 +2664,7 @@ namespace AMAS_Query
         public static string Get_Personel_reserve()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2659,7 +2680,7 @@ namespace AMAS_Query
         public static string Get_Personel_ALL()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2678,7 +2699,7 @@ namespace AMAS_Query
         public static string Get_Personel_I_Degree()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2696,16 +2717,21 @@ namespace AMAS_Query
         public static string Get_Personel_Rights()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
                     sql = "select family + ' ' + employee.name + ' ' + employee.father  as fio, EMPLOYEE from dba.employee  order by fio";
                     break;
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
-                    sql = "select rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.[name]) + ' ' + rtrim(emp_employee.father) as fio, emp_employee.EMPLOYEE , emp_employees.indoor_name from dbo.emp_employee join dbo.emp_employees on emp_employee.employee=emp_employees.employee ";
+                    //sql = "select rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.[name]) + ' ' + rtrim(emp_employee.father) as fio, emp_employee.EMPLOYEE , emp_employees.indoor_name from dbo.emp_employee join dbo.emp_employees on emp_employee.employee=emp_employees.employee ";
+                    //sql += " union ";
+                    //sql += "select rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.[name]) + ' ' + rtrim(emp_employee.father) as fio, emp_employee.EMPLOYEE , '' as indoor_name from dbo.emp_employee where employee not in (select employee from dbo.emp_employees) ";
+
+                    sql = "select distinct emp_it_ent_employee.fio, emp_it_ent_employee.id as EMPLOYEE , emp_employees.indoor_name from dbo.emp_it_ent_employee join dbo.emp_employees on emp_it_ent_employee.id = emp_employees.employee ";
                     sql += " union ";
-                    sql += "select rtrim(emp_employee.family) + ' ' + rtrim(emp_employee.[name]) + ' ' + rtrim(emp_employee.father) as fio, emp_employee.EMPLOYEE , '' as indoor_name from dbo.emp_employee where employee not in (select employee from dbo.emp_employees) ";
+                    sql += " select distinct emp_it_ent_employee.fio, emp_it_ent_employee.id as EMPLOYEE , '' as indoor_name from dbo.emp_it_ent_employee where id not in (select employee from dbo.emp_employees) ";
+
                     break;
             }
             return sql;
@@ -2719,7 +2745,7 @@ namespace AMAS_Query
         public static string My_Roles_list()
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2735,7 +2761,7 @@ namespace AMAS_Query
         public static string Roles_list(string login)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 
@@ -2751,7 +2777,7 @@ namespace AMAS_Query
         public static string Get_Ranks_of_empl(long cod)
         {
             string sql = "";
-            switch ((AMAS_DBI.Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+            switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
             {
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
 

@@ -18,15 +18,15 @@ namespace Chief
 {
     public partial class Personel : Form
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
-        private ClassStructure.Structure StructWithDegree;
+        private Class_syb_acc AMASacc;
+        private Structure StructWithDegree;
         private TreeNode thisNode = null;
 
         public int ModuleId;
 
         private ChefSettings frmSettings1 = new ChefSettings();
 
-        public Personel(AMAS_DBI.Class_syb_acc ACC, ImageList ImageStd)
+        public Personel(Class_syb_acc ACC, ImageList ImageStd)
         {
             InitializeComponent();
             AMASacc = ACC;
@@ -774,9 +774,9 @@ namespace Chief
         private void buttonBirthPlace_Click(object sender, EventArgs e)
         {
             Form BhPlace;
-            ClassInterfases.GSADR iNF;
+            GSADR iNF;
             BhPlace = new GSAddress(AMASacc);
-            iNF = BhPlace as ClassInterfases.GSADR;
+            iNF = BhPlace as GSADR;
             if (BhPlace.ShowDialog() == DialogResult.Yes)
             {
                 iNF.GSAddressID();
@@ -789,9 +789,9 @@ namespace Chief
         private void buttonSchool_Click(object sender, EventArgs e)
         {
             Form HiSchool;
-            ClassInterfases.GSORG iNF;
+            GSORG iNF;
             HiSchool = new GSOrganisation(AMASacc);
-            iNF = HiSchool as ClassInterfases.GSORG;
+            iNF = HiSchool as GSORG;
             if (HiSchool.ShowDialog() == DialogResult.Yes)
             {
                 iNF.GSOrgID();

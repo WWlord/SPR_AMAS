@@ -12,50 +12,54 @@ using ClassPattern;
 using Microsoft.Office;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;
+using PdfiumViewer.Demo;
 
 namespace ClassDocuments
 {
     public class XMLContent_document
     {
-        private string aPDFDir="c:\\";
+        private string aPDFDir = "c:\\";
         public string PDFDirectory
         {
             set { aPDFDir = value; }
-            get { return aPDFDir;  }
+            get { return aPDFDir; }
         }
 
         private static System.Data.DataTable Documents;
         ClassPattern.Editor DocEditor;
-        ClassPattern.PictersLibrary ShowPicters;
+        PictersLibrary ShowPicters;
 
 
         //private PDFCreator.clsPDFCreator  _PDFCreator;
         //private PDFCreator.clsPDFCreatorError pErr;
 
-        private int Rows=0;
-        System.Windows.Forms.Timer timer1;
+        private int Rows = 0;
+        Timer timer1;
 
         private bool editable = true;
 
         public XMLContent_document(string Filename, bool edit) //(string Filename,TabControl tab, bool edit)
         {
-            //if (tab != null)
-            //{
-            //    tabDoc = tab;
-            //    tabDoc.TabPages.Clear();
-            //}
-            Structure_Document();
-            if (Filename.Length>0) Documents.ReadXml(Filename);
-            Rows = 0;
+            try
+            {//if (tab != null)
+             //{
+             //    tabDoc = tab;
+             //    tabDoc.TabPages.Clear();
+             //}
+                Structure_Document();
+                if (Filename.Length > 0) Documents.ReadXml(Filename);
+                Rows = 0;
                 initPDFPrinter();
 
                 timer1 = new Timer();
                 timer1.Tick += new EventHandler(timer1_Tick);
 
                 editable = edit;
-         }
+            }
+            catch { }
+        }
 
-        public XMLContent_document(string Filename, bool edit,int Kind,int Tema) //(string Filename,TabControl tab, bool edit)
+        public XMLContent_document(string Filename, bool edit, int Kind, int Tema) //(string Filename,TabControl tab, bool edit)
         {
             Structure_Document();
             if (Filename.Length > 0) Documents.ReadXml(Filename);
@@ -68,7 +72,7 @@ namespace ClassDocuments
             editable = edit;
         }
 
-        public XMLContent_document( bool edit)//(TabControl tab, bool edit)
+        public XMLContent_document(bool edit)//(TabControl tab, bool edit)
         {
             //if (tab != null)
             //{
@@ -78,7 +82,7 @@ namespace ClassDocuments
             Structure_Document();
             Rows = 0;
 
-                initPDFPrinter();
+            initPDFPrinter();
 
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -125,11 +129,11 @@ namespace ClassDocuments
                 else
                     TicksNumber++;
 
-               // _PDFCreator.cPrinterStop = false;
+                // _PDFCreator.cPrinterStop = false;
             }
         }
 
-        private void _PDFCreator_eReady()
+        private void PDFCreator_eReady()
         {
             //AddStatus("Status: \"" + _PDFCreator.cOutputFilename + "\" was created!", false);
             ReadyState = true;
@@ -137,7 +141,7 @@ namespace ClassDocuments
             timer1.Stop();
         }
 
-        private void _PDFCreator_eError()
+        private void PDFCreator_eError()
         {
             //pErr = _PDFCreator.cError;
             //AddStatus("Status: Error[" + pErr.Number + "]: " + pErr.Description, false);
@@ -161,7 +165,7 @@ namespace ClassDocuments
 
             Documents.Columns.Add("file_typ", typeof(System.String));
             Documents.Columns["file_typ"].AllowDBNull = false;
-            
+
             Documents.Columns.Add("BASE_content", typeof(System.Byte[]));
             Documents.Columns["BASE_content"].AllowDBNull = true;
 
@@ -176,7 +180,7 @@ namespace ClassDocuments
             int i = 0;
             foreach (DataRow row in Documents.Rows)
             {
-                DocPages[i] = (int) row["page"];
+                DocPages[i] = (int)row["page"];
                 i++;
             }
             return DocPages;
@@ -186,14 +190,14 @@ namespace ClassDocuments
         {
             int lp = LastPoint(InputFile);
             string ret = "";
-            if(lp>=0)
-            ret=InputFile.Substring(lp + 1, InputFile.Length - LastPoint(InputFile) - 1);
+            if (lp >= 0)
+                ret = InputFile.Substring(lp + 1, InputFile.Length - LastPoint(InputFile) - 1);
             else
-            ret = "";
+                ret = "";
             return ret;
         }
 
-        public void ReplaceDocument( int rowindex, string FileName)
+        public void ReplaceDocument(int rowindex, string FileName)
         {
             if (Documents.Rows.Count > 0)
             {
@@ -203,10 +207,10 @@ namespace ClassDocuments
                 Row.BeginEdit();
                 //if (att.ToLower().CompareTo("txt") == 0 || att.ToLower().CompareTo("rtf") == 0 || att.ToLower().CompareTo("bmp") == 0 || att.ToLower().CompareTo("jpg") == 0 || att.ToLower().CompareTo("pdf") == 0 || att.ToLower().CompareTo("gif") == 0)
                 //{
-                    Row["content"] = buff;
-                    Row["file_typ"] = att;
-                    Row["BASE_content"] = null;
-                    Row["BASE_file_typ"] = null;
+                Row["content"] = buff;
+                Row["file_typ"] = att;
+                Row["BASE_content"] = null;
+                Row["BASE_file_typ"] = null;
                 //}
                 //else
                 //{
@@ -275,9 +279,9 @@ namespace ClassDocuments
                 int ftyp = 0;
                 //DBnul = (string)Row["BASE_content"].GetType().ToString();
                 //if (DBnul.CompareTo("System.DBNull") == 0)
-                string[] PDFS=PrintIt(FileName, PDFDirectory, ftyp);
+                string[] PDFS = PrintIt(FileName, PDFDirectory, ftyp);
                 if (PDFS != null)
-                    foreach(string PDFFILE in PDFS)
+                    foreach (string PDFFILE in PDFS)
                     {
                         Row.BeginEdit();
                         //    {
@@ -304,7 +308,7 @@ namespace ClassDocuments
             }
         }
 
-        public void DELDocument( TabControl TC,TabPage tbl)
+        public void DELDocument(TabControl TC, TabPage tbl)
         {
             TabPage tab = tbl;
             if (tab != null)
@@ -358,7 +362,7 @@ namespace ClassDocuments
                     {
                         int ftyp = 0;
                         if (att.ToLower().CompareTo("bmp") == 0) ftyp = 5;
-                        string[] PDFS=PrintIt(InputFile, PDFDirectory, ftyp);
+                        string[] PDFS = PrintIt(InputFile, PDFDirectory, ftyp);
                         if (PDFS != null)
                             foreach (string PDFFILE in PDFS)
                             {
@@ -461,6 +465,7 @@ namespace ClassDocuments
                             }
 
                             TabPage tab = tabDocument.TabPages[tabkey];
+                            PDFViewControl PDFVi;
 
                             string showFile = "";
                             try
@@ -477,23 +482,38 @@ namespace ClassDocuments
                                     FileContentView(tab, showFile, ExtFile(showFile), true);
                                 else
                                 {
-                                    System.Windows.Forms.WebBrowser webBrows = new System.Windows.Forms.WebBrowser();
-                                    tab.Controls.Add(webBrows);
-                                    // 
-                                    // webBrowser1
-                                    // 
-                                    webBrows.Dock = System.Windows.Forms.DockStyle.Fill;
-                                    webBrows.Location = new System.Drawing.Point(0, 0);
-                                    webBrows.Margin = new System.Windows.Forms.Padding(2);
-                                    webBrows.MinimumSize = new System.Drawing.Size(15, 16);
-                                    webBrows.Name = "webBrows" + tabkey;
-                                    webBrows.Size = new System.Drawing.Size(468, 267);
-                                    webBrows.TabIndex = 0;
+                                    /*    System.Windows.Forms.WebBrowser webBrows = new System.Windows.Forms.WebBrowser();
+                                        tab.Controls.Add(webBrows);
+                                        // 
+                                        // webBrowser1
+                                        // 
+                                        webBrows.Dock = System.Windows.Forms.DockStyle.Fill;
+                                        webBrows.Location = new System.Drawing.Point(0, 0);
+                                        webBrows.Margin = new System.Windows.Forms.Padding(2);
+                                        webBrows.MinimumSize = new System.Drawing.Size(15, 16);
+                                        webBrows.Name = "webBrows" + tabkey;
+                                        webBrows.Size = new System.Drawing.Size(468, 267);
+                                        webBrows.TabIndex = 0;
+                                        try
+                                        {
+                                            webBrows.Navigate(InputFile);
+                                        }
+                                        catch { }
+                                    */
+                                    PDFVi = new PDFViewControl();
+                                    tab.Controls.Add(PDFVi);
+                                    PDFVi.Dock = System.Windows.Forms.DockStyle.Fill;
+                                    PDFVi.Location = new System.Drawing.Point(0, 0);
+                                    PDFVi.Margin = new Padding(2);
+                                    PDFVi.MinimumSize = new System.Drawing.Size(15, 16);
+                                    PDFVi.Name = "PDFVi" + tabkey;
+                                    PDFVi.Size = new System.Drawing.Size(468, 267);
+                                    PDFVi.TabIndex = 0;
                                     try
                                     {
-                                        webBrows.Navigate(InputFile);
+                                        LoadPdf(PDFVi, InputFile);
                                     }
-                                    catch { }
+                                    catch { };
                                 }
                             }
                             catch { }
@@ -532,11 +552,11 @@ namespace ClassDocuments
             fname = fi.Name;
 
             Microsoft.Office.Interop.Word.Application Word_App = null;
-            Microsoft.Office.Interop.Word.Document Word_doc = null;
-            Microsoft.Office.Interop.Word.AutoCorrect autocorrect;
-            Microsoft.Office.Interop.Word.AutoCorrectEntries autoEntries;
-            Microsoft.Office.Interop.Word.Documents Docs;
-            Microsoft.Office.Interop.Word._Document my_Doc;
+            Document Word_doc = null;
+            AutoCorrect autocorrect;
+            AutoCorrectEntries autoEntries;
+            Documents Docs;
+            _Document my_Doc;
 
             Microsoft.Office.Interop.Excel.Application Excel_App = null;
             Microsoft.Office.Interop.Excel.Sheets Excel_sheets = null;
@@ -563,10 +583,10 @@ namespace ClassDocuments
                 case "xml":
                     string res = "";
                     int i = 0;
-                    ClassPattern.XMLDocument XMLD = new XMLDocument(InputFile);
+                    XMLDocument XMLD = new XMLDocument(InputFile);
                     int Kind = XMLD.Kind();
                     int Tema = XMLD.Tema();
-                    
+
                     bool loopDoc = true;
                     do
                     {
@@ -607,21 +627,21 @@ namespace ClassDocuments
                             Docs = Word_App.Documents;
                             autocorrect = Word_App.AutoCorrect;
                             autoEntries = autocorrect.Entries;
-                        switch (appVersion)
-                        {
-                            case "12":
-                            case "14":
-                            Word_doc = Docs.Open(ref Template, ref DocFalse, ref DocFalse, ref DocFalse, ref Nostring, ref Nostring,
-                                ref DocFalse, ref Nostring, ref Nostring, ref WdOpenFormat, ref missing, ref missing, ref missing, ref missing, ref missing, ref Nostring);
-                            break;
-                            default:
-                            MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
-                            break;
-                        }
+                            switch (appVersion)
+                            {
+                                case "12":
+                                case "14":
+                                    Word_doc = Docs.Open(ref Template, ref DocFalse, ref DocFalse, ref DocFalse, ref Nostring, ref Nostring,
+                                        ref DocFalse, ref Nostring, ref Nostring, ref WdOpenFormat, ref missing, ref missing, ref missing, ref missing, ref missing, ref Nostring);
+                                    break;
+                                default:
+                                    MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
+                                    break;
+                            }
 
                             my_Doc = (_Document)Word_doc;
 
-                            Microsoft.Office.Interop.Word.Window win = Word_App.ActiveWindow;
+                            Window win = Word_App.ActiveWindow;
                             win.Visible = true;
                             //Word_App.DocumentBeforeClose += new ApplicationEvents4_DocumentBeforeCloseEventHandler(Word_App_DocumentBeforeClose);
                             //Word_App.WindowDeactivate += new ApplicationEvents4_WindowDeactivateEventHandler(Word_App_WindowDeactivate);
@@ -633,136 +653,136 @@ namespace ClassDocuments
                         MessageBox.Show("Невозможно открыть шаблон документа " + e.ToString());
                         res = "";
                     }
-            if (res.Length > 0)
-                try
-                {
-                    System.Data.DataTable DocTable = new System.Data.DataTable();
-                    DocTable.ReadXml(InputFile);
-
-                    Microsoft.Office.Interop.Word.Window myWindow = Word_App.ActiveWindow;
-                    myWindow.Caption = "Создание документа ";
-                    Word_App.Visible = true;
-                    string appVersion = Word_App.Version;
-                    appVersion = appVersion.Split(".".ToCharArray()[0])[0];
-
-                    DataRow xmlRow;
-                    try
-                    {
-                        object what = (int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
-                        for (int iw = DocTable.Rows.Count-1; iw >0; iw--)
+                    if (res.Length > 0)
+                        try
                         {
-                            object mark = "Numberow";
-                        switch (appVersion)
-                        {
-                            case "12":
-                            case "14":
-                             Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                             if (iw == DocTable.Rows.Count - 1) Word_App.ActiveWindow.Selection.InsertAfter((DocTable.Rows.Count).ToString());
-                           Word_doc.ActiveWindow.Selection.Rows.Add(ref missing);
-                           Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                            Word_doc.ActiveWindow.Selection.MoveUp(ref missing);
-                            Word_App.ActiveWindow.Selection.InsertAfter((DocTable.Rows.Count- iw).ToString());
-                            break;
-                            default:
-                            MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
-                            break;
-                        }
-                        }
-                    }
-                    catch (Exception ex) { string Errmess = ex.Message; }
+                            System.Data.DataTable DocTable = new System.Data.DataTable();
+                            DocTable.ReadXml(InputFile);
 
-                    for (int ir = 0; ir < DocTable.Rows.Count; ir++)
-                    {
-                        string txt = "";
-                        string rng = "";
-                        object RangInsert = rng;
+                            Window myWindow = Word_App.ActiveWindow;
+                            myWindow.Caption = "Создание документа ";
+                            Word_App.Visible = true;
+                            string appVersion = Word_App.Version;
+                            appVersion = appVersion.Split(".".ToCharArray()[0])[0];
 
-                        string ClassType = "Word.Document.12";
-                        object classT = ClassType;
-
-                        object what = (int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
-
-                        object FalseObj = false;
-                        object TrueObj = true;
-
-                        for (int ic = 0; ic < DocTable.Columns.Count; ic++)
+                            DataRow xmlRow;
                             try
                             {
-                                string lbl = DocTable.Columns[ic].ColumnName;
-                                object mark = lbl;
-
-                                xmlRow = DocTable.Rows[ir];
-                                txt = xmlRow[lbl].ToString();
-                                object addtxt = txt;
-
-
-                                switch (appVersion)
+                                object what = (int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
+                                for (int iw = DocTable.Rows.Count - 1; iw > 0; iw--)
                                 {
-                                    case "14":
-                                Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                                        for (int iu = DocTable.Rows.Count - 1 - ir; iu > 0; iu--)
+                                    object mark = "Numberow";
+                                    switch (appVersion)
+                                    {
+                                        case "12":
+                                        case "14":
+                                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                                            if (iw == DocTable.Rows.Count - 1) Word_App.ActiveWindow.Selection.InsertAfter((DocTable.Rows.Count).ToString());
+                                            Word_doc.ActiveWindow.Selection.Rows.Add(ref missing);
+                                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
                                             Word_doc.ActiveWindow.Selection.MoveUp(ref missing);
-
-                                        Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                                        break;
-                                    default:
-                                        MessageBox.Show("Поддерживается только MS OFFICE 2010");
-                                        break;
+                                            Word_App.ActiveWindow.Selection.InsertAfter((DocTable.Rows.Count - iw).ToString());
+                                            break;
+                                        default:
+                                            MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
+                                            break;
+                                    }
                                 }
                             }
                             catch (Exception ex) { string Errmess = ex.Message; }
-                    }
-                    PDFFILE = PDFDirectory;
-                    if (PDFDirectory.Substring(PDFDirectory.Length - 1).CompareTo("\\") == 0)
-                        PDFFILE += fname;
-                    else PDFFILE += "\\" + fname;
-                    PDFFILE = PDFExt(PDFFILE);
-                    AutoSavePDFFile = PDFFILE;
 
-                    switch (appVersion)
-                    {
-                        case "12":
-                        case "14":
-                            Word_App.ActiveWindow.Document.ExportAsFixedFormat(PDFFILE, Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, false,
-                                 Microsoft.Office.Interop.Word.WdExportOptimizeFor.wdExportOptimizeForPrint, Microsoft.Office.Interop.Word.WdExportRange.wdExportAllDocument, 1, 1,
-                                 Microsoft.Office.Interop.Word.WdExportItem.wdExportDocumentContent, true, true, Microsoft.Office.Interop.Word.WdExportCreateBookmarks.wdExportCreateNoBookmarks,
-                                 true, true, false, ref missing2);
+                            for (int ir = 0; ir < DocTable.Rows.Count; ir++)
+                            {
+                                string txt = "";
+                                string rng = "";
+                                object RangInsert = rng;
 
-                            Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
-                            break;
-                        default:
-                            MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
-                            break;
-                    }
-                        Word_doc = null;
+                                string ClassType = "Word.Document.12";
+                                object classT = ClassType;
 
-                    timer1.Interval = maxTime * (int)fi.Length / 1000;
-                    if (timer1.Interval < 200) timer1.Interval = 300;
-                    timer1.Enabled = true;
-                    while (timer1.Enabled)
-                    {
-                        System.Windows.Forms.Application.DoEvents();
-                    }
-                    timer1.Enabled = false;
+                                object what = (int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
 
-                    PDFiles = new string[1];
-                    PDFiles[0] = PDFFILE;
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Разрушены метки заполнения полей" + e.ToString());
-                    res = "";
-                }
-                finally
-                {
-                    if (Word_doc != null)
-                        Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
-                    if (Word_App != null)
-                        Word_App.Quit(ref wdNOSaveChanges, ref missing, ref missing2);
-                }
-    
-                                        
-                break;
+                                object FalseObj = false;
+                                object TrueObj = true;
+
+                                for (int ic = 0; ic < DocTable.Columns.Count; ic++)
+                                    try
+                                    {
+                                        string lbl = DocTable.Columns[ic].ColumnName;
+                                        object mark = lbl;
+
+                                        xmlRow = DocTable.Rows[ir];
+                                        txt = xmlRow[lbl].ToString();
+                                        object addtxt = txt;
+
+
+                                        switch (appVersion)
+                                        {
+                                            case "14":
+                                                Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                                                for (int iu = DocTable.Rows.Count - 1 - ir; iu > 0; iu--)
+                                                    Word_doc.ActiveWindow.Selection.MoveUp(ref missing);
+
+                                                Word_App.ActiveWindow.Selection.InsertAfter(txt);
+                                                break;
+                                            default:
+                                                MessageBox.Show("Поддерживается только MS OFFICE 2010");
+                                                break;
+                                        }
+                                    }
+                                    catch (Exception ex) { string Errmess = ex.Message; }
+                            }
+                            PDFFILE = PDFDirectory;
+                            if (PDFDirectory.Substring(PDFDirectory.Length - 1).CompareTo("\\") == 0)
+                                PDFFILE += fname;
+                            else PDFFILE += "\\" + fname;
+                            PDFFILE = PDFExt(PDFFILE);
+                            AutoSavePDFFile = PDFFILE;
+
+                            switch (appVersion)
+                            {
+                                case "12":
+                                case "14":
+                                    Word_App.ActiveWindow.Document.ExportAsFixedFormat(PDFFILE, Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, false,
+                                         Microsoft.Office.Interop.Word.WdExportOptimizeFor.wdExportOptimizeForPrint, Microsoft.Office.Interop.Word.WdExportRange.wdExportAllDocument, 1, 1,
+                                         Microsoft.Office.Interop.Word.WdExportItem.wdExportDocumentContent, true, true, Microsoft.Office.Interop.Word.WdExportCreateBookmarks.wdExportCreateNoBookmarks,
+                                         true, true, false, ref missing2);
+
+                                    Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
+                                    break;
+                            }
+                            Word_doc = null;
+
+                            timer1.Interval = maxTime * (int)fi.Length / 1000;
+                            if (timer1.Interval < 200) timer1.Interval = 300;
+                            timer1.Enabled = true;
+                            while (timer1.Enabled)
+                            {
+                                System.Windows.Forms.Application.DoEvents();
+                            }
+                            timer1.Enabled = false;
+
+                            PDFiles = new string[1];
+                            PDFiles[0] = PDFFILE;
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Разрушены метки заполнения полей" + e.ToString());
+                            res = "";
+                        }
+                        finally
+                        {
+                            if (Word_doc != null)
+                                Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
+                            if (Word_App != null)
+                                Word_App.Quit(ref wdNOSaveChanges, ref missing, ref missing2);
+                        }
+
+
+                    break;
 
                 case "doc":
                 case "docx":
@@ -796,9 +816,9 @@ namespace ClassDocuments
                                 break;
                         }
 
-                        my_Doc = (Microsoft.Office.Interop.Word._Document)Word_doc;
+                        my_Doc = (_Document)Word_doc;
 
-                        Microsoft.Office.Interop.Word.Window win = Word_App.ActiveWindow;
+                        Window win = Word_App.ActiveWindow;
                         Word_App.Visible = false;
 
                         PDFFILE = PDFDirectory;
@@ -887,7 +907,7 @@ namespace ClassDocuments
                                         else PDFFILE += fname;
                                     else
                                         if (kstr > 0) PDFFILE += "\\" + kstr.ToString() + fname;
-                                        else PDFFILE += "\\" + fname;
+                                    else PDFFILE += "\\" + fname;
 
                                     PDFFILE = PDFExt(PDFFILE);
                                     fi = new FileInfo(PDFFILE);
@@ -908,18 +928,18 @@ namespace ClassDocuments
 
                                 //activeWorksheet.ExportAsFixedFormat(Microsoft.Office.Interop.Excel.XlFixedFormatType.xlTypePDF, PDFFILE, missing, true, false, missing, missing, false, missing);
 
-                        switch (appVersion)
-                        {
-                            case "12":
-                            case "14":
-                                activeWorksheet.ExportAsFixedFormat(Microsoft.Office.Interop.Excel.XlFixedFormatType.xlTypePDF, (object)PDFFILE, missing, (object)true, (object)false, missing, missing, (object)false, missing);
-                                //Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
-                                break;
-                            default:
-                                MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
-                                break;
-                        }
-                        //Word_doc = null;
+                                switch (appVersion)
+                                {
+                                    case "12":
+                                    case "14":
+                                        activeWorksheet.ExportAsFixedFormat(Microsoft.Office.Interop.Excel.XlFixedFormatType.xlTypePDF, (object)PDFFILE, missing, (object)true, (object)false, missing, missing, (object)false, missing);
+                                        //Word_doc.Close(ref wdNOSaveChanges, ref missing, ref missing2);
+                                        break;
+                                    default:
+                                        MessageBox.Show("Поддерживается только MS OFFICE 2007/2010");
+                                        break;
+                                }
+                                //Word_doc = null;
 
                                 fi = new FileInfo(InputFile);
                                 timer1.Interval = maxTime * (int)fi.Length / 1000;
@@ -1039,12 +1059,12 @@ namespace ClassDocuments
 
         private string PDFExt(string ret)
         {
-            char[] s ={'.' };
-            string[] rows = ret.Split(s,1024);
+            char[] s = { '.' };
+            string[] rows = ret.Split(s, 1024);
             ret = "";
             for (int i = 0; i < rows.Length - 1; i++)
                 ret += rows[i];
-            return ret+".pdf";
+            return ret + ".pdf";
         }
 
         private byte[] GetData(string InputFileName)
@@ -1132,7 +1152,7 @@ namespace ClassDocuments
             DataTableReader reader = Documents.CreateDataReader();
             if (reader.HasRows)
             {
-            int Clmn ;
+                int Clmn;
                 long i = 0;
                 long res;
                 bool isrecord;
@@ -1155,7 +1175,7 @@ namespace ClassDocuments
                         {
                             filename = CommonValues.CommonClass.TempDirectory + page.ToString() + testnum.ToString() + "."; //+ Row["file_typ"]; 
 
-                            filename += reader.GetString(Clmn+1);
+                            filename += reader.GetString(Clmn + 1);
                             fil1 = new StreamWriter(filename);
                             trueFile = true;
                             fil1.Close();
@@ -1186,20 +1206,20 @@ namespace ClassDocuments
             return filename;
         }
 
-        public void GETDocument(string OutputFile,int page)
+        public void GETDocument(string OutputFile, int page)
         {
-            const int bufsize=32000;
-            byte[] buffer = new byte [bufsize];
-            DataTableReader reader= Documents.CreateDataReader();
+            const int bufsize = 32000;
+            byte[] buffer = new byte[bufsize];
+            DataTableReader reader = Documents.CreateDataReader();
             if (reader.HasRows)
             {
                 long i = 0;
                 long res;
                 bool isrecord;
-                
+
                 do
                 {
-                isrecord=reader.Read();
+                    isrecord = reader.Read();
                 }
                 while ((reader.GetInt32(1) != page) && (isrecord));
 
@@ -1210,10 +1230,10 @@ namespace ClassDocuments
                     do
                     {
                         res = reader.GetBytes(2, i, buffer, 0, bufsize);
-                        f1.BaseStream.Write(buffer, 0, (int) res);
+                        f1.BaseStream.Write(buffer, 0, (int)res);
                         i += bufsize;
                     }
-                    while (res >0);
+                    while (res > 0);
                 }
                 else f1.Flush();
 
@@ -1222,10 +1242,10 @@ namespace ClassDocuments
             reader.Close();
         }
 
-        public string GETBaseDocument( int page)
+        public string GETBaseDocument(int page)
         {
             string FilTYP = "";
-            string OutputFile="";
+            string OutputFile = "";
             FileStream f1 = null;
             const int bufsize = 32000;
             byte[] buffer = new byte[bufsize];
@@ -1242,7 +1262,7 @@ namespace ClassDocuments
                 }
                 //while ((reader.GetInt32(1) != page+1) && (isrecord));
 
-                int num=1;
+                int num = 1;
                 bool noFile = false;
                 do
                 {
@@ -1260,9 +1280,9 @@ namespace ClassDocuments
                 }
                 while (!noFile);
 
-                 //f1 = new StreamWriter(OutputFile);
-                f1 = new FileStream( OutputFile,FileMode.Create,FileAccess.Write); //(OutputFile);
-                
+                //f1 = new StreamWriter(OutputFile);
+                f1 = new FileStream(OutputFile, FileMode.Create, FileAccess.Write); //(OutputFile);
+
                 if (isrecord)
                 {
                     do
@@ -1280,7 +1300,7 @@ namespace ClassDocuments
                     try
                     { FilTYP = reader.GetString(5); }
                     catch { FilTYP = ""; }
-                    
+
                 }
                 else f1.Flush();
                 f1.Close();
@@ -1312,7 +1332,7 @@ namespace ClassDocuments
             try
             {
                 f1.Close();
-//                f1.Dispose();
+                //                f1.Dispose();
             }
             catch { }
             reader.Close();
@@ -1325,7 +1345,7 @@ namespace ClassDocuments
             Documents.WriteXml(filename);
         }
 
-        public void SigningDocument(string FileName,string SignFile)
+        public void SigningDocument(string FileName, string SignFile)
         {
             Documents.WriteXml(FileName);
             SignEnvelope.RSAKey(FileName, SignFile);
@@ -1338,7 +1358,7 @@ namespace ClassDocuments
             string filename;
             for (int i = 0; i < pages.Length; i++)
             {
-                DataRow Row =Documents.Rows[i];
+                DataRow Row = Documents.Rows[i];
                 string File_typ = (string)Row["file_typ"];
                 filename = "Document" + pages[i].ToString();
                 //CommonValues.CommonClass.tempFiles.AddFile(filename, false);
@@ -1346,10 +1366,10 @@ namespace ClassDocuments
                 int FileShift = 0;
                 do
                 {
-                    filename = CommonValues.CommonClass.TempDirectory + pages[i].ToString() +FileShift.ToString() + "." + File_typ; //+ Row["file_typ"];
-                    try 
-                    { 
-                        if (File.Exists(filename)) 
+                    filename = CommonValues.CommonClass.TempDirectory + pages[i].ToString() + FileShift.ToString() + "." + File_typ; //+ Row["file_typ"];
+                    try
+                    {
+                        if (File.Exists(filename))
                             File.Delete(filename);
                         if (!File.Exists(filename)) FileTrue = true;
                         else FileTrue = false;
@@ -1365,7 +1385,7 @@ namespace ClassDocuments
                     tabDoc.TabPages.Insert(i, tabkey, "Приложение " + pages[i].ToString());
                 TabPage tab = tabDoc.TabPages[tabkey];
                 GETDocument(filename, pages[i]);
-                FileContentView(tab, filename, File_typ,false);
+                FileContentView(tab, filename, File_typ, false);
             }
         }
 
@@ -1373,10 +1393,10 @@ namespace ClassDocuments
         {
             bool res = false;
 
-            WebBrowser webBrows;
+            //WebBrowser webBrows;
 
-            
-            
+            PDFViewControl PDFVi;
+
             if (File_typ.ToLower().Contains("AMASplb".ToLower()))
             {
                 ShowPicters = new PictersLibrary();
@@ -1390,7 +1410,7 @@ namespace ClassDocuments
                 this.ShowPicters.Size = new System.Drawing.Size(468, 267);
                 this.ShowPicters.TabIndex = 0;
 
-                ShowPicters.Editable=EditablePage;
+                ShowPicters.Editable = EditablePage;
                 ShowPicters.OpenLibrary(filename);
 
                 res = true;
@@ -1398,8 +1418,10 @@ namespace ClassDocuments
 
             else if (File_typ.ToLower().Contains("rtf") || File_typ.Contains("txt"))
             {
-                DocEditor = new ClassPattern.Editor();
-                DocEditor.Editable = editable;
+                DocEditor = new ClassPattern.Editor
+                {
+                    Editable = editable
+                };
                 tab.Controls.Add(DocEditor);
                 // 
                 // DocEditor
@@ -1445,8 +1467,8 @@ namespace ClassDocuments
 
                 ShowPicters.Editable = EditablePage;
 
-                string [] picters=new string[1];
-                picters[0]=filename;
+                string[] picters = new string[1];
+                picters[0] = filename;
                 ShowPicters.ShowPicters(picters);
 
 
@@ -1454,186 +1476,224 @@ namespace ClassDocuments
             }
             else
             {
-                webBrows = new System.Windows.Forms.WebBrowser();
-                tab.Controls.Add(webBrows);
-                // 
-                // webBrowser1
-                // 
-                webBrows.Dock = System.Windows.Forms.DockStyle.Fill;
-                webBrows.Location = new System.Drawing.Point(0, 0);
-                webBrows.Margin = new System.Windows.Forms.Padding(2);
-                webBrows.MinimumSize = new System.Drawing.Size(15, 16);
-                webBrows.Name = "webBrows";
-                webBrows.Size = new System.Drawing.Size(468, 267);
-                webBrows.TabIndex = 0;
+                /*    webBrows = new System.Windows.Forms.WebBrowser();
+                    tab.Controls.Add(webBrows);
+                    // 
+                    // webBrowser1
+                    // 
+                    webBrows.Dock = System.Windows.Forms.DockStyle.Fill;
+                    webBrows.Location = new System.Drawing.Point(0, 0);
+                    webBrows.Margin = new System.Windows.Forms.Padding(2);
+                    webBrows.MinimumSize = new System.Drawing.Size(15, 16);
+                    webBrows.Name = "webBrows";
+                    webBrows.Size = new System.Drawing.Size(468, 267);
+                    webBrows.TabIndex = 0;
 
-                webBrows.Navigate(filename);
-                
+                    webBrows.Navigate(filename);
+                    */
+                PDFVi = new PDFViewControl();
+                tab.Controls.Add(PDFVi);
+                PDFVi.Dock = System.Windows.Forms.DockStyle.Fill;
+                PDFVi.Location = new System.Drawing.Point(0, 0);
+                PDFVi.Margin = new Padding(2);
+                PDFVi.MinimumSize = new System.Drawing.Size(15, 16);
+                PDFVi.Name = "PDFVi";
+                PDFVi.Size = new System.Drawing.Size(468, 267);
+                PDFVi.TabIndex = 0;
+
+                LoadPdf(PDFVi, filename);
                 res = true;
             }
             tab.Disposed += new EventHandler(tab_Disposed);
 
             return res;
         }
-     
+
         private void tab_Disposed(Object sender, EventArgs e)
         {
             TabPage tab = (TabPage)sender;
-            Control[] webs = tab.Controls.Find("webBrows", false);
-            WebBrowser bro;
+            Control[] webs = tab.Controls.Find("PDFVi", false);
+            PDFViewControl PDFVi;
             foreach (Control web in webs)
             {
-                bro = (WebBrowser)web;
-                bro.Stop();
-                //bro.Navigate("");
+                PDFVi = (PDFViewControl)web;
+                PDFVi.Dispose(); //.Document.Dispose();
+            }
+        }
+
+        
+        public void LoadPdf(PDFViewControl PDFvi, string filie)
+        {
+            if (File.Exists(filie))
+            {
+                /*
+                    // Create PDF Document
+                    var pdfDocument = PdfDocument.Load((Stream) File.OpenRead(filie));
+
+                    // Load PDF Document into WinForms Control
+                    PdfiumViewer.PdfRenderer rend = new PdfRenderer();
+                    rend.Load(pdfDocument);
+                    PDFvi.Document = pdfDocument;
+                    PDFvi.Refresh();
+                */
+
+                // Create PDF Document
+                PDFvi.OpenPDFile(filie);
+
             }
         }
     }
 
 
-public class SignEnvelope
-{
-    public static string ResultString;
-    public static void RSAKey(string FileName, string SignFile)
+    public class SignEnvelope
     {
-        // Генерация ключа электронной подписи.
-       RSACryptoServiceProvider Key = new RSACryptoServiceProvider();
-       try
-       {
-
-           // Подпись  XML файла и сохранение электронной подписи в 
-           // новом файле.
-
-           SignXmlFile(FileName, SignFile, Key);
-           ResultString="XML file signed.";
-
-           // Проверка электронной подписи XML.
-           ResultString+="Проверка подписи...";
-
-           bool result = VerifyXmlFile(SignFile);
-
-           // Отображение результатов на консоли 
-
-           if (result)
-           {
-               ResultString+="XML подпись верна.";
-           }
-           else
-           {
-               ResultString+="XML подпись неверна.";
-           }
-       }
-       catch (CryptographicException e)
-       {
-           ResultString+=e.Message;
-       }
-       finally
-       {
-           // Очистка ресурсов  RSACryptoServiceProvider.
-           Key.Clear();
-       }
-   }
-
-    // Подпись XML файла и сохранение в новом файле.
-    public static void SignXmlFile(string FileName, string SignedFileName, RSA Key)
-    {
-        // Проверка аргументов.  
-        if (FileName == null)
-            throw new ArgumentNullException("FileName");
-        if (SignedFileName == null)
-            throw new ArgumentNullException("SignedFileName");
-        if (Key == null)
-            throw new ArgumentNullException("Key");
-
-
-        // Создать новый XML документ.
-        XmlDocument doc = new XmlDocument();
-
-        // Форматирование документа с игнорированием дублирующих пробелов.
-        doc.PreserveWhitespace = false;
-
-        // Загрузка XML файла.
-        doc.Load(new XmlTextReader(FileName));
-
-        // Создание SignedXml объекта.
-        SignedXml signedXml = new SignedXml(doc);
-
-        // Добавление ключа в SignedXml документ. 
-        signedXml.SigningKey = Key;
-
-        // Получение экземпляра электронной подписи от SignedXml объекта.
-        Signature XMLSignature = signedXml.Signature;
-
-        // Создать ссылку.
-        Reference reference = new Reference("");
-
-        // Добавить  конверт.
-        XmlDsigEnvelopedSignatureTransform env = new XmlDsigEnvelopedSignatureTransform();
-        reference.AddTransform(env);
-
-        // Добавить Reference объект в объект Signature.
-        XMLSignature.SignedInfo.AddReference(reference);
-
-        // Добавить RSAKeyValue KeyInfo 
-        KeyInfo keyInfo = new KeyInfo();
-        keyInfo.AddClause(new RSAKeyValue((RSA)Key));
-
-        // Добавить KeyInfo объект объекту Reference.
-        XMLSignature.KeyInfo = keyInfo;
-
-        // Расчитать электронную подпись.
-        signedXml.ComputeSignature();
-
-        // Получить XML сведения об электронной подписи и сохранить
-        // в XmlElement объекте.
-        XmlElement xmlDigitalSignature = signedXml.GetXml();
-
-        // Добавить элемент в XML документ.
-        doc.DocumentElement.AppendChild(doc.ImportNode(xmlDigitalSignature, true));
-
-
-        if (doc.FirstChild is XmlDeclaration)
+        public static string ResultString;
+        public static void RSAKey(string FileName, string SignFile)
         {
-            doc.RemoveChild(doc.FirstChild);
+            // Генерация ключа электронной подписи.
+            RSACryptoServiceProvider Key = new RSACryptoServiceProvider();
+            try
+            {
+
+                // Подпись  XML файла и сохранение электронной подписи в 
+                // новом файле.
+
+                SignXmlFile(FileName, SignFile, Key);
+                ResultString = "XML file signed.";
+
+                // Проверка электронной подписи XML.
+                ResultString += "Проверка подписи...";
+
+                bool result = VerifyXmlFile(SignFile);
+
+                // Отображение результатов на консоли 
+
+                if (result)
+                {
+                    ResultString += "XML подпись верна.";
+                }
+                else
+                {
+                    ResultString += "XML подпись неверна.";
+                }
+            }
+            catch (CryptographicException e)
+            {
+                ResultString += e.Message;
+            }
+            finally
+            {
+                // Очистка ресурсов  RSACryptoServiceProvider.
+                Key.Clear();
+            }
         }
 
-        // Сохранить подписаный XML документ в указанный файл.
-         
-        XmlTextWriter xmltw = new XmlTextWriter(SignedFileName, new UTF8Encoding(false));
-        doc.WriteTo(xmltw);
-        xmltw.Close();
+        // Подпись XML файла и сохранение в новом файле.
+        public static void SignXmlFile(string FileName, string SignedFileName, RSA Key)
+        {
+            // Проверка аргументов.  
+            if (FileName == null)
+                throw new ArgumentNullException("FileName");
+            if (SignedFileName == null)
+                throw new ArgumentNullException("SignedFileName");
+            if (Key == null)
+                throw new ArgumentNullException("Key");
+
+
+            // Создать новый XML документ.
+            XmlDocument doc = new XmlDocument
+            {
+
+                // Форматирование документа с игнорированием дублирующих пробелов.
+                PreserveWhitespace = false
+            };
+
+            // Загрузка XML файла.
+            doc.Load(new XmlTextReader(FileName));
+
+            // Создание SignedXml объекта.
+            SignedXml signedXml = new SignedXml(doc)
+            {
+
+                // Добавление ключа в SignedXml документ. 
+                SigningKey = Key
+            };
+
+            // Получение экземпляра электронной подписи от SignedXml объекта.
+            Signature XMLSignature = signedXml.Signature;
+
+            // Создать ссылку.
+            Reference reference = new Reference("");
+
+            // Добавить  конверт.
+            XmlDsigEnvelopedSignatureTransform env = new XmlDsigEnvelopedSignatureTransform();
+            reference.AddTransform(env);
+
+            // Добавить Reference объект в объект Signature.
+            XMLSignature.SignedInfo.AddReference(reference);
+
+            // Добавить RSAKeyValue KeyInfo 
+            KeyInfo keyInfo = new KeyInfo();
+            keyInfo.AddClause(new RSAKeyValue((RSA)Key));
+
+            // Добавить KeyInfo объект объекту Reference.
+            XMLSignature.KeyInfo = keyInfo;
+
+            // Расчитать электронную подпись.
+            signedXml.ComputeSignature();
+
+            // Получить XML сведения об электронной подписи и сохранить
+            // в XmlElement объекте.
+            XmlElement xmlDigitalSignature = signedXml.GetXml();
+
+            // Добавить элемент в XML документ.
+            doc.DocumentElement.AppendChild(doc.ImportNode(xmlDigitalSignature, true));
+
+
+            if (doc.FirstChild is XmlDeclaration)
+            {
+                doc.RemoveChild(doc.FirstChild);
+            }
+
+            // Сохранить подписаный XML документ в указанный файл.
+
+            XmlTextWriter xmltw = new XmlTextWriter(SignedFileName, new UTF8Encoding(false));
+            doc.WriteTo(xmltw);
+            xmltw.Close();
+        }
+        // Проверить подпись XML файла и вернуть результат.
+        public static Boolean VerifyXmlFile(String Name)
+        {
+            // Проверить аргументы.  
+            if (Name == null)
+                throw new ArgumentNullException("Name");
+
+            // Создать новый XML документ.
+            XmlDocument xmlDocument = new XmlDocument
+            {
+
+                // Форматирование с пробелами.
+                PreserveWhitespace = true
+            };
+
+            // Зазрузить и отправить XML файл в документ. 
+            xmlDocument.Load(Name);
+
+            // Создать новый SignedXml объект и отправить его
+            // в класс XML документа.
+            SignedXml signedXml = new SignedXml(xmlDocument);
+
+            // Найти "Signature" узел и создать новый
+            // XmlNodeList объект.
+            XmlNodeList nodeList = xmlDocument.GetElementsByTagName("Signature");
+
+            // Загрузить узел электронной подписи.
+            signedXml.LoadXml((XmlElement)nodeList[0]);
+
+            // Проверить подпись и вернуть результат.
+            return signedXml.CheckSignature();
+        }
+
     }
-    // Проверить подпись XML файла и вернуть результат.
-    public static Boolean VerifyXmlFile(String Name)
-    {
-        // Проверить аргументы.  
-        if (Name == null)
-            throw new ArgumentNullException("Name");
-
-        // Создать новый XML документ.
-        XmlDocument xmlDocument = new XmlDocument();
-
-        // Форматирование с пробелами.
-        xmlDocument.PreserveWhitespace = true;
-
-        // Зазрузить и отправить XML файл в документ. 
-        xmlDocument.Load(Name);
-
-        // Создать новый SignedXml объект и отправить его
-        // в класс XML документа.
-        SignedXml signedXml = new SignedXml(xmlDocument);
-
-        // Найти "Signature" узел и создать новый
-        // XmlNodeList объект.
-        XmlNodeList nodeList = xmlDocument.GetElementsByTagName("Signature");
-
-        // Загрузить узел электронной подписи.
-        signedXml.LoadXml((XmlElement)nodeList[0]);
-
-        // Проверить подпись и вернуть результат.
-        return signedXml.CheckSignature();
-    }
-
-}
 
 }

@@ -57,4 +57,4 @@ using System.Resources;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
-[assembly: NeutralResourcesLanguageAttribute("ru-RU")]
+[assembly: NeutralResourcesLanguage("ru-RU")]

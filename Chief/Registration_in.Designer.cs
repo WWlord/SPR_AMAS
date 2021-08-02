@@ -153,7 +153,7 @@ namespace Chief
             this.tsWkFind});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1052, 28);
+            this.toolStripMain.Size = new System.Drawing.Size(789, 25);
             this.toolStripMain.TabIndex = 0;
             this.toolStripMain.Text = "toolStrip1";
             this.toolStripMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMain_ItemClicked);
@@ -168,13 +168,13 @@ namespace Chief
             this.tsWkDcPrWork.Image = ((System.Drawing.Image)(resources.GetObject("tsWkDcPrWork.Image")));
             this.tsWkDcPrWork.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkDcPrWork.Name = "tsWkDcPrWork";
-            this.tsWkDcPrWork.Size = new System.Drawing.Size(125, 25);
+            this.tsWkDcPrWork.Size = new System.Drawing.Size(102, 22);
             this.tsWkDcPrWork.Text = "Режим работы";
             // 
             // зарегистрироватьДокументToolStripMenuItem1
             // 
             this.зарегистрироватьДокументToolStripMenuItem1.Name = "зарегистрироватьДокументToolStripMenuItem1";
-            this.зарегистрироватьДокументToolStripMenuItem1.Size = new System.Drawing.Size(274, 24);
+            this.зарегистрироватьДокументToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
             this.зарегистрироватьДокументToolStripMenuItem1.Text = "Зарегистрировать документ";
             this.зарегистрироватьДокументToolStripMenuItem1.Click += new System.EventHandler(this.зарегистрироватьДокументToolStripMenuItem1_Click);
             // 
@@ -189,14 +189,14 @@ namespace Chief
             this.исходящаяКорреспонденцияToolStripMenuItem1,
             this.архивToolStripMenuItem1});
             this.каталогДокументовToolStripMenuItem.Name = "каталогДокументовToolStripMenuItem";
-            this.каталогДокументовToolStripMenuItem.Size = new System.Drawing.Size(274, 24);
+            this.каталогДокументовToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.каталогДокументовToolStripMenuItem.Text = "Каталог документов";
             this.каталогДокументовToolStripMenuItem.Click += new System.EventHandler(this.каталогДокументовToolStripMenuItem_Click);
             // 
             // входящаяКорреспонденцияToolStripMenuItem1
             // 
             this.входящаяКорреспонденцияToolStripMenuItem1.Name = "входящаяКорреспонденцияToolStripMenuItem1";
-            this.входящаяКорреспонденцияToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.входящаяКорреспонденцияToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.входящаяКорреспонденцияToolStripMenuItem1.Text = "Входящая корреспонденция";
             this.входящаяКорреспонденцияToolStripMenuItem1.Visible = false;
             this.входящаяКорреспонденцияToolStripMenuItem1.Click += new System.EventHandler(this.входящаяКорреспонденцияToolStripMenuItem1_Click);
@@ -204,7 +204,7 @@ namespace Chief
             // новыеДокументыToolStripMenuItem1
             // 
             this.новыеДокументыToolStripMenuItem1.Name = "новыеДокументыToolStripMenuItem1";
-            this.новыеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.новыеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.новыеДокументыToolStripMenuItem1.Text = "Новые документы";
             this.новыеДокументыToolStripMenuItem1.Visible = false;
             this.новыеДокументыToolStripMenuItem1.Click += new System.EventHandler(this.новыеДокументыToolStripMenuItem1_Click);
@@ -212,7 +212,7 @@ namespace Chief
             // назначенныеДокументыToolStripMenuItem1
             // 
             this.назначенныеДокументыToolStripMenuItem1.Name = "назначенныеДокументыToolStripMenuItem1";
-            this.назначенныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.назначенныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.назначенныеДокументыToolStripMenuItem1.Text = "Назначенные документы";
             this.назначенныеДокументыToolStripMenuItem1.Visible = false;
             this.назначенныеДокументыToolStripMenuItem1.Click += new System.EventHandler(this.назначенныеДокументыToolStripMenuItem1_Click);
@@ -220,7 +220,7 @@ namespace Chief
             // исполненныеДокументыToolStripMenuItem1
             // 
             this.исполненныеДокументыToolStripMenuItem1.Name = "исполненныеДокументыToolStripMenuItem1";
-            this.исполненныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.исполненныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.исполненныеДокументыToolStripMenuItem1.Text = "Исполненные документы";
             this.исполненныеДокументыToolStripMenuItem1.Visible = false;
             this.исполненныеДокументыToolStripMenuItem1.Click += new System.EventHandler(this.исполненныеДокументыToolStripMenuItem1_Click);
@@ -228,7 +228,7 @@ namespace Chief
             // отпечатанныеДокументыToolStripMenuItem1
             // 
             this.отпечатанныеДокументыToolStripMenuItem1.Name = "отпечатанныеДокументыToolStripMenuItem1";
-            this.отпечатанныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.отпечатанныеДокументыToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.отпечатанныеДокументыToolStripMenuItem1.Text = "Отпечатанные документы";
             this.отпечатанныеДокументыToolStripMenuItem1.Visible = false;
             this.отпечатанныеДокументыToolStripMenuItem1.Click += new System.EventHandler(this.отпечатанныеДокументыToolStripMenuItem1_Click);
@@ -236,7 +236,7 @@ namespace Chief
             // исходящаяКорреспонденцияToolStripMenuItem1
             // 
             this.исходящаяКорреспонденцияToolStripMenuItem1.Name = "исходящаяКорреспонденцияToolStripMenuItem1";
-            this.исходящаяКорреспонденцияToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.исходящаяКорреспонденцияToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.исходящаяКорреспонденцияToolStripMenuItem1.Text = "Исходящая корреспонденция";
             this.исходящаяКорреспонденцияToolStripMenuItem1.Visible = false;
             this.исходящаяКорреспонденцияToolStripMenuItem1.Click += new System.EventHandler(this.исходящаяКорреспонденцияToolStripMenuItem1_Click);
@@ -244,7 +244,7 @@ namespace Chief
             // архивToolStripMenuItem1
             // 
             this.архивToolStripMenuItem1.Name = "архивToolStripMenuItem1";
-            this.архивToolStripMenuItem1.Size = new System.Drawing.Size(287, 24);
+            this.архивToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
             this.архивToolStripMenuItem1.Text = "Архив";
             this.архивToolStripMenuItem1.Visible = false;
             this.архивToolStripMenuItem1.Click += new System.EventHandler(this.архивToolStripMenuItem1_Click);
@@ -252,7 +252,7 @@ namespace Chief
             // свойстваToolStripMenuItem
             // 
             this.свойстваToolStripMenuItem.Name = "свойстваToolStripMenuItem";
-            this.свойстваToolStripMenuItem.Size = new System.Drawing.Size(274, 24);
+            this.свойстваToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.свойстваToolStripMenuItem.Text = "Свойства";
             this.свойстваToolStripMenuItem.Visible = false;
             this.свойстваToolStripMenuItem.Click += new System.EventHandler(this.свойстваToolStripMenuItem_Click_1);
@@ -268,34 +268,34 @@ namespace Chief
             this.tsDcDocument.Image = ((System.Drawing.Image)(resources.GetObject("tsDcDocument.Image")));
             this.tsDcDocument.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsDcDocument.Name = "tsDcDocument";
-            this.tsDcDocument.Size = new System.Drawing.Size(89, 25);
+            this.tsDcDocument.Size = new System.Drawing.Size(74, 22);
             this.tsDcDocument.Text = "Документ";
             // 
             // новыйДокументToolStripMenuItem1
             // 
             this.новыйДокументToolStripMenuItem1.Name = "новыйДокументToolStripMenuItem1";
-            this.новыйДокументToolStripMenuItem1.Size = new System.Drawing.Size(221, 24);
+            this.новыйДокументToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
             this.новыйДокументToolStripMenuItem1.Text = "Новый документ";
             this.новыйДокументToolStripMenuItem1.Click += new System.EventHandler(this.новыйДокументToolStripMenuItem1_Click);
             // 
             // вложитьФайлToolStripMenuItem
             // 
             this.вложитьФайлToolStripMenuItem.Name = "вложитьФайлToolStripMenuItem";
-            this.вложитьФайлToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
+            this.вложитьФайлToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.вложитьФайлToolStripMenuItem.Text = "Вложить файл";
             this.вложитьФайлToolStripMenuItem.Click += new System.EventHandler(this.вложитьФайлToolStripMenuItem_Click);
             // 
             // удалитьФайлToolStripMenuItem1
             // 
             this.удалитьФайлToolStripMenuItem1.Name = "удалитьФайлToolStripMenuItem1";
-            this.удалитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(221, 24);
+            this.удалитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
             this.удалитьФайлToolStripMenuItem1.Text = "Удалить файл";
             this.удалитьФайлToolStripMenuItem1.Click += new System.EventHandler(this.удалитьФайлToolStripMenuItem1_Click);
             // 
             // сохранитьДокументToolStripMenuItem
             // 
             this.сохранитьДокументToolStripMenuItem.Name = "сохранитьДокументToolStripMenuItem";
-            this.сохранитьДокументToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
+            this.сохранитьДокументToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.сохранитьДокументToolStripMenuItem.Text = "Сохранить документ";
             this.сохранитьДокументToolStripMenuItem.Click += new System.EventHandler(this.сохранитьДокументToolStripMenuItem_Click);
             // 
@@ -305,7 +305,7 @@ namespace Chief
             this.TsDcNewDoc.Image = global::Chief.Properties.Resources.NEW;
             this.TsDcNewDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsDcNewDoc.Name = "TsDcNewDoc";
-            this.TsDcNewDoc.Size = new System.Drawing.Size(23, 25);
+            this.TsDcNewDoc.Size = new System.Drawing.Size(23, 22);
             this.TsDcNewDoc.Text = "Новый документ";
             this.TsDcNewDoc.Click += new System.EventHandler(this.TsDcNewDoc_Click);
             // 
@@ -315,7 +315,7 @@ namespace Chief
             this.TsDcAddFile.Image = global::Chief.Properties.Resources.PLUS;
             this.TsDcAddFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsDcAddFile.Name = "TsDcAddFile";
-            this.TsDcAddFile.Size = new System.Drawing.Size(23, 25);
+            this.TsDcAddFile.Size = new System.Drawing.Size(23, 22);
             this.TsDcAddFile.Text = "Добавить файл";
             this.TsDcAddFile.Click += new System.EventHandler(this.TsDcAddFile_Click);
             // 
@@ -325,7 +325,7 @@ namespace Chief
             this.TsDcRemoveFile.Image = global::Chief.Properties.Resources.MINUS;
             this.TsDcRemoveFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsDcRemoveFile.Name = "TsDcRemoveFile";
-            this.TsDcRemoveFile.Size = new System.Drawing.Size(23, 25);
+            this.TsDcRemoveFile.Size = new System.Drawing.Size(23, 22);
             this.TsDcRemoveFile.Text = "Удалить файл";
             this.TsDcRemoveFile.Click += new System.EventHandler(this.TsDcRemoveFile_Click);
             // 
@@ -335,7 +335,7 @@ namespace Chief
             this.TsDcSaveDocument.Image = global::Chief.Properties.Resources.SAVE;
             this.TsDcSaveDocument.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsDcSaveDocument.Name = "TsDcSaveDocument";
-            this.TsDcSaveDocument.Size = new System.Drawing.Size(23, 25);
+            this.TsDcSaveDocument.Size = new System.Drawing.Size(23, 22);
             this.TsDcSaveDocument.Text = "Сохранить документ";
             this.TsDcSaveDocument.Click += new System.EventHandler(this.TsDcSaveDocument_Click);
             // 
@@ -345,7 +345,7 @@ namespace Chief
             this.tsWkCalendar.Image = global::Chief.Properties.Resources.CALENDAR;
             this.tsWkCalendar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkCalendar.Name = "tsWkCalendar";
-            this.tsWkCalendar.Size = new System.Drawing.Size(23, 25);
+            this.tsWkCalendar.Size = new System.Drawing.Size(23, 22);
             this.tsWkCalendar.Text = "календарь";
             this.tsWkCalendar.Visible = false;
             this.tsWkCalendar.Click += new System.EventHandler(this.tsCalendar_Click);
@@ -366,7 +366,7 @@ namespace Chief
             "1 месяц",
             "2 месяца"});
             this.tsWkDatExe.Name = "tsWkDatExe";
-            this.tsWkDatExe.Size = new System.Drawing.Size(160, 28);
+            this.tsWkDatExe.Size = new System.Drawing.Size(121, 25);
             this.tsWkDatExe.ToolTipText = "Срок исполнения";
             this.tsWkDatExe.Visible = false;
             // 
@@ -376,7 +376,7 @@ namespace Chief
             this.tsWkSendToExe.Image = global::Chief.Properties.Resources.EXE;
             this.tsWkSendToExe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkSendToExe.Name = "tsWkSendToExe";
-            this.tsWkSendToExe.Size = new System.Drawing.Size(23, 25);
+            this.tsWkSendToExe.Size = new System.Drawing.Size(23, 22);
             this.tsWkSendToExe.Text = "К исполнению";
             this.tsWkSendToExe.Visible = false;
             this.tsWkSendToExe.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -387,7 +387,7 @@ namespace Chief
             this.tsWkStructure.Image = global::Chief.Properties.Resources.MISC29;
             this.tsWkStructure.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkStructure.Name = "tsWkStructure";
-            this.tsWkStructure.Size = new System.Drawing.Size(23, 25);
+            this.tsWkStructure.Size = new System.Drawing.Size(23, 22);
             this.tsWkStructure.Text = "Структура организации";
             this.tsWkStructure.Visible = false;
             this.tsWkStructure.Click += new System.EventHandler(this.tsWkStructure_Click);
@@ -398,14 +398,14 @@ namespace Chief
             this.TsDcScanner.Image = global::Chief.Properties.Resources.scanner;
             this.TsDcScanner.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsDcScanner.Name = "TsDcScanner";
-            this.TsDcScanner.Size = new System.Drawing.Size(23, 25);
+            this.TsDcScanner.Size = new System.Drawing.Size(23, 22);
             this.TsDcScanner.Text = "Сканировать документы";
             this.TsDcScanner.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsWkEditDoc
             // 
@@ -413,7 +413,7 @@ namespace Chief
             this.tsWkEditDoc.Image = global::Chief.Properties.Resources.WORDUNDR;
             this.tsWkEditDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkEditDoc.Name = "tsWkEditDoc";
-            this.tsWkEditDoc.Size = new System.Drawing.Size(23, 25);
+            this.tsWkEditDoc.Size = new System.Drawing.Size(23, 22);
             this.tsWkEditDoc.Text = "Редактировать документ";
             this.tsWkEditDoc.Visible = false;
             this.tsWkEditDoc.Click += new System.EventHandler(this.tsWkEditDoc_Click);
@@ -424,7 +424,7 @@ namespace Chief
             this.TsEdAddFile.Image = global::Chief.Properties.Resources.PLUS;
             this.TsEdAddFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsEdAddFile.Name = "TsEdAddFile";
-            this.TsEdAddFile.Size = new System.Drawing.Size(23, 25);
+            this.TsEdAddFile.Size = new System.Drawing.Size(23, 22);
             this.TsEdAddFile.Text = "Добавить файл";
             this.TsEdAddFile.Visible = false;
             this.TsEdAddFile.Click += new System.EventHandler(this.TsEdAddFile_Click);
@@ -435,7 +435,7 @@ namespace Chief
             this.TsEdDelFile.Image = global::Chief.Properties.Resources.MINUS;
             this.TsEdDelFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsEdDelFile.Name = "TsEdDelFile";
-            this.TsEdDelFile.Size = new System.Drawing.Size(23, 25);
+            this.TsEdDelFile.Size = new System.Drawing.Size(23, 22);
             this.TsEdDelFile.Text = "Удалить файл";
             this.TsEdDelFile.Visible = false;
             this.TsEdDelFile.Click += new System.EventHandler(this.TsEdDelFile_Click);
@@ -446,7 +446,7 @@ namespace Chief
             this.TsEdWkAutor.Image = global::Chief.Properties.Resources.FACTORY;
             this.TsEdWkAutor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsEdWkAutor.Name = "TsEdWkAutor";
-            this.TsEdWkAutor.Size = new System.Drawing.Size(23, 25);
+            this.TsEdWkAutor.Size = new System.Drawing.Size(23, 22);
             this.TsEdWkAutor.Text = "Автор";
             this.TsEdWkAutor.Click += new System.EventHandler(this.TsEdAutor_Click);
             // 
@@ -456,7 +456,7 @@ namespace Chief
             this.TsEdWkOutcoming.Image = global::Chief.Properties.Resources.PORTRAIT;
             this.TsEdWkOutcoming.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsEdWkOutcoming.Name = "TsEdWkOutcoming";
-            this.TsEdWkOutcoming.Size = new System.Drawing.Size(23, 25);
+            this.TsEdWkOutcoming.Size = new System.Drawing.Size(23, 22);
             this.TsEdWkOutcoming.Text = "Исходящая";
             this.TsEdWkOutcoming.Click += new System.EventHandler(this.TsEdOutcoming_Click);
             // 
@@ -466,7 +466,7 @@ namespace Chief
             this.TsWkSaveDocument.Image = global::Chief.Properties.Resources.SAVE;
             this.TsWkSaveDocument.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsWkSaveDocument.Name = "TsWkSaveDocument";
-            this.TsWkSaveDocument.Size = new System.Drawing.Size(23, 25);
+            this.TsWkSaveDocument.Size = new System.Drawing.Size(23, 22);
             this.TsWkSaveDocument.Text = "Сохранить документ";
             this.TsWkSaveDocument.Visible = false;
             this.TsWkSaveDocument.Click += new System.EventHandler(this.TsWkSaveDocument_Click);
@@ -474,7 +474,7 @@ namespace Chief
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // tsWkFormular
             // 
@@ -482,7 +482,7 @@ namespace Chief
             this.tsWkFormular.Image = global::Chief.Properties.Resources.CRDFLE12;
             this.tsWkFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkFormular.Name = "tsWkFormular";
-            this.tsWkFormular.Size = new System.Drawing.Size(23, 25);
+            this.tsWkFormular.Size = new System.Drawing.Size(23, 22);
             this.tsWkFormular.Text = "Журнал движения документов";
             this.tsWkFormular.Visible = false;
             this.tsWkFormular.Click += new System.EventHandler(this.tsWkFormular_Click);
@@ -493,7 +493,7 @@ namespace Chief
             this.tsWkFind.Image = global::Chief.Properties.Resources.BINOCULR;
             this.tsWkFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsWkFind.Name = "tsWkFind";
-            this.tsWkFind.Size = new System.Drawing.Size(23, 25);
+            this.tsWkFind.Size = new System.Drawing.Size(23, 22);
             this.tsWkFind.Text = "toolStripButton1";
             this.tsWkFind.Visible = false;
             this.tsWkFind.Click += new System.EventHandler(this.tsWkFind_Click);
@@ -532,10 +532,9 @@ namespace Chief
             // 
             this.panelADDoc.Controls.Add(this.groupBoxAddDoc);
             this.panelADDoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelADDoc.Location = new System.Drawing.Point(0, 28);
-            this.panelADDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.panelADDoc.Location = new System.Drawing.Point(0, 25);
             this.panelADDoc.Name = "panelADDoc";
-            this.panelADDoc.Size = new System.Drawing.Size(1052, 685);
+            this.panelADDoc.Size = new System.Drawing.Size(789, 554);
             this.panelADDoc.TabIndex = 35;
             // 
             // groupBoxAddDoc
@@ -545,10 +544,8 @@ namespace Chief
             this.groupBoxAddDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxAddDoc.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxAddDoc.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxAddDoc.Name = "groupBoxAddDoc";
-            this.groupBoxAddDoc.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxAddDoc.Size = new System.Drawing.Size(1052, 685);
+            this.groupBoxAddDoc.Size = new System.Drawing.Size(789, 554);
             this.groupBoxAddDoc.TabIndex = 2;
             this.groupBoxAddDoc.TabStop = false;
             this.groupBoxAddDoc.Text = "Запись в журнал регистрации входящей корреспонденции";
@@ -560,22 +557,20 @@ namespace Chief
             this.tabControlDoc.Controls.Add(this.tabPage4);
             this.tabControlDoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControlDoc.Location = new System.Drawing.Point(4, 20);
-            this.tabControlDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlDoc.Location = new System.Drawing.Point(3, 16);
             this.tabControlDoc.Name = "tabControlDoc";
             this.tabControlDoc.SelectedIndex = 0;
-            this.tabControlDoc.Size = new System.Drawing.Size(1044, 661);
+            this.tabControlDoc.Size = new System.Drawing.Size(783, 535);
             this.tabControlDoc.TabIndex = 9;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tabControl1);
             this.tabPage3.Controls.Add(this.panel1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1036, 631);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(775, 509);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Сведения";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -586,31 +581,28 @@ namespace Chief
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(4, 318);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(3, 258);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1028, 309);
+            this.tabControl1.Size = new System.Drawing.Size(769, 248);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1020, 279);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(761, 222);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Население";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1020, 280);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(763, 225);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Организации";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -630,10 +622,9 @@ namespace Chief
             this.panel1.Controls.Add(this.comboBoxJuridic);
             this.panel1.Controls.Add(this.comboBoxPopulation);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 314);
+            this.panel1.Size = new System.Drawing.Size(769, 255);
             this.panel1.TabIndex = 8;
             // 
             // groupBox1
@@ -647,11 +638,9 @@ namespace Chief
             this.groupBox1.Controls.Add(this.Cluelist);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(465, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(349, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(365, 165);
+            this.groupBox1.Size = new System.Drawing.Size(274, 134);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Дополнительно";
@@ -660,22 +649,20 @@ namespace Chief
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(99, 137);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(74, 111);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 17);
+            this.label9.Size = new System.Drawing.Size(18, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "от";
             // 
             // maskedTextBoxDateOut
             // 
             this.maskedTextBoxDateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBoxDateOut.Location = new System.Drawing.Point(137, 130);
-            this.maskedTextBoxDateOut.Margin = new System.Windows.Forms.Padding(4);
+            this.maskedTextBoxDateOut.Location = new System.Drawing.Point(103, 106);
             this.maskedTextBoxDateOut.Mask = "00/00/0000";
             this.maskedTextBoxDateOut.Name = "maskedTextBoxDateOut";
             this.maskedTextBoxDateOut.PromptChar = ' ';
-            this.maskedTextBoxDateOut.Size = new System.Drawing.Size(101, 26);
+            this.maskedTextBoxDateOut.Size = new System.Drawing.Size(77, 22);
             this.maskedTextBoxDateOut.TabIndex = 6;
             this.maskedTextBoxDateOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBoxDateOut.ValidatingType = typeof(System.DateTime);
@@ -684,30 +671,27 @@ namespace Chief
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(24, 105);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(18, 85);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 17);
+            this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Исходящая №";
             // 
             // textBoxoutCod
             // 
             this.textBoxoutCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxoutCod.Location = new System.Drawing.Point(137, 98);
-            this.textBoxoutCod.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxoutCod.Location = new System.Drawing.Point(103, 80);
             this.textBoxoutCod.Name = "textBoxoutCod";
-            this.textBoxoutCod.Size = new System.Drawing.Size(220, 26);
+            this.textBoxoutCod.Size = new System.Drawing.Size(166, 22);
             this.textBoxoutCod.TabIndex = 4;
             // 
             // BoxInFolder
             // 
             this.BoxInFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BoxInFolder.FormattingEnabled = true;
-            this.BoxInFolder.Location = new System.Drawing.Point(103, 57);
-            this.BoxInFolder.Margin = new System.Windows.Forms.Padding(4);
+            this.BoxInFolder.Location = new System.Drawing.Point(77, 46);
             this.BoxInFolder.Name = "BoxInFolder";
-            this.BoxInFolder.Size = new System.Drawing.Size(255, 28);
+            this.BoxInFolder.Size = new System.Drawing.Size(192, 24);
             this.BoxInFolder.TabIndex = 3;
             this.BoxInFolder.Visible = false;
             // 
@@ -715,10 +699,9 @@ namespace Chief
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(33, 60);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(25, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "В папку";
             this.label3.Visible = false;
@@ -727,31 +710,27 @@ namespace Chief
             // 
             this.Cluelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Cluelist.FormattingEnabled = true;
-            this.Cluelist.Location = new System.Drawing.Point(103, 23);
-            this.Cluelist.Margin = new System.Windows.Forms.Padding(4);
+            this.Cluelist.Location = new System.Drawing.Point(77, 19);
             this.Cluelist.Name = "Cluelist";
-            this.Cluelist.Size = new System.Drawing.Size(255, 28);
+            this.Cluelist.Size = new System.Drawing.Size(192, 24);
             this.Cluelist.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(11, 27);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(8, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Переписка";
             // 
             // groupBoxKTC
             // 
             this.groupBoxKTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxKTC.Location = new System.Drawing.Point(-4, 0);
-            this.groupBoxKTC.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxKTC.Location = new System.Drawing.Point(-3, 0);
             this.groupBoxKTC.Name = "groupBoxKTC";
-            this.groupBoxKTC.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxKTC.Size = new System.Drawing.Size(461, 165);
+            this.groupBoxKTC.Size = new System.Drawing.Size(346, 134);
             this.groupBoxKTC.TabIndex = 31;
             this.groupBoxKTC.TabStop = false;
             this.groupBoxKTC.Text = "Реквизиты документа";
@@ -760,10 +739,9 @@ namespace Chief
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(13, 279);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(10, 227);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 30;
             this.label7.Text = "Должность";
             // 
@@ -771,19 +749,17 @@ namespace Chief
             // 
             this.comboBoxDegree.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxDegree.FormattingEnabled = true;
-            this.comboBoxDegree.Location = new System.Drawing.Point(111, 273);
-            this.comboBoxDegree.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDegree.Location = new System.Drawing.Point(83, 222);
             this.comboBoxDegree.Name = "comboBoxDegree";
-            this.comboBoxDegree.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxDegree.Size = new System.Drawing.Size(121, 24);
             this.comboBoxDegree.TabIndex = 29;
             // 
             // buttonADDEmployee
             // 
             this.buttonADDEmployee.Image = global::Chief.Properties.Resources.ARW11NW;
-            this.buttonADDEmployee.Location = new System.Drawing.Point(755, 273);
-            this.buttonADDEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonADDEmployee.Location = new System.Drawing.Point(566, 222);
             this.buttonADDEmployee.Name = "buttonADDEmployee";
-            this.buttonADDEmployee.Size = new System.Drawing.Size(60, 26);
+            this.buttonADDEmployee.Size = new System.Drawing.Size(45, 21);
             this.buttonADDEmployee.TabIndex = 28;
             this.buttonADDEmployee.UseVisualStyleBackColor = true;
             this.buttonADDEmployee.Click += new System.EventHandler(this.buttonADDEmployee_Click_1);
@@ -791,10 +767,9 @@ namespace Chief
             // buttonADDAutor
             // 
             this.buttonADDAutor.Image = global::Chief.Properties.Resources.ARW11NW;
-            this.buttonADDAutor.Location = new System.Drawing.Point(755, 181);
-            this.buttonADDAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonADDAutor.Location = new System.Drawing.Point(566, 147);
             this.buttonADDAutor.Name = "buttonADDAutor";
-            this.buttonADDAutor.Size = new System.Drawing.Size(60, 26);
+            this.buttonADDAutor.Size = new System.Drawing.Size(45, 21);
             this.buttonADDAutor.TabIndex = 27;
             this.buttonADDAutor.UseVisualStyleBackColor = true;
             this.buttonADDAutor.Click += new System.EventHandler(this.buttonADDAutor_Click_1);
@@ -802,10 +777,9 @@ namespace Chief
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(280, 279);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(210, 227);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 17);
+            this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 26;
             this.label6.Text = "Сотрудник";
             // 
@@ -813,10 +787,9 @@ namespace Chief
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(1, 240);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(1, 195);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 17);
+            this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 25;
             this.label5.Text = "Организация";
             // 
@@ -824,10 +797,9 @@ namespace Chief
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(4, 185);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(3, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 24;
             this.label4.Text = "Автор";
             // 
@@ -835,48 +807,43 @@ namespace Chief
             // 
             this.comboBoxEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxEmployee.FormattingEnabled = true;
-            this.comboBoxEmployee.Location = new System.Drawing.Point(368, 273);
-            this.comboBoxEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxEmployee.Location = new System.Drawing.Point(276, 222);
             this.comboBoxEmployee.Name = "comboBoxEmployee";
-            this.comboBoxEmployee.Size = new System.Drawing.Size(372, 28);
+            this.comboBoxEmployee.Size = new System.Drawing.Size(280, 24);
             this.comboBoxEmployee.TabIndex = 23;
             // 
             // comboBoxJuridic
             // 
             this.comboBoxJuridic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxJuridic.FormattingEnabled = true;
-            this.comboBoxJuridic.Location = new System.Drawing.Point(111, 235);
-            this.comboBoxJuridic.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxJuridic.Location = new System.Drawing.Point(83, 191);
             this.comboBoxJuridic.Name = "comboBoxJuridic";
-            this.comboBoxJuridic.Size = new System.Drawing.Size(629, 28);
+            this.comboBoxJuridic.Size = new System.Drawing.Size(473, 24);
             this.comboBoxJuridic.TabIndex = 22;
             // 
             // comboBoxPopulation
             // 
             this.comboBoxPopulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPopulation.FormattingEnabled = true;
-            this.comboBoxPopulation.Location = new System.Drawing.Point(61, 181);
-            this.comboBoxPopulation.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxPopulation.Location = new System.Drawing.Point(46, 147);
             this.comboBoxPopulation.Name = "comboBoxPopulation";
-            this.comboBoxPopulation.Size = new System.Drawing.Size(679, 28);
+            this.comboBoxPopulation.Size = new System.Drawing.Size(510, 24);
             this.comboBoxPopulation.TabIndex = 21;
             // 
             // tabPage6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 26);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1036, 632);
+            this.tabPage6.Size = new System.Drawing.Size(775, 514);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Содержание";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1036, 632);
+            this.tabPage4.Size = new System.Drawing.Size(775, 514);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Контрагенты";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -886,10 +853,8 @@ namespace Chief
             this.AssignDoc.Controls.Add(this.splitContainer1);
             this.AssignDoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AssignDoc.Location = new System.Drawing.Point(0, 0);
-            this.AssignDoc.Margin = new System.Windows.Forms.Padding(4);
             this.AssignDoc.Name = "AssignDoc";
-            this.AssignDoc.Padding = new System.Windows.Forms.Padding(4);
-            this.AssignDoc.Size = new System.Drawing.Size(1052, 713);
+            this.AssignDoc.Size = new System.Drawing.Size(789, 579);
             this.AssignDoc.TabIndex = 21;
             this.AssignDoc.TabStop = false;
             this.AssignDoc.Text = "Назначить документ";
@@ -897,8 +862,7 @@ namespace Chief
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 19);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 16);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -908,16 +872,14 @@ namespace Chief
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.treeViewDepts);
-            this.splitContainer1.Size = new System.Drawing.Size(1044, 690);
-            this.splitContainer1.SplitterDistance = 346;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(783, 560);
+            this.splitContainer1.SplitterDistance = 259;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -930,15 +892,13 @@ namespace Chief
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(180)))));
             this.splitContainer2.Panel2.Controls.Add(this.listViewDocs);
-            this.splitContainer2.Size = new System.Drawing.Size(346, 690);
-            this.splitContainer2.SplitterDistance = 501;
-            this.splitContainer2.SplitterWidth = 5;
+            this.splitContainer2.Size = new System.Drawing.Size(259, 560);
+            this.splitContainer2.SplitterDistance = 406;
             this.splitContainer2.TabIndex = 0;
             // 
             // monthCalendarExe
             // 
-            this.monthCalendarExe.Location = new System.Drawing.Point(183, 27);
-            this.monthCalendarExe.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendarExe.Location = new System.Drawing.Point(137, 22);
             this.monthCalendarExe.Name = "monthCalendarExe";
             this.monthCalendarExe.TabIndex = 34;
             this.monthCalendarExe.Visible = false;
@@ -951,20 +911,19 @@ namespace Chief
             this.listViewDocs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewDocs.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewDocs.FormattingEnabled = true;
-            this.listViewDocs.ItemHeight = 19;
+            this.listViewDocs.ItemHeight = 17;
             this.listViewDocs.Location = new System.Drawing.Point(0, 0);
-            this.listViewDocs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewDocs.Name = "listViewDocs";
-            this.listViewDocs.Size = new System.Drawing.Size(346, 184);
+            this.listViewDocs.Size = new System.Drawing.Size(259, 150);
             this.listViewDocs.TabIndex = 5;
             // 
             // treeViewDepts
             // 
             this.treeViewDepts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewDepts.Location = new System.Drawing.Point(0, 0);
-            this.treeViewDepts.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewDepts.Name = "treeViewDepts";
-            this.treeViewDepts.Size = new System.Drawing.Size(693, 690);
+            this.treeViewDepts.Size = new System.Drawing.Size(520, 560);
             this.treeViewDepts.TabIndex = 1;
             // 
             // panelAssignDoc
@@ -972,9 +931,8 @@ namespace Chief
             this.panelAssignDoc.Controls.Add(this.AssignDoc);
             this.panelAssignDoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAssignDoc.Location = new System.Drawing.Point(0, 0);
-            this.panelAssignDoc.Margin = new System.Windows.Forms.Padding(4);
             this.panelAssignDoc.Name = "panelAssignDoc";
-            this.panelAssignDoc.Size = new System.Drawing.Size(1052, 713);
+            this.panelAssignDoc.Size = new System.Drawing.Size(789, 579);
             this.panelAssignDoc.TabIndex = 34;
             // 
             // imageFS
@@ -988,13 +946,12 @@ namespace Chief
             // 
             // Registration_in
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 713);
+            this.ClientSize = new System.Drawing.Size(789, 579);
             this.Controls.Add(this.panelADDoc);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.panelAssignDoc);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registration_in";
             this.Text = "Регистрация входящей корреспонденции";
             this.toolStripMain.ResumeLayout(false);

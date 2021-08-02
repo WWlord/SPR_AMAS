@@ -10,7 +10,7 @@ namespace ClassPattern.baseLayer
     sealed class PicLibSettings : ApplicationSettingsBase
     {
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("100")]
+        [DefaultSettingValue("100")]
         public int Zoom
         {
             get { return (int)this["Zoom"]; }
@@ -18,7 +18,7 @@ namespace ClassPattern.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("2")]
+        [DefaultSettingValue("2")]
         public int RollDown
         {
             get { return (int)this["RollDown"]; }

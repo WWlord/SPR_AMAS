@@ -16,7 +16,7 @@ namespace AMASControlRegisters
     public partial class Finder : UserControl
     {
         private DocsOfPeriod SeekDocsList=null;
-        CommonValues.FindProperty FndPr;
+        FindProperty FndPr;
 
         public DocsOfPeriod FindDocsOfPeriod
         {
@@ -49,7 +49,7 @@ namespace AMASControlRegisters
         private ArrayList TemyList;
         private ArrayList KindList;
         private ArrayList EmployeesList;
-        AMAS_DBI.Class_syb_acc SQLAcc;
+        Class_syb_acc SQLAcc;
 
         private class TKE
         {

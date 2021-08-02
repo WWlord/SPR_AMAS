@@ -27,23 +27,25 @@ namespace Chief
 {
     public partial class Chef : Form, FormShowCon
     {
-        private ClassStructure.Structure Structure;
-        AMAS_Query.KINDdoc Select_docs;
-        private AMASControlRegisters.Document_Viewer document_View;
-        private AMASControlRegisters.Document_Viewer document_New;
-        private ClassDocuments.DocsTree.ClassDocsTree DocumentsTree;
-        public AMAS_DBI.Class_syb_acc SYB_acc;
+        private Structure Structure;
+        KINDdoc Select_docs;
+        private Document_Viewer document_View;
+        private Document_Viewer document_New;
+        private ClassDocsTree DocumentsTree;
+        public Class_syb_acc SYB_acc;
         public DocsOfPeriod[] Period ;
         private Address_ids KindBox;
         private Address_ids TemaBox;
         private Sign_ids SignaturesBox;
 
-        private AMASControlRegisters.Finder FindDocList;
+        private Finder FindDocList;
 
         public int ModuleId;
         private ChefSettings frmSettings1 = new ChefSettings();
 
-        public Chef(AMAS_DBI.Class_syb_acc S_acc)
+        private bool From_pattern = false;
+
+        public Chef(Class_syb_acc S_acc)
         {
             InitializeComponent();
             SYB_acc = S_acc;
@@ -51,42 +53,46 @@ namespace Chief
             Structure = new Structure(SYB_acc, treeViewDepts);
             treeViewDepts.CheckBoxes = true;
             Structure.UseGroups(treeViewGroups,true);
-            document_View = new AMASControlRegisters.Document_Viewer(SYB_acc, null);//tvDocsTree.SelectedNode);
+            document_View = new Document_Viewer(SYB_acc, null);//tvDocsTree.SelectedNode);
             this.document_View.Doc_ID = 0;
             this.document_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.document_View.Location = new System.Drawing.Point(250, 0);
             this.document_View.Name = "documentCH_View";
             this.document_View.New_document = false;
             this.document_View.Sender = 0;
-            this.document_View.Size = new System.Drawing.Size(this.panelNewDoc.Size.Width-250, 521);
+            this.document_View.Size = new Size(this.panelNewDoc.Size.Width-250, 521);
             this.document_View.TabIndex = 3;
             this.splitContainer1.Panel2.Controls.Add(this.document_View);
-            document_View.DocumentPicked += new AMASControlRegisters.Document_Viewer.PickDocument(document_View_DocumentPicked);
-            document_View.DocumenTiped += new Document_Viewer.TipDocument(document_View_DocumenTiped);
+            document_View.DocumentPicked += new Document_Viewer.PickDocument(document_View_DocumentPicked);
+            document_View.DocumenTiped += new Document_Viewer.TipDocument(Document_View_DocumenTiped);
             document_View.TaskIdKilll += new Document_Viewer.DeleteTaskId(document_View_TaskIdKilll);
-            this.document_New = new AMASControlRegisters.Document_Viewer(SYB_acc,null);
-            // 
-            // document_New
-            // 
-            this.document_New.Doc_ID = 0;
-            this.document_New.Dock = System.Windows.Forms.DockStyle.Left; 
-            this.document_New.Location = new System.Drawing.Point(0, 0);
-            this.document_New.Name = "documentCH_Show";
-            this.document_New.New_document = false;
-            this.document_New.Sender = 0;
-            this.document_New.Size = new System.Drawing.Size(this.panelNewDoc.Size.Width-250, 521);
-            this.document_New.TabIndex = 4;
+            this.document_New = new Document_Viewer(SYB_acc, null)
+            {
+                // 
+                // document_New
+                // 
+                Doc_ID = 0,
+                Dock = System.Windows.Forms.DockStyle.Left,
+                Location = new System.Drawing.Point(0, 0),
+                Name = "documentCH_Show",
+                New_document = false,
+                Sender = 0,
+                Size = new Size(this.panelNewDoc.Size.Width - 250, 521),
+                TabIndex = 4
+            };
             this.panelNewDoc.Controls.Add(this.document_New); //.splitContainer1.Panel2
 
             //
             // Finder
             //
-            FindDocList = new Finder(SYB_acc);
-            FindDocList.Dock = System.Windows.Forms.DockStyle.Fill;
-            FindDocList.Location = new System.Drawing.Point(0, 0);
-            FindDocList.Name = "FindDocList";
-            FindDocList.TabIndex = 5;
-            FindDocList.Visible = false;
+            FindDocList = new Finder(SYB_acc)
+            {
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new System.Drawing.Point(0, 0),
+                Name = "FindDocList",
+                TabIndex = 5,
+                Visible = false
+            };
             this.splitContainer1.Panel2.Controls.Add(FindDocList);
 
             tscbSelectDocs.SelectedIndexChanged+=new EventHandler(tscbSelectDocs_SelectedIndexChanged);
@@ -101,7 +107,7 @@ namespace Chief
             KindBox.Select_Subject(AMAS_Query.Class_AMAS_Query.Wflow_kinds(), "kind","kod");
             TemaBox.Select_Subject(AMAS_Query.Class_AMAS_Query.Wflow_temy(KindBox.get_ident()), "description_", "tema");
             KindBox.Child = TemaBox;
-            cbKinds.SelectedIndexChanged +=new EventHandler(cbKinds_SelectedIndexChanged);
+            cbKinds.SelectedIndexChanged +=new EventHandler(CbKinds_SelectedIndexChanged);
             ModuleId = (int)ClassErrorProvider.ErrorBBLProvider.Modules.Chief;
             SYB_acc.ErrOfChief+=new Class_syb_acc.ErrorBBLChief(SYB_acc_ErrOfChief);
 
@@ -111,9 +117,11 @@ namespace Chief
             this.tsSendInfo.Click += new EventHandler(tsSendInfo_Click);
 
 
-            CBSigns = new ComboBox();
-            CBSigns.Visible = true;
-            CBSigns.Name = "CBSigns";
+            CBSigns = new ComboBox
+            {
+                Visible = true,
+                Name = "CBSigns"
+            };
             //CBSigns.Dock = DockStyle.Right;
             this.Controls.Add(CBSigns);
             CBSigns.Top = 0;
@@ -167,7 +175,7 @@ namespace Chief
             catch { }
         }
 
-        void document_View_DocumenTiped(int Document)
+        void Document_View_DocumenTiped(int Document)
         {
             tsDenote.Enabled =AMASCommand.MeAnswer(Document);
             tsSeeNote.Enabled = AMASCommand.DocCorrecting(Document);
@@ -206,7 +214,7 @@ namespace Chief
             tscExeTimer.Text = e.Start.ToShortDateString();
         }
 
-        private void cbKinds_SelectedIndexChanged(Object sender, EventArgs e)
+        private void CbKinds_SelectedIndexChanged(Object sender, EventArgs e)
         {
             TemaBox.Select_Subject(AMAS_Query.Class_AMAS_Query.Wflow_temy(KindBox.get_ident()), "description_", "tema");
         }
@@ -327,7 +335,7 @@ namespace Chief
             }
         }
 
-        private System.Windows.Forms.Panel[] Seek_panels;
+        private Panel[] Seek_panels;
 
         private void SEDO()
         {
@@ -340,10 +348,12 @@ namespace Chief
                 //if (Select_docs.DocSeek[i].val != (int) DocEnumeration.NewsDocs.Value)
                 {
                     tscbSelectDocs.Items.Add(Select_docs.DocSeek[i].desc);
-                    Seek_panels[i] = new Panel();
-                    Seek_panels[i].Dock = DockStyle.Fill;
-                    Seek_panels[i].BackColor = splitContainer2.Panel1.BackColor;
-                    Seek_panels[i].Visible = false;
+                    Seek_panels[i] = new Panel
+                    {
+                        Dock = DockStyle.Fill,
+                        BackColor = splitContainer2.Panel1.BackColor,
+                        Visible = false
+                    };
                     splitContainer2.Panel1.Controls.Add(Seek_panels[i]);
                 }
             }
@@ -388,9 +398,9 @@ namespace Chief
             }
         }
 
-        public System.Windows.Forms.ImageList imagelib() { return imageList1; }
-        public System.Windows.Forms.Panel panel() { return this.splitContainer2.Panel1; }
-        public System.Windows.Forms.ToolStripProgressBar FuelBar() { return toolStripProgressBar1; }
+        public ImageList imagelib() { return imageList1; }
+        public Panel panel() { return this.splitContainer2.Panel1; }
+        public ToolStripProgressBar FuelBar() { return toolStripProgressBar1; }
         public Class_syb_acc DB_acc() { return SYB_acc; }
 
         private void tscbSelectDocs_SelectedIndexChanged(object sender, EventArgs e)
@@ -434,7 +444,7 @@ namespace Chief
             {
                 if (true_Moving())
                 {
-                    Morray = Structure.push_letter(false, tscExeTimer.Text, Find_ID_selecteDoc(), CBSigns.Text, from_moving());
+                    Morray = Structure.push_letter(false, tscExeTimer.Text, Find_ID_selecteDoc(), CBSigns.Text, From_moving());
                     if (Morray != null)
                     {
                         Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.add_taskToList(Morray);
@@ -462,7 +472,7 @@ namespace Chief
             {
                 if (true_Moving())
                 {
-                    Morray = Structure.push_viza(tscExeTimer.Text, Find_ID_selecteDoc(), from_moving());
+                    Morray = Structure.push_viza(tscExeTimer.Text, Find_ID_selecteDoc(), From_moving());
                     if (Morray != null)
                     {
                         Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.add_vizaToList(Morray);
@@ -527,15 +537,15 @@ namespace Chief
             return Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.Doc_id;
         }
 
-        private int from_moving()
+        private int From_moving()
         {
             return Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.From_moving;
         }
-        private int from_vizing()
+        private int From_vizing()
         {
             return Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.From_vizing;
         }
-        private int from_newing()
+        private int From_newing()
         {
             return Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.From_newing;
         }
@@ -550,7 +560,7 @@ namespace Chief
             try
             {
                 if (true_Moving())
-                    Morray = Structure.push_letter(false, tscExeTimer.Text, Find_ID_selecteDoc(), CBSigns.Text, from_moving());
+                    Morray = Structure.push_letter(false, tscExeTimer.Text, Find_ID_selecteDoc(), CBSigns.Text, From_moving());
                 if (Morray != null)
                     Period[tscbSelectDocs.SelectedIndex].DocsGroup.selectedDoc.add_taskToList(Morray);
                 else
@@ -626,9 +636,9 @@ namespace Chief
             panelNewDoc.BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            if (document_New == null) document_New = new AMASControlRegisters.Document_Viewer(SYB_acc, tvDocsTree.SelectedNode);
+            if (document_New == null) document_New = new Document_Viewer(SYB_acc, tvDocsTree.SelectedNode);
                 
             document_New.New_document = true;
             document_New.Doc_ID = 0;
@@ -641,7 +651,7 @@ namespace Chief
                 int parentDoc=0;
                 if (document_New.Sender > 0)
                     parentDoc = document_View.Doc_ID;
-                int document = AMAS_DBI.AMASCommand.Append_Indoor_document(KindBox.get_ident(), TemaBox.get_ident(), document_New.Annotation, parentDoc);
+                int document = AMAS_DBI.AMASCommand.Append_Indoor_document(KindBox.get_ident(), TemaBox.get_ident(), document_New.Annotation, parentDoc, From_pattern);
                 if (document > 0)
                 {
                     document_New.SaveDocument(document);
@@ -652,7 +662,7 @@ namespace Chief
             }
         }
 
-        private void btExit_Click(object sender, EventArgs e)
+        private void BtExit_Click(object sender, EventArgs e)
         {
             panelNewDoc.SendToBack();
         }
@@ -773,13 +783,13 @@ namespace Chief
             labelViza.Text = "Визирование документа № "+document_View.DocumentNumber;
         }
 
-        void listBoxfalse_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        void listBoxfalse_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             AMASCommand.Document_Vized((int)Convert.ToInt32(listBoxtrue.SelectedValue), false, document_View.Doc_ID, textBoxViza.Text.Trim());
             panelViza.SendToBack();
         }
 
-        void listBoxtrue_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        void listBoxtrue_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             AMASCommand.Document_Vized((int)Convert.ToInt32(listBoxtrue.SelectedValue), true, document_View.Doc_ID, textBoxViza.Text.Trim());
             panelViza.SendToBack();
@@ -806,12 +816,12 @@ namespace Chief
             }
         }
 
-        private void btAddFile_Click_1(object sender, EventArgs e)
+        private void BtAddFile_Click_1(object sender, EventArgs e)
         {
             if (document_New != null) document_New.File_Append();
         }
 
-        private void btRemFile_Click_1(object sender, EventArgs e)
+        private void BtRemFile_Click_1(object sender, EventArgs e)
         {
             if (document_New != null) document_New.File_Delete();
         }
@@ -827,15 +837,17 @@ namespace Chief
             treeViewGroups.BringToFront();
         }
 
-        private void btSave_Click_1(object sender, EventArgs e)
+        private void BtSave_Click_1(object sender, EventArgs e)
         {
             DocSave();
+            From_pattern = false;
         }
 
-        private void btExit_Click_1(object sender, EventArgs e)
+        private void BtExit_Click_1(object sender, EventArgs e)
         {
             panelNewDoc.SendToBack();
             document_New.New_document = false;
+            From_pattern = false;
         }
 
         private void tsForMail_Click(object sender, EventArgs e)
@@ -853,7 +865,7 @@ namespace Chief
                     int parentDoc = 0;
                     if (document_New.Sender > 0)
                         parentDoc = document_View.Doc_ID;
-                    int document = AMAS_DBI.AMASCommand.Append_Indoor_document(KindBox.get_ident(), TemaBox.get_ident(), document_New.Annotation, parentDoc);
+                    int document = AMAS_DBI.AMASCommand.Append_Indoor_document(KindBox.get_ident(), TemaBox.get_ident(), document_New.Annotation, parentDoc,false);
                     if (document > 0)
                     {
                         document_New.SaveDocument(document);
@@ -933,15 +945,16 @@ namespace Chief
             FindDocList.BringToFront();
         }
 
-        private void btEditor_Click(object sender, EventArgs e)
+        private void BtEditor_Click(object sender, EventArgs e)
         {
             document_New.Editor_append();
         }
 
-        private void btDot_Click(object sender, EventArgs e)
+        private void BtDot_Click(object sender, EventArgs e)
         {
             DocumentProcessing DoPr = new DocumentProcessing(SYB_acc, document_New);
             DoPr.AddDot(KindBox.get_ident(), TemaBox.get_ident());
+            From_pattern = true;
         }
 
         private void tsDenote_Click(object sender, EventArgs e)
@@ -1042,8 +1055,8 @@ namespace Chief
             }
         }
 
-        System.Windows.Forms.Form FindDeartmentOREmployee = null;
-        private void btnFindEmpDep_Click(object sender, EventArgs e)
+        Form FindDeartmentOREmployee = null;
+        private void BtnFindEmpDep_Click(object sender, EventArgs e)
         {
             if (FindDeartmentOREmployee == null)
                 FindDeartmentOREmployee = new FormSeekEmDep(Structure);
@@ -1067,14 +1080,14 @@ namespace Chief
         private int array_dimention = 0;
         private bool new_Address = false;
 
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         public string NewSignName = "";
         public string ResultErr = "";
         public Sign_ids Child = null;
-        public System.Windows.Forms.ComboBox SignBox;
+        public ComboBox SignBox;
 
-        public Sign_ids(System.Windows.Forms.ComboBox CBox)
+        public Sign_ids(ComboBox CBox)
         {
             SignBox = CBox;
             this.SignBox.Click += new EventHandler(this_SignBox_Click);
@@ -1087,15 +1100,15 @@ namespace Chief
 
         private void this_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Child != null) Child.clear();
+            if (Child != null) Child.Clear();
         }
 
         private void this_SignBox_Click(object sender, EventArgs e)
         {
-            cleanNewAddress();
+            CleanNewAddress();
         }
 
-        private void cleanNewAddress()
+        private void CleanNewAddress()
         {
             new_Address = false;
             textBuffer = "";
@@ -1135,7 +1148,7 @@ namespace Chief
             if (new_Address)
             {
                 NewSignName = SignBox.Text.Trim();
-                cleanNewAddress();
+                CleanNewAddress();
                 if (NewSignName.Length == 0)
                 {
                     //altSignName = new string[SignName.Length+1];
@@ -1146,7 +1159,7 @@ namespace Chief
             else NewSignName = "";
         }
 
-        private void this_SignBox_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void this_SignBox_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -1199,7 +1212,7 @@ namespace Chief
                         backtextBuffer = "";
                         textBuffer = SignBox.Text;
                         if (Child != null)
-                            Child.clear();
+                            Child.Clear();
                     }
                     break;
             }
@@ -1243,7 +1256,7 @@ namespace Chief
                     textBuffer = "";
                     SignBox.Text = "";
                     if (Child != null)
-                        Child.clear();
+                        Child.Clear();
                     break;
                 default:
                     if ((e.KeyChar >= " ".ToCharArray()[0] && e.KeyChar <= "z".ToCharArray()[0]) || (e.KeyChar >= "А".ToCharArray()[0] && e.KeyChar <= "я".ToCharArray()[0]))
@@ -1261,19 +1274,19 @@ namespace Chief
                             textBuffer = SignBox.Text + Convert.ToString(e.KeyChar); 
                             backtextBuffer = "";
                             if (Child != null)
-                                Child.clear();
+                                Child.Clear();
                         }
                     }
                     break;
             }
         }
 
-        public void connect(AMAS_DBI.Class_syb_acc Acc)
+        public void Connect(Class_syb_acc Acc)
         {
             AMASacc = Acc;
         }
 
-        private void add_ident(int indx, int idnt, string text)
+        private void Add_ident(int indx, int idnt, string text)
         {
             Ident[counter] = idnt;
             Index[counter] = indx;
@@ -1282,10 +1295,10 @@ namespace Chief
             current_number = counter;
         }
 
-        public void clear()
+        public void Clear()
         {
             counter = 0;
-            cleanNewAddress();
+            CleanNewAddress();
             NewSignName = "";
             new_Address = false;
             current_number = -1;
@@ -1296,7 +1309,7 @@ namespace Chief
                 SignBox.Refresh();
                 SignBox.Text = "";
             }
-            if (Child != null) Child.clear();
+            if (Child != null) Child.Clear();
         }
 
         public int get_ident()
@@ -1389,7 +1402,7 @@ namespace Chief
                 try
                 {
                     string OName = "";
-                    clear();
+                    Clear();
                     int ind = 0;
                     int id = 0;
                     array_dimention = AMASacc.Rows_count;
@@ -1408,7 +1421,7 @@ namespace Chief
                         else OName = "";
                         ind = SignBox.Items.Add(OName.Trim());
                         id = (int)AMASacc.Find_Field(ids);
-                        add_ident(ind, id, OName);
+                        Add_ident(ind, id, OName);
                     }
                     }
                 }

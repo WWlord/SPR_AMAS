@@ -40,7 +40,7 @@ namespace AMASDocuments
         private int ORG=0;
         private int AUTOR=0;
         private int MAN=0;
-        public ClassDocsItem.refer_NodeToDoc LastReferNodeToDoc = null;
+        public refer_NodeToDoc LastReferNodeToDoc = null;
 
         private int parent_viza = 0;
         private int parent_moving = 0;
@@ -109,14 +109,14 @@ namespace AMASDocuments
             }
         }
 
-        private System.Windows.Forms.TreeNode Node;
-        private System.Windows.Forms.TreeNode Parent_Node;
-        private System.Windows.Forms.ListView TVNListing = null;
+        private TreeNode Node;
+        private TreeNode Parent_Node;
+        private ListView TVNListing = null;
 
         public class refer_NodeToDoc
         {
             private  ClassDocsItem Doc = null;
-            private  System.Windows.Forms.TreeNode Node=null;
+            private TreeNode Node =null;
             private  refer_NodeToDoc next=null;
             private  refer_NodeToDoc prev=null;
             private  refer_NodeToDoc first=null;
@@ -124,9 +124,9 @@ namespace AMASDocuments
             public refer_NodeToDoc Get_Next { get { return next; } }
             public refer_NodeToDoc Get_Prev { get { return prev; } }
             public ClassDocsItem GetDoc { get { return Doc; } }
-            public System.Windows.Forms.TreeNode GetNode { get { return Node; } }
+            public TreeNode GetNode { get { return Node; } }
 
-            public refer_NodeToDoc(ClassDocsItem DC, TreeNode ND, ClassDocsItem.refer_NodeToDoc LastReferNodeToDoc)
+            public refer_NodeToDoc(ClassDocsItem DC, TreeNode ND, refer_NodeToDoc LastReferNodeToDoc)
             {
                 Node = ND;
                 ND.Tag = this;
@@ -143,8 +143,8 @@ namespace AMASDocuments
         }
 
         public refer_NodeToDoc NodeAtDOcument;
-        public System.Windows.Forms.TreeNode Doc_Node { get { return Node; } }
-        public System.Windows.Forms.TreeNode Parent_Doc_Node
+        public TreeNode Doc_Node { get { return Node; } }
+        public TreeNode Parent_Doc_Node
         {
             get { return Parent_Node; }
             set
@@ -226,8 +226,8 @@ namespace AMASDocuments
             private int Department = 0;
             public bool Viewing = false;
             private ClassDocsItem IssueDocument;
-            private System.Windows.Forms.TreeNode DocNode;
-            System.Windows.Forms.TreeNode Parent_Node;
+            private TreeNode DocNode;
+            TreeNode Parent_Node;
             private string degree_i_FIO = "";
             private int for_ = 0;
             private bool MainExec = false;
@@ -236,14 +236,14 @@ namespace AMASDocuments
             private int ImageIndex = AskAsTask;
             public int TASK_DocId;
 
-            public System.Windows.Forms.TreeNode Node
+            public TreeNode Node
             {
                 get { return Parent_Node; }
                 set
                 {
                     string prefix = "m";
                     Parent_Node = value;
-                    DocNode = new System.Windows.Forms.TreeNode();
+                    DocNode = new TreeNode();
                     if (IssueDocument != null) prefix = "x"; else prefix = "m";
                     DocNode.Name = prefix + (string)Convert.ToString(moving);
                     DocNode.ImageIndex = ImageIndex;
@@ -272,7 +272,7 @@ namespace AMASDocuments
             public int Task_For { get { return for_; } set { for_ = value; } }
             public DateTime Task_executed { get { return executed; } set { executed = value; } }
             public ClassDocsItem TASK_IssueDocument { get { return IssueDocument; } }
-            public System.Windows.Forms.TreeNode TASK_DocNode { get { return DocNode; } }
+            public TreeNode TASK_DocNode { get { return DocNode; } }
             public bool Task_MainExecutor { get { return MainExec; } set { MainExec = value; } }
 
             public int TASK_IssueDocId
@@ -312,10 +312,10 @@ namespace AMASDocuments
             {
                 string sql;
                 int cc = 0;
-                AMAS_DBI.Class_syb_acc.PrepareParameters[] pD = new Class_syb_acc.PrepareParameters[1];
+                Class_syb_acc.PrepareParameters[] pD = new Class_syb_acc.PrepareParameters[1];
                 try
                 {
-                    pD[0] = new AMAS_DBI.Class_syb_acc.PrepareParameters("@executed", SqlDbType.DateTime, executed);
+                    pD[0] = new Class_syb_acc.PrepareParameters("@executed", SqlDbType.DateTime, executed);
                 }
                 catch
                 {
@@ -440,8 +440,8 @@ namespace AMASDocuments
             private string viza_denote;
             private int Employee;
             private int Department;
-            private System.Windows.Forms.TreeNode DocNode;
-            System.Windows.Forms.TreeNode Parent_Node;
+            private TreeNode DocNode;
+            TreeNode Parent_Node;
             private string degree_i_FIO;
             private int for_ = 0;
             private Class_syb_acc SybAcc;
@@ -449,15 +449,17 @@ namespace AMASDocuments
 
             public int Viza_DocId;
 
-            public System.Windows.Forms.TreeNode Node
+            public TreeNode Node
             {
                 get { return Parent_Node; }
                 set
                 {
                     Parent_Node = value;
-                    DocNode = new System.Windows.Forms.TreeNode();
-                    DocNode.Name = "v" + (string)Convert.ToString(vizing);
-                    DocNode.ImageIndex = ImageIndex;
+                    DocNode = new TreeNode
+                    {
+                        Name = "v" + (string)Convert.ToString(vizing),
+                        ImageIndex = ImageIndex
+                    };
                     Parent_Node.Nodes.Add(DocNode);
                     DocNode.Text = degree_i_FIO;
                 }
@@ -499,7 +501,7 @@ namespace AMASDocuments
             public DateTime Viza_start { get { return start; } set { start = value; } }
             public DateTime Viza_finish { get { return finish; } set { finish = value; } }
             public DateTime Viza_executed { get { return executed; } set { executed = value; } }
-            public System.Windows.Forms.TreeNode Viza_DocNode { get { return DocNode; } set { DocNode = value; } }
+            public TreeNode Viza_DocNode { get { return DocNode; } set { DocNode = value; } }
 
             public string Viza_degree_i_FIO { get { return degree_i_FIO; } }
 
@@ -580,22 +582,24 @@ namespace AMASDocuments
             private int Employee;
             private int Department;
             public bool Newed = false;
-            private System.Windows.Forms.TreeNode DocNode;
-            System.Windows.Forms.TreeNode Parent_Node;
+            private TreeNode DocNode;
+            TreeNode Parent_Node;
             public string degree_i_FIO;
             private int for_ = 0;
             private Class_syb_acc SybAcc;
             private int ImageIndex = AskAsNews;
 
-            public System.Windows.Forms.TreeNode Node
+            public TreeNode Node
             {
                 get { return Parent_Node; }
                 set
                 {
                     Parent_Node = value;
-                    DocNode = new System.Windows.Forms.TreeNode();
-                    DocNode.Name = "n" + (string)Convert.ToString(news);
-                    DocNode.ImageIndex = ImageIndex;
+                    DocNode = new TreeNode
+                    {
+                        Name = "n" + (string)Convert.ToString(news),
+                        ImageIndex = ImageIndex
+                    };
                     Parent_Node.Nodes.Add(DocNode);
                     DocNode.Text = degree_i_FIO;
                 }
@@ -642,7 +646,7 @@ namespace AMASDocuments
 
         }
 
-        public ClassDocsItem(Class_syb_acc DB, System.Windows.Forms.TreeNode ND, ClassDocsItem.refer_NodeToDoc LRND)
+        public ClassDocsItem(Class_syb_acc DB, TreeNode ND, refer_NodeToDoc LRND)
         {
             SybAcc = DB;
             LastReferNodeToDoc = LRND;
@@ -661,7 +665,7 @@ namespace AMASDocuments
             //DocContent = new Document_content(DocID, DB);
         }
 
-        public ClassDocsItem(Class_syb_acc DB, ClassDocsItem.refer_NodeToDoc LRND)
+        public ClassDocsItem(Class_syb_acc DB, refer_NodeToDoc LRND)
         {
             SybAcc = DB;
             LastReferNodeToDoc = LRND;
@@ -696,7 +700,7 @@ namespace AMASDocuments
             catch { Newed = false; }
         }
 
-        public void Locate_Node(System.Windows.Forms.TreeNode ND)
+        public void Locate_Node(TreeNode ND)
         {
             if (ND != null)
             {
@@ -1056,7 +1060,7 @@ namespace AMASDocuments
             else return "task";
         }
 
-        public void ListTasks(System.Windows.Forms.ListView Listing, int DId)
+        public void ListTasks(ListView Listing, int DId)
         {
             DocTask[] Tsklist = null;
             if (Listing != null)
@@ -1104,7 +1108,7 @@ namespace AMASDocuments
 
             DocViza[] Vizlist = null;
             
-        public void ListVisa(System.Windows.Forms.ListView Listing, int DId)
+        public void ListVisa(ListView Listing, int DId)
         {
             string IMGKey = "Viza";
             if (Listing != null)
@@ -1178,7 +1182,7 @@ namespace AMASDocuments
             return res;
         }
 
-        public void ListNews(System.Windows.Forms.ListView Listing, int DId)
+        public void ListNews(ListView Listing, int DId)
         {
                         
             DocNew[] Newslist = null;
@@ -1348,7 +1352,7 @@ namespace AMASDocuments
         }
     }
 
-    public class AMAS_Node : System.Windows.Forms.TreeNode
+    public class AMAS_Node : TreeNode
     {
         public ClassDocsItem AMAS_Doc;
         public AMAS_Node(ClassDocsItem document)

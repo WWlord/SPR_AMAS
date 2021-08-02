@@ -24,14 +24,14 @@ namespace Chief
         private AMAS_DBI.Class_syb_acc AMASacc;
         private AppendDocument AppDocs = null;
         public DocsOfPeriod[] Period;
-        private System.Windows.Forms.Panel[] Seek_panels;
-        private ClassStructure.Structure Structure;
+        private Panel[] Seek_panels;
+        private Structure Structure;
         AMAS_Query.Workflowdoc Select_docs;
         public int ModuleId;
         private ChefSettings frmSettings1 = new ChefSettings();
-        private AMASControlRegisters.ContragentRegister contragentRegistering;
+        private ContragentRegister contragentRegistering;
 
-        TwainGui.TwainFrame PicterShow = null;
+        ScannerDemo.ScanningForm PicterShow = null;
 
         Pattern_ids ClueBox;
         Pattern_ids FolderBox;
@@ -43,51 +43,51 @@ namespace Chief
         private int form_wight = 0;
         private int form_height = 0;
 
-        private AMASControlRegisters.Document_Viewer document_New;
-        private AMASControlRegisters.Document_Viewer document_Show;
-        private AMASControlRegisters.JuridicRegister juridicRegister1;
-        private AMASControlRegisters.PeopleRegister peopleRegister1;
+        private Document_Viewer document_New;
+        private Document_Viewer document_Show;
+        private JuridicRegister juridicRegister1;
+        private PeopleRegister peopleRegister1;
 
         public Registration_in(AMAS_DBI.Class_syb_acc ACC, ImageList ImageStd)
         {
             InitializeComponent();
             AMASacc = ACC;
 
-            peopleRegister1 = new AMASControlRegisters.PeopleRegister();
+            peopleRegister1 = new PeopleRegister();
             this.tabPage1.Controls.Add(this.peopleRegister1);
             // 
             // peopleRegister1
             // 
             this.peopleRegister1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.peopleRegister1.Location = new System.Drawing.Point(3, 3);
+            this.peopleRegister1.Location = new Point(3, 3);
             this.peopleRegister1.Name = "peopleRegister1";
-            this.peopleRegister1.Size = new System.Drawing.Size(611, 216);
+            this.peopleRegister1.Size = new Size(611, 216);
             this.peopleRegister1.TabIndex = 0;
 
-            juridicRegister1 = new AMASControlRegisters.JuridicRegister();
+            juridicRegister1 = new JuridicRegister();
             this.tabPage2.Controls.Add(this.juridicRegister1);
             // 
             // juridicRegister1
             // 
             this.juridicRegister1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.juridicRegister1.Location = new System.Drawing.Point(3, 3);
+            this.juridicRegister1.Location = new Point(3, 3);
             this.juridicRegister1.Name = "juridicRegister1";
-            this.juridicRegister1.Size = new System.Drawing.Size(611, 216);
+            this.juridicRegister1.Size = new Size(611, 216);
             this.juridicRegister1.TabIndex = 0;
 
             peopleRegister1.connect(ACC);
             juridicRegister1.connect(ACC);
 
-            this.contragentRegistering = new AMASControlRegisters.ContragentRegister();
+            this.contragentRegistering = new ContragentRegister();
             this.tabPage4.Controls.Add(this.contragentRegistering);
             // 
             // contragentRegistering
             // 
             this.contragentRegistering.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contragentRegistering.Document = 0;
-            this.contragentRegistering.Location = new System.Drawing.Point(0, 0);
+            this.contragentRegistering.Location = new Point(0, 0);
             this.contragentRegistering.Name = "contragentRegistering";
-            this.contragentRegistering.Size = new System.Drawing.Size(631, 534);
+            this.contragentRegistering.Size = new Size(631, 534);
             this.contragentRegistering.TabIndex = 0;
             contragentRegistering.connect(ACC);
 
@@ -117,32 +117,36 @@ namespace Chief
             form_wight = this.Width;
             form_height = this.Height;
 
-            this.document_New = new AMASControlRegisters.Document_Viewer(AMASacc, null);
-            // 
-            // document_New
-            // 
-            this.document_New.Doc_ID = 0;
-            this.document_New.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_New.Location = new System.Drawing.Point(0, 0);
-            this.document_New.Name = "document_New";
-            this.document_New.New_document = true;
-            this.document_New.Sender = 0;
-            this.document_New.Size = new System.Drawing.Size(622, 355);
-            this.document_New.TabIndex = 0;
+            this.document_New = new Document_Viewer(AMASacc, null)
+            {
+                // 
+                // document_New
+                // 
+                Doc_ID = 0,
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "document_New",
+                New_document = true,
+                Sender = 0,
+                Size = new Size(622, 355),
+                TabIndex = 0
+            };
             this.tabPage6.Controls.Add(this.document_New);
 
-            this.document_Show = new AMASControlRegisters.Document_Viewer(AMASacc, null);
-            // 
-            // document_Show
-            // 
-            this.document_Show.Doc_ID = 0;
-            this.document_Show.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_Show.Location = new System.Drawing.Point(0, 0);
-            this.document_Show.Name = "document_Show";
-            this.document_Show.New_document = false;
-            this.document_Show.Sender = 0;
-            this.document_Show.Size = new System.Drawing.Size(416, 521);
-            this.document_Show.TabIndex = 3;
+            this.document_Show = new Document_Viewer(AMASacc, null)
+            {
+                // 
+                // document_Show
+                // 
+                Doc_ID = 0,
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "document_Show",
+                New_document = false,
+                Sender = 0,
+                Size = new Size(416, 521),
+                TabIndex = 3
+            };
             this.splitContainer1.Panel2.Controls.Add(this.document_Show);
 
             this.monthCalendarExe.DateSelected += new DateRangeEventHandler(monthCalendarExe_DateSelected);
@@ -262,10 +266,12 @@ namespace Chief
             for (int i = 0; i < Select_docs.DS_cnt; i++)
             {
                 listViewDocs.Items.Add(Select_docs.DocSeek[i].desc);
-                Seek_panels[i] = new Panel();
-                Seek_panels[i].Dock = DockStyle.Fill;
-                Seek_panels[i].BackColor = splitContainer2.Panel1.BackColor;
-                Seek_panels[i].Visible = false;
+                Seek_panels[i] = new Panel
+                {
+                    Dock = DockStyle.Fill,
+                    BackColor = splitContainer2.Panel1.BackColor,
+                    Visible = false
+                };
                 splitContainer2.Panel1.Controls.Add(Seek_panels[i]);
             }
             Period = new DocsOfPeriod[Select_docs.DS_cnt];
@@ -284,9 +290,9 @@ namespace Chief
             TsEdDelFile.Visible = false;
         }
 
-        public System.Windows.Forms.ImageList imagelib() { return imageList1; }
-        public System.Windows.Forms.Panel panel() { return this.splitContainer2.Panel1; }
-        public System.Windows.Forms.ToolStripProgressBar FuelBar() { return null; }
+        public ImageList imagelib() { return imageList1; }
+        public Panel panel() { return this.splitContainer2.Panel1; }
+        public ToolStripProgressBar FuelBar() { return null; }
         public AMAS_DBI.Class_syb_acc DB_acc() { return AMASacc; }
 
         private void listViewDocs_SelectedIndexChanged(object sender, EventArgs e)
@@ -356,76 +362,76 @@ namespace Chief
             {
                 private AMAS_DBI.Class_syb_acc AMASacc;
 
-                private System.Windows.Forms.Label labelComing;
-                private System.Windows.Forms.Label labelTema;
-                private System.Windows.Forms.Label labelKind;
-                public System.Windows.Forms.ComboBox comboBoxComing;
-                public System.Windows.Forms.ComboBox comboBoxTema;
-                public System.Windows.Forms.ComboBox comboBoxKind;
+                private Label labelComing;
+                private Label labelTema;
+                private Label labelKind;
+                public ComboBox comboBoxComing;
+                public ComboBox comboBoxTema;
+                public ComboBox comboBoxKind;
 
                 public DocAttribute_list(AMAS_DBI.Class_syb_acc ACC, Control control)
                 {
                     AMASacc = ACC;
 
-                    this.comboBoxKind = new System.Windows.Forms.ComboBox();
-                    this.comboBoxTema = new System.Windows.Forms.ComboBox();
-                    this.comboBoxComing = new System.Windows.Forms.ComboBox();
-                    this.labelKind = new System.Windows.Forms.Label();
-                    this.labelTema = new System.Windows.Forms.Label();
-                    this.labelComing = new System.Windows.Forms.Label();
+                    this.comboBoxKind = new ComboBox();
+                    this.comboBoxTema = new ComboBox();
+                    this.comboBoxComing = new ComboBox();
+                    this.labelKind = new Label();
+                    this.labelTema = new Label();
+                    this.labelComing = new Label();
 
                     // 
                     // comboBoxKind
                     // 
                     this.comboBoxKind.FormattingEnabled = true;
-                    this.comboBoxKind.Location = new System.Drawing.Point(70, 19);
+                    this.comboBoxKind.Location = new Point(70, 19);
                     this.comboBoxKind.Name = "comboBoxKind";
-                    this.comboBoxKind.Size = new System.Drawing.Size(253, 21);
+                    this.comboBoxKind.Size = new Size(253, 21);
                     this.comboBoxKind.TabIndex = 1;
                     SetFont(comboBoxKind);
                     // 
                     // comboBoxTema
                     // 
                     this.comboBoxTema.FormattingEnabled = true;
-                    this.comboBoxTema.Location = new System.Drawing.Point(70, 46);
+                    this.comboBoxTema.Location = new Point(70, 46);
                     this.comboBoxTema.Name = "comboBoxTema";
-                    this.comboBoxTema.Size = new System.Drawing.Size(253, 21);
+                    this.comboBoxTema.Size = new Size(253, 21);
                     this.comboBoxTema.TabIndex = 2;
                     SetFont(comboBoxTema);
                     // 
                     // comboBoxComing
                     // 
                     this.comboBoxComing.FormattingEnabled = true;
-                    this.comboBoxComing.Location = new System.Drawing.Point(70, 73);
+                    this.comboBoxComing.Location = new Point(70, 73);
                     this.comboBoxComing.Name = "comboBoxComing";
-                    this.comboBoxComing.Size = new System.Drawing.Size(253, 21);
+                    this.comboBoxComing.Size = new Size(253, 21);
                     this.comboBoxComing.TabIndex = 3;
                     SetFont(comboBoxComing);
                     // 
                     // labelKind
                     // 
                     this.labelKind.AutoSize = true;
-                    this.labelKind.Location = new System.Drawing.Point(6, 19);
+                    this.labelKind.Location = new Point(6, 19);
                     this.labelKind.Name = "labelKind";
-                    this.labelKind.Size = new System.Drawing.Size(58, 13);
+                    this.labelKind.Size = new Size(58, 13);
                     this.labelKind.TabIndex = 5;
                     this.labelKind.Text = "Документ";
                     // 
                     // labelTema
                     // 
                     this.labelTema.AutoSize = true;
-                    this.labelTema.Location = new System.Drawing.Point(6, 46);
+                    this.labelTema.Location = new Point(6, 46);
                     this.labelTema.Name = "labelTema";
-                    this.labelTema.Size = new System.Drawing.Size(34, 13);
+                    this.labelTema.Size = new Size(34, 13);
                     this.labelTema.TabIndex = 6;
                     this.labelTema.Text = "Тема";
                     // 
                     // labelComing
                     // 
                     this.labelComing.AutoSize = true;
-                    this.labelComing.Location = new System.Drawing.Point(6, 73);
+                    this.labelComing.Location = new Point(6, 73);
                     this.labelComing.Name = "labelComing";
-                    this.labelComing.Size = new System.Drawing.Size(57, 13);
+                    this.labelComing.Size = new Size(57, 13);
                     this.labelComing.TabIndex = 7;
                     this.labelComing.Text = "Доставка";
 
@@ -466,7 +472,7 @@ namespace Chief
                     comboBoxComing.Items.Clear();
                     string name = "";
                     int id = -1;
-                    if (AMASacc.Set_table("TRiN1", AMAS_Query.Class_AMAS_Query.Wflow_kinds(), null))
+                    if (AMASacc.Set_table("TRiN1", AMAS_Query.Class_AMAS_Query.Wellcome_kinds(), null))
                     {
                         try
                         {
@@ -921,12 +927,12 @@ namespace Chief
         {
             try
             {
-                PicterShow = new TwainGui.TwainFrame();
+                PicterShow = new ScannerDemo.ScanningForm();
                 if (AMASacc.ScanDirectory != null)
                     if (AMASacc.ScanDirectory.Length > 0)
                         PicterShow.SetScanDir(AMASacc.ScanDirectory);
                 PicterShow.Show();
-                PicterShow.Scanned += new TwainGui.TwainFrame.ScanDoc(PicterShow_Scanned);
+                //PicterShow.Scanned += new TwainGui.TwainFrame.ScanDoc(PicterShow_Scanned);
             }
             catch
             {
@@ -1037,9 +1043,9 @@ namespace Chief
         public string NewPatternName = "";
         public string ResultErr = "";
         public Pattern_ids Child = null;
-        public System.Windows.Forms.ComboBox PatternBox;
+        public ComboBox PatternBox;
 
-        public Pattern_ids(System.Windows.Forms.ComboBox CBox)
+        public Pattern_ids(ComboBox CBox)
         {
             PatternBox = CBox;
             this.PatternBox.Click += new EventHandler(this_PatternBox_Click);
@@ -1092,7 +1098,7 @@ namespace Chief
             }
             else NewPatternName = "";
         }
-        private void this_PatternBox_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void this_PatternBox_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

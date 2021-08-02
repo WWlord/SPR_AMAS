@@ -9,7 +9,6 @@ using System.Text;
 using System.Windows.Forms;
 using ClassPattern;
 using CommonValues;
-using TwainGui;
 using ClassStructure;
 
 namespace Chief
@@ -35,24 +34,32 @@ namespace Chief
             buttonContent.BackColor = Color.Gray;
             buttonSave.BackColor = Color.Gray;
 
+            RefreshSet();
+
             document_Show = new AMASControlRegisters.Document_Viewer(AMASacc, null);
             // 
             // document_Show
             // 
             this.document_Show.Doc_ID = 0;
             this.document_Show.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.document_Show.Location = new System.Drawing.Point(0, 0);
+            this.document_Show.Location = new Point(0, 0);
             this.document_Show.Name = "document_Show";
             this.document_Show.New_document = false;
             this.document_Show.Sender = 0;
-            this.document_Show.Size = new System.Drawing.Size(416, 521);
+            this.document_Show.Size = new Size(416, 521);
             this.document_Show.TabIndex = 3;
             this.splitContainer1.Panel2.Controls.Add(this.document_Show);
 
             listViewNewDocs.View = View.Details;
             listViewNewDocs.SelectedIndexChanged+=new EventHandler(listViewNewDocs_SelectedIndexChanged);
+            cbKindDoc.SelectedIndexChanged += CbKindDoc_SelectedIndexChanged;
             Refresh();
        }
+
+        private void CbKindDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Select_Temy();
+        }
 
         ArrayList Kinds_list = null;
         ArrayList Tema_list = null;
@@ -60,7 +67,9 @@ namespace Chief
         ArrayList Employees_list = null;
         private bool SelectTema = true;
 
-        private void Refresh()
+//#pragma warning disable CS0114 // „лен скрывает унаследованный член: отсутствует ключевое слово переопределени€
+        private void RefreshSet()
+//#pragma warning restore CS0114 // „лен скрывает унаследованный член: отсутствует ключевое слово переопределени€
         {
             Kinds_list = new ArrayList();
             Coming_list = new ArrayList();
@@ -70,7 +79,7 @@ namespace Chief
             cbComingdoc.Items.Clear();
             string name = "";
             int id = -1;
-            if (AMASacc.Set_table("TRiN1", AMAS_Query.Class_AMAS_Query.Wflow_kinds(), null))
+            if (AMASacc.Set_table("TRiN1", AMAS_Query.Class_AMAS_Query.Wellcome_kinds(), null))
             {
                 try
                 {
@@ -373,16 +382,16 @@ namespace Chief
         private void tsbScanning_Click_1(object sender, EventArgs e)
         {
             if (ScanPicters == null)
-                ScanPicters = new TwainFrame();
+                ScanPicters = new ScannerDemo.ScanningForm();
             ScanPicters.Show();
             if (!Scanning)
             {
-                ScanPicters.Scanned += new TwainFrame.ScanDoc(ScanPicters_Scanned);
+                //ScanPicters.Scanned += new TwainFrame.ScanDoc(ScanPicters_Scanned);
                 Scanning = true;
             }
         }
 
-        TwainGui.TwainFrame ScanPicters = null;
+        ScannerDemo.ScanningForm  ScanPicters = null;
         bool Scanning = false;
 
         void ScanPicters_Scanned(string Filename)

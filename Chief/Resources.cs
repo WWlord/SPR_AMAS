@@ -17,7 +17,7 @@ namespace Chief
 {
     public partial class Resources : Form
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
         private ListOfAny ArchiveList;
         private ListOfAny KindList;
         private ListOfAny TemaList;
@@ -35,14 +35,14 @@ namespace Chief
         private PrefixSuffix SuffixToTema;
         private PrefixSuffix SuffixForTemaJournal;
 
-        private ClassPattern.FIleSystemShow FSS;
+        private FIleSystemShow FSS;
 
         private TemaForKind KndTm;
         private MultiSendKind MSK;
         public int ModuleId;
 
 
-        public Resources(AMAS_DBI.Class_syb_acc ACC, ImageList ImageStd)
+        public Resources(Class_syb_acc ACC, ImageList ImageStd)
         {
             InitializeComponent();
             AMASacc = ACC;
@@ -177,7 +177,7 @@ namespace Chief
             if (Id >= 0)
                 try
                 {
-                    CommonValues.CommonClass.Arraysheet ASh = (CommonClass.Arraysheet)KindList.RList[Id];
+                    CommonClass.Arraysheet ASh = (CommonClass.Arraysheet)KindList.RList[Id];
                     int WellInOut = AMASCommand.CorrespondenTyp((int)Convert.ToInt32(ASh.Id));
                     switch (WellInOut)
                     {
@@ -241,18 +241,18 @@ namespace Chief
                 get { return listResolutions; }
             }
 
-            private System.Windows.Forms.GroupBox groupBox1;
-            private System.Windows.Forms.GroupBox groupBoxNewResolution;
-            private System.Windows.Forms.ListBox listResolutions;
-            private System.Windows.Forms.TextBox Resolution;
-            private System.Windows.Forms.Label AddResolution;
-            private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private GroupBox groupBox1;
+            private GroupBox groupBoxNewResolution;
+            private ListBox listResolutions;
+            private TextBox Resolution;
+            private Label AddResolution;
+            private ContextMenuStrip contextMenuStrip1;
+            private Class_syb_acc AMASacc;
 
-            System.Windows.Forms.ToolStripMenuItem add;
-            System.Windows.Forms.ToolStripMenuItem del;
-            System.Windows.Forms.ToolStripMenuItem ren;
-            System.Windows.Forms.ToolStripMenuItem loc;
+            ToolStripMenuItem add;
+            ToolStripMenuItem del;
+            ToolStripMenuItem ren;
+            ToolStripMenuItem loc;
 
             public ArrayList RList;
 
@@ -262,12 +262,12 @@ namespace Chief
             {
                 AMASacc = ACC;
                 EnumListing = deck;
-                this.groupBox1 = new System.Windows.Forms.GroupBox();
-                this.groupBoxNewResolution = new System.Windows.Forms.GroupBox();
-                this.listResolutions = new System.Windows.Forms.ListBox();
-                this.Resolution = new System.Windows.Forms.TextBox();
+                this.groupBox1 = new GroupBox();
+                this.groupBoxNewResolution = new GroupBox();
+                this.listResolutions = new ListBox();
+                this.Resolution = new TextBox();
                 this.groupBox1.SuspendLayout();
-                this.AddResolution = new System.Windows.Forms.Label();
+                this.AddResolution = new Label();
                 ParentControl.Controls.Add(this.groupBox1);
                 // 
                 // groupBox1
@@ -275,9 +275,9 @@ namespace Chief
                 this.groupBox1.Controls.Add(this.groupBoxNewResolution);
                 this.groupBox1.Controls.Add(this.listResolutions);
                 this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.groupBox1.Location = new System.Drawing.Point(0, 0);
+                this.groupBox1.Location = new Point(0, 0);
                 this.groupBox1.Name = "groupBox1";
-                this.groupBox1.Size = new System.Drawing.Size(543, 261);
+                this.groupBox1.Size = new Size(543, 261);
                 this.groupBox1.TabIndex = 0;
                 this.groupBox1.TabStop = false;
                 this.groupBox1.Text = TEXT;
@@ -286,9 +286,9 @@ namespace Chief
                 // 
                 this.listResolutions.Dock = System.Windows.Forms.DockStyle.Top;
                 this.listResolutions.FormattingEnabled = true;
-                this.listResolutions.Location = new System.Drawing.Point(3, 16);
+                this.listResolutions.Location = new Point(3, 16);
                 this.listResolutions.Name = "listResolutions";
-                this.listResolutions.Size = new System.Drawing.Size(537, 225);
+                this.listResolutions.Size = new Size(537, 225);
                 this.listResolutions.TabIndex = 1;
                 // 
                 // groupBoxNewResolution
@@ -296,26 +296,26 @@ namespace Chief
                 this.groupBoxNewResolution.Controls.Add(this.Resolution);
                 this.groupBoxNewResolution.Controls.Add(this.AddResolution);
                 this.groupBoxNewResolution.Dock = System.Windows.Forms.DockStyle.Bottom;
-                this.groupBoxNewResolution.Location = new System.Drawing.Point(0, 0);
+                this.groupBoxNewResolution.Location = new Point(0, 0);
                 this.groupBoxNewResolution.Name = "groupBoxNewResolution";
-                this.groupBoxNewResolution.Size = new System.Drawing.Size(543, 45);
+                this.groupBoxNewResolution.Size = new Size(543, 45);
                 this.groupBoxNewResolution.TabIndex = 2;
                 this.groupBoxNewResolution.TabStop = false;
                 // Label AddResolution
                 // 
                 this.AddResolution.Dock = System.Windows.Forms.DockStyle.Left;
-                this.AddResolution.Location = new System.Drawing.Point(0, 0);
+                this.AddResolution.Location = new Point(0, 0);
                 this.AddResolution.Name = "AddResolution";
-                this.AddResolution.Size = new System.Drawing.Size(60, 20);
+                this.AddResolution.Size = new Size(60, 20);
                 this.AddResolution.Text = "Добавить";
                 this.AddResolution.TabIndex = 3;
                 // 
                 // Resolution
                 // 
                 this.Resolution.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.Resolution.Location = new System.Drawing.Point(33, 0);
+                this.Resolution.Location = new Point(33, 0);
                 this.Resolution.Name = "Resolution";
-                this.Resolution.Size = new System.Drawing.Size(20, 20);
+                this.Resolution.Size = new Size(20, 20);
                 this.Resolution.Enabled = true;
                 this.Resolution.TabIndex = 4;
                 this.groupBox1.ResumeLayout(false);
@@ -323,13 +323,13 @@ namespace Chief
                 //
                 // Menu
                 //
-                this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+                this.contextMenuStrip1 = new ContextMenuStrip();
                 this.contextMenuStrip1.SuspendLayout();
-                this.add = new System.Windows.Forms.ToolStripMenuItem();
-                this.del = new System.Windows.Forms.ToolStripMenuItem();
-                this.ren = new System.Windows.Forms.ToolStripMenuItem();
-                this.loc = new System.Windows.Forms.ToolStripMenuItem();
-                this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.add = new ToolStripMenuItem();
+                this.del = new ToolStripMenuItem();
+                this.ren = new ToolStripMenuItem();
+                this.loc = new ToolStripMenuItem();
+                this.contextMenuStrip1.Items.AddRange(new ToolStripItem[] {
                     //this.add,
                     this.del,
                     this.ren
@@ -337,30 +337,30 @@ namespace Chief
                     //this.loc
                 });
                 this.contextMenuStrip1.Name = "contextMenuStrip1";
-                this.contextMenuStrip1.Size = new System.Drawing.Size(224, 92);
+                this.contextMenuStrip1.Size = new Size(224, 92);
                 // 
                 // add
                 // 
                 this.add.Name = "add";
-                this.add.Size = new System.Drawing.Size(223, 22);
+                this.add.Size = new Size(223, 22);
                 this.add.Text = "Добавить";
                 // 
                 // del
                 // 
                 this.del.Name = "del";
-                this.del.Size = new System.Drawing.Size(223, 22);
+                this.del.Size = new Size(223, 22);
                 this.del.Text = "Удалить";
                 // 
                 // ren
                 // 
                 this.ren.Name = "ren";
-                this.ren.Size = new System.Drawing.Size(223, 22);
+                this.ren.Size = new Size(223, 22);
                 this.ren.Text = "Обновить список";
                 // 
                 // loc
                 // 
                 this.loc.Name = "loc";
-                this.loc.Size = new System.Drawing.Size(223, 22);
+                this.loc.Size = new Size(223, 22);
                 this.loc.Text = "Назначить";
 
                 this.listResolutions.ContextMenuStrip = this.contextMenuStrip1;
@@ -470,10 +470,10 @@ namespace Chief
 
         private class AssignList
         {
-            private ClassStructure.Structure StructWithDegree;
-            private System.Windows.Forms.SplitContainer splitContain;
-            private System.Windows.Forms.TreeView treeViewAll;
-            private System.Windows.Forms.ListView listViewS;
+            private Structure StructWithDegree;
+            private SplitContainer splitContain;
+            private TreeView treeViewAll;
+            private ListView listViewS;
 
             private int enumerate = 0;
             private int Degree_ID = 0;
@@ -486,9 +486,9 @@ namespace Chief
             public AssignList(Class_syb_acc SYB, int deck, Control control)
             {
                 enumerate = deck;
-                splitContain = new System.Windows.Forms.SplitContainer();
-                treeViewAll = new System.Windows.Forms.TreeView();
-                listViewS = new System.Windows.Forms.ListView();
+                splitContain = new SplitContainer();
+                treeViewAll = new TreeView();
+                listViewS = new ListView();
                 StructWithDegree = new Structure(SYB, treeViewAll);
 
                 control.Controls.Add(this.splitContain);
@@ -500,7 +500,7 @@ namespace Chief
                 // splitContain
                 // 
                 this.splitContain.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.splitContain.Location = new System.Drawing.Point(0, 0);
+                this.splitContain.Location = new Point(0, 0);
                 this.splitContain.Name = "splitContain";
                 // 
                 // splitContain.Panel1
@@ -510,14 +510,14 @@ namespace Chief
                 // splitContain.Panel2
                 // 
                 this.splitContain.Panel2.Controls.Add(this.listViewS);
-                this.splitContain.Size = new System.Drawing.Size(543, 261);
+                this.splitContain.Size = new Size(543, 261);
                 this.splitContain.SplitterDistance = 219;
                 this.splitContain.TabIndex = 0;
                 // 
                 // treeViewAll
                 // 
                 this.treeViewAll.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.treeViewAll.Location = new System.Drawing.Point(0, 0);
+                this.treeViewAll.Location = new Point(0, 0);
                 this.treeViewAll.Name = "treeViewAll";
                 this.treeViewAll.Size = //new System.Drawing.Size(219, 261);
                     this.splitContain.Panel1.ClientSize;
@@ -527,7 +527,7 @@ namespace Chief
                 // 
                 this.listViewS.CheckBoxes = true;
                 this.listViewS.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.listViewS.Location = new System.Drawing.Point(0, 0);
+                this.listViewS.Location = new Point(0, 0);
                 this.listViewS.Name = "listViewS";
                 this.listViewS.Size = //new System.Drawing.Size(320, 261);
                     this.splitContain.Panel2.ClientSize;
@@ -612,10 +612,10 @@ namespace Chief
         }
         private class PrefixSuffix
         {
-            private System.Windows.Forms.SplitContainer splitContainerPS;
-            public System.Windows.Forms.ListBox listBoxPS;
-            private System.Windows.Forms.ListView listViewPS;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private SplitContainer splitContainerPS;
+            public ListBox listBoxPS;
+            private ListView listViewPS;
+            private Class_syb_acc AMASacc;
 
             private bool check_role_enable = false;
             private int enumerate = 0;
@@ -627,7 +627,7 @@ namespace Chief
             {
                 AMASacc = Acc;
                 enumerate = enumer;
-                this.listViewPS = new System.Windows.Forms.ListView();
+                this.listViewPS = new ListView();
 
 
                 // 
@@ -638,7 +638,7 @@ namespace Chief
                 // listViewPS
                 // 
                 this.listViewPS.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.listViewPS.Location = new System.Drawing.Point(0, 0);
+                this.listViewPS.Location = new Point(0, 0);
                 this.listViewPS.Name = "listViewPS" + enumer.ToString();
                 this.listViewPS.TabIndex = 0;
                 this.listViewPS.UseCompatibleStateImageBehavior = false;
@@ -659,9 +659,9 @@ namespace Chief
             {
                 AMASacc = Acc;
                 enumerate = enumer;
-                this.splitContainerPS = new System.Windows.Forms.SplitContainer();
-                this.listBoxPS = new System.Windows.Forms.ListBox();
-                this.listViewPS = new System.Windows.Forms.ListView();
+                this.splitContainerPS = new SplitContainer();
+                this.listBoxPS = new ListBox();
+                this.listViewPS = new ListView();
                 this.splitContainerPS.Panel1.SuspendLayout();
                 this.splitContainerPS.Panel2.SuspendLayout();
                 this.splitContainerPS.SuspendLayout();
@@ -672,7 +672,7 @@ namespace Chief
                 // splitContainerPS
                 // 
                 this.splitContainerPS.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.splitContainerPS.Location = new System.Drawing.Point(0, 0);
+                this.splitContainerPS.Location = new Point(0, 0);
                 this.splitContainerPS.Name = "splitContainerPS";
                 // 
                 // splitContainerPS.Panel1
@@ -682,7 +682,7 @@ namespace Chief
                 // splitContainerPS.Panel2
                 // 
                 this.splitContainerPS.Panel2.Controls.Add(this.listViewPS);
-                this.splitContainerPS.Size = new System.Drawing.Size(543, 243);
+                this.splitContainerPS.Size = new Size(543, 243);
                 this.splitContainerPS.SplitterDistance = 181;
                 this.splitContainerPS.TabIndex = 0;
                 // 
@@ -690,7 +690,7 @@ namespace Chief
                 // 
                 this.listBoxPS.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.listBoxPS.FormattingEnabled = true;
-                this.listBoxPS.Location = new System.Drawing.Point(0, 0);
+                this.listBoxPS.Location = new Point(0, 0);
                 this.listBoxPS.Name = "listBoxPS";
                 this.listBoxPS.Size = //new System.Drawing.Size(181, 238);
                 this.splitContainerPS.Panel1.ClientSize;
@@ -699,7 +699,7 @@ namespace Chief
                 // listViewPS
                 // 
                 this.listViewPS.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.listViewPS.Location = new System.Drawing.Point(0, 0);
+                this.listViewPS.Location = new Point(0, 0);
                 this.listViewPS.Name = "listViewPS";
                 this.listViewPS.Size = //new System.Drawing.Size(358, 243);
                     this.splitContainerPS.Panel2.ClientSize;
@@ -722,7 +722,7 @@ namespace Chief
             }
 
 
-            private void listBoxPS_SelectedIndexChanged(object sender, System.EventArgs e)
+            private void listBoxPS_SelectedIndexChanged(object sender, EventArgs e)
             {
                 try
                 {
@@ -842,7 +842,7 @@ namespace Chief
                         AMASCommand.ADDelTemaForKind((int)Convert.ToInt32(Kinds.SelectedValue), (int)Convert.ToInt32(e.Item.SubItems[1].Text), e.Item.Checked);
             }
 
-            private void Kinds_SelectedIndexChanged(object sender, System.EventArgs e)
+            private void Kinds_SelectedIndexChanged(object sender, EventArgs e)
             {
                 Temy.Clear();
                 TemaList = AMASCommand.TemaForKind_list((int)Convert.ToInt32(Kinds.SelectedValue));
@@ -867,7 +867,7 @@ namespace Chief
 
         private class MultiSendKind
         {
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private Class_syb_acc AMASacc;
             Array KindList = null;
             ListView Kinds;
 

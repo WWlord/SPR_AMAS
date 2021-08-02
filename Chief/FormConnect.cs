@@ -20,13 +20,15 @@ namespace Chief
         public string PWD;
         private ChefSettings frmSettings1 = new ChefSettings();
 
-        public FormConnect()
+        private Form FSplash;
+        public FormConnect(Form splash)
         {
             InitializeComponent();
             conn_select_DB = (int)AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL;
             this.Load += new EventHandler(FormConnect_Load);
             this.FormClosing+=new FormClosingEventHandler(FormConnect_FormClosing);
             this.SizeChanged += new EventHandler(FormConnect_SizeChanged);
+            FSplash = splash;
         }
 
         void FormConnect_SizeChanged(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Chief
             if (savedText != null)
                 this.Text = savedText;
 
-            System.Data.Sql.SqlDataSourceEnumerator SQLServersList = System.Data.Sql.SqlDataSourceEnumerator.Instance;
+            SqlDataSourceEnumerator SQLServersList = System.Data.Sql.SqlDataSourceEnumerator.Instance;
             try
             {
                 DataTable Serverstable = SQLServersList.GetDataSources();
@@ -98,7 +100,7 @@ namespace Chief
             String Password = frmSettings1.Password;
             if (Password != null)
                 this.textBox6.Text = Password;
-
+            FSplash.Close();
         }
 
         private void FormConnect_FormClosing(Object sender, FormClosingEventArgs e)
@@ -109,7 +111,7 @@ namespace Chief
             frmSettings1.Save();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             conn_select_DB = (int)AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL;
             UID = this.textBox5.Text;
@@ -118,7 +120,7 @@ namespace Chief
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             conn_select_DB = (int)AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase;
             UID = this.textBox7.Text;

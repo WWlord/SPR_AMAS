@@ -13,10 +13,10 @@ namespace Chief
     public partial class Organizations : Form
     {
         private int top_Panel = 0;
-        private AMAS_DBI.Class_syb_acc ACC;
+        private Class_syb_acc ACC;
         private int agent = 0;
 
-        public Organizations(AMAS_DBI.Class_syb_acc AACC)
+        public Organizations(Class_syb_acc AACC)
         {
             InitializeComponent();
             ACC = AACC;

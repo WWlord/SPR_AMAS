@@ -17,17 +17,17 @@ namespace AMASDocuments.SelectDocuments
         public const int DocCatDay = 16;
 
         private Class_syb_acc SybAcc;
-        public System.Windows.Forms.TreeView treeDocsView;
-        public System.Windows.Forms.TreeNode DocNod;
+        public TreeView treeDocsView;
+        public TreeNode DocNod;
         private ClassDocsItem.refer_NodeToDoc LastReferNodeToDoc = null;
         private TreeGrow TreG;
 
-        public System.Windows.Forms.ToolStripProgressBar FuelBar;
-        private AMASDocuments.ClassDocsItem selecteDocument = null;
-        public AMASDocuments.ClassDocsItem Selected_document { get { return selecteDocument; } }
-        public CommonValues.FindProperty FProp=null;
+        public ToolStripProgressBar FuelBar;
+        private ClassDocsItem selecteDocument = null;
+        public ClassDocsItem Selected_document { get { return selecteDocument; } }
+        public FindProperty FProp =null;
 
-        public ClassSelectDocuments(Class_syb_acc acc, System.Windows.Forms.TreeView treeView, TreeGrow TG)
+        public ClassSelectDocuments(Class_syb_acc acc, TreeView treeView, TreeGrow TG)
         {
             SybAcc = acc;
             treeDocsView = treeView;
@@ -38,7 +38,7 @@ namespace AMASDocuments.SelectDocuments
             CSD();
         }
 
-        public ClassSelectDocuments(Class_syb_acc acc, System.Windows.Forms.TreeView treeView, TreeGrow TG, System.Windows.Forms.ToolStripProgressBar PrBr, CommonValues.FindProperty FP)
+        public ClassSelectDocuments(Class_syb_acc acc, TreeView treeView, TreeGrow TG, ToolStripProgressBar PrBr, FindProperty FP)
         {
             SybAcc = acc;
             treeDocsView = treeView;
@@ -49,12 +49,12 @@ namespace AMASDocuments.SelectDocuments
             CSD();
         }
 
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem del;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem del;
         
         private void CSD()
         {
-            treeDocsView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeDocsView_AfterSelect);
+            treeDocsView.AfterSelect += new TreeViewEventHandler(this.treeDocsView_AfterSelect);
             treeDocsView.NodeMouseClick+=new TreeNodeMouseClickEventHandler(treeDocsView_NodeMouseClick);
             FindMode mode = FindMode.Nothing;
             switch (AMAS_Query.Class_AMAS_Query.DocIndex)
@@ -78,13 +78,13 @@ namespace AMASDocuments.SelectDocuments
                     {
                         try
                         {
-                            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
-                            this.del = new System.Windows.Forms.ToolStripMenuItem();
+                            this.contextMenuStrip1 = new ContextMenuStrip();
+                            this.del = new ToolStripMenuItem();
                             this.contextMenuStrip1.SuspendLayout();
                             // 
                             // contextMenuStrip1
                             // 
-                            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                            this.contextMenuStrip1.Items.AddRange(new ToolStripItem[] {
             this.del});
                             this.contextMenuStrip1.Name = "contextMenuStrip1";
                             this.contextMenuStrip1.Size = new System.Drawing.Size(224, 92);
@@ -271,7 +271,7 @@ namespace AMASDocuments.SelectDocuments
             return sql_where;
         }
 
-        AMASDocuments.ClassDocsItem[] docs;
+        ClassDocsItem[] docs;
 
         public void Documents_Catalog(int day , int month , int year )
         {
@@ -282,7 +282,7 @@ namespace AMASDocuments.SelectDocuments
                 {
                     try
                     {
-                        docs = new AMASDocuments.ClassDocsItem[SybAcc.Rows_count];
+                        docs = new ClassDocsItem[SybAcc.Rows_count];
                         if (FuelBar != null)
                         {
                             FuelBar.Minimum = 0;
@@ -308,11 +308,11 @@ namespace AMASDocuments.SelectDocuments
                                 {
                                     kod = (int)SybAcc.Find_Field("kod");
                                     Node = treeDocsView.Nodes.Add("d" + kod.ToString(), findKod);
-                                    docs[i] = new AMASDocuments.ClassDocsItem(SybAcc);
+                                    docs[i] = new ClassDocsItem(SybAcc);
                                     docs[i].Locate_Node(Node);
                                 }
                                 else
-                                    docs[i] = new AMASDocuments.ClassDocsItem(SybAcc, DocNod.Nodes.Add(findKod), LastReferNodeToDoc);
+                                    docs[i] = new ClassDocsItem(SybAcc, DocNod.Nodes.Add(findKod), LastReferNodeToDoc);
                                 LastReferNodeToDoc = docs[i].NodeAtDOcument;
                             }
                             catch (Exception ex)
@@ -379,7 +379,7 @@ namespace AMASDocuments.SelectDocuments
                     switch (DocNod.Name.Substring(0, 1).ToLower())
                     {
                         case "d":
-                            foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                            foreach (ClassDocsItem Doc in docs)
                                 if (Doc != null)
                                     if (DocNod.Name.CompareTo(Doc.Doc_Node.Name) == 0)
                                     {
@@ -390,7 +390,7 @@ namespace AMASDocuments.SelectDocuments
                                     }
                             break;
                         case "m":
-                            foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                            foreach (ClassDocsItem Doc in docs)
                             {
                                 try
                                 {
@@ -408,7 +408,7 @@ namespace AMASDocuments.SelectDocuments
                             }
                             break;
                         case "v":
-                            foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                            foreach (ClassDocsItem Doc in docs)
                             {
                                 try
                                 {
@@ -454,7 +454,7 @@ namespace AMASDocuments.SelectDocuments
             int DocId = 0;
             string Resultset="";
             string sel = Nod.Name.Substring(0, 1);
-            AMASDocuments.ClassDocsItem.refer_NodeToDoc ND=null;
+            ClassDocsItem.refer_NodeToDoc ND=null;
             try { ND = LastReferNodeToDoc.Go_First; }
             catch { ND = null; }
             try
@@ -469,7 +469,7 @@ namespace AMASDocuments.SelectDocuments
                                 selecteDocument = ND.GetDoc;
                                 Resultset = ND.GetDoc.DOC_annot;
                                 Resultset += ND.GetDoc.ResultString;
-                                if (ND.GetDoc.Tasklist != null) foreach (AMASDocuments.ClassDocsItem.DocTask task in ND.GetDoc.Tasklist)
+                                if (ND.GetDoc.Tasklist != null) foreach (ClassDocsItem.DocTask task in ND.GetDoc.Tasklist)
                                     {
                                         try
                                         {
@@ -483,7 +483,7 @@ namespace AMASDocuments.SelectDocuments
                                         ND.GetDoc.ShowTasks();
                                         break;
                                     }
-                                if (ND.GetDoc.Vizalist != null) foreach (AMASDocuments.ClassDocsItem.DocViza viza in ND.GetDoc.Vizalist)
+                                if (ND.GetDoc.Vizalist != null) foreach (ClassDocsItem.DocViza viza in ND.GetDoc.Vizalist)
                                     {
                                         try
                                         {
@@ -497,7 +497,7 @@ namespace AMASDocuments.SelectDocuments
                                         ND.GetDoc.ShowVizy();
                                         break;
                                     }
-                                if (ND.GetDoc.Newlist != null) foreach (AMASDocuments.ClassDocsItem.DocNew news in ND.GetDoc.Newlist)
+                                if (ND.GetDoc.Newlist != null) foreach (ClassDocsItem.DocNew news in ND.GetDoc.Newlist)
                                     {
                                         ND.GetDoc.ShowNews();
                                         break;
@@ -511,14 +511,14 @@ namespace AMASDocuments.SelectDocuments
                         
                         break;
                     case "m":
-                        foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                        foreach (ClassDocsItem Doc in docs)
                         {
                             ND = Doc.NodeAtDOcument;
                             while (ND != null)
                             {
                                 try
                                 {
-                                    foreach (AMASDocuments.ClassDocsItem.DocTask task in ND.GetDoc.Tasklist)
+                                    foreach (ClassDocsItem.DocTask task in ND.GetDoc.Tasklist)
                                     {
                                         if (task.TASK_DocNode.Name.CompareTo(Nod.Name)==0)
                                         {
@@ -533,7 +533,7 @@ namespace AMASDocuments.SelectDocuments
                         }
                         break;
                     case "v":
-                        foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                        foreach (ClassDocsItem Doc in docs)
                         {
                             ND = Doc.NodeAtDOcument;
                             while (ND != null)
@@ -555,7 +555,7 @@ namespace AMASDocuments.SelectDocuments
                         }
                         break;
                     case "x":
-                        foreach (AMASDocuments.ClassDocsItem Doc in docs)
+                        foreach (ClassDocsItem Doc in docs)
                         {
                             ND = Doc.NodeAtDOcument;
                             while (ND != null)

@@ -28,16 +28,20 @@ namespace Chief
                 daco.ColumnName = dgvAddress.Columns[i].Name;
             }
 
-            backgroundWorkerKLARK = new BackgroundWorker();
-            backgroundWorkerKLARK.WorkerReportsProgress = true;
-            backgroundWorkerKLARK.WorkerSupportsCancellation = true;
+            backgroundWorkerKLARK = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
             backgroundWorkerKLARK.DoWork += new DoWorkEventHandler(backgroundWorkerKLARK_DoWork);
             backgroundWorkerKLARK.ProgressChanged += new ProgressChangedEventHandler(backgroundWorkerKLARK_ProgressChanged);
             backgroundWorkerKLARK.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerKLARK_RunWorkerCompleted);
 
-            backgroundWorkerStreets = new BackgroundWorker();
-            backgroundWorkerStreets.WorkerReportsProgress = true;
-            backgroundWorkerStreets.WorkerSupportsCancellation = true;
+            backgroundWorkerStreets = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
             backgroundWorkerStreets.DoWork += new DoWorkEventHandler(backgroundWorkerStreets_DoWork);
             backgroundWorkerStreets.ProgressChanged += new ProgressChangedEventHandler(backgroundWorkerStreets_ProgressChanged);
             backgroundWorkerStreets.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerStreets_RunWorkerCompleted);
@@ -89,8 +93,8 @@ namespace Chief
             tsLabelMin.Text = tsProgressBarLoad.Value.ToString();
         }
 
-        private System.ComponentModel.BackgroundWorker backgroundWorkerKLARK;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerStreets;
+        private BackgroundWorker backgroundWorkerKLARK;
+        private BackgroundWorker backgroundWorkerStreets;
 
         private DataTable tbAddress ;
 

@@ -66,10 +66,10 @@ namespace ClassStructure
         public byte exe_or_viz;
         private bool Check_Ikon = false;
 
-        private AMAS_DBI.Class_syb_acc SybAcc;
-        private System.Windows.Forms.TreeView TreeStructure;
+        private Class_syb_acc SybAcc;
+        private TreeView TreeStructure;
 
-        public System.Windows.Forms.TreeView TreeV { get { return TreeStructure; } }
+        public TreeView TreeV { get { return TreeStructure; } }
         Color fromColor; 
         Color targetColor; 
 
@@ -80,7 +80,7 @@ namespace ClassStructure
         }
 
         
-        public Structure(AMAS_DBI.Class_syb_acc Syb)
+        public Structure(Class_syb_acc Syb)
         {
             SybAcc = Syb;
             if (AMASCommand.Access == null) AMASCommand.AccessCommands(SybAcc);
@@ -91,7 +91,7 @@ namespace ClassStructure
             newsSended = new ArrayList();
         }
  
-        public Structure(AMAS_DBI.Class_syb_acc Syb, System.Windows.Forms.TreeView Tree)
+        public Structure(Class_syb_acc Syb, TreeView Tree)
         {
             SybAcc = Syb;
             if (AMASCommand.Access == null) AMASCommand.AccessCommands(SybAcc);
@@ -106,7 +106,7 @@ namespace ClassStructure
             newsSended = new ArrayList();
         }
         
-        public Structure(AMAS_DBI.Class_syb_acc Syb, System.Windows.Forms.TreeView Tree, bool showusers)
+        public Structure(Class_syb_acc Syb, TreeView Tree, bool showusers)
         {
             SybAcc = Syb;
             if (AMASCommand.Access == null) AMASCommand.AccessCommands(SybAcc);
@@ -124,7 +124,7 @@ namespace ClassStructure
             newsSended = new ArrayList();
         }
 
-        public Structure(AMAS_DBI.Class_syb_acc Syb, System.Windows.Forms.TreeView Tree, bool showusers, bool ikons)
+        public Structure(Class_syb_acc Syb, TreeView Tree, bool showusers, bool ikons)
         {
             Check_Ikon = ikons;
             SybAcc = Syb;
@@ -237,8 +237,10 @@ namespace ClassStructure
         {
             if (TreeGroups != null)
             {
-                Groups = new Groups(SybAcc, TreeGroups, MyGroups);
-                Groups.CheckTree = true;
+                Groups = new Groups(SybAcc, TreeGroups, MyGroups)
+                {
+                    CheckTree = true
+                };
             }
         }
 
@@ -555,10 +557,12 @@ namespace ClassStructure
                 {
                     TreeNode node = TreeStructure.Nodes.Add("D" + Id.ToString(), Dept_name);
 
-                    Its_Dep adDep = new Its_Dep();
-                    adDep.node = node;
-                    adDep.ident = Id;
-                    adDep.name = Dept_name;
+                    Its_Dep adDep = new Its_Dep
+                    {
+                        node = node,
+                        ident = Id,
+                        name = Dept_name
+                    };
 
                     NoDep[] nnd = new NoDep[ND.Length + 1];
                     ND.CopyTo(nnd,0);
@@ -827,14 +831,14 @@ namespace ClassStructure
         public NoDepWebS[] NDWebS;
         private Its_Dep_WebS NDepWebS = null;
 
-        private struct NoDep { public string name; public System.Windows.Forms.TreeNode node; public long Ident; public Its_Dep NumDep;}
+        private struct NoDep { public string name; public TreeNode node; public long Ident; public Its_Dep NumDep;}
         private NoDep[] ND;
         private Its_Dep NDep = null;
 
         private class Its_Dep
         {
             public string name="";
-            public System.Windows.Forms.TreeNode node;
+            public TreeNode node;
             public Its_Dep first;
             public Its_Dep next;
             public long ident;
@@ -901,7 +905,7 @@ namespace ClassStructure
             } 
         }
 
-        private long SelDept_by_Node(System.Windows.Forms.TreeNode NoD)
+        private long SelDept_by_Node(TreeNode NoD)
         {
             long Ident = -1;
             //if (NDep != null)
@@ -933,7 +937,7 @@ namespace ClassStructure
             public string name;
             public string degree = "";
             public string fio = "";
-            public System.Windows.Forms.TreeNode node; 
+            public TreeNode node; 
             public NoEmpl first; 
             public NoEmpl next;
             public int ident;
@@ -1579,12 +1583,12 @@ namespace ClassStructure
 
         private Point screenOffset;
 
-        private System.Windows.Forms.TreeNode fromNode = null;
-        private System.Windows.Forms.TreeNode EditNode = null;
-        private System.Windows.Forms.TreeNode targetNode = null;
+        private TreeNode fromNode = null;
+        private TreeNode EditNode = null;
+        private TreeNode targetNode = null;
         
-        private System.Windows.Forms.TreeNode usedfromNode = null;
-        private System.Windows.Forms.TreeNode usedtoNode = null;
+        private TreeNode usedfromNode = null;
+        private TreeNode usedtoNode = null;
 
         private void allow_dragDrop()
         {
@@ -1627,13 +1631,13 @@ namespace ClassStructure
 
         private long ORGID = -1;
 
-        private void TreeStructure_BeforeLabelEdit(object sender, System.Windows.Forms.NodeLabelEditEventArgs e)
+        private void TreeStructure_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
             EditNode = TreeStructure.SelectedNode;
             ORGID = SelDept_ID;
         }
 
-        private void TreeStructure_AfterLabelEdit(object sender, System.Windows.Forms.NodeLabelEditEventArgs e)
+        private void TreeStructure_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
             AMAS_DBI.AMASCommand.rename_DEP(e.Label, SelDept_by_Node(EditNode));
         }
@@ -1650,7 +1654,7 @@ namespace ClassStructure
             }
         }
 
-        private void TreeStructure_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void TreeStructure_MouseDown(object sender, MouseEventArgs e)
         {
             //if (targetNode != null)
             //    targetNode.ForeColor = targetColor; //TreeStructure.ForeColor;
@@ -1666,13 +1670,13 @@ namespace ClassStructure
                 //if (fromNode != null)
         }
 
-        private void TreeStructure_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void TreeStructure_MouseUp(object sender, MouseEventArgs e)
         {
             if (fromNode != null)
                 fromNode.ForeColor = TreeStructure.ForeColor; //fromColor; 
         }
 
-        private void TreeStructure_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void TreeStructure_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
@@ -1691,7 +1695,7 @@ namespace ClassStructure
                     }
         }
 
-        private void TreeStructure_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+        private void TreeStructure_DragDrop(object sender, DragEventArgs e)
         {
             Point targetPoint = TreeStructure.PointToClient(new Point(e.X, e.Y));
             targetNode = TreeStructure.GetNodeAt(targetPoint);
@@ -1722,11 +1726,11 @@ namespace ClassStructure
                     usedtoNode = targetNode;
                     if (MessageBox.Show(fromNode.Text + " подчинить " + targetNode.Text, "Переназначение", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        foreach (System.Windows.Forms.TreeNode n in fromNode.Nodes)
+                        foreach (TreeNode n in fromNode.Nodes)
                         {
                             if (n.Name.CompareTo(targetNode.Name) == 0)
                             {
-                                foreach (System.Windows.Forms.TreeNode m in fromNode.Nodes)
+                                foreach (TreeNode m in fromNode.Nodes)
                                 {
                                     if (m.Parent.Name.CompareTo(fromNode.Name) == 0)
                                         if (fromNode.Parent != null)
@@ -1765,7 +1769,7 @@ namespace ClassStructure
             }
         }
 
-        private void TreeStructure_DragOver(object sender, System.Windows.Forms.DragEventArgs e)
+        private void TreeStructure_DragOver(object sender, DragEventArgs e)
         {
             if (fromNode==null)
             {
@@ -1778,19 +1782,19 @@ namespace ClassStructure
             }
         }
 
-        private void TreeStructure_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+        private void TreeStructure_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = e.AllowedEffect;
         }
 
-        private void TreeStructure_DragLeave(object sender, System.EventArgs e)
+        private void TreeStructure_DragLeave(object sender, EventArgs e)
         {
             //MessageBox.Show(fromNode.Text + " подчинить " + targetNode.Text);
         }
 
-        private void TreeStructure_QueryContinueDrag(object sender, System.Windows.Forms.QueryContinueDragEventArgs e)
+        private void TreeStructure_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-            System.Windows.Forms.TreeView tb = sender as System.Windows.Forms.TreeView;
+            TreeView tb = sender as TreeView;
             if (tb != null)
             {
                 int MX = Control.MousePosition.X;
@@ -1813,7 +1817,7 @@ namespace ClassStructure
             }
         }
 
-        private void TreeStructure_GiveFeedback(object sender, System.Windows.Forms.GiveFeedbackEventArgs e)
+        private void TreeStructure_GiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
         }
 
@@ -1878,7 +1882,7 @@ namespace ClassStructure
     {
         private int groups_count=0;
         public TreeView GroupsTree=null;
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         
         public bool Check_Ikon = true;
         public bool Show_Empl=true;
@@ -1901,7 +1905,7 @@ namespace ClassStructure
             }
         }
 
-        public Groups(AMAS_DBI.Class_syb_acc Syb,TreeView tree,bool MyGroups)
+        public Groups(Class_syb_acc Syb,TreeView tree,bool MyGroups)
         {
             SybAcc = Syb;
             GroupsTree=tree;
@@ -1986,7 +1990,7 @@ namespace ClassStructure
         private class Its_Grp
         {
             public string name;
-            public System.Windows.Forms.TreeNode node;
+            public TreeNode node;
             public Its_Grp first;
             public Its_Grp next;
             public bool is_vizing;
@@ -2460,7 +2464,7 @@ namespace ClassStructure
         private class NoEmpl
         {
             public string name;
-            public System.Windows.Forms.TreeNode node;
+            public TreeNode node;
             public NoEmpl first;
             public NoEmpl next;
             public int ident;

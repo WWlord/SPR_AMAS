@@ -25,7 +25,7 @@ namespace ClassPattern
 
         private bool AddRemSavePicters = true;
 
-        private ClassPattern.baseLayer.PicLibSettings PLSettings = new ClassPattern.baseLayer.PicLibSettings();
+        private baseLayer.PicLibSettings PLSettings = new baseLayer.PicLibSettings();
 
         private bool SaveToFile = false;
 

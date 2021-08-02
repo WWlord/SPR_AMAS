@@ -11,7 +11,7 @@ namespace AMASControlRegisters
 {
     public partial class JuridicRegister : UserControl
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
         private juridic_ids subOrg;
         private array_selecting CurrentSELECT;
 
@@ -44,8 +44,8 @@ namespace AMASControlRegisters
             }
         }
 
-        System.Windows.Forms.ToolStripTextBox ORG_Name ;
-        System.Windows.Forms.ToolStripTextBox Short_Name ;
+        ToolStripTextBox ORG_Name ;
+        ToolStripTextBox Short_Name ;
         private int toolStripOrg_Width;
         public JuridicRegister()
         {
@@ -78,13 +78,15 @@ namespace AMASControlRegisters
             if (Orged!=null) Orged(subOrg.get_name(), subOrg.get_contragent());
         }
 
-        public void connect(AMAS_DBI.Class_syb_acc SybAcc)
+        public void connect(Class_syb_acc SybAcc)
         {
             AMASacc = SybAcc;
             addressReg.connect(AMASacc);
-            CurrentSELECT = new array_selecting();
-            CurrentSELECT.current_select = null;
-            CurrentSELECT.last_select = null;
+            CurrentSELECT = new array_selecting
+            {
+                current_select = null,
+                last_select = null
+            };
             CurrentSELECT.current_select = null;
         }
 
@@ -122,12 +124,12 @@ namespace AMASControlRegisters
             private int[] Address = null;
             private string[] OrgName = null;
             private int[] Contragent = null;
-            private System.Windows.Forms.ListBox JuridicList;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private ListBox JuridicList;
+            private Class_syb_acc AMASacc;
 
             public int Current_Number { get { return CURNUM; } set { CURNUM = value; JuridicList.SelectedIndex = Index[CURNUM]; } }
 
-            public juridic_ids(AMAS_DBI.Class_syb_acc SybAcc, System.Windows.Forms.ListBox list)
+            public juridic_ids(Class_syb_acc SybAcc, ListBox list)
             {
                 AMASacc = SybAcc;
                 JuridicList = list;
@@ -354,10 +356,12 @@ namespace AMASControlRegisters
             if (AMAS_DBI.AMASCommand.Seek_Juridic(ORG_Name.Text.Trim(), Short_Name.Text.Trim(), flatid, houseid, streetid, districtid, cityid, arealid, trcid, stateid))
             {
                 subOrg = new juridic_ids(AMASacc, this.JuridicList);
-                now_select = new array_selecting();
-                now_select.current_select = subOrg;
-                now_select.last_select = null;
-                now_select.next_select = null;
+                now_select = new array_selecting
+                {
+                    current_select = subOrg,
+                    last_select = null,
+                    next_select = null
+                };
                 if (CurrentSELECT.current_select != null)
                 {
                     now_select.next_select = CurrentSELECT.next_select;
@@ -511,13 +515,13 @@ namespace AMASControlRegisters
             private string[] Degree = null;
             private string[] FIO = null;
             private int JURID = -1;
-            private System.Windows.Forms.ListBox employeeList;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private ListBox employeeList;
+            private Class_syb_acc AMASacc;
 
             public int Current_Number { get { return CURNUM; } set { CURNUM = value; employeeList.SelectedIndex = Index[CURNUM]; } }
             public int Juridic_id { get { return JURID; } }
 
-            public employee_ids(AMAS_DBI.Class_syb_acc SybAcc, System.Windows.Forms.ListBox list, int juridic)
+            public employee_ids(Class_syb_acc SybAcc, ListBox list, int juridic)
             {
                 AMASacc = SybAcc;
                 employeeList = list;

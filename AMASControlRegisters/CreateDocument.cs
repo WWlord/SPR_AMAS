@@ -17,13 +17,13 @@ namespace AMASControlRegisters
             AMAS_access = ACC;
         }
 
-        AMASControlRegisters.Document_Viewer document_New;
+        Document_Viewer document_New;
 
-        public AMASControlRegisters.Document_Viewer FillDocuments(string FileName,  int kind, int tema, string name)
+        public Document_Viewer FillDocuments(string FileName,  int kind, int tema, string name, bool FromPatt)
         {
             if (document_New == null)
             {
-                document_New = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
+                document_New = new Document_Viewer(AMAS_access, null);
 
                 // 
                 // Новый документ
@@ -39,7 +39,7 @@ namespace AMASControlRegisters
             document_New.Doc_ID = 0;
             document_New.SelectedFile_Append(FileName);
 
-            int document = AMAS_DBI.AMASCommand.Append_Indoor_document(kind, tema, document_New.Annotation, 0);
+            int document = AMAS_DBI.AMASCommand.Append_Indoor_document(kind, tema, document_New.Annotation, 0, FromPatt);
             if (document > 0)
             {
                 document_New.SaveDocument(document);

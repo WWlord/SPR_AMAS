@@ -82,12 +82,12 @@ namespace AMAS_DBI
         //private static iAnywhere.Data.SQLAnywhere.SADataAdapter SADataAdapter_AMAS;
         //private static iAnywhere.Data.SQLAnywhere.SACommand SACommand_AMAS;
 
-        private static System.Data.SqlClient.SqlConnection MSsql_Connection;
-        private static System.Data.SqlClient.SqlCommand MSsql_SelectCommand;
-        private static System.Data.SqlClient.SqlCommand MSsql_ExecuteCommand;
-        private static System.Data.SqlClient.SqlDataAdapter MSsql_DataAdapte;
+        private static SqlConnection MSsql_Connection;
+        private static SqlCommand MSsql_SelectCommand;
+        private static SqlCommand MSsql_ExecuteCommand;
+        private static SqlDataAdapter MSsql_DataAdapte;
 
-        public System.Data.SqlClient.SqlDataAdapter MSSQLDATAADAPTER { get { return MSsql_DataAdapte; } }
+        public SqlDataAdapter MSSQLDATAADAPTER { get { return MSsql_DataAdapte; } }
         public enum AMAS_connections {Sybase=1, MSSQL, Cansel}
         private static int AMASCOnn;
         
@@ -107,7 +107,7 @@ namespace AMAS_DBI
         public GetMyRights GetRights; 
 
         //public iAnywhere.Data.SQLAnywhere.SACommand SybCommand { get { return SACommand_AMAS; } }
-        public System.Data.SqlClient.SqlCommand SQLCommand { get { return MSsql_ExecuteCommand; } }
+        public SqlCommand SQLCommand { get { return MSsql_ExecuteCommand; } }
 		protected DataTable Tune_table;
 
         public DataTable Current_table
@@ -191,7 +191,7 @@ namespace AMAS_DBI
                 EBBLP = Ee;
             }
 
-            public int append_table(string app, DataTable table, PrepareParameters[] Parameters)
+            public int Append_table(string app, DataTable table, PrepareParameters[] Parameters)
 			{
 				da_count++;
 				da[da_count]=app;
@@ -214,12 +214,12 @@ namespace AMAS_DBI
                 return tn[da_count];
             }
 
-			public void clear()
+			public void Clear()
 			{
 				da_count=0;
 			}
 			
-			public int count()
+			public int Count()
 			{
 				return da_count;
 			}
@@ -300,9 +300,9 @@ namespace AMAS_DBI
 			//	return w;
 			//}
 
-            public System.Data.SqlClient.SqlDataAdapter DM(int index)
+            public SqlDataAdapter DM(int index)
             {
-                System.Data.SqlClient.SqlDataAdapter w = MSsql_DataAdapte;
+                SqlDataAdapter w = MSsql_DataAdapte;
                 return w;
             }
 
@@ -508,8 +508,10 @@ namespace AMAS_DBI
 
         public void refresh_execomm()
         {
-            MSsql_ExecuteCommand = new SqlCommand();
-            MSsql_ExecuteCommand.Connection = MSsql_Connection;
+            MSsql_ExecuteCommand = new SqlCommand
+            {
+                Connection = MSsql_Connection
+            };
         }
 
         public delegate void ErrorBBLHand(string ErrS, int Ident);
@@ -535,35 +537,35 @@ namespace AMAS_DBI
 
         private void EBBLP_ErrorOfBBL(string sss, int ModuleId,int Ident)
         {
-            if (ErrOfBBL != null) ErrOfBBL(sss, Ident);
+            ErrOfBBL?.Invoke(sss, Ident);
             switch (ModuleId)
             {
                 case (int)Modules.Master:
-                    if (ErrOfMaster != null) ErrOfMaster(sss, Ident);
+                    ErrOfMaster?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Chief:
-                    if (ErrOfChief != null) ErrOfChief(sss, Ident);
+                    ErrOfChief?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Personel:
-                    if (ErrOfPersonel != null) ErrOfPersonel(sss, Ident);
+                    ErrOfPersonel?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Registration:
-                    if (ErrOfRegistration != null) ErrOfRegistration(sss, Ident);
+                    ErrOfRegistration?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Resources:
-                    if (ErrOfResources != null) ErrOfResources(sss, Ident);
+                    ErrOfResources?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Rights:
-                    if (ErrOfRights != null) ErrOfRights(sss, Ident);
+                    ErrOfRights?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.Structure:
-                    if (ErrOfOrganization != null) ErrOfOrganization(sss, Ident);
+                    ErrOfOrganization?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.WFL_Admin:
-                    if (ErrOfWFL_Admin != null) ErrOfWFL_Admin(sss, Ident);
+                    ErrOfWFL_Admin?.Invoke(sss, Ident);
                     return;
                 case (int)Modules.OutputDoc:
-                    if (ErrOfOutputDoc != null) ErrOfOutputDoc(sss, Ident);
+                    ErrOfOutputDoc?.Invoke(sss, Ident);
                     return;
             }
         }
@@ -658,12 +660,12 @@ namespace AMAS_DBI
             if(connected)
             try
             {
-                tbl = add_Table("Foundation", AMAS_Query.Class_AMAS_Query.Get_foundation, null);
+                tbl = Add_Table("Foundation", AMAS_Query.Class_AMAS_Query.Get_foundation, null);
                 Class_Tools.Table_fld t = Get_row(0);
                 t.First_field();
                 try
                 {
-                    ORG_COD = t.T_value.ToString();
+                    ORG_COD = t.Value.ToString();
                 }
                 catch
                 {
@@ -673,7 +675,7 @@ namespace AMAS_DBI
                 t.Next_field();
                 try
                 {
-                    ORG_MAIL = t.T_value.ToString();
+                    ORG_MAIL = t.Value.ToString();
                 }
                 catch
                 {
@@ -683,7 +685,7 @@ namespace AMAS_DBI
                 t.Next_field();
                 try
                 {
-                    CROSS_ORG = Convert.ToInt32(t.T_value);
+                    CROSS_ORG = Convert.ToInt32(t.Value);
                 }
                 catch
                 {
@@ -693,7 +695,7 @@ namespace AMAS_DBI
                 if (t.Find_field("org"))
                     try
                     {
-                        DefORG_ID = (int)t.T_value;
+                        DefORG_ID = (int)t.Value;
                     }
                     catch
                     {
@@ -701,7 +703,7 @@ namespace AMAS_DBI
                     }
                 
                 if (t.Find_field("ApplicationVersion")) 
-                    ApplicationVersion = t.T_value.ToString();
+                    ApplicationVersion = t.Value.ToString();
             }
             catch (Exception err)
             {
@@ -716,10 +718,10 @@ namespace AMAS_DBI
             if (connected)
             try
 			{
-                tbl = add_Table("Juridic", AMAS_Query.Class_AMAS_Query.Get_juridic, null);
+                tbl = Add_Table("Juridic", AMAS_Query.Class_AMAS_Query.Get_juridic, null);
 				Class_Tools.Table_fld t= Get_row(0);
 				t.First_field();
-				ORG_NAME= t.T_value.ToString();
+				ORG_NAME= t.Value.ToString();
 				ResultString +=ORG_NAME;
 			}
 			catch (Exception err)
@@ -735,49 +737,49 @@ namespace AMAS_DBI
             if (connected)
 			try
 			{
-                tbl = add_Table("Juridic_address", AMAS_Query.Class_AMAS_Query.Get_jur_address, null);
+                tbl = Add_Table("Juridic_address", AMAS_Query.Class_AMAS_Query.Get_jur_address, null);
 				Class_Tools.Table_fld t= Get_row(0);
 				t.First_field();
-				ORG_State=t.T_value.ToString();
+				ORG_State=t.Value.ToString();
 				ResultString +=ORG_State;
 				t.Next_field();
-				ORG_City=t.T_value.ToString();
+				ORG_City=t.Value.ToString();
 				ResultString +=ORG_City;
 				t.Next_field();
-				ORG_Street=t.T_value.ToString();
+				ORG_Street=t.Value.ToString();
 				ResultString +=ORG_Street;
 				t.Next_field();
-				ORG_House=t.T_value.ToString();
+				ORG_House=t.Value.ToString();
 				ResultString +=ORG_House;
 				t.Next_field();
-				ORG_Flat=t.T_value.ToString();
+				ORG_Flat=t.Value.ToString();
 				ResultString +=ORG_Flat;
                 t.Next_field();
-                ORG_State_id = (int)t.T_value;
+                ORG_State_id = (int)t.Value;
                 t.Next_field();
-                ORG_City_id = (int)t.T_value;
+                ORG_City_id = (int)t.Value;
                 t.Next_field();
-                ORG_Street_id = (int)t.T_value;
+                ORG_Street_id = (int)t.Value;
                 t.Next_field();
-                ORG_House_id = (int)t.T_value;
+                ORG_House_id = (int)t.Value;
                 t.Next_field();
-                ORG_Flat_id = (int)t.T_value;
+                ORG_Flat_id = (int)t.Value;
                 t.Find_field("region");
-                ORG_Region = t.T_value.ToString();
+                ORG_Region = t.Value.ToString();
                 ResultString += ORG_Region;
                 t.Find_field("areal");
-                ORG_Areal = t.T_value.ToString();
+                ORG_Areal = t.Value.ToString();
                 ResultString += ORG_Areal;
                 t.Find_field("district");
-                ORG_District = t.T_value.ToString();
+                ORG_District = t.Value.ToString();
                 ResultString += ORG_District;
 
                 t.Find_field("trc_id");
-                ORG_Region_id = (int)t.T_value;
+                ORG_Region_id = (int)t.Value;
                 t.Find_field("areal_id");
-                ORG_Areal_id = (int)t.T_value;
+                ORG_Areal_id = (int)t.Value;
                 t.Find_field("district_id");
-                ORG_District_id = (int)t.T_value;
+                ORG_District_id = (int)t.Value;
 
             }
 			catch (Exception err)
@@ -794,10 +796,10 @@ namespace AMAS_DBI
         {
             try
             {
-                tbl = add_Table("Tableuserid", "select current_user as usr_id", null);
+                tbl = Add_Table("Tableuserid", "select current_user as usr_id", null);
                 Class_Tools.Table_fld t = Get_row(0);
                 t.First_field();
-                Current_User = t.T_value.ToString();
+                Current_User = t.Value.ToString();
             }
             catch (Exception err)
             {
@@ -810,10 +812,10 @@ namespace AMAS_DBI
             }
             try
             {
-                tbl = add_Table("TableuserName", "select  FIO from dbo.pop_my_name ", null);
+                tbl = Add_Table("TableuserName", "select  FIO from dbo.pop_my_name ", null);
                 Class_Tools.Table_fld t = Get_row(0);
                 t.First_field();
-                UserName = t.T_value.ToString();
+                UserName = t.Value.ToString();
             }
             catch (Exception err)
             {
@@ -969,7 +971,7 @@ namespace AMAS_DBI
 
         private last_point TO_point;
 
-		public DataTable add_Table(String tableName, String sql, PrepareParameters[] Parameters )
+		public DataTable Add_Table(String tableName, String sql, PrepareParameters[] Parameters )
 		{
 			ResultString="";
             //int res;
@@ -987,12 +989,12 @@ namespace AMAS_DBI
                         //SADataAdapter_AMAS.Fill(Tune_table);
                         break;
                     case AMAS_connections.MSSQL:
-                        //MSsql_SelectCommand.CommandText = sql;
-                        //MSsql_SelectCommand.Parameters.Clear();
-                        //foreach (PrepareParameters p in Parameters)
-                        //    MSsql_SelectCommand.Parameters.Add(p.name, p.dbType).Value = p.Value;
-                        //MSsql_DataAdapte.Fill(Tune_table);
-                        //res = T_ARRAY.append_table(sql, Tune_table, Parameters); 
+                       // MSsql_SelectCommand.CommandText = sql;
+                       // MSsql_SelectCommand.Parameters.Clear();
+                       // foreach (PrepareParameters p in Parameters)
+                       //     MSsql_SelectCommand.Parameters.Add(p.name, p.dbType).Value = p.Value;
+                       // MSsql_DataAdapte.Fill(Tune_table);
+                       // res = T_ARRAY.append_table(sql, Tune_table, Parameters); 
                         break;
                 }
 			}
@@ -1002,7 +1004,7 @@ namespace AMAS_DBI
                 EBBLP.AddError(e.Message, "DBI +6", e.StackTrace);
                 Tune_table=null;
             }
-			T_ARRAY.append_table (sql,Tune_table,Parameters);
+			T_ARRAY.Append_table (sql,Tune_table,Parameters);
 			return Tune_table;
 		}
 
@@ -1025,7 +1027,7 @@ namespace AMAS_DBI
             //}
             //else
             {
-                if (this.add_Table( Table, sql, Parameters) != null) res = true; else res=false ;
+                if (this.Add_Table( Table, sql, Parameters) != null) res = true; else res=false ;
             }
             if (res) this.Get_row(0);
             return res;
@@ -1055,15 +1057,15 @@ namespace AMAS_DBI
 					for (int k=0; k< Tune_table.Columns.Count;k++) 
 					{
 						Tab_fields.name=Tune_table.Columns[k].ColumnName;
-						Tab_fields.T_value=r[Tab_fields.name];
-                        if ("System.Byte[]".CompareTo(Tab_fields.T_value.GetType().ToString()) == 0)
+						Tab_fields.Value=r[Tab_fields.name];
+                        if ("System.Byte[]".CompareTo(Tab_fields.Value.GetType().ToString()) == 0)
                             {
                             
                             MemoryStream m= new MemoryStream((Byte[])r[Tab_fields.name]);
-                            Tab_fields.T_stream =(Stream) m ;
+                            Tab_fields.Stream =(Stream) m ;
                             ResultString += Tab_fields.name + "<" + Tab_fields.typ + ">" + "= BLOB \n\r";
 						}
-						else ResultString+=Tab_fields.name+"<"+Tab_fields.typ+">"+"="+Tab_fields.T_value.ToString()+"\n\r";
+						else ResultString+=Tab_fields.name+"<"+Tab_fields.typ+">"+"="+Tab_fields.Value.ToString()+"\n\r";
 					}
 				}
 				catch(Exception ex) 
@@ -1082,7 +1084,7 @@ namespace AMAS_DBI
 			ResultString="";
 			if (Tab_fields !=null)
 				if (Tab_fields.Find_field(Fname))
-					return Tab_fields.T_value;
+					return Tab_fields.Value;
 				else return null;
 			else return null;
 		}
@@ -1092,7 +1094,7 @@ namespace AMAS_DBI
             ResultString = "";
             if (Tab_fields != null)
                 if (Tab_fields.Find_field(Fname))
-                    return Tab_fields.T_stream;
+                    return Tab_fields.Stream;
                 else return null;
             else return null;
         }
@@ -1101,7 +1103,7 @@ namespace AMAS_DBI
 		{
 			ResultString="";
 			if (Tab_fields !=null)
-					return Tab_fields.T_value;
+					return Tab_fields.Value;
 			else return null;
 		}
 
@@ -1109,7 +1111,7 @@ namespace AMAS_DBI
         {
             ResultString = "";
             if (Tab_fields != null)
-                return Tab_fields.T_file;
+                return Tab_fields.File;
             else return null;
         }
         
@@ -1125,7 +1127,7 @@ namespace AMAS_DBI
 		{
 			ResultString="";
 			if (Tab_fields !=null)
-				return Tab_fields.T_stream;
+				return Tab_fields.Stream;
 			else return null;
 		}
 
@@ -1135,7 +1137,7 @@ namespace AMAS_DBI
 			if (Tab_fields !=null)
 			{
 				Tab_fields.First_field();
-				return Tab_fields.T_value;
+				return Tab_fields.Value;
 			}
 			else return null;
 		}
@@ -1146,7 +1148,7 @@ namespace AMAS_DBI
 			if (Tab_fields !=null)
 			{
 				Tab_fields.last_field();
-				return Tab_fields.T_value;
+				return Tab_fields.Value;
 			}
 			else return null;
 		}
@@ -1157,7 +1159,7 @@ namespace AMAS_DBI
 			if (Tab_fields !=null)
 			{
 				Tab_fields.Next_field();
-				return Tab_fields.T_value;
+				return Tab_fields.Value;
 			}
 			else return null;
 		}
@@ -1168,7 +1170,7 @@ namespace AMAS_DBI
 			if (Tab_fields !=null)
 			{
 				Tab_fields.prev_field();
-				return Tab_fields.T_value;
+				return Tab_fields.Value;
 			}
 			else return null;
 		}
@@ -1179,7 +1181,7 @@ namespace AMAS_DBI
 			if (Tab_fields !=null)
 			{
 				Tab_fields.seek_field(index);
-				return Tab_fields.T_value;
+				return Tab_fields.Value;
 			}
 			else return null;
 		}
@@ -1358,10 +1360,10 @@ namespace AMAS_DBI
                         try
                         {
                             goodFile = true;
-                            if (File.Exists(filename))
+                            if (System.IO.File.Exists(filename))
                             {
                                 goodFile = false;
-                                File.Delete(filename);
+                                System.IO.File.Delete(filename);
                                 goodFile = true;
                             }
                         }
@@ -1390,7 +1392,7 @@ namespace AMAS_DBI
 
             }
 
-			public Object T_value
+			public Object Value
 			{
 				get {return F_C[Current_field].O_value;}
 				set 
@@ -1403,7 +1405,7 @@ namespace AMAS_DBI
                 }
 			}
 
-			public Stream T_stream
+			public Stream Stream
 			{
 				get {return F_C[Current_field].O_stream;}
 				set
@@ -1416,7 +1418,7 @@ namespace AMAS_DBI
                 }
 			}
 
-            public string T_file
+            public string File
             {
                 get { return To_File(); }
             }

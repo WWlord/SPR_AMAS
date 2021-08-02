@@ -12,7 +12,7 @@ namespace Chief
 {
     public partial class FmBusynessPro : Form
     {
-        private AMAS_DBI.Class_syb_acc SYB_acc;
+        private Class_syb_acc SYB_acc;
 
         public FmBusynessPro()
         {

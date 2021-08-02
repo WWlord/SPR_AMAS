@@ -14,7 +14,7 @@ namespace AMASControlRegisters
 {
     public class DocumentProcessing
     {
-        private AMASControlRegisters.Document_Viewer document_New;
+        private Document_Viewer document_New;
 
         object missing = Missing.Value;
         Microsoft.Office.Interop.Word.Application Word_App = null;
@@ -23,14 +23,15 @@ namespace AMASControlRegisters
         AutoCorrectEntries autoEntries;
         Documents Docs;
         _Document my_Doc;
-        private System.Windows.Forms.Timer timer2;
-        public AMAS_DBI.Class_syb_acc SYB_acc;
+        private Timer timer2;
+        public Class_syb_acc SYB_acc;
         private bool ReadyState = false;
+        private bool From_Pattern = false;
 
-        public DocumentProcessing(AMAS_DBI.Class_syb_acc ACC, AMASControlRegisters.Document_Viewer docum)
+        public DocumentProcessing(Class_syb_acc ACC, Document_Viewer docum)
         {
             SYB_acc=ACC;
-            timer2 = new System.Windows.Forms.Timer();
+            timer2 = new Timer();
             document_New = docum;
         }
 
@@ -59,7 +60,7 @@ namespace AMASControlRegisters
             while (loopDoc);
             try
             {
-                byte[] Buff = AMASCommand.GetFromDotLibrary(kind, tema, true);
+                byte[] Buff = AMASCommand.GetFromDotLibrary(kind, tema, false);  // true);
                 FileStream FS = new FileStream(Fil, FileMode.CreateNew, FileAccess.Write);
                 long len = Buff.LongLength;
                 FS.Write(Buff, 0, (int)len);

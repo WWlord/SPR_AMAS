@@ -25,14 +25,14 @@ namespace ClassPattern
         private int array_dimention = 0;
         private bool new_Address = false;
 
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         public string NewAddressName = "";
         public string ResultErr = "";
         public Address_ids Child = null;
-        public System.Windows.Forms.ComboBox AddressBox;
+        public ComboBox AddressBox;
 
-        public Address_ids(System.Windows.Forms.ComboBox CBox)
+        public Address_ids(ComboBox CBox)
         {
             AddressBox = CBox;
             this.AddressBox.Click += new EventHandler(this_AddressBox_Click);
@@ -85,7 +85,7 @@ namespace ClassPattern
             }
             else NewAddressName = "";
         }
-        private void this_AddressBox_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void this_AddressBox_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -207,7 +207,7 @@ namespace ClassPattern
             }
         }
 
-        public void connect(AMAS_DBI.Class_syb_acc Acc)
+        public void connect(Class_syb_acc Acc)
         {
             AMASacc = Acc;
         }
@@ -420,8 +420,8 @@ namespace ClassPattern
 
         public string File_Path { get { return FilePath(); } }
 
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        System.Windows.Forms.ToolStripMenuItem add;
+        private ContextMenuStrip contextMenuStrip1;
+        ToolStripMenuItem add;
         //ToolStripItem TSI;
 
         public FileDirExplorer(TreeView Explorer, string pattern)
@@ -440,18 +440,20 @@ namespace ClassPattern
             //
             // Menu
             //
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new ContextMenuStrip();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(224, 92);
+            this.contextMenuStrip1.Size = new Size(224, 92);
             int semicolon = 0;
             foreach (string menu in Context_menu)
             {
                 semicolon = menu.IndexOf(';');
-                this.add = new System.Windows.Forms.ToolStripMenuItem();
-                this.add.Name = menu.Substring(0, semicolon).Trim();
-                this.add.Size = new System.Drawing.Size(223, 22);
-                this.add.Text = menu.Substring(semicolon + 1);
+                this.add = new ToolStripMenuItem
+                {
+                    Name = menu.Substring(0, semicolon).Trim(),
+                    Size = new Size(223, 22),
+                    Text = menu.Substring(semicolon + 1)
+                };
                 this.contextMenuStrip1.Items.Add(this.add);
             }
 
@@ -631,10 +633,10 @@ namespace ClassPattern
         private ToolStripItem tsiSaveFormular;
 
         ListViewItem ItmFmr = null;
-        private AMAS_DBI.Class_syb_acc AMASacc = null;
+        private Class_syb_acc AMASacc = null;
         private int DocumentID = 0;
 
-        public Formularing(Control ConFormul, int document, AMAS_DBI.Class_syb_acc ACC)
+        public Formularing(Control ConFormul, int document, Class_syb_acc ACC)
         {
             DocumentID = document;
             AMASacc = ACC;
@@ -645,23 +647,23 @@ namespace ClassPattern
             if (Formular==null) Formular = new ListView();
             Formular.Items.Clear();
             Formular.Columns.Clear();
-            this.columnHeaderName = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderPage = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderNote = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderKeaper = new System.Windows.Forms.ColumnHeader();
-            this.Formular.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderName = new ColumnHeader();
+            this.columnHeaderPage = new ColumnHeader();
+            this.columnHeaderNote = new ColumnHeader();
+            this.columnHeaderKeaper = new ColumnHeader();
+            this.Formular.Columns.AddRange(new ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderPage,
             this.columnHeaderKeaper,
             this.columnHeaderNote});
             this.Formular.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Formular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Formular.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Formular.LabelEdit = true;
-            this.Formular.Location = new System.Drawing.Point(0, 0);
+            this.Formular.Location = new Point(0, 0);
             this.Formular.MultiSelect = false;
             this.Formular.Name = "Formular";
             this.Formular.ShowGroups = false;
-            this.Formular.Size = new System.Drawing.Size(630, 492);
+            this.Formular.Size = new Size(630, 492);
             this.Formular.TabIndex = 0;
             this.Formular.UseCompatibleStateImageBehavior = false;
             this.Formular.View = System.Windows.Forms.View.Details;
@@ -686,15 +688,15 @@ namespace ClassPattern
             this.columnHeaderNote.Text = "Описание";
             this.columnHeaderNote.Width = 200;
 
-            this.contextMenuStripFormular = new System.Windows.Forms.ContextMenuStrip();
-            this.добавитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripFormular = new ContextMenuStrip();
+            this.добавитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+            this.редактироватьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+            this.удалитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
             this.contextMenuStripFormular.SuspendLayout();
             Formular.ContextMenuStrip = this.contextMenuStripFormular;
 
-            this.contextMenuStripFormular = new System.Windows.Forms.ContextMenuStrip();
-            this.ЗабратьФормулярToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripFormular = new ContextMenuStrip();
+            this.ЗабратьФормулярToolStripMenuItem = new ToolStripMenuItem();
             this.contextMenuStripFormular.SuspendLayout();
             Formular.ContextMenuStrip = this.contextMenuStripFormular;
 
@@ -702,17 +704,17 @@ namespace ClassPattern
             // 
             // contextMenuStripFormular
             // 
-            this.contextMenuStripFormular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStripFormular.Items.AddRange(new ToolStripItem[] {
                 this.ЗабратьФормулярToolStripMenuItem});
             this.contextMenuStripFormular.Name = "contextMenuStrip1";
-            this.contextMenuStripFormular.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStripFormular.Size = new Size(173, 70);
             // 
             // добавитьЗаписьToolStripMenuItem
             // 
             this.ЗабратьФормулярToolStripMenuItem.Name = "ЗабратьФормулярToolStripMenuItemToolStripMenuItem";
-            this.ЗабратьФормулярToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.ЗабратьФормулярToolStripMenuItem.Size = new Size(172, 22);
             this.ЗабратьФормулярToolStripMenuItem.Text = "Забрать формуляр";
-            this.ЗабратьФормулярToolStripMenuItem.Click += new System.EventHandler(this.ЗабратьФормулярToolStripMenuItem_Click);
+            this.ЗабратьФормулярToolStripMenuItem.Click += new EventHandler(this.ЗабратьФормулярToolStripMenuItem_Click);
 
             // список формуляра
             string OName = "";
@@ -773,64 +775,72 @@ namespace ClassPattern
                     //
                     // tsiAddFormular
                     //
-                    this.tsiAddFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiAddFormular.BackColor = System.Drawing.Color.Tan;
-                    this.tsiAddFormular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                    this.tsiAddFormular.Image = ((System.Drawing.Image)ClassPattern.Properties.Resources.AddRecord);
-                    this.tsiAddFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
-                    this.tsiAddFormular.Name = "tsiAddFormular";
-                    this.tsiAddFormular.Size = new System.Drawing.Size(23, 22);
-                    this.tsiAddFormular.Text = "Добавить приложение";
-                    this.tsiAddFormular.ToolTipText = "Добавить приложение";
-                    this.tsiAddFormular.Visible = true;
-                    this.tsiAddFormular.Click += new System.EventHandler(добавитьЗаписьToolStripMenuItem_Click);
+                    this.tsiAddFormular = new ToolStripButton
+                    {
+                        BackColor = System.Drawing.Color.Tan,
+                        DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                        Image = ((Image)ClassPattern.Properties.Resources.AddRecord),
+                        ImageTransparentColor = System.Drawing.Color.Magenta,
+                        Name = "tsiAddFormular",
+                        Size = new Size(23, 22),
+                        Text = "Добавить приложение",
+                        ToolTipText = "Добавить приложение",
+                        Visible = true
+                    };
+                    this.tsiAddFormular.Click += new EventHandler(добавитьЗаписьToolStripMenuItem_Click);
                     //
                     // tsiEditFormular
                     //
-                    this.tsiEditFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiEditFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiEditFormular.BackColor = System.Drawing.Color.Tan;
-                    this.tsiEditFormular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                    this.tsiEditFormular.Image = ((System.Drawing.Image)(ClassPattern.Properties.Resources.Editrecord));
-                    this.tsiEditFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
-                    this.tsiEditFormular.Name = "tsiAddFormular";
-                    this.tsiEditFormular.Size = new System.Drawing.Size(23, 22);
-                    this.tsiEditFormular.Text = "Редактировать запись";
-                    this.tsiEditFormular.ToolTipText = "Редактировать запись";
-                    this.tsiEditFormular.Visible = true;
-                    this.tsiAddFormular.Click += new System.EventHandler(редактироватьЗаписьToolStripMenuItem_Click);
+                    this.tsiEditFormular = new ToolStripButton();
+                    this.tsiEditFormular = new ToolStripButton
+                    {
+                        BackColor = System.Drawing.Color.Tan,
+                        DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                        Image = ((Image)(ClassPattern.Properties.Resources.Editrecord)),
+                        ImageTransparentColor = System.Drawing.Color.Magenta,
+                        Name = "tsiAddFormular",
+                        Size = new Size(23, 22),
+                        Text = "Редактировать запись",
+                        ToolTipText = "Редактировать запись",
+                        Visible = true
+                    };
+                    this.tsiAddFormular.Click += new EventHandler(редактироватьЗаписьToolStripMenuItem_Click);
                     //
                     // tsiDeleteFormular
                     //
-                    this.tsiDeleteFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiDeleteFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiDeleteFormular.BackColor = System.Drawing.Color.Tan;
-                    this.tsiDeleteFormular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                    this.tsiDeleteFormular.Image = ((System.Drawing.Image)ClassPattern.Properties.Resources.DeleteRecord);
-                    this.tsiDeleteFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
-                    this.tsiDeleteFormular.Name = "tsiDeleteFormular";
-                    this.tsiDeleteFormular.Size = new System.Drawing.Size(23, 22);
-                    this.tsiDeleteFormular.Text = "Удалить запись";
-                    this.tsiDeleteFormular.ToolTipText = "Удалить запись";
-                    this.tsiDeleteFormular.Visible = true;
-                    this.tsiDeleteFormular.Click += new System.EventHandler(удалитьЗаписьToolStripMenuItem_Click);
+                    this.tsiDeleteFormular = new ToolStripButton();
+                    this.tsiDeleteFormular = new ToolStripButton
+                    {
+                        BackColor = System.Drawing.Color.Tan,
+                        DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                        Image = ((Image)ClassPattern.Properties.Resources.DeleteRecord),
+                        ImageTransparentColor = System.Drawing.Color.Magenta,
+                        Name = "tsiDeleteFormular",
+                        Size = new Size(23, 22),
+                        Text = "Удалить запись",
+                        ToolTipText = "Удалить запись",
+                        Visible = true
+                    };
+                    this.tsiDeleteFormular.Click += new EventHandler(удалитьЗаписьToolStripMenuItem_Click);
                     //
                     // tsiSaveFormular
                     //
-                    this.tsiSaveFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiSaveFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiSaveFormular.BackColor = System.Drawing.Color.Tan;
-                    this.tsiSaveFormular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                    this.tsiSaveFormular.Image = ((System.Drawing.Image)ClassPattern.Properties.Resources.SaveRecord);
-                    this.tsiSaveFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
-                    this.tsiSaveFormular.Name = "tsiSaveFormular";
-                    this.tsiSaveFormular.Size = new System.Drawing.Size(23, 22);
-                    this.tsiSaveFormular.Text = "Сохранить запись";
-                    this.tsiSaveFormular.ToolTipText = "Сохранить запись";
-                    this.tsiSaveFormular.Visible = true;
+                    this.tsiSaveFormular = new ToolStripButton();
+                    this.tsiSaveFormular = new ToolStripButton
+                    {
+                        BackColor = System.Drawing.Color.Tan,
+                        DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                        Image = ((Image)ClassPattern.Properties.Resources.SaveRecord),
+                        ImageTransparentColor = System.Drawing.Color.Magenta,
+                        Name = "tsiSaveFormular",
+                        Size = new Size(23, 22),
+                        Text = "Сохранить запись",
+                        ToolTipText = "Сохранить запись",
+                        Visible = true
+                    };
                     this.tsiSaveFormular.Click += new EventHandler(tsiSaveFormular_Click);
 
-                    this.tsFormular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                    this.tsFormular.Items.AddRange(new ToolStripItem[] {
                     this.tsiAddFormular,
                     this.tsiEditFormular,
                     this.tsiDeleteFormular,
@@ -842,19 +852,21 @@ namespace ClassPattern
                     //
                     // tsiGetFormular
                     //
-                    this.tsiGetFormular = new System.Windows.Forms.ToolStripButton();
-                    this.tsiGetFormular.BackColor = System.Drawing.Color.Tan;
-                    this.tsiGetFormular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                    this.tsiGetFormular.Image = (System.Drawing.Image)ClassPattern.Properties.Resources.AssignRecord;
-                    this.tsiGetFormular.ImageTransparentColor = System.Drawing.Color.Magenta;
-                    this.tsiGetFormular.Name = "tsiGetFormular";
-                    this.tsiGetFormular.Size = new System.Drawing.Size(23, 22);
-                    this.tsiGetFormular.Text = "Забрать приложение";
-                    this.tsiGetFormular.ToolTipText = "Забрать приложение";
-                    this.tsiGetFormular.Visible = true;
-                    this.tsiGetFormular.Click += new System.EventHandler(ЗабратьФормулярToolStripMenuItem_Click);
+                    this.tsiGetFormular = new ToolStripButton
+                    {
+                        BackColor = System.Drawing.Color.Tan,
+                        DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                        Image = (Image)ClassPattern.Properties.Resources.AssignRecord,
+                        ImageTransparentColor = System.Drawing.Color.Magenta,
+                        Name = "tsiGetFormular",
+                        Size = new Size(23, 22),
+                        Text = "Забрать приложение",
+                        ToolTipText = "Забрать приложение",
+                        Visible = true
+                    };
+                    this.tsiGetFormular.Click += new EventHandler(ЗабратьФормулярToolStripMenuItem_Click);
 
-                    this.tsFormular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                    this.tsFormular.Items.AddRange(new ToolStripItem[] {
                     this.tsiGetFormular});
 
                 }
@@ -868,13 +880,15 @@ namespace ClassPattern
                 //
                 // ListviewFormular
                 //
-                Formular = new ListView();
-                Formular.Dock = DockStyle.Fill;
-                Formular.Location = new System.Drawing.Point(147, 28);
-                Formular.Name = "Formular";
-                Formular.Size = new System.Drawing.Size(121, 97);
-                Formular.TabIndex = 0;
-                Formular.UseCompatibleStateImageBehavior = false;
+                Formular = new ListView
+                {
+                    Dock = DockStyle.Fill,
+                    Location = new Point(147, 28),
+                    Name = "Formular",
+                    Size = new Size(121, 97),
+                    TabIndex = 0,
+                    UseCompatibleStateImageBehavior = false
+                };
                 Formular.Dock = DockStyle.Fill;
                 ConLoc.Controls.Add(Formular);
             //}
@@ -886,9 +900,9 @@ namespace ClassPattern
                 // 
                 tsFormular = new ToolStrip();
                 this.tsFormular.Dock = System.Windows.Forms.DockStyle.Right;
-                this.tsFormular.Location = new System.Drawing.Point(771, 3);
+                this.tsFormular.Location = new Point(771, 3);
                 this.tsFormular.Name = "tsFormular";
-                this.tsFormular.Size = new System.Drawing.Size(24, 125);
+                this.tsFormular.Size = new Size(24, 125);
                 this.tsFormular.TabIndex = 1;
                 this.tsFormular.Text = "tsFormular";
 
@@ -909,21 +923,21 @@ namespace ClassPattern
             // 
             // Formular
             // 
-            this.columnHeaderName = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderPage = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderNote = new System.Windows.Forms.ColumnHeader();
-            this.Formular.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderName = new ColumnHeader();
+            this.columnHeaderPage = new ColumnHeader();
+            this.columnHeaderNote = new ColumnHeader();
+            this.Formular.Columns.AddRange(new ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderPage,
             this.columnHeaderNote});
             this.Formular.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Formular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Formular.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Formular.LabelEdit = true;
-            this.Formular.Location = new System.Drawing.Point(0, 0);
+            this.Formular.Location = new Point(0, 0);
             this.Formular.MultiSelect = false;
             this.Formular.Name = "Formular";
             this.Formular.ShowGroups = false;
-            this.Formular.Size = new System.Drawing.Size(630, 492);
+            this.Formular.Size = new Size(630, 492);
             this.Formular.TabIndex = 0;
             this.Formular.UseCompatibleStateImageBehavior = false;
             this.Formular.View = System.Windows.Forms.View.Details;
@@ -944,10 +958,10 @@ namespace ClassPattern
             this.columnHeaderNote.Width = 376;
 
             DocumentID = 0;
-            this.contextMenuStripFormular = new System.Windows.Forms.ContextMenuStrip();
-            this.добавитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripFormular = new ContextMenuStrip();
+            this.добавитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+            this.редактироватьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+            this.удалитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
             this.contextMenuStripFormular.SuspendLayout();
             Formular.ContextMenuStrip = this.contextMenuStripFormular;
             try { FormularPicture.Visible = false; }
@@ -957,29 +971,29 @@ namespace ClassPattern
             // 
             // contextMenuStripFormular
             // 
-            this.contextMenuStripFormular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStripFormular.Items.AddRange(new ToolStripItem[] {
                 this.добавитьЗаписьToolStripMenuItem,
                 this.редактироватьЗаписьToolStripMenuItem,
                 this.удалитьЗаписьToolStripMenuItem});
             this.contextMenuStripFormular.Name = "contextMenuStrip1";
-            this.contextMenuStripFormular.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStripFormular.Size = new Size(173, 70);
             // 
             // добавитьЗаписьToolStripMenuItem
             // 
             this.добавитьЗаписьToolStripMenuItem.Name = "добавитьЗаписьToolStripMenuItem";
-            this.добавитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.добавитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
             this.добавитьЗаписьToolStripMenuItem.Text = "Добавить запись";
             // 
             // редактироватьЗаписьToolStripMenuItem
             // 
             this.редактироватьЗаписьToolStripMenuItem.Name = "редактироватьЗаписьToolStripMenuItem";
-            this.редактироватьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.редактироватьЗаписьToolStripMenuItem.Size = new Size(172, 22);
             this.редактироватьЗаписьToolStripMenuItem.Text = "Редактировать запись";
             // 
             // удалитьЗаписьToolStripMenuItem
             // 
             this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
-            this.удалитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.удалитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
             this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись";
 
             this.contextMenuStripFormular.ResumeLayout(false);
@@ -998,9 +1012,9 @@ namespace ClassPattern
             FormularPicture.Visible = false;
             this.Formular.Controls.Add(FormularPicture);
 
-            this.добавитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.добавитьЗаписьToolStripMenuItem_Click);
-            this.удалитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.удалитьЗаписьToolStripMenuItem_Click);
-            this.редактироватьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЗаписьToolStripMenuItem_Click);
+            this.добавитьЗаписьToolStripMenuItem.Click += new EventHandler(this.добавитьЗаписьToolStripMenuItem_Click);
+            this.удалитьЗаписьToolStripMenuItem.Click += new EventHandler(this.удалитьЗаписьToolStripMenuItem_Click);
+            this.редактироватьЗаписьToolStripMenuItem.Click += new EventHandler(this.редактироватьЗаписьToolStripMenuItem_Click);
             TextFormular[0].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
             TextFormular[1].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
             TextFormular[2].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);

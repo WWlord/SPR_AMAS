@@ -34,7 +34,7 @@ namespace AMASControlRegisters
             }
         }
 
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
         private  people_ids subPopulation=null;
         
         private class array_selecting
@@ -81,13 +81,15 @@ namespace AMASControlRegisters
                 subPopulation.get_number_by_text(Family.Text.Trim(), Naming.Text.Trim(), Father.Text.Trim());
         }
 
-        public void connect(AMAS_DBI.Class_syb_acc SybAcc)
+        public void connect(Class_syb_acc SybAcc)
         {
             AMASacc = SybAcc;
             addressReg.connect(AMASacc);
-            CurrentSELECT = new array_selecting();
-            CurrentSELECT.current_select = null;
-            CurrentSELECT.last_select = null;
+            CurrentSELECT = new array_selecting
+            {
+                current_select = null,
+                last_select = null
+            };
             CurrentSELECT.current_select = null;
         }
 
@@ -106,10 +108,10 @@ namespace AMASControlRegisters
             string[] Father = null;
             string[] FIO = null;
 
-            private System.Windows.Forms.ListBox peopleList;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private ListBox peopleList;
+            private Class_syb_acc AMASacc;
 
-            public people_ids(AMAS_DBI.Class_syb_acc SybAcc, System.Windows.Forms.ListBox list)
+            public people_ids(Class_syb_acc SybAcc, ListBox list)
             {
                 AMASacc = SybAcc;
                 peopleList = list;
@@ -339,10 +341,12 @@ namespace AMASControlRegisters
                     flatid, houseid, streetid, cityid))
                 {
                     subPopulation = new people_ids(AMASacc, this.PeopleList);
-                    now_select = new array_selecting();
-                    now_select.current_select = subPopulation;
-                    now_select.last_select = null;
-                    now_select.next_select = null;
+                    now_select = new array_selecting
+                    {
+                        current_select = subPopulation,
+                        last_select = null,
+                        next_select = null
+                    };
                     if (CurrentSELECT.current_select != null)
                     {
                         now_select.next_select = CurrentSELECT.next_select;

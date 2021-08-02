@@ -77,7 +77,7 @@ namespace ClassDocuments
             get { return findCod; }
         }
 
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         private int typist = 0;
         private DateTime date_reg = DateTime.MinValue;
@@ -90,10 +90,10 @@ namespace ClassDocuments
         private string findCod = "";
         private string documentKind = "";
 
-        private System.Windows.Forms.TextBox textBoxAnnotation=null;
-        private System.Windows.Forms.ListBox textBoxCommon=null;
-        private System.Windows.Forms.ListView listBoxExecutor = null;
-        public System.Windows.Forms.ListView ExecList { get { return listBoxExecutor; } }
+        private TextBox textBoxAnnotation =null;
+        private ListBox textBoxCommon =null;
+        private ListView listBoxExecutor = null;
+        public ListView ExecList { get { return listBoxExecutor; } }
         private TabPage PgAnnotation ;
         private TabPage PgCommon ;
         private TabPage PgFormular ;
@@ -147,7 +147,7 @@ namespace ClassDocuments
             }
         }
 
-        public MetaDataDocument(TabControl MDV, AMAS_DBI.Class_syb_acc ACC)
+        public MetaDataDocument(TabControl MDV, Class_syb_acc ACC)
         {
             AMASacc = ACC;
             MetaDataView = MDV;
@@ -157,7 +157,7 @@ namespace ClassDocuments
             //NewDocument();
         }
 
-        public MetaDataDocument(int document, int TIP, TabControl MDV, AMAS_DBI.Class_syb_acc ACC)
+        public MetaDataDocument(int document, int TIP, TabControl MDV, Class_syb_acc ACC)
         {
             AMASacc = ACC;
             MetaDataView = MDV;
@@ -167,7 +167,7 @@ namespace ClassDocuments
            //Requery();
         }
 
-        public MetaDataDocument(int document, int TIP, TabControl MDV, AMAS_DBI.Class_syb_acc ACC, int sender)
+        public MetaDataDocument(int document, int TIP, TabControl MDV, Class_syb_acc ACC, int sender)
         {
             chief = sender;
             AMASacc = ACC;
@@ -192,23 +192,27 @@ namespace ClassDocuments
             //
             //APanel
             //
-            APanel = new Panel();
-            APanel.Dock = DockStyle.Fill;
-            APanel.Visible = true;
-            APanel.Name = APanelname;
-            APanel.Location = new System.Drawing.Point(3, 3);
-            APanel.TabIndex = 0;
-            APanel.BackColor = System.Drawing.Color.Aquamarine;
+            APanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Visible = true,
+                Name = APanelname,
+                Location = new Point(3, 3),
+                TabIndex = 0,
+                BackColor = System.Drawing.Color.Aquamarine
+            };
             // 
             // AToolStrip
             // 
-            AToolStrip = new ToolStrip();
-            AToolStrip.Name = AToolStripname;
-            AToolStrip.Dock = DockStyle.Right;
-            AToolStrip.TabIndex = 1;
-            AToolStrip.Visible = true;
-            AToolStrip.BackColor = System.Drawing.Color.White;
-            AToolStrip.ForeColor = System.Drawing.Color.White;
+            AToolStrip = new ToolStrip
+            {
+                Name = AToolStripname,
+                Dock = DockStyle.Right,
+                TabIndex = 1,
+                Visible = true,
+                BackColor = System.Drawing.Color.White,
+                ForeColor = System.Drawing.Color.White
+            };
             APanel.Controls.Add(AToolStrip);
 
             if (AListView != null)
@@ -216,15 +220,17 @@ namespace ClassDocuments
                 // 
                 // AListView
                 // 
-                AListView = new System.Windows.Forms.ListView();
-                AListView.Dock = System.Windows.Forms.DockStyle.Fill;
-                AListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                AListView.Location = new System.Drawing.Point(3, 3);
-                AListView.Name = AListViewname;
-                AListView.Size = new System.Drawing.Size(616, 349);
-                AListView.View = View.Details;
-                AListView.TabIndex = 2;
-                AListView.Visible = true;
+                AListView = new ListView
+                {
+                    Dock = System.Windows.Forms.DockStyle.Fill,
+                    Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    Location = new Point(3, 3),
+                    Name = AListViewname,
+                    Size = new Size(616, 349),
+                    View = View.Details,
+                    TabIndex = 2,
+                    Visible = true
+                };
                 APanel.Controls.Add(AListView);
                 AListView.Items.Clear();
             }
@@ -240,14 +246,16 @@ namespace ClassDocuments
             // 
             // textBoxAnnotation
             // 
-            this.textBoxAnnotation = new System.Windows.Forms.TextBox();
-            this.textBoxAnnotation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxAnnotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxAnnotation.Location = new System.Drawing.Point(3, 3);
-            this.textBoxAnnotation.Multiline = true;
-            this.textBoxAnnotation.Name = "textBoxAnnotation";
-            this.textBoxAnnotation.Size = new System.Drawing.Size(616, 349);
-            this.textBoxAnnotation.TabIndex = 0;
+            this.textBoxAnnotation = new TextBox
+            {
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                Location = new Point(3, 3),
+                Multiline = true,
+                Name = "textBoxAnnotation",
+                Size = new Size(616, 349),
+                TabIndex = 0
+            };
             PgAnnotation.Controls.Add(this.textBoxAnnotation);
 
             this.textBoxAnnotation.Enabled = true;
@@ -341,14 +349,16 @@ namespace ClassDocuments
                 // 
                 // textBoxAnnotation
                 // 
-                this.textBoxAnnotation = new System.Windows.Forms.TextBox();
-                this.textBoxAnnotation.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.textBoxAnnotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                this.textBoxAnnotation.Location = new System.Drawing.Point(3, 3);
-                this.textBoxAnnotation.Multiline = true;
-                this.textBoxAnnotation.Name = "textBoxAnnotation";
-                this.textBoxAnnotation.Size = new System.Drawing.Size(616, 349);
-                this.textBoxAnnotation.TabIndex = 0;
+                this.textBoxAnnotation = new TextBox
+                {
+                    Dock = System.Windows.Forms.DockStyle.Fill,
+                    Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    Location = new Point(3, 3),
+                    Multiline = true,
+                    Name = "textBoxAnnotation",
+                    Size = new Size(616, 349),
+                    TabIndex = 0
+                };
                 PgAnnotation.Controls.Add(this.textBoxAnnotation);
             }
             else this.textBoxAnnotation.Text = "";
@@ -441,14 +451,16 @@ namespace ClassDocuments
                 // 
                 // textBoxCommon
                 // 
-                this.textBoxCommon = new System.Windows.Forms.ListBox(); // .ListView();
-                this.textBoxCommon.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.textBoxCommon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                this.textBoxCommon.Location = new System.Drawing.Point(3, 3);
-                this.textBoxCommon.Name = "textBoxCommon";
-                this.textBoxCommon.Size = new System.Drawing.Size(616, 349);
+                this.textBoxCommon = new ListBox
+                {
+                    Dock = System.Windows.Forms.DockStyle.Fill,
+                    Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    Location = new Point(3, 3),
+                    Name = "textBoxCommon",
+                    Size = new Size(616, 349),
 
-                this.textBoxCommon.TabIndex = 1;
+                    TabIndex = 1
+                }; // .ListView();
                 PgCommon.Controls.Add(this.textBoxCommon);
             }
             else textBoxCommon.Items.Clear();
@@ -773,13 +785,13 @@ namespace ClassDocuments
                 // 
                 // ListBoxExecutops
                 // 
-                listBoxExecutor = new System.Windows.Forms.ListView();
+                listBoxExecutor = new ListView();
                 listBoxExecutor.SuspendLayout();
                 listBoxExecutor.Dock = System.Windows.Forms.DockStyle.Fill;
-                listBoxExecutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                listBoxExecutor.Location = new System.Drawing.Point(3, 3);
+                listBoxExecutor.Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                listBoxExecutor.Location = new Point(3, 3);
                 listBoxExecutor.Name = "listBoxExecutor";
-                listBoxExecutor.Size = new System.Drawing.Size(616, 349);
+                listBoxExecutor.Size = new Size(616, 349);
                 listBoxExecutor.LabelEdit = false;
                 listBoxExecutor.MultiSelect = false;
                 listBoxExecutor.UseCompatibleStateImageBehavior = false;
@@ -787,23 +799,23 @@ namespace ClassDocuments
                 listBoxExecutor.View = System.Windows.Forms.View.Details;
                 listBoxExecutor.GridLines = true;
                 listBoxExecutor.SmallImageList =new ImageList();
-                listBoxExecutor.SmallImageList.Images.Add("task", (System.Drawing.Icon)ClassDocuments.Resources.task);
-                listBoxExecutor.SmallImageList.Images.Add("mainExecutor", (System.Drawing.Icon)ClassDocuments.Resources.mainExe);
+                listBoxExecutor.SmallImageList.Images.Add("task", (Icon)ClassDocuments.Resources.task);
+                listBoxExecutor.SmallImageList.Images.Add("mainExecutor", (Icon)ClassDocuments.Resources.mainExe);
                 listBoxExecutor.ItemChecked += new ItemCheckedEventHandler(listBoxExecutor_ItemChecked);
                 PgExecutor.Controls.Add(AssignToolsPanel(ref ExePanel, "ExePanel", ref tsExecutor, "tsExecutor", ref listBoxExecutor, "listBoxExecutor"));
 
                 listBoxExecutor.Items.Clear();
                 listBoxExecutor.Columns.Clear();
-                columnHeaderImage = new System.Windows.Forms.ColumnHeader();
-                columnHeaderExecutor = new System.Windows.Forms.ColumnHeader();
-                columnHeaderGet = new System.Windows.Forms.ColumnHeader();
-                columnHeaderTo = new System.Windows.Forms.ColumnHeader();
-                columnHeaderExet = new System.Windows.Forms.ColumnHeader();
-                columnHeaderNote = new System.Windows.Forms.ColumnHeader();
-                columnHeaderExetEmployee = new System.Windows.Forms.ColumnHeader();
-                columnHeaderIssueDocId = new System.Windows.Forms.ColumnHeader();
-                columnHeaderMoving = new System.Windows.Forms.ColumnHeader();
-                listBoxExecutor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+                columnHeaderImage = new ColumnHeader();
+                columnHeaderExecutor = new ColumnHeader();
+                columnHeaderGet = new ColumnHeader();
+                columnHeaderTo = new ColumnHeader();
+                columnHeaderExet = new ColumnHeader();
+                columnHeaderNote = new ColumnHeader();
+                columnHeaderExetEmployee = new ColumnHeader();
+                columnHeaderIssueDocId = new ColumnHeader();
+                columnHeaderMoving = new ColumnHeader();
+                listBoxExecutor.Columns.AddRange(new ColumnHeader[] {
  //                   columnHeaderImage,
              columnHeaderExecutor,
              columnHeaderGet,
@@ -902,105 +914,119 @@ namespace ClassDocuments
                 //
                 // tsiKillAnswer
                 //
-                this.tsiKillAnswer = new System.Windows.Forms.ToolStripButton();
-                this.tsiKillAnswer.BackColor = System.Drawing.Color.Tan;
-                this.tsiKillAnswer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiKillAnswer.Image = ((System.Drawing.Image)ClassDocuments.Resources.KillAnswer);
-                this.tsiKillAnswer.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiKillAnswer.Name = "tsiKillAnswer";
-                this.tsiKillAnswer.Size = new System.Drawing.Size(23, 22);
-                this.tsiKillAnswer.Text = "Удалить ответ";
-                this.tsiKillAnswer.ToolTipText = "Удалить ответ";
-                this.tsiKillAnswer.Visible = true;
+                this.tsiKillAnswer = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.KillAnswer),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiKillAnswer",
+                    Size = new Size(23, 22),
+                    Text = "Удалить ответ",
+                    ToolTipText = "Удалить ответ",
+                    Visible = true
+                };
                 this.tsiKillAnswer.Click += new EventHandler(tsiKillAnswer_click);
                 //
                 // tsiKillSend
                 //
-                this.tsiKillSend = new System.Windows.Forms.ToolStripButton();
-                this.tsiKillSend.BackColor = System.Drawing.Color.Tan;
-                this.tsiKillSend.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiKillSend.Image = ((System.Drawing.Image)ClassDocuments.Resources.CUT);
-                this.tsiKillSend.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiKillSend.Name = "tsiKillAnswer";
-                this.tsiKillSend.Size = new System.Drawing.Size(23, 22);
-                this.tsiKillSend.Text = "Удалить рассылку";
-                this.tsiKillSend.ToolTipText = "Удалить рассылку";
-                this.tsiKillSend.Visible = true;
+                this.tsiKillSend = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.CUT),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiKillAnswer",
+                    Size = new Size(23, 22),
+                    Text = "Удалить рассылку",
+                    ToolTipText = "Удалить рассылку",
+                    Visible = true
+                };
                 this.tsiKillSend.Click += new EventHandler(tsiKillSend_Click);
                 //
                 // tsiMainExecutor
                 //
-                this.tsiMainExecutor = new System.Windows.Forms.ToolStripButton();
-                this.tsiMainExecutor.BackColor = System.Drawing.Color.Tan;
-                this.tsiMainExecutor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiMainExecutor.Image = ((System.Drawing.Image)ClassDocuments.Resources.MainExecutor);
-                this.tsiMainExecutor.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiMainExecutor.Name = "tsiMainExecutor";
-                this.tsiMainExecutor.Size = new System.Drawing.Size(23, 22);
-                this.tsiMainExecutor.Text = "Главный исполнитель";
-                this.tsiMainExecutor.ToolTipText = "Главный исполнитель";
-                this.tsiMainExecutor.Visible = true;
-                this.tsiMainExecutor.Click += new System.EventHandler(tsiMainExecutor_Click);
+                this.tsiMainExecutor = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.MainExecutor),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiMainExecutor",
+                    Size = new Size(23, 22),
+                    Text = "Главный исполнитель",
+                    ToolTipText = "Главный исполнитель",
+                    Visible = true
+                };
+                this.tsiMainExecutor.Click += new EventHandler(tsiMainExecutor_Click);
                 //
                 // tsiOwnSings
                 //
-                this.tsiOwnSings = new System.Windows.Forms.ToolStripButton();
-                this.tsiOwnSings.BackColor = System.Drawing.Color.Tan;
-                this.tsiOwnSings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiOwnSings.Image = ((System.Drawing.Image)ClassDocuments.Resources.OwnSings);
-                this.tsiOwnSings.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiOwnSings.Name = "tsiOwnSings";
-                this.tsiOwnSings.Size = new System.Drawing.Size(23, 22);
-                this.tsiOwnSings.Text = "Свои рассылки";
-                this.tsiOwnSings.ToolTipText = "Свои рассылки";
-                this.tsiOwnSings.Visible = true;
-                this.tsiOwnSings.CheckOnClick = true;
-                this.tsiOwnSings.Click += new System.EventHandler(tsiOwnSings_Click);
+                this.tsiOwnSings = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.OwnSings),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiOwnSings",
+                    Size = new Size(23, 22),
+                    Text = "Свои рассылки",
+                    ToolTipText = "Свои рассылки",
+                    Visible = true,
+                    CheckOnClick = true
+                };
+                this.tsiOwnSings.Click += new EventHandler(tsiOwnSings_Click);
                 //
                 // tsiSubDocument
                 //
-                this.tsiSubDocument = new System.Windows.Forms.ToolStripButton();
-                this.tsiSubDocument.BackColor = System.Drawing.Color.Tan;
-                this.tsiSubDocument.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiSubDocument.Image = ((System.Drawing.Image)ClassDocuments.Resources.SubDocument);
-                this.tsiSubDocument.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiSubDocument.Name = "tsiSubDocument";
-                this.tsiSubDocument.Size = new System.Drawing.Size(23, 22);
-                this.tsiSubDocument.Text = "Перейти к ответу";
-                this.tsiSubDocument.ToolTipText = "Перейти к ответу";
-                this.tsiSubDocument.Visible = true;
-                this.tsiSubDocument.Click += new System.EventHandler(tsiSubDocument_Click);
+                this.tsiSubDocument = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.SubDocument),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiSubDocument",
+                    Size = new Size(23, 22),
+                    Text = "Перейти к ответу",
+                    ToolTipText = "Перейти к ответу",
+                    Visible = true
+                };
+                this.tsiSubDocument.Click += new EventHandler(tsiSubDocument_Click);
                 //
                 // tsiBackDocument
                 //
-                this.tsiBackDocument = new System.Windows.Forms.ToolStripButton();
-                this.tsiBackDocument.BackColor = System.Drawing.Color.Tan;
-                this.tsiBackDocument.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiBackDocument.Image = ((System.Drawing.Image)ClassDocuments.Resources.LastDocument);
-                this.tsiBackDocument.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiBackDocument.Name = "tsiBackDocument";
-                this.tsiBackDocument.Size = new System.Drawing.Size(23, 22);
-                this.tsiBackDocument.Text = "Вернуться к предыдущему документу";
-                this.tsiBackDocument.ToolTipText = "Вернуться к предыдущему документу";
-                this.tsiBackDocument.Visible = true;
-                this.tsiBackDocument.Click += new System.EventHandler(tsiBackDocument_Click);
+                this.tsiBackDocument = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.LastDocument),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiBackDocument",
+                    Size = new Size(23, 22),
+                    Text = "Вернуться к предыдущему документу",
+                    ToolTipText = "Вернуться к предыдущему документу",
+                    Visible = true
+                };
+                this.tsiBackDocument.Click += new EventHandler(tsiBackDocument_Click);
                 //
                 // tsiAlterTime
                 //
-                this.tsiAlterTime = new System.Windows.Forms.ToolStripButton();
-                this.tsiAlterTime.BackColor = System.Drawing.Color.Tan;
-                this.tsiAlterTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-                this.tsiAlterTime.Image = ((System.Drawing.Image)ClassDocuments.Resources.AlterExeTime);
-                this.tsiAlterTime.ImageTransparentColor = System.Drawing.Color.Magenta;
-                this.tsiAlterTime.Name = "tsiAlterTime";
-                this.tsiAlterTime.Size = new System.Drawing.Size(23, 22);
-                this.tsiAlterTime.Text = "Изменить срок исполнения";
-                this.tsiAlterTime.ToolTipText = "Изменить срок исполнения";
-                this.tsiAlterTime.Visible = true;
-                this.tsiAlterTime.Click += new System.EventHandler(tsiAlterTime_Click);
+                this.tsiAlterTime = new ToolStripButton
+                {
+                    BackColor = System.Drawing.Color.Tan,
+                    DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image,
+                    Image = ((Image)ClassDocuments.Resources.AlterExeTime),
+                    ImageTransparentColor = System.Drawing.Color.Magenta,
+                    Name = "tsiAlterTime",
+                    Size = new Size(23, 22),
+                    Text = "Изменить срок исполнения",
+                    ToolTipText = "Изменить срок исполнения",
+                    Visible = true
+                };
+                this.tsiAlterTime.Click += new EventHandler(tsiAlterTime_Click);
 
                 this.tsExecutor.Items.Clear();
-                this.tsExecutor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.tsExecutor.Items.AddRange(new ToolStripItem[] {
                     this.tsiOwnSings,
                     this.tsiKillAnswer,
                     this.tsiKillSend,
@@ -1207,13 +1233,13 @@ namespace ClassDocuments
             if (ItemInd != null)
                 if (ItemInd.Group.Name.CompareTo("ExeGroup") == 0)
                 {
-                System.Windows.Forms.MonthCalendar monthCalendarExe;
-                monthCalendarExe = new System.Windows.Forms.MonthCalendar();
+                    MonthCalendar monthCalendarExe;
+                monthCalendarExe = new MonthCalendar();
                 listBoxExecutor.Parent.Controls.Add(monthCalendarExe);
                 // 
                 // monthCalendarExe
                 // 
-                monthCalendarExe.Location = new System.Drawing.Point((listBoxExecutor.Parent.Width - monthCalendarExe.Width) / 2, 20);
+                monthCalendarExe.Location = new Point((listBoxExecutor.Parent.Width - monthCalendarExe.Width) / 2, 20);
                 monthCalendarExe.Name = "monthCalendarExe";
                 monthCalendarExe.TabIndex = 33;
                 monthCalendarExe.Visible = true;
@@ -1227,7 +1253,7 @@ namespace ClassDocuments
         {
             DateTime dt = AMAS_DBI.AMASCommand.AlterDateExecuting(Convert.ToInt32(listBoxExecutor.SelectedItems[0].SubItems[7].Text), e.Start);
             if (dt != DateTime.MinValue) listBoxExecutor.SelectedItems[0].SubItems[2].Text = dt.ToShortDateString();
-            System.Windows.Forms.MonthCalendar monthCalendarExe =(System.Windows.Forms.MonthCalendar) sender;
+            MonthCalendar monthCalendarExe =(MonthCalendar) sender;
             monthCalendarExe.Visible = false;
             monthCalendarExe.Dispose();
         }

@@ -12,13 +12,23 @@ namespace Chief
         private int tryEnter = 0;
         private FormConnect form1;
         private Form form2;
+        private Form splashform;
 
         public MyApplicationContext()
         {
-            form1 = new FormConnect();
+            splashform = new SplashForm();
+            splashform.Show();
+            splashform.Refresh();
+            form1 = new FormConnect(splashform);
             form1.Closing += new CancelEventHandler(OnFormClosing);
+            form1.Activated += Form1_Activated;
             form1.Show();
 
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            //splashform.Close();
         }
 
         private void OnFormClosing(object sender, CancelEventArgs e)
@@ -27,7 +37,7 @@ namespace Chief
             // can be saved in the user data file.
             if (sender is FormConnect)
             {
-                AMAS_DBI.Class_syb_acc SYB_acc = Dbase();
+                Class_syb_acc SYB_acc = Dbase();
                 if (SYB_acc.Connected)
                 {
                     form2 = new Master(SYB_acc);
@@ -36,7 +46,7 @@ namespace Chief
                 }
                 else
                 {
-                    if (tryEnter == 3)
+                    if (tryEnter >= 3)
                     {
                         MessageBox.Show("Количество попыток входа в систему исчерпано.");
                         Application.Exit();
@@ -44,7 +54,7 @@ namespace Chief
                     else
                     {
                         MessageBox.Show("Неверно заданы параметры входа в систему. Повторите ввод параметров.");
-                        form1 = new FormConnect();
+                        form1 = new FormConnect(splashform);
                         form1.Closing += new CancelEventHandler(OnFormClosing);
                         form1.Show();
                     }
@@ -56,9 +66,9 @@ namespace Chief
 
         }
 
-        private AMAS_DBI.Class_syb_acc Dbase()
+        private Class_syb_acc Dbase()
         {
-            AMAS_DBI.Class_syb_acc SYB_acc = new Class_syb_acc(form1.conn_select_DB, form1.conn_ODBC, form1.PWD, form1.UID);
+            Class_syb_acc SYB_acc = new Class_syb_acc(form1.conn_select_DB, form1.conn_ODBC, form1.PWD, form1.UID);
             return SYB_acc;
         }
 

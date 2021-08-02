@@ -101,7 +101,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Подключиться";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // textBox5
             // 
@@ -183,7 +183,7 @@
             this.button4.TabIndex = 16;
             this.button4.Text = "Подключиться";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // textBox2
             // 

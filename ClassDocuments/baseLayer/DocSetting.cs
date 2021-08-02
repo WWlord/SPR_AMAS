@@ -9,7 +9,7 @@ namespace ClassDocuments.baseLayer
     sealed class MetadataSetting : ApplicationSettingsBase
     {
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int Executor
         {
             get { return (int)this["Executor"]; }
@@ -17,7 +17,7 @@ namespace ClassDocuments.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int SendDate
         {
             get { return (int)this["SendDate"]; }
@@ -25,7 +25,7 @@ namespace ClassDocuments.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int ToDate
         {
             get { return (int)this["ToDate"]; }
@@ -33,7 +33,7 @@ namespace ClassDocuments.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int ExeDate
         {
             get { return (int)this["ExeDate"]; }
@@ -41,7 +41,7 @@ namespace ClassDocuments.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int Note
         {
             get { return (int)this["Note"]; }
@@ -49,7 +49,7 @@ namespace ClassDocuments.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("50")]
+        [DefaultSettingValue("50")]
         public int ExecBy
         {
             get { return (int)this["ExecBy"]; }

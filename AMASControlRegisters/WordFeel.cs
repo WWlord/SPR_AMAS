@@ -16,7 +16,7 @@ namespace AMASControlRegisters
 {
     public partial class WordFeel : UserControl
     {
-        private AMAS_DBI.Class_syb_acc AMAS_access;
+        private Class_syb_acc AMAS_access;
         private int Doc_ID=0;
         Microsoft.Office.Interop.Word.Application Word_App = null;
         Microsoft.Office.Interop.Excel.Application Excel_App = null;
@@ -222,79 +222,83 @@ namespace AMASControlRegisters
                 Fil = "";
             }
             if (Fil.Length > 0)
-            try
-            {
-                string txt = AMASCommand.CreateOutDoc(Doc_ID); //Исходящая
-                if (txt.Length > 0)
+                try
                 {
-                    int OutDocId = AMASCommand.GetOutDocID(Doc_ID);
-                    object ODI=OutDocId;
-                    object IDI = Doc_ID;
-                    Variable VarDocId = Word_doc.Variables.Add("AMASDocId", ref ODI);
-                    Variable VarInDocId = Word_doc.Variables.Add("AMASInDocId", ref IDI);
+                    string txt = AMASCommand.CreateOutDoc(Doc_ID); //Исходящая
+                    if (txt.Length > 0)
+                    {
+                        int OutDocId = AMASCommand.GetOutDocID(Doc_ID);
+                        object ODI = OutDocId;
+                        object IDI = Doc_ID;
+                        Variable VarDocId = Word_doc.Variables.Add("AMASDocId", ref ODI);
+                        Variable VarInDocId = Word_doc.Variables.Add("AMASInDocId", ref IDI);
 
-                    string lbl = "q2";
-                    object mark = lbl;
+                        string lbl = "q2";
+                        object mark = lbl;
 
-                    string rng="";
-                    object RangInsert=rng;
+                        string rng = "";
+                        object RangInsert = rng;
 
-                    string ClassType = "Word.Document.12";
-                    object classT = ClassType;
-                     
-                    object what =(int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
-                    object FileName = FileLoad;
-                    object LnkFl = false;
-                    object DispIconFile = false;
-                    object addtxt =txt;
-                    object FalseObj=false;
-                    object TrueObj=true;
+                        string ClassType = "Word.Document.12";
+                        object classT = ClassType;
 
-                    Microsoft.Office.Interop.Word.Window myWindow = Word_App.ActiveWindow;
-                    myWindow.Caption = "Создание документа " + txt;
-                    Word_App.Visible = true;
+                        object what = (int)Microsoft.Office.Interop.Word.WdGoToItem.wdGoToBookmark;
+                        object FileName = FileLoad;
+                        object LnkFl = false;
+                        object DispIconFile = false;
+                        object addtxt = txt;
+                        object FalseObj = false;
+                        object TrueObj = true;
 
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                    
-                    lbl = "q3";
-                    mark = lbl;
-                    txt = AMASCommand.OutDocOutcome(OutDocId); // В ответ на входящую
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                    
-                    lbl = "q5";
-                    mark = lbl;
-                    txt = AMASCommand.OutDocSigner(OutDocId); // Руководитель
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                    
-                    lbl = "q6";
-                    mark = lbl;
-                    txt = AMASCommand.OutDocExecutor(Doc_ID); //Исполнитель
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                    
-                    lbl = "q7";
-                    mark = lbl;
-                    txt = AMASCommand.OutDocAnnotation(OutDocId); //Аннотация
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertAfter(txt);
-                    
-                    lbl = "q4";
-                    mark = lbl;
-                    FileLoad=DoContent.BaseDocToFile(0);
-                    FileName = FileLoad;
-                    Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
-                    Word_App.ActiveWindow.Selection.InsertFile(FileLoad, ref RangInsert, ref FalseObj, ref FalseObj, ref FalseObj); //.InlineShapes.AddOLEObject (ref classT, ref FileName, ref LnkFl, ref DispIconFile, ref missing, ref missing2, ref missing3, ref missing);
+                        Microsoft.Office.Interop.Word.Window myWindow = Word_App.ActiveWindow;
+                        myWindow.Caption = "Создание документа " + txt;
+                        Word_App.Visible = true;
 
+                        lbl = "q4";
+                        mark = lbl;
+                        FileLoad = DoContent.BaseDocToFile(0);
+                        FileName = FileLoad;
+                        Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                        Word_App.ActiveWindow.Selection.InsertFile(FileLoad, ref RangInsert, ref FalseObj, ref FalseObj, ref FalseObj); //.InlineShapes.AddOLEObject (ref classT, ref FileName, ref LnkFl, ref DispIconFile, ref missing, ref missing2, ref missing3, ref missing);
+
+                        lbl = "q2";
+                        mark = lbl;
+                        Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                        Word_App.ActiveWindow.Selection.InsertAfter(txt);
+
+                        //if (!AMASCommand.Is_from_Pettarn(Doc_ID)==true)
+                        {
+                            lbl = "q3";
+                            mark = lbl;
+                            txt = AMASCommand.OutDocOutcome(OutDocId); // В ответ на входящую
+                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                            Word_App.ActiveWindow.Selection.InsertAfter(txt);
+
+                            lbl = "q5";
+                            mark = lbl;
+                            txt = AMASCommand.OutDocSigner(OutDocId); // Руководитель
+                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                            Word_App.ActiveWindow.Selection.InsertAfter(txt);
+
+                            lbl = "q6";
+                            mark = lbl;
+                            txt = AMASCommand.OutDocExecutor(Doc_ID); //Исполнитель
+                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                            Word_App.ActiveWindow.Selection.InsertAfter(txt);
+
+                            lbl = "q7";
+                            mark = lbl;
+                            txt = AMASCommand.OutDocAnnotation(OutDocId); //Аннотация
+                            Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
+                            Word_App.ActiveWindow.Selection.InsertAfter(txt);
+                        }
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Разрушены данные для заполнения полей" + e.ToString());
-                Fil = "";
-            }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Разрушены данные для заполнения полей" + e.ToString());
+                    Fil = "";
+                }
         return Fil;
         }
 
@@ -323,7 +327,7 @@ namespace AMASControlRegisters
             {
                 string ss="";
                 object Fname=FileLoad;
-                object wdFormatXMLDocument= (int) Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatXMLDocument;
+                object wdFormatXMLDocument = (int)Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatPDF; // .wdFormatXMLDocument;
                 object FalseObj=false;
                 object TrueObj=true;
                 object NullStr =ss;
@@ -352,7 +356,7 @@ namespace AMASControlRegisters
                     int i = 0;
                     do
                     {
-                        Fil = Path.GetTempPath() + "Newdoc" + Document_ID.ToString()+i.ToString() + ".xml";
+                        Fil = Path.GetTempPath() + "Newdoc" + Document_ID.ToString()+i.ToString() + ".pdf"; // ".xml";
                         FileInfo FF = new FileInfo(Fil);
                         if (FF.Exists)
                             try

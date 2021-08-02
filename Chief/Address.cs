@@ -11,9 +11,9 @@ namespace Chief
 {
     public partial class Address : Form
     {
-        AMAS_DBI.Class_syb_acc Ass_base;
+        Class_syb_acc Ass_base;
 
-        public Address(AMAS_DBI.Class_syb_acc AACC)
+        public Address(Class_syb_acc AACC)
         {
             InitializeComponent();
 

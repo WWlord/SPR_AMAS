@@ -19,10 +19,10 @@ namespace AMASControlRegisters
         private int year = 0;
         private int month = 0;
         DocTipGrow DTG = null;
-        private AMASControlRegisters.Document_Viewer ShowDocument;
-        private ClassStructure.Structure A_Struct;
+        private Document_Viewer ShowDocument;
+        private Structure A_Struct;
 
-        public UCDocsTree(Class_syb_acc Acc, AMASControlRegisters.Document_Viewer DocView )
+        public UCDocsTree(Class_syb_acc Acc, Document_Viewer DocView )
         {
             InitializeComponent();
 
@@ -38,8 +38,10 @@ namespace AMASControlRegisters
 
             ShowDocument = DocView;
 
-            A_Struct = new Structure(SybAcc,treeViewStructure);
-            A_Struct.Show_Empl = true;
+            A_Struct = new Structure(SybAcc, treeViewStructure)
+            {
+                Show_Empl = true
+            };
             panelStructure.SendToBack();
         }
 
@@ -463,10 +465,12 @@ namespace AMASControlRegisters
         {
             if (ShowDocument.Doc_ID > 0)
             {
-                Document_Viewer Newdoc = new Document_Viewer(SybAcc, null);
-                Newdoc.Doc_ID = 0;
-                Newdoc.New_document = true;
-                Newdoc.Edit_document = true;
+                Document_Viewer Newdoc = new Document_Viewer(SybAcc, null)
+                {
+                    Doc_ID = 0,
+                    New_document = true,
+                    Edit_document = true
+                };
                 ShowDocument.Controls.Add(Newdoc);
                 Newdoc.Dock = DockStyle.Fill;
                 UCNewDocument NewDocExecution = new UCNewDocument(SybAcc, Newdoc, ShowDocument.Doc_ID,true);

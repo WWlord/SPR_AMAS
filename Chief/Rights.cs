@@ -14,7 +14,7 @@ namespace Chief
     public partial class Rights : Form
     {
         private AMAS_DBI.Class_syb_acc AMASacc;
-        private ClassStructure.Structure StructWithDegree;
+        private Structure StructWithDegree;
         public int ModuleId ;
 
         private TreeNode thisNode = null;
@@ -73,7 +73,7 @@ namespace Chief
             }
         }
 
-        private void tabControlEmp_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void tabControlEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabControlEmp.TabPages[tabControlEmp.SelectedIndex].Name)
             {
@@ -92,12 +92,12 @@ namespace Chief
             select_tab();
         }
 
-        private void tabControlSet_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void tabControlSet_SelectedIndexChanged(object sender, EventArgs e)
         {
             select_tab();
         }
 
-        private void listViewAll_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void listViewAll_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedEMplAll(listViewAll.SelectedItems);
         }
@@ -235,7 +235,7 @@ namespace Chief
 
         ArrayList MetaInstruct = new ArrayList();
 
-        private void panelMeta_Resize(object sender, System.EventArgs e)
+        private void panelMeta_Resize(object sender, EventArgs e)
         {
             Control control = (Control)sender;
             labelFio.Width = control.Left + control.Width - labelFio.Left - labelFio.Width - 3;

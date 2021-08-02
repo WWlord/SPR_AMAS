@@ -8,10 +8,10 @@ namespace ClassInterfases
 {
     public interface FormShowCon
     {
-        System.Windows.Forms.ImageList imagelib();
-        System.Windows.Forms.Panel panel();
-        AMAS_DBI.Class_syb_acc DB_acc();
-        System.Windows.Forms.ToolStripProgressBar FuelBar();
+        ImageList imagelib();
+        Panel panel();
+        Class_syb_acc DB_acc();
+        ToolStripProgressBar FuelBar();
     }
 
     public interface GSADR

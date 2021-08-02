@@ -644,7 +644,7 @@ namespace AMASControlRegisters
         }
     }
 
-    public class POP3 : System.Net.Sockets.TcpClient
+    public class POP3 : TcpClient
     {
 
         public void ConnectPOP(string sServerName, string sUserName, string sPassword)
@@ -736,9 +736,11 @@ namespace AMASControlRegisters
             POP3EmailMessage oMailMessage = null;
             try
             {
-                oMailMessage = new POP3EmailMessage();
-                oMailMessage.msgSize = msgRETR.msgSize;
-                oMailMessage.msgNumber = msgRETR.msgNumber;
+                oMailMessage = new POP3EmailMessage
+                {
+                    msgSize = msgRETR.msgSize,
+                    msgNumber = msgRETR.msgNumber
+                };
 
                 sMessage = "RETR " + msgRETR.msgNumber.ToString() + "\r\n";
                 Write(sMessage);
@@ -780,7 +782,7 @@ namespace AMASControlRegisters
 
         private void Write(string sMessage)
         {
-            System.Text.ASCIIEncoding oEncodedData = new ASCIIEncoding();
+            ASCIIEncoding oEncodedData = new ASCIIEncoding();
 
             byte[] WriteBuffer = new byte[1024];
             WriteBuffer=oEncodedData.GetBytes(sMessage);
@@ -791,7 +793,7 @@ namespace AMASControlRegisters
 
         private string Response()
         {
-            System.Text.ASCIIEncoding oEncodedData = new ASCIIEncoding();
+            ASCIIEncoding oEncodedData = new ASCIIEncoding();
             byte[] ServerBuffer = new byte[1024];
             NetworkStream NetStream = GetStream();
             int count = 0;
@@ -931,7 +933,7 @@ namespace AMASControlRegisters
 }
 namespace POPMailException
 {
-    public class POPException : System.ApplicationException
+    public class POPException : ApplicationException
     {
         public POPException(string Str)
         {

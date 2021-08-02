@@ -11,7 +11,7 @@ namespace Chief.baseLayer
 
     sealed class ChefSettings : ApplicationSettingsBase
     {
-        [UserScopedSettingAttribute()]
+        [UserScopedSetting()]
         public String FormText
         {
             get
@@ -90,7 +90,7 @@ namespace Chief.baseLayer
 
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("0, 0")]
+        [DefaultSettingValue("0, 0")]
         public Point FormLocation
         {
             get { return (Point)(this["FormLocation"]); }
@@ -98,7 +98,7 @@ namespace Chief.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("800, 600")]
+        [DefaultSettingValue("800, 600")]
         public Size FormSize
         {
             get { return (Size)this["FormSize"]; }
@@ -106,7 +106,7 @@ namespace Chief.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("LightGray")]
+        [DefaultSettingValue("LightGray")]
         public Color FormBackColor
         {
             get { return (Color)this["FormBackColor"]; }
@@ -114,7 +114,7 @@ namespace Chief.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter1
         {
             get { return (int)this["Splitter1"]; }
@@ -122,7 +122,7 @@ namespace Chief.baseLayer
         }
             
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter2
         {
             get { return (int)this["Splitter2"]; }
@@ -130,7 +130,7 @@ namespace Chief.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter3
         {
             get { return (int)this["Splitter3"]; }
@@ -183,7 +183,7 @@ namespace Chief.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("5")]
+        [DefaultSettingValue("5")]
         public int PDFPrintWait
         {
             get { return (int)this["PDFPrintWait"]; }

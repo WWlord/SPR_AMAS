@@ -27,12 +27,14 @@ namespace AMASControlRegisters
 
         public TreeNode TNode = null;
 
+        public bool From_Pattern=false;
+
         private TreeView FileExplorer = null;
         private FileDirExplorer FileSelect = null;
         private MetaDataDocument MDT;
-        private ClassPattern.Editor DocEditor;
+        private Editor DocEditor;
         private ClassDocsItem DocumentValue;
-        private AMAS_DBI.Class_syb_acc SyB_Acc;
+        private Class_syb_acc SyB_Acc;
 
         private int documentTIP = -1;
         
@@ -312,7 +314,7 @@ namespace AMASControlRegisters
             catch { }
         }
 
-        public Document_Viewer(AMAS_DBI.Class_syb_acc aaa,TreeNode nod)
+        public Document_Viewer(Class_syb_acc aaa,TreeNode nod)
         {
             InitializeComponent();
             SyB_Acc = aaa;
@@ -490,9 +492,9 @@ namespace AMASControlRegisters
             // DocEditor
             // 
             this.DocEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DocEditor.Location = new System.Drawing.Point(0, 0);
+            this.DocEditor.Location = new Point(0, 0);
             this.DocEditor.Name = "DocEditor" + tabkey;
-            this.DocEditor.Size = new System.Drawing.Size(468, 267);
+            this.DocEditor.Size = new Size(468, 267);
             this.DocEditor.TabIndex = 0;
         }
 

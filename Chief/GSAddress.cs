@@ -12,7 +12,7 @@ namespace Chief
 {
     public partial class GSAddress : Form, GSADR
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         public int GSAddressID()
         {
@@ -24,7 +24,7 @@ namespace Chief
              return addressRegister1.AddressString();
         }
 
-        public GSAddress(AMAS_DBI.Class_syb_acc Acc)
+        public GSAddress(Class_syb_acc Acc)
         {
             InitializeComponent();
             AMASacc = Acc;

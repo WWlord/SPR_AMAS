@@ -16,9 +16,9 @@ namespace Chief
     {
         public int ModuleId;
         private AMAS_DBI.Class_syb_acc AMAS_access;
-        private AMASControlRegisters.ContragentRegister contragentRegisterout;
-        private AMASControlRegisters.Document_Viewer document_View;
-        private AMASControlRegisters.Document_Viewer document_Out;
+        private ContragentRegister contragentRegisterout;
+        private Document_Viewer document_View;
+        private Document_Viewer document_Out;
         private WordFeel WordSheet;
 
         public OutDocs(AMAS_DBI.Class_syb_acc Acc)
@@ -26,48 +26,54 @@ namespace Chief
             InitializeComponent();
             ModuleId = (int)ClassErrorProvider.ErrorBBLProvider.Modules.OutputDoc;
             AMAS_access=Acc;
-            this.contragentRegisterout = new AMASControlRegisters.ContragentRegister();
+            this.contragentRegisterout = new ContragentRegister();
             this.tpListing.Controls.Add(this.contragentRegisterout);
             // 
             // contragentRegisterout
             // 
             this.contragentRegisterout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contragentRegisterout.Document = 0;
-            this.contragentRegisterout.Location = new System.Drawing.Point(3, 3);
+            this.contragentRegisterout.Location = new Point(3, 3);
             this.contragentRegisterout.Name = "contragentRegisterout";
-            this.contragentRegisterout.Size = new System.Drawing.Size(867, 551);
+            this.contragentRegisterout.Size = new Size(867, 551);
             this.contragentRegisterout.TabIndex = 0;
 
-            document_View = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
-            document_View.Doc_ID = 0;
-            document_View.Dock = System.Windows.Forms.DockStyle.Fill;
-            document_View.Location = new System.Drawing.Point(250, 0);
-            document_View.Name = "document_View";
-            document_View.New_document = false;
-            document_View.Sender = 0;
-            document_View.Size = new System.Drawing.Size(this.splitContainer3.Panel2.Size.Width - 250, 521);
-            document_View.TabIndex = 3;
+            document_View = new Document_Viewer(AMAS_access, null)
+            {
+                Doc_ID = 0,
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new Point(250, 0),
+                Name = "document_View",
+                New_document = false,
+                Sender = 0,
+                Size = new Size(this.splitContainer3.Panel2.Size.Width - 250, 521),
+                TabIndex = 3
+            };
             splitContainer3.Panel2.Controls.Add(document_View);
             //document_View.DocumentPicked += new AMASControlRegisters.Document_Viewer.PickDocument(document_View_DocumentPicked);
 
-            document_Out = new AMASControlRegisters.Document_Viewer(AMAS_access, null);
-            document_Out.Doc_ID = 0;
-            document_Out.Dock = System.Windows.Forms.DockStyle.Fill;
-            document_Out.Location = new System.Drawing.Point(250, 0);
-            document_Out.Name = "document_Out";
-            document_Out.New_document = false;
-            document_Out.Sender = 0;
-            document_Out.Size = new System.Drawing.Size(this.splitContainer3.Panel2.Size.Width - 250, 521);
-            document_Out.TabIndex = 3;
+            document_Out = new Document_Viewer(AMAS_access, null)
+            {
+                Doc_ID = 0,
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new Point(250, 0),
+                Name = "document_Out",
+                New_document = false,
+                Sender = 0,
+                Size = new Size(this.splitContainer3.Panel2.Size.Width - 250, 521),
+                TabIndex = 3
+            };
             splitContainer4.Panel2.Controls.Add(document_Out);
             //document_Out.DocumentPicked += new AMASControlRegisters.Document_Viewer.PickDocument(document_View_DocumentPicked);
 
-            WordSheet = new WordFeel(AMAS_access);
-            WordSheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            WordSheet.Name = "WordSheet";
-            WordSheet.Location = new System.Drawing.Point(250, 0);
-            WordSheet.Size = new System.Drawing.Size(100, 100);
-            WordSheet.Visible = false;
+            WordSheet = new WordFeel(AMAS_access)
+            {
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Name = "WordSheet",
+                Location = new Point(250, 0),
+                Size = new Size(100, 100),
+                Visible = false
+            };
             splitContainer3.Panel2.Controls.Add(WordSheet);
 
             tvForMailDocs.NodeMouseClick += new TreeNodeMouseClickEventHandler(tvForMailDocs_NodeMouseClick);
@@ -175,8 +181,8 @@ namespace Chief
 
         private void создатьИсходящийДокументToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //WordSheet.Visible = true;
-            //WordSheet.BringToFront();
+            WordSheet.Visible = true;
+            WordSheet.BringToFront();
             string fl = WordSheet.LoadTemplate(document_View);
         }
 

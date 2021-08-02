@@ -15,24 +15,24 @@ namespace DocumentsByPeriod
     {
         public class Body
         {
-            public System.Windows.Forms.Panel Paneling;
-            public System.Windows.Forms.TreeView treeDocsView;
-            private System.Windows.Forms.DateTimePicker From;
-            private System.Windows.Forms.DateTimePicker To;
-            private System.Windows.Forms.Label CheckFrom;
-            private System.Windows.Forms.Label CheckTo;
-            private System.Windows.Forms.Button Executing;
-            private AMAS_Query.DOCUM Seek_Docs;
-            private System.Windows.Forms.Button Cansel;
+            public Panel Paneling;
+            public TreeView treeDocsView;
+            private DateTimePicker From;
+            private DateTimePicker To;
+            private Label CheckFrom;
+            private Label CheckTo;
+            private Button Executing;
+            private DOCUM Seek_Docs;
+            private Button Cansel;
             private int box_checus;
-            private System.Windows.Forms.ToolStripProgressBar ProgBar;
+            private ToolStripProgressBar ProgBar;
 
             private CheckBox[] CheckBoxes;
             //private System.Windows.Forms.ImageList imagelib;
             private Class_syb_acc SYB_acc;
-            private AMAS_Query.TreeGrow TreG;
+            private TreeGrow TreG;
 
-            public Body( System.Windows.Forms.ImageList IMG, Class_syb_acc Acc, System.Windows.Forms.Panel Panel, AMAS_Query.DOCUM Seek_D, System.Windows.Forms.ToolStripProgressBar PrBr)
+            public Body(ImageList IMG, Class_syb_acc Acc, Panel Panel, DOCUM Seek_D, ToolStripProgressBar PrBr)
             {
                 Seek_Docs = Seek_D;
                 //imagelib = IMG;
@@ -45,31 +45,41 @@ namespace DocumentsByPeriod
                 Panel.Controls.Add(From);
                 To = new DateTimePicker();
                 Panel.Controls.Add(To);
-                CheckFrom = new Label();
-                CheckFrom.Text = "От";
-                CheckFrom.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+                CheckFrom = new Label
+                {
+                    Text = "От",
+                    TextAlign = System.Drawing.ContentAlignment.TopLeft
+                };
                 Panel.Controls.Add(CheckFrom);
-                CheckTo = new Label();
-                CheckTo.Text = "До";
-                CheckTo.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+                CheckTo = new Label
+                {
+                    Text = "До",
+                    TextAlign = System.Drawing.ContentAlignment.TopLeft
+                };
                 Panel.Controls.Add(CheckTo);
                 CheckBoxes = new CheckBox[Seek_Docs.count_seek];
                 for (int i = 0; i < Seek_Docs.count_seek; i++)
                 {
-                    CheckBoxes[i] = new CheckBox();
-                    CheckBoxes[i].Text = Seek_Docs.SEEK_doc[i].desc;
+                    CheckBoxes[i] = new CheckBox
+                    {
+                        Text = Seek_Docs.SEEK_doc[i].desc
+                    };
                     CheckBoxes[i].Click += new EventHandler(All_Docs_CheckedChanged);
                     Panel.Controls.Add(CheckBoxes[i]);
                 }
                 box_checus = 0;
                 CheckBoxes[0].Checked = true;
-                Executing = new Button();
-                Executing.Text="Выполнить!";
+                Executing = new Button
+                {
+                    Text = "Выполнить!"
+                };
                 Executing.Click+=new EventHandler(Executing_Click);
                 Panel.Controls.Add(Executing);
-                treeDocsView = new TreeView();
-                treeDocsView.Visible = false;
-                treeDocsView.Dock = DockStyle.Fill;
+                treeDocsView = new TreeView
+                {
+                    Visible = false,
+                    Dock = DockStyle.Fill
+                };
                 Panel.Controls.Add(treeDocsView);
                 Panel.Resize += new EventHandler(Resize_Me);
                 treeDocsView.ImageList = IMG;
@@ -93,7 +103,7 @@ namespace DocumentsByPeriod
 
             private AMASDocuments.SelectDocuments.ClassSelectDocuments Select_document=null;
 
-            public AMASDocuments.ClassDocsItem ItDocument { get { return Select_document.Selected_document; } }
+            public ClassDocsItem ItDocument { get { return Select_document.Selected_document; } }
 
             public void CurrentItemRefresh()
             {
@@ -114,7 +124,7 @@ namespace DocumentsByPeriod
                 ExecSteps(null);
             }
 
-            public void ExecSteps(CommonValues.FindProperty FndPr)
+            public void ExecSteps(FindProperty FndPr)
             {
                 for (int i = 0; i < Seek_Docs.count_seek; i++)
                 {
@@ -136,7 +146,7 @@ namespace DocumentsByPeriod
                 Select_document.NodePicked += new AMASDocuments.SelectDocuments.ClassSelectDocuments.PickedHandler(Select_document_NodePicked);
             }
 
-            public AMASDocuments.ClassDocsItem selectedDoc 
+            public ClassDocsItem selectedDoc 
             { 
                 get 
                 {
@@ -216,10 +226,10 @@ namespace DocumentsByPeriod
 
         public Body DocsGroup;
 
-        public DocsOfPeriod(AMAS_Query.DOCUM Seek_Docs,Panel panul, System.Windows.Forms.Form DG)
+        public DocsOfPeriod(DOCUM Seek_Docs,Panel panul, Form DG)
         {
-            ClassInterfases.FormShowCon Theatre;
-            Theatre = DG as ClassInterfases.FormShowCon;
+            FormShowCon Theatre;
+            Theatre = DG as FormShowCon;
             if (Theatre != null)
             {
                 DocsGroup = new Body(Theatre.imagelib(), Theatre.DB_acc(), panul, Seek_Docs, Theatre.FuelBar());

@@ -9,7 +9,7 @@ namespace AMASControlRegisters.baseLayer
     sealed class DocViewSettings : ApplicationSettingsBase
     {
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter1
         {
             get { return (int)this["Splitter1"]; }
@@ -17,7 +17,7 @@ namespace AMASControlRegisters.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter2
         {
             get { return (int)this["Splitter2"]; }
@@ -25,7 +25,7 @@ namespace AMASControlRegisters.baseLayer
         }
 
         [UserScopedSetting()]
-        [DefaultSettingValueAttribute("300")]
+        [DefaultSettingValue("300")]
         public int Splitter3
         {
             get { return (int)this["Splitter3"]; }

@@ -46,6 +46,7 @@
             this.tsbBusynessProcesses = new System.Windows.Forms.ToolStripButton();
             this.tsbExecutions = new System.Windows.Forms.ToolStripButton();
             this.tsbOutDoc = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbALARM = new System.Windows.Forms.ToolStripButton();
             this.tsbFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbDelegate = new System.Windows.Forms.ToolStripButton();
@@ -147,7 +148,6 @@
             this.TSMIHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.версияСПРAMASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -276,9 +276,9 @@
             this.tsbProperty,
             this.tsbCargo,
             this.tsbCargoRoutes});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 28);
+            this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1227, 25);
+            this.toolStripMain.Size = new System.Drawing.Size(920, 25);
             this.toolStripMain.TabIndex = 12;
             // 
             // tsbChief
@@ -328,7 +328,6 @@
             this.tsbOrganizations.Size = new System.Drawing.Size(23, 22);
             this.tsbOrganizations.Text = "Организации";
             this.tsbOrganizations.Visible = false;
-           // this.tsbOrganizations.Click += new System.EventHandler(this.tsbOrganizations_Click);
             // 
             // tsbStructMyOrg
             // 
@@ -411,6 +410,7 @@
             this.tsbBusynessProcesses.Name = "tsbBusynessProcesses";
             this.tsbBusynessProcesses.Size = new System.Drawing.Size(23, 22);
             this.tsbBusynessProcesses.Text = "Бизнес-процессы";
+            this.tsbBusynessProcesses.Visible = false;
             this.tsbBusynessProcesses.Click += new System.EventHandler(this.tsbBusynessProcesses_Click);
             // 
             // tsbExecutions
@@ -422,6 +422,7 @@
             this.tsbExecutions.Name = "tsbExecutions";
             this.tsbExecutions.Size = new System.Drawing.Size(23, 22);
             this.tsbExecutions.Text = "Задания";
+            this.tsbExecutions.Visible = false;
             this.tsbExecutions.Click += new System.EventHandler(this.tsbExecutions_Click);
             // 
             // tsbOutDoc
@@ -435,6 +436,18 @@
             this.tsbOutDoc.Text = "Выпуск";
             this.tsbOutDoc.Visible = false;
             this.tsbOutDoc.Click += new System.EventHandler(this.tsbOutDoc_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackColor = System.Drawing.Color.Tan;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Chief.Properties.Resources.Annotate_Complete;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Специальный документ";
+            this.toolStripButton1.Visible = false;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tsbALARM
             // 
@@ -549,8 +562,7 @@
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.SteelBlue;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 53);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -568,9 +580,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelALARM);
             this.splitContainer1.Panel2.Controls.Add(this.panelErrLog);
             this.splitContainer1.Panel2.Controls.Add(this.panelUnrank);
-            this.splitContainer1.Size = new System.Drawing.Size(1227, 493);
-            this.splitContainer1.SplitterDistance = 510;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(920, 395);
+            this.splitContainer1.SplitterDistance = 382;
             this.splitContainer1.TabIndex = 13;
             // 
             // splitContainerCED
@@ -578,7 +589,6 @@
             this.splitContainerCED.BackColor = System.Drawing.Color.SteelBlue;
             this.splitContainerCED.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerCED.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerCED.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerCED.Name = "splitContainerCED";
             this.splitContainerCED.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -589,9 +599,8 @@
             // splitContainerCED.Panel2
             // 
             this.splitContainerCED.Panel2.Controls.Add(this.listViewCED);
-            this.splitContainerCED.Size = new System.Drawing.Size(510, 493);
-            this.splitContainerCED.SplitterDistance = 295;
-            this.splitContainerCED.SplitterWidth = 5;
+            this.splitContainerCED.Size = new System.Drawing.Size(382, 395);
+            this.splitContainerCED.SplitterDistance = 236;
             this.splitContainerCED.TabIndex = 1;
             // 
             // treeViewCED
@@ -600,9 +609,8 @@
             this.treeViewCED.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeViewCED.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCED.Location = new System.Drawing.Point(0, 0);
-            this.treeViewCED.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewCED.Name = "treeViewCED";
-            this.treeViewCED.Size = new System.Drawing.Size(510, 295);
+            this.treeViewCED.Size = new System.Drawing.Size(382, 236);
             this.treeViewCED.TabIndex = 0;
             this.treeViewCED.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCED_AfterSelect);
             // 
@@ -611,10 +619,10 @@
             this.listViewCED.BackColor = System.Drawing.Color.Wheat;
             this.listViewCED.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewCED.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewCED.HideSelection = false;
             this.listViewCED.Location = new System.Drawing.Point(0, 0);
-            this.listViewCED.Margin = new System.Windows.Forms.Padding(4);
             this.listViewCED.Name = "listViewCED";
-            this.listViewCED.Size = new System.Drawing.Size(510, 193);
+            this.listViewCED.Size = new System.Drawing.Size(382, 155);
             this.listViewCED.TabIndex = 0;
             this.listViewCED.UseCompatibleStateImageBehavior = false;
             this.listViewCED.View = System.Windows.Forms.View.List;
@@ -622,9 +630,11 @@
             // 
             // lvALARM
             // 
+            this.lvALARM.HideSelection = false;
             this.lvALARM.Location = new System.Drawing.Point(0, 0);
+            this.lvALARM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvALARM.Name = "lvALARM";
-            this.lvALARM.Size = new System.Drawing.Size(121, 97);
+            this.lvALARM.Size = new System.Drawing.Size(92, 80);
             this.lvALARM.TabIndex = 2;
             this.lvALARM.UseCompatibleStateImageBehavior = false;
             // 
@@ -635,11 +645,10 @@
             this.lbErrorsLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbErrorsLog.ForeColor = System.Drawing.Color.Red;
             this.lbErrorsLog.FormattingEnabled = true;
-            this.lbErrorsLog.ItemHeight = 18;
+            this.lbErrorsLog.ItemHeight = 15;
             this.lbErrorsLog.Location = new System.Drawing.Point(0, 0);
-            this.lbErrorsLog.Margin = new System.Windows.Forms.Padding(4);
             this.lbErrorsLog.Name = "lbErrorsLog";
-            this.lbErrorsLog.Size = new System.Drawing.Size(510, 493);
+            this.lbErrorsLog.Size = new System.Drawing.Size(382, 395);
             this.lbErrorsLog.TabIndex = 11;
             this.lbErrorsLog.SelectedIndexChanged += new System.EventHandler(this.lbErrorsLog_SelectedIndexChanged);
             // 
@@ -648,7 +657,6 @@
             this.splitContainerUnrank.BackColor = System.Drawing.Color.SteelBlue;
             this.splitContainerUnrank.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerUnrank.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerUnrank.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerUnrank.Name = "splitContainerUnrank";
             this.splitContainerUnrank.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -661,9 +669,8 @@
             // 
             this.splitContainerUnrank.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainerUnrank.Panel2.Controls.Add(this.lbEmployee);
-            this.splitContainerUnrank.Size = new System.Drawing.Size(510, 493);
-            this.splitContainerUnrank.SplitterDistance = 247;
-            this.splitContainerUnrank.SplitterWidth = 5;
+            this.splitContainerUnrank.Size = new System.Drawing.Size(382, 395);
+            this.splitContainerUnrank.SplitterDistance = 197;
             this.splitContainerUnrank.TabIndex = 13;
             // 
             // lbRank
@@ -674,11 +681,10 @@
             this.lbRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbRank.ForeColor = System.Drawing.Color.DarkBlue;
             this.lbRank.FormattingEnabled = true;
-            this.lbRank.ItemHeight = 20;
+            this.lbRank.ItemHeight = 16;
             this.lbRank.Location = new System.Drawing.Point(0, 0);
-            this.lbRank.Margin = new System.Windows.Forms.Padding(4);
             this.lbRank.Name = "lbRank";
-            this.lbRank.Size = new System.Drawing.Size(510, 247);
+            this.lbRank.Size = new System.Drawing.Size(382, 197);
             this.lbRank.TabIndex = 0;
             // 
             // lbEmployee
@@ -688,11 +694,10 @@
             this.lbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbEmployee.ForeColor = System.Drawing.Color.Firebrick;
             this.lbEmployee.FormattingEnabled = true;
-            this.lbEmployee.ItemHeight = 20;
+            this.lbEmployee.ItemHeight = 16;
             this.lbEmployee.Location = new System.Drawing.Point(0, 0);
-            this.lbEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(510, 241);
+            this.lbEmployee.Size = new System.Drawing.Size(382, 194);
             this.lbEmployee.TabIndex = 0;
             // 
             // panelFind
@@ -703,9 +708,8 @@
             this.panelFind.Controls.Add(this.panelofPeriod);
             this.panelFind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFind.Location = new System.Drawing.Point(0, 0);
-            this.panelFind.Margin = new System.Windows.Forms.Padding(4);
             this.panelFind.Name = "panelFind";
-            this.panelFind.Size = new System.Drawing.Size(510, 493);
+            this.panelFind.Size = new System.Drawing.Size(382, 395);
             this.panelFind.TabIndex = 10;
             // 
             // buttonSelect
@@ -713,30 +717,28 @@
             this.buttonSelect.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.buttonSelect.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSelect.Location = new System.Drawing.Point(0, 201);
-            this.buttonSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSelect.Location = new System.Drawing.Point(0, 163);
             this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(510, 28);
+            this.buttonSelect.Size = new System.Drawing.Size(382, 23);
             this.buttonSelect.TabIndex = 5;
             this.buttonSelect.Text = "Найти!";
             this.buttonSelect.UseVisualStyleBackColor = false;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelect.Click += new System.EventHandler(this.ButtonSelect_Click);
             // 
             // listBoxDocIndex
             // 
             this.listBoxDocIndex.Dock = System.Windows.Forms.DockStyle.Top;
             this.listBoxDocIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxDocIndex.FormattingEnabled = true;
-            this.listBoxDocIndex.ItemHeight = 20;
+            this.listBoxDocIndex.ItemHeight = 16;
             this.listBoxDocIndex.Items.AddRange(new object[] {
             "Все документы",
             "Новые документы",
             "Просмотренные документы",
             "Просроченные документы"});
-            this.listBoxDocIndex.Location = new System.Drawing.Point(0, 117);
-            this.listBoxDocIndex.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxDocIndex.Location = new System.Drawing.Point(0, 95);
             this.listBoxDocIndex.Name = "listBoxDocIndex";
-            this.listBoxDocIndex.Size = new System.Drawing.Size(510, 84);
+            this.listBoxDocIndex.Size = new System.Drawing.Size(382, 68);
             this.listBoxDocIndex.TabIndex = 4;
             // 
             // panelofPeriod
@@ -748,19 +750,17 @@
             this.panelofPeriod.Controls.Add(this.dtFrom);
             this.panelofPeriod.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelofPeriod.Location = new System.Drawing.Point(0, 0);
-            this.panelofPeriod.Margin = new System.Windows.Forms.Padding(4);
             this.panelofPeriod.Name = "panelofPeriod";
-            this.panelofPeriod.Size = new System.Drawing.Size(510, 117);
+            this.panelofPeriod.Size = new System.Drawing.Size(382, 95);
             this.panelofPeriod.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(20, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(15, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 20);
+            this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "За период";
             // 
@@ -768,10 +768,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(64, 89);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(48, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 20);
+            this.label4.Size = new System.Drawing.Size(24, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "до";
             // 
@@ -779,27 +778,24 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(65, 53);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(49, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 20);
+            this.label3.Size = new System.Drawing.Size(23, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "от";
             // 
             // dtTo
             // 
-            this.dtTo.Location = new System.Drawing.Point(97, 84);
-            this.dtTo.Margin = new System.Windows.Forms.Padding(4);
+            this.dtTo.Location = new System.Drawing.Point(73, 68);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(265, 22);
+            this.dtTo.Size = new System.Drawing.Size(200, 20);
             this.dtTo.TabIndex = 1;
             // 
             // dtFrom
             // 
-            this.dtFrom.Location = new System.Drawing.Point(97, 48);
-            this.dtFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.dtFrom.Location = new System.Drawing.Point(73, 39);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(265, 22);
+            this.dtFrom.Size = new System.Drawing.Size(200, 20);
             this.dtFrom.TabIndex = 0;
             // 
             // panelALARM
@@ -808,9 +804,8 @@
             this.panelALARM.Controls.Add(this.tcALARM);
             this.panelALARM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelALARM.Location = new System.Drawing.Point(0, 0);
-            this.panelALARM.Margin = new System.Windows.Forms.Padding(4);
             this.panelALARM.Name = "panelALARM";
-            this.panelALARM.Size = new System.Drawing.Size(712, 493);
+            this.panelALARM.Size = new System.Drawing.Size(534, 395);
             this.panelALARM.TabIndex = 7;
             // 
             // tcALARM
@@ -819,21 +814,19 @@
             this.tcALARM.Controls.Add(this.tabPage2);
             this.tcALARM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcALARM.Location = new System.Drawing.Point(0, 0);
-            this.tcALARM.Margin = new System.Windows.Forms.Padding(4);
             this.tcALARM.Name = "tcALARM";
             this.tcALARM.SelectedIndex = 0;
-            this.tcALARM.Size = new System.Drawing.Size(712, 493);
+            this.tcALARM.Size = new System.Drawing.Size(534, 395);
             this.tcALARM.TabIndex = 6;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tabPage1.Size = new System.Drawing.Size(704, 464);
+            this.tabPage1.Size = new System.Drawing.Size(526, 369);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Почта";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -841,12 +834,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tabPage2.Size = new System.Drawing.Size(704, 464);
+            this.tabPage2.Size = new System.Drawing.Size(526, 375);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -860,9 +852,8 @@
             this.panelErrLog.Controls.Add(this.tbErrLogTitle);
             this.panelErrLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelErrLog.Location = new System.Drawing.Point(0, 0);
-            this.panelErrLog.Margin = new System.Windows.Forms.Padding(4);
             this.panelErrLog.Name = "panelErrLog";
-            this.panelErrLog.Size = new System.Drawing.Size(712, 493);
+            this.panelErrLog.Size = new System.Drawing.Size(534, 395);
             this.panelErrLog.TabIndex = 0;
             // 
             // tbErrLogDesc
@@ -871,12 +862,11 @@
             this.tbErrLogDesc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbErrLogDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbErrLogDesc.ForeColor = System.Drawing.Color.Black;
-            this.tbErrLogDesc.Location = new System.Drawing.Point(0, 84);
-            this.tbErrLogDesc.Margin = new System.Windows.Forms.Padding(4);
+            this.tbErrLogDesc.Location = new System.Drawing.Point(0, 68);
             this.tbErrLogDesc.Multiline = true;
             this.tbErrLogDesc.Name = "tbErrLogDesc";
             this.tbErrLogDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbErrLogDesc.Size = new System.Drawing.Size(712, 325);
+            this.tbErrLogDesc.Size = new System.Drawing.Size(534, 259);
             this.tbErrLogDesc.TabIndex = 2;
             // 
             // tbErrLogChar
@@ -886,11 +876,10 @@
             this.tbErrLogChar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbErrLogChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbErrLogChar.ForeColor = System.Drawing.Color.Red;
-            this.tbErrLogChar.Location = new System.Drawing.Point(0, 409);
-            this.tbErrLogChar.Margin = new System.Windows.Forms.Padding(4);
+            this.tbErrLogChar.Location = new System.Drawing.Point(0, 327);
             this.tbErrLogChar.Multiline = true;
             this.tbErrLogChar.Name = "tbErrLogChar";
-            this.tbErrLogChar.Size = new System.Drawing.Size(712, 84);
+            this.tbErrLogChar.Size = new System.Drawing.Size(534, 68);
             this.tbErrLogChar.TabIndex = 1;
             // 
             // tbErrLogTitle
@@ -900,10 +889,9 @@
             this.tbErrLogTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbErrLogTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbErrLogTitle.Location = new System.Drawing.Point(0, 0);
-            this.tbErrLogTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbErrLogTitle.Multiline = true;
             this.tbErrLogTitle.Name = "tbErrLogTitle";
-            this.tbErrLogTitle.Size = new System.Drawing.Size(712, 84);
+            this.tbErrLogTitle.Size = new System.Drawing.Size(534, 68);
             this.tbErrLogTitle.TabIndex = 0;
             // 
             // panelUnrank
@@ -913,9 +901,8 @@
             this.panelUnrank.Controls.Add(this.toolStrip2);
             this.panelUnrank.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUnrank.Location = new System.Drawing.Point(0, 0);
-            this.panelUnrank.Margin = new System.Windows.Forms.Padding(4);
             this.panelUnrank.Name = "panelUnrank";
-            this.panelUnrank.Size = new System.Drawing.Size(712, 493);
+            this.panelUnrank.Size = new System.Drawing.Size(534, 395);
             this.panelUnrank.TabIndex = 0;
             // 
             // lbUnrank
@@ -925,11 +912,10 @@
             this.lbUnrank.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbUnrank.ForeColor = System.Drawing.Color.DarkViolet;
             this.lbUnrank.FormattingEnabled = true;
-            this.lbUnrank.ItemHeight = 18;
-            this.lbUnrank.Location = new System.Drawing.Point(0, 27);
-            this.lbUnrank.Margin = new System.Windows.Forms.Padding(4);
+            this.lbUnrank.ItemHeight = 15;
+            this.lbUnrank.Location = new System.Drawing.Point(0, 25);
             this.lbUnrank.Name = "lbUnrank";
-            this.lbUnrank.Size = new System.Drawing.Size(712, 466);
+            this.lbUnrank.Size = new System.Drawing.Size(534, 370);
             this.lbUnrank.TabIndex = 1;
             // 
             // toolStrip2
@@ -940,7 +926,7 @@
             this.btnUnrank});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(712, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(534, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -950,10 +936,10 @@
             this.btnRunk.Image = ((System.Drawing.Image)(resources.GetObject("btnRunk.Image")));
             this.btnRunk.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRunk.Name = "btnRunk";
-            this.btnRunk.Size = new System.Drawing.Size(87, 24);
+            this.btnRunk.Size = new System.Drawing.Size(69, 22);
             this.btnRunk.Text = "Назначить";
             this.btnRunk.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnRunk.Click += new System.EventHandler(this.btnRunk_Click);
+            this.btnRunk.Click += new System.EventHandler(this.BtnRunk_Click);
             // 
             // btnUnrank
             // 
@@ -961,9 +947,9 @@
             this.btnUnrank.Image = ((System.Drawing.Image)(resources.GetObject("btnUnrank.Image")));
             this.btnUnrank.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUnrank.Name = "btnUnrank";
-            this.btnUnrank.Size = new System.Drawing.Size(140, 24);
+            this.btnUnrank.Size = new System.Drawing.Size(110, 22);
             this.btnUnrank.Text = "Снять назначение";
-            this.btnUnrank.Click += new System.EventHandler(this.btnUnrank_Click);
+            this.btnUnrank.Click += new System.EventHandler(this.BtnUnrank_Click);
             // 
             // imageListLarge
             // 
@@ -993,9 +979,8 @@
             this.panelPassword.Controls.Add(this.gbPassword);
             this.panelPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPassword.Location = new System.Drawing.Point(0, 0);
-            this.panelPassword.Margin = new System.Windows.Forms.Padding(4);
             this.panelPassword.Name = "panelPassword";
-            this.panelPassword.Size = new System.Drawing.Size(1227, 546);
+            this.panelPassword.Size = new System.Drawing.Size(920, 444);
             this.panelPassword.TabIndex = 13;
             // 
             // gbPassword
@@ -1005,30 +990,26 @@
             this.gbPassword.Controls.Add(this.label1);
             this.gbPassword.Controls.Add(this.tbPasswordConfirm);
             this.gbPassword.Controls.Add(this.tbPassword);
-            this.gbPassword.Location = new System.Drawing.Point(89, 63);
-            this.gbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.gbPassword.Location = new System.Drawing.Point(67, 51);
             this.gbPassword.Name = "gbPassword";
-            this.gbPassword.Padding = new System.Windows.Forms.Padding(4);
-            this.gbPassword.Size = new System.Drawing.Size(423, 164);
+            this.gbPassword.Size = new System.Drawing.Size(317, 133);
             this.gbPassword.TabIndex = 0;
             this.gbPassword.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 63);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(16, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 17);
+            this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Подтвердите пароль";
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(239, 110);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChangePassword.Location = new System.Drawing.Point(179, 89);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(157, 28);
+            this.btnChangePassword.Size = new System.Drawing.Size(118, 23);
             this.btnChangePassword.TabIndex = 3;
             this.btnChangePassword.Text = "Сменить пароль";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -1036,10 +1017,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(40, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 17);
+            this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Введите пароль";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1047,38 +1027,34 @@
             // tbPasswordConfirm
             // 
             this.tbPasswordConfirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(185, 60);
-            this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(139, 49);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '#';
-            this.tbPasswordConfirm.Size = new System.Drawing.Size(210, 22);
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(158, 20);
             this.tbPasswordConfirm.TabIndex = 1;
             // 
             // tbPassword
             // 
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPassword.Location = new System.Drawing.Point(185, 28);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPassword.Location = new System.Drawing.Point(139, 23);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '#';
-            this.tbPassword.Size = new System.Drawing.Size(210, 22);
+            this.tbPassword.Size = new System.Drawing.Size(158, 20);
             this.tbPassword.TabIndex = 0;
             // 
             // panelMail
             // 
             this.panelMail.Controls.Add(this.splitMail);
             this.panelMail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMail.Location = new System.Drawing.Point(0, 53);
-            this.panelMail.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMail.Location = new System.Drawing.Point(0, 49);
             this.panelMail.Name = "panelMail";
-            this.panelMail.Size = new System.Drawing.Size(1227, 493);
+            this.panelMail.Size = new System.Drawing.Size(920, 395);
             this.panelMail.TabIndex = 0;
             // 
             // splitMail
             // 
             this.splitMail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitMail.Location = new System.Drawing.Point(0, 0);
-            this.splitMail.Margin = new System.Windows.Forms.Padding(4);
             this.splitMail.Name = "splitMail";
             // 
             // splitMail.Panel1
@@ -1088,20 +1064,19 @@
             // splitMail.Panel2
             // 
             this.splitMail.Panel2.Controls.Add(this.pictureBox1);
-            this.splitMail.Size = new System.Drawing.Size(1227, 493);
-            this.splitMail.SplitterDistance = 402;
-            this.splitMail.SplitterWidth = 5;
+            this.splitMail.Size = new System.Drawing.Size(920, 395);
+            this.splitMail.SplitterDistance = 301;
             this.splitMail.TabIndex = 2;
             // 
             // getMailAMAS
             // 
             this.getMailAMAS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getMailAMAS.Location = new System.Drawing.Point(0, 0);
-            this.getMailAMAS.Margin = new System.Windows.Forms.Padding(5);
+            this.getMailAMAS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.getMailAMAS.Name = "getMailAMAS";
             this.getMailAMAS.Password = "";
             this.getMailAMAS.ServerSMTP = "";
-            this.getMailAMAS.Size = new System.Drawing.Size(402, 493);
+            this.getMailAMAS.Size = new System.Drawing.Size(301, 395);
             this.getMailAMAS.TabIndex = 1;
             this.getMailAMAS.UserName = "";
             // 
@@ -1111,9 +1086,8 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(820, 493);
+            this.pictureBox1.Size = new System.Drawing.Size(615, 395);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1122,10 +1096,9 @@
             // 
             this.panelProrerty.Controls.Add(this.tcProperty);
             this.panelProrerty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProrerty.Location = new System.Drawing.Point(0, 53);
-            this.panelProrerty.Margin = new System.Windows.Forms.Padding(4);
+            this.panelProrerty.Location = new System.Drawing.Point(0, 49);
             this.panelProrerty.Name = "panelProrerty";
-            this.panelProrerty.Size = new System.Drawing.Size(1227, 493);
+            this.panelProrerty.Size = new System.Drawing.Size(920, 395);
             this.panelProrerty.TabIndex = 34;
             // 
             // tcProperty
@@ -1135,21 +1108,19 @@
             this.tcProperty.Controls.Add(this.tpResolutions);
             this.tcProperty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcProperty.Location = new System.Drawing.Point(0, 0);
-            this.tcProperty.Margin = new System.Windows.Forms.Padding(4);
             this.tcProperty.Name = "tcProperty";
             this.tcProperty.SelectedIndex = 0;
-            this.tcProperty.Size = new System.Drawing.Size(1227, 493);
+            this.tcProperty.Size = new System.Drawing.Size(920, 395);
             this.tcProperty.TabIndex = 0;
             // 
             // tpProperty
             // 
             this.tpProperty.Controls.Add(this.pGSetting);
             this.tpProperty.Controls.Add(this.toolStrip1);
-            this.tpProperty.Location = new System.Drawing.Point(4, 25);
-            this.tpProperty.Margin = new System.Windows.Forms.Padding(4);
+            this.tpProperty.Location = new System.Drawing.Point(4, 22);
             this.tpProperty.Name = "tpProperty";
-            this.tpProperty.Padding = new System.Windows.Forms.Padding(4);
-            this.tpProperty.Size = new System.Drawing.Size(1219, 464);
+            this.tpProperty.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpProperty.Size = new System.Drawing.Size(912, 369);
             this.tpProperty.TabIndex = 0;
             this.tpProperty.Text = "Свойства";
             this.tpProperty.UseVisualStyleBackColor = true;
@@ -1157,10 +1128,9 @@
             // pGSetting
             // 
             this.pGSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pGSetting.Location = new System.Drawing.Point(4, 29);
-            this.pGSetting.Margin = new System.Windows.Forms.Padding(4);
+            this.pGSetting.Location = new System.Drawing.Point(3, 28);
             this.pGSetting.Name = "pGSetting";
-            this.pGSetting.Size = new System.Drawing.Size(1211, 431);
+            this.pGSetting.Size = new System.Drawing.Size(906, 338);
             this.pGSetting.TabIndex = 4;
             // 
             // toolStrip1
@@ -1169,9 +1139,9 @@
             this.PrDocumentDir,
             this.PrScanDir,
             this.PrPDFDir});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 4);
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1211, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(906, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1205,11 +1175,10 @@
             // tpDots
             // 
             this.tpDots.Controls.Add(this.splitContainer2);
-            this.tpDots.Location = new System.Drawing.Point(4, 25);
-            this.tpDots.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDots.Location = new System.Drawing.Point(4, 22);
             this.tpDots.Name = "tpDots";
-            this.tpDots.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDots.Size = new System.Drawing.Size(1219, 464);
+            this.tpDots.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpDots.Size = new System.Drawing.Size(912, 375);
             this.tpDots.TabIndex = 1;
             this.tpDots.Text = "Шаблоны";
             this.tpDots.UseVisualStyleBackColor = true;
@@ -1217,8 +1186,7 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -1228,9 +1196,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1211, 456);
-            this.splitContainer2.SplitterDistance = 513;
-            this.splitContainer2.SplitterWidth = 5;
+            this.splitContainer2.Size = new System.Drawing.Size(906, 369);
+            this.splitContainer2.SplitterDistance = 383;
             this.splitContainer2.TabIndex = 0;
             // 
             // treeViewFiles
@@ -1238,16 +1205,14 @@
             this.treeViewFiles.BackColor = System.Drawing.SystemColors.Window;
             this.treeViewFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewFiles.Location = new System.Drawing.Point(0, 0);
-            this.treeViewFiles.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewFiles.Name = "treeViewFiles";
-            this.treeViewFiles.Size = new System.Drawing.Size(513, 456);
+            this.treeViewFiles.Size = new System.Drawing.Size(383, 369);
             this.treeViewFiles.TabIndex = 1;
             // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1258,9 +1223,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.webBrowserPattern);
-            this.splitContainer3.Size = new System.Drawing.Size(693, 456);
-            this.splitContainer3.SplitterDistance = 214;
-            this.splitContainer3.SplitterWidth = 5;
+            this.splitContainer3.Size = new System.Drawing.Size(519, 369);
+            this.splitContainer3.SplitterDistance = 173;
             this.splitContainer3.TabIndex = 0;
             // 
             // treeViewKT
@@ -1268,29 +1232,26 @@
             this.treeViewKT.BackColor = System.Drawing.SystemColors.Info;
             this.treeViewKT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewKT.Location = new System.Drawing.Point(0, 0);
-            this.treeViewKT.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewKT.Name = "treeViewKT";
-            this.treeViewKT.Size = new System.Drawing.Size(693, 214);
+            this.treeViewKT.Size = new System.Drawing.Size(519, 173);
             this.treeViewKT.TabIndex = 1;
             // 
             // webBrowserPattern
             // 
             this.webBrowserPattern.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowserPattern.Location = new System.Drawing.Point(0, 0);
-            this.webBrowserPattern.Margin = new System.Windows.Forms.Padding(4);
-            this.webBrowserPattern.MinimumSize = new System.Drawing.Size(27, 25);
+            this.webBrowserPattern.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPattern.Name = "webBrowserPattern";
-            this.webBrowserPattern.Size = new System.Drawing.Size(693, 237);
+            this.webBrowserPattern.Size = new System.Drawing.Size(519, 192);
             this.webBrowserPattern.TabIndex = 1;
             // 
             // tpResolutions
             // 
             this.tpResolutions.Controls.Add(this.listBoxResolutions);
             this.tpResolutions.Controls.Add(this.toolStrip3);
-            this.tpResolutions.Location = new System.Drawing.Point(4, 25);
-            this.tpResolutions.Margin = new System.Windows.Forms.Padding(4);
+            this.tpResolutions.Location = new System.Drawing.Point(4, 22);
             this.tpResolutions.Name = "tpResolutions";
-            this.tpResolutions.Size = new System.Drawing.Size(1219, 464);
+            this.tpResolutions.Size = new System.Drawing.Size(912, 375);
             this.tpResolutions.TabIndex = 2;
             this.tpResolutions.Text = "Резолюции";
             this.tpResolutions.UseVisualStyleBackColor = true;
@@ -1300,11 +1261,10 @@
             this.listBoxResolutions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxResolutions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxResolutions.FormattingEnabled = true;
-            this.listBoxResolutions.ItemHeight = 20;
+            this.listBoxResolutions.ItemHeight = 16;
             this.listBoxResolutions.Location = new System.Drawing.Point(0, 0);
-            this.listBoxResolutions.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxResolutions.Name = "listBoxResolutions";
-            this.listBoxResolutions.Size = new System.Drawing.Size(1219, 437);
+            this.listBoxResolutions.Size = new System.Drawing.Size(912, 350);
             this.listBoxResolutions.TabIndex = 1;
             // 
             // toolStrip3
@@ -1315,9 +1275,9 @@
             this.tsDelete,
             this.toolStripSeparator1,
             this.tsResolution});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 437);
+            this.toolStrip3.Location = new System.Drawing.Point(0, 350);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(1219, 27);
+            this.toolStrip3.Size = new System.Drawing.Size(912, 25);
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -1327,7 +1287,7 @@
             this.tsAdd.Image = global::Chief.Properties.Resources.PLUS;
             this.tsAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsAdd.Name = "tsAdd";
-            this.tsAdd.Size = new System.Drawing.Size(23, 24);
+            this.tsAdd.Size = new System.Drawing.Size(23, 22);
             this.tsAdd.ToolTipText = "Добавить резолюцию";
             this.tsAdd.Click += new System.EventHandler(this.tsAdd_Click);
             // 
@@ -1337,21 +1297,21 @@
             this.tsDelete.Image = global::Chief.Properties.Resources.MINUS;
             this.tsDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(23, 24);
+            this.tsDelete.Size = new System.Drawing.Size(23, 22);
             this.tsDelete.ToolTipText = "Удалить резолюцию";
             this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsResolution
             // 
             this.tsResolution.AutoSize = false;
             this.tsResolution.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsResolution.Name = "tsResolution";
-            this.tsResolution.Size = new System.Drawing.Size(399, 27);
+            this.tsResolution.Size = new System.Drawing.Size(300, 23);
             this.tsResolution.ToolTipText = "Резолюция";
             // 
             // menuStripMaster
@@ -1362,8 +1322,7 @@
             this.TSMIHelp});
             this.menuStripMaster.Location = new System.Drawing.Point(0, 0);
             this.menuStripMaster.Name = "menuStripMaster";
-            this.menuStripMaster.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStripMaster.Size = new System.Drawing.Size(1227, 28);
+            this.menuStripMaster.Size = new System.Drawing.Size(920, 24);
             this.menuStripMaster.TabIndex = 35;
             this.menuStripMaster.Text = "menuStrip1";
             // 
@@ -1383,13 +1342,13 @@
             this.TSMIAddress,
             this.TSMBizProc});
             this.TSMIProgramms.Name = "TSMIProgramms";
-            this.TSMIProgramms.Size = new System.Drawing.Size(75, 24);
+            this.TSMIProgramms.Size = new System.Drawing.Size(63, 20);
             this.TSMIProgramms.Text = "Модули";
             // 
             // TSMIDocflow
             // 
             this.TSMIDocflow.Name = "TSMIDocflow";
-            this.TSMIDocflow.Size = new System.Drawing.Size(331, 24);
+            this.TSMIDocflow.Size = new System.Drawing.Size(276, 22);
             this.TSMIDocflow.Text = "Документооборот";
             this.TSMIDocflow.Visible = false;
             this.TSMIDocflow.Click += new System.EventHandler(this.TSMIDocflow_Click);
@@ -1397,7 +1356,7 @@
             // TSMIRegIn
             // 
             this.TSMIRegIn.Name = "TSMIRegIn";
-            this.TSMIRegIn.Size = new System.Drawing.Size(331, 24);
+            this.TSMIRegIn.Size = new System.Drawing.Size(276, 22);
             this.TSMIRegIn.Text = "Регистрация входящих документов";
             this.TSMIRegIn.Visible = false;
             this.TSMIRegIn.Click += new System.EventHandler(this.TSMIRegIn_Click);
@@ -1405,13 +1364,14 @@
             // TSMIJourIn
             // 
             this.TSMIJourIn.Name = "TSMIJourIn";
-            this.TSMIJourIn.Size = new System.Drawing.Size(331, 24);
+            this.TSMIJourIn.Size = new System.Drawing.Size(276, 22);
             this.TSMIJourIn.Text = "Журнал входящих";
+            this.TSMIJourIn.Visible = false;
             // 
             // TSMIRegOut
             // 
             this.TSMIRegOut.Name = "TSMIRegOut";
-            this.TSMIRegOut.Size = new System.Drawing.Size(331, 24);
+            this.TSMIRegOut.Size = new System.Drawing.Size(276, 22);
             this.TSMIRegOut.Text = "Регистрация исходящих документов";
             this.TSMIRegOut.Visible = false;
             this.TSMIRegOut.Click += new System.EventHandler(this.TSMIRegOut_Click);
@@ -1419,7 +1379,7 @@
             // TSMISecurity
             // 
             this.TSMISecurity.Name = "TSMISecurity";
-            this.TSMISecurity.Size = new System.Drawing.Size(331, 24);
+            this.TSMISecurity.Size = new System.Drawing.Size(276, 22);
             this.TSMISecurity.Text = "Безопасность";
             this.TSMISecurity.Visible = false;
             this.TSMISecurity.Click += new System.EventHandler(this.TSMISecurity_Click);
@@ -1427,7 +1387,7 @@
             // TSMIStructure
             // 
             this.TSMIStructure.Name = "TSMIStructure";
-            this.TSMIStructure.Size = new System.Drawing.Size(331, 24);
+            this.TSMIStructure.Size = new System.Drawing.Size(276, 22);
             this.TSMIStructure.Text = "Управление организацией";
             this.TSMIStructure.Visible = false;
             this.TSMIStructure.Click += new System.EventHandler(this.TSMIStructure_Click);
@@ -1435,7 +1395,7 @@
             // TSMIPersonal
             // 
             this.TSMIPersonal.Name = "TSMIPersonal";
-            this.TSMIPersonal.Size = new System.Drawing.Size(331, 24);
+            this.TSMIPersonal.Size = new System.Drawing.Size(276, 22);
             this.TSMIPersonal.Text = "Управление персоналом";
             this.TSMIPersonal.Visible = false;
             this.TSMIPersonal.Click += new System.EventHandler(this.TSMIPersonal_Click);
@@ -1443,7 +1403,7 @@
             // TSMIResourse
             // 
             this.TSMIResourse.Name = "TSMIResourse";
-            this.TSMIResourse.Size = new System.Drawing.Size(331, 24);
+            this.TSMIResourse.Size = new System.Drawing.Size(276, 22);
             this.TSMIResourse.Text = "Ресурсы документооборота";
             this.TSMIResourse.Visible = false;
             this.TSMIResourse.Click += new System.EventHandler(this.TSMIResourse_Click);
@@ -1451,7 +1411,7 @@
             // TSMIPopulation
             // 
             this.TSMIPopulation.Name = "TSMIPopulation";
-            this.TSMIPopulation.Size = new System.Drawing.Size(331, 24);
+            this.TSMIPopulation.Size = new System.Drawing.Size(276, 22);
             this.TSMIPopulation.Text = "Реестр населения";
             this.TSMIPopulation.Visible = false;
             this.TSMIPopulation.Click += new System.EventHandler(this.TSMIPopulation_Click);
@@ -1459,7 +1419,7 @@
             // TSMIOrgs
             // 
             this.TSMIOrgs.Name = "TSMIOrgs";
-            this.TSMIOrgs.Size = new System.Drawing.Size(331, 24);
+            this.TSMIOrgs.Size = new System.Drawing.Size(276, 22);
             this.TSMIOrgs.Text = "Реестр организаций";
             this.TSMIOrgs.Visible = false;
             this.TSMIOrgs.Click += new System.EventHandler(this.TSMIOrgs_Click);
@@ -1467,7 +1427,7 @@
             // TSMIAddress
             // 
             this.TSMIAddress.Name = "TSMIAddress";
-            this.TSMIAddress.Size = new System.Drawing.Size(331, 24);
+            this.TSMIAddress.Size = new System.Drawing.Size(276, 22);
             this.TSMIAddress.Text = "Адресный реестр";
             this.TSMIAddress.Visible = false;
             this.TSMIAddress.Click += new System.EventHandler(this.TSMIAddress_Click);
@@ -1475,7 +1435,7 @@
             // TSMBizProc
             // 
             this.TSMBizProc.Name = "TSMBizProc";
-            this.TSMBizProc.Size = new System.Drawing.Size(331, 24);
+            this.TSMBizProc.Size = new System.Drawing.Size(276, 22);
             this.TSMBizProc.Text = "Бизнес-процессы";
             this.TSMBizProc.Visible = false;
             this.TSMBizProc.Click += new System.EventHandler(this.TSMBizProc_Click);
@@ -1491,20 +1451,20 @@
             this.TSMIMail,
             this.TSMIProperty});
             this.TSMIConsole.Name = "TSMIConsole";
-            this.TSMIConsole.Size = new System.Drawing.Size(80, 24);
+            this.TSMIConsole.Size = new System.Drawing.Size(66, 20);
             this.TSMIConsole.Text = "Консоль";
             // 
             // TSMIAlarm
             // 
             this.TSMIAlarm.Name = "TSMIAlarm";
-            this.TSMIAlarm.Size = new System.Drawing.Size(363, 24);
+            this.TSMIAlarm.Size = new System.Drawing.Size(301, 22);
             this.TSMIAlarm.Text = "Тревожные сообщения";
             this.TSMIAlarm.Click += new System.EventHandler(this.TSMIAlarm_Click);
             // 
             // TSMICID
             // 
             this.TSMICID.Name = "TSMICID";
-            this.TSMICID.Size = new System.Drawing.Size(363, 24);
+            this.TSMICID.Size = new System.Drawing.Size(301, 22);
             this.TSMICID.Text = "Контроль исполнительской дисциплины";
             this.TSMICID.Visible = false;
             this.TSMICID.Click += new System.EventHandler(this.TSMICID_Click);
@@ -1512,21 +1472,21 @@
             // TSMIRankAlign
             // 
             this.TSMIRankAlign.Name = "TSMIRankAlign";
-            this.TSMIRankAlign.Size = new System.Drawing.Size(363, 24);
+            this.TSMIRankAlign.Size = new System.Drawing.Size(301, 22);
             this.TSMIRankAlign.Text = "Делегирование полномочий";
             this.TSMIRankAlign.Click += new System.EventHandler(this.TSMIRankAlign_Click);
             // 
             // TSMIPassword
             // 
             this.TSMIPassword.Name = "TSMIPassword";
-            this.TSMIPassword.Size = new System.Drawing.Size(363, 24);
+            this.TSMIPassword.Size = new System.Drawing.Size(301, 22);
             this.TSMIPassword.Text = "Смена пароля";
             this.TSMIPassword.Click += new System.EventHandler(this.TSMIPassword_Click);
             // 
             // TSMIErrors
             // 
             this.TSMIErrors.Name = "TSMIErrors";
-            this.TSMIErrors.Size = new System.Drawing.Size(363, 24);
+            this.TSMIErrors.Size = new System.Drawing.Size(301, 22);
             this.TSMIErrors.Text = "Мониторинг";
             this.TSMIErrors.Visible = false;
             this.TSMIErrors.Click += new System.EventHandler(this.TSMIErrors_Click);
@@ -1534,7 +1494,7 @@
             // TSMIMail
             // 
             this.TSMIMail.Name = "TSMIMail";
-            this.TSMIMail.Size = new System.Drawing.Size(363, 24);
+            this.TSMIMail.Size = new System.Drawing.Size(301, 22);
             this.TSMIMail.Text = "Почта";
             this.TSMIMail.Visible = false;
             this.TSMIMail.Click += new System.EventHandler(this.TSMIMail_Click);
@@ -1542,7 +1502,7 @@
             // TSMIProperty
             // 
             this.TSMIProperty.Name = "TSMIProperty";
-            this.TSMIProperty.Size = new System.Drawing.Size(363, 24);
+            this.TSMIProperty.Size = new System.Drawing.Size(301, 22);
             this.TSMIProperty.Text = "Свойства";
             this.TSMIProperty.Click += new System.EventHandler(this.TSMIProperty_Click);
             // 
@@ -1551,34 +1511,23 @@
             this.TSMIHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.версияСПРAMASToolStripMenuItem});
             this.TSMIHelp.Name = "TSMIHelp";
-            this.TSMIHelp.Size = new System.Drawing.Size(79, 24);
+            this.TSMIHelp.Size = new System.Drawing.Size(65, 20);
             this.TSMIHelp.Text = "Справка";
             // 
             // версияСПРAMASToolStripMenuItem
             // 
             this.версияСПРAMASToolStripMenuItem.Name = "версияСПРAMASToolStripMenuItem";
-            this.версияСПРAMASToolStripMenuItem.Size = new System.Drawing.Size(271, 24);
+            this.версияСПРAMASToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.версияСПРAMASToolStripMenuItem.Text = "Лицензионное соглашение";
             this.версияСПРAMASToolStripMenuItem.Click += new System.EventHandler(this.версияСПРAMASToolStripMenuItem_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.BackColor = System.Drawing.Color.Tan;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Chief.Properties.Resources.Annotate_Complete;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Специальный документ";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // Master
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1227, 546);
+            this.ClientSize = new System.Drawing.Size(920, 444);
             this.Controls.Add(this.panelProrerty);
             this.Controls.Add(this.panelMail);
             this.Controls.Add(this.splitContainer1);
@@ -1587,7 +1536,6 @@
             this.Controls.Add(this.panelPassword);
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStripMaster;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Master";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AMAS";

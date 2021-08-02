@@ -18,7 +18,7 @@ namespace Chief
     public partial class BusnessProcesses : Form
     {
         RolesClass RolesList = null;
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         private bool InitialFaza = false;
 
         public BusnessProcesses(Class_syb_acc ACC)
@@ -146,7 +146,7 @@ namespace Chief
                 tvExeRoles.Nodes.Clear();
                 TreeNode BD = null;
                 TreeNode TD = null;
-                AMAS_DBI.Class_syb_acc.PrepareParameters[] parroles = new Class_syb_acc.PrepareParameters[1];
+                Class_syb_acc.PrepareParameters[] parroles = new Class_syb_acc.PrepareParameters[1];
                 for (int l = 0; l < SybAcc.Rows_count; l++)
                 {
                     SybAcc.Get_row(l);
@@ -554,7 +554,7 @@ namespace Chief
             }
             try
             {
-                AMAS_DBI.Class_syb_acc.PrepareParameters[] PreRoutes = new Class_syb_acc.PrepareParameters[1];
+                Class_syb_acc.PrepareParameters[] PreRoutes = new Class_syb_acc.PrepareParameters[1];
                 PreRoutes[0] = new Class_syb_acc.PrepareParameters("@route", SqlDbType.Int, (int)CurrenRoutedRow.Cells["id"].Value);
                 if (SybAcc.Set_table("BPRoutesConnList", AMAS_Query.ClassAMAS_Buissnes_Process.BPRouteConnectList, PreRoutes))
                 {
@@ -767,14 +767,14 @@ namespace Chief
 
     public class RolesClass
     {
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         private TreeView TVRoles;
         private TreeNode ParentNode;
         private RollNode[] Rolls = null;
         private RollNode selected_RolNod = null;
         private TasksList TasksList_ = null;
         private ListView LVM = null;
-        ClassPattern.Editor EditDescr = null;
+        Editor EditDescr = null;
         PropertyGrid PpG = null;
 
         //public delegate void RoleChange(string RoleName)  ;
@@ -787,7 +787,7 @@ namespace Chief
             get { return Rolls; }
         }
 
-        public RolesClass(TreeView TV, TreeNode Node, ListView Lim, AMAS_DBI.Class_syb_acc ACC, ClassPattern.Editor EditDescr_, PropertyGrid PpG_)
+        public RolesClass(TreeView TV, TreeNode Node, ListView Lim, Class_syb_acc ACC, Editor EditDescr_, PropertyGrid PpG_)
         {
             TVRoles = TV;
             ParentNode = Node;
@@ -798,7 +798,7 @@ namespace Chief
             PpG = PpG_;
         }
 
-        public RolesClass(TreeView TV, TreeNode Node, ListView Lim, AMAS_DBI.Class_syb_acc ACC, ClassPattern.Editor EditDescr_, PropertyGrid PpG_, int instr)
+        public RolesClass(TreeView TV, TreeNode Node, ListView Lim, Class_syb_acc ACC, Editor EditDescr_, PropertyGrid PpG_, int instr)
         {
             TVRoles = TV;
             ParentNode = Node;
@@ -1003,7 +1003,7 @@ namespace Chief
         {
             Instriction_ = NumofInstruction;
             Rolls = null;
-            AMAS_DBI.Class_syb_acc.PrepareParameters[] Parameters = new Class_syb_acc.PrepareParameters[1];
+            Class_syb_acc.PrepareParameters[] Parameters = new Class_syb_acc.PrepareParameters[1];
             Parameters[0] = new Class_syb_acc.PrepareParameters("@instr", SqlDbType.Int, (object)NumofInstruction);
             try
             {
@@ -1045,7 +1045,7 @@ namespace Chief
 
     public class TasksList
     {
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         Disition[] ListOfTasts = null;
         ListView ListViewTasks = null;
         private int Role_ = -1;
@@ -1053,9 +1053,9 @@ namespace Chief
         PropertyGrid PpG = null;
         public int TaskId { get { if (SelectedTask_ != null) return SelectedTask_.Id(); else return -1; } }
 
-        private ClassPattern.Editor DescEditor;
+        private Editor DescEditor;
 
-        public TasksList(ListView LVT, AMAS_DBI.Class_syb_acc Acc, int _role, ClassPattern.Editor Edt, PropertyGrid PpG_)
+        public TasksList(ListView LVT, Class_syb_acc Acc, int _role, Editor Edt, PropertyGrid PpG_)
         {
             ListViewTasks = LVT;
             SybAcc = Acc;
@@ -1208,7 +1208,7 @@ namespace Chief
         {
             Role_ = Role;
             ListOfTasts = null;
-            AMAS_DBI.Class_syb_acc.PrepareParameters[] Parameters = new Class_syb_acc.PrepareParameters[1];
+            Class_syb_acc.PrepareParameters[] Parameters = new Class_syb_acc.PrepareParameters[1];
             Parameters[0] = new Class_syb_acc.PrepareParameters("@Role", SqlDbType.Int, (object)Role);
             try
             {
@@ -1251,7 +1251,7 @@ namespace Chief
 
     public class Disition
     {
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         private int minutes_ = 0;
         private int kind_ = 0;
         private int tema_ = 0;
@@ -1448,7 +1448,7 @@ namespace Chief
             TaskListItem.BeginEdit();
         }
 
-        public Disition(string _name, int _id, int _kind, int _tema, int _minutes, AMAS_DBI.Class_syb_acc Acc)
+        public Disition(string _name, int _id, int _kind, int _tema, int _minutes, Class_syb_acc Acc)
         {
             SybAcc = Acc;
             name_ = _name;
@@ -1460,7 +1460,7 @@ namespace Chief
             setting();
         }
 
-        public Disition(string _name, int _id, int _viza, int _minutes, AMAS_DBI.Class_syb_acc Acc)
+        public Disition(string _name, int _id, int _viza, int _minutes, Class_syb_acc Acc)
         {
             SybAcc = Acc;
             name_ = _name;
@@ -1471,7 +1471,7 @@ namespace Chief
             setting();
         }
 
-        public Disition(string _name, int _id, int _minutes, AMAS_DBI.Class_syb_acc Acc)
+        public Disition(string _name, int _id, int _minutes, Class_syb_acc Acc)
         {
             SybAcc = Acc;
             name_ = _name;
@@ -1606,7 +1606,7 @@ namespace Chief
 
     class CheckedListing
     {
-        public System.Windows.Forms.ListView listViewCheckup;
+        public ListView listViewCheckup;
 
         // Declare the delegate 
         public delegate void CheckId(int id);
@@ -1614,27 +1614,29 @@ namespace Chief
         // Declare the event.
         public event CheckId CheckIdEvent;
 
-        private AMAS_DBI.Class_syb_acc SybAcc;
+        private Class_syb_acc SybAcc;
         private string name;
         private string id;
         private bool CheckEvent = false;
 
-        public CheckedListing(AMAS_DBI.Class_syb_acc Acc, string sql, string name_, string id_)
+        public CheckedListing(Class_syb_acc Acc, string sql, string name_, string id_)
         {
             SybAcc = Acc;
             name = name_;
             id = id_;
 
-            listViewCheckup = new System.Windows.Forms.ListView();
-            listViewCheckup.CheckBoxes = true;
-            listViewCheckup.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewCheckup.Location = new System.Drawing.Point(3, 18);
-            listViewCheckup.MultiSelect = false;
-            listViewCheckup.Name = "listViewCheckup" + name_;
-            listViewCheckup.Size = new System.Drawing.Size(410, 172);
-            listViewCheckup.TabIndex = 0;
-            listViewCheckup.UseCompatibleStateImageBehavior = false;
-            listViewCheckup.View = System.Windows.Forms.View.List;
+            listViewCheckup = new ListView
+            {
+                CheckBoxes = true,
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Location = new Point(3, 18),
+                MultiSelect = false,
+                Name = "listViewCheckup" + name_,
+                Size = new Size(410, 172),
+                TabIndex = 0,
+                UseCompatibleStateImageBehavior = false,
+                View = System.Windows.Forms.View.List
+            };
 
             if (SybAcc.Set_table("BPCheckedListing" + name_, sql, null))
             {

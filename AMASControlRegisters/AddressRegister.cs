@@ -18,7 +18,7 @@ namespace AMASControlRegisters
 
     public partial class AddressRegister : UserControl
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         public delegate void AlterAddress();
         public event AlterAddress SelectedAddress;
@@ -65,8 +65,10 @@ namespace AMASControlRegisters
             city_ids = new Address_ids(this.CityBox);
             areal_ids = new Address_ids(this.ArealBox);
             trc_ids = new Address_ids(this.TrcBox);
-            state_ids = new Address_ids(this.StateBox);
-            state_ids.Child = trc_ids;
+            state_ids = new Address_ids(this.StateBox)
+            {
+                Child = trc_ids
+            };
             trc_ids.Child = areal_ids;
             areal_ids.Child = city_ids;
             city_ids.Child = district_ids;
@@ -90,7 +92,7 @@ namespace AMASControlRegisters
             state_ids.AddressBox.LostFocus += new EventHandler(State_LostFocus);
         }
 
-        public void connect(AMAS_DBI.Class_syb_acc SybAcc)
+        public void connect(Class_syb_acc SybAcc)
         {
             AMASacc = SybAcc;
             flat_ids.connect(AMASacc);

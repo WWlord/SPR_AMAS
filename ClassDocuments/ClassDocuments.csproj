@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -19,7 +20,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -40,6 +41,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +52,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,15 +61,48 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BaseTypes, Version=1.0.0.75, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\BaseTypes.PieroViano.1.0.0.75\lib\net45\BaseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigurationLibrary, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConfigurationLibrary.PieroViano.1.2.0.57\lib\net45\ConfigurationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigurationLibrary.Interfaces, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConfigurationLibrary.PieroViano.1.2.0.57\lib\net45\ConfigurationLibrary.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreLibrary.PieroViano.1.0.0.136\lib\net45\CoreLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreLibrary.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreLibrary.PieroViano.1.0.0.136\lib\net45\CoreLibrary.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="FileLogger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileLogger.PieroViano.1.0.0.136\lib\net45\FileLogger.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsFormsLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5ab967c088e8330, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsFormsLibrary.PieroViano.1.0.0.75\lib\net45\WindowsFormsLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baseLayer\DocSetting.cs" />
@@ -100,9 +137,14 @@
       <Project>{393ED79D-C72B-4E1A-A1FD-20079FFC33DB}</Project>
       <Name>CommonValues</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PDFVisor\PdfiumViewer.Control\PdfiumViewer_Control.csproj">
+      <Project>{add131f6-17eb-4e42-932f-74cbe6dbeeb3}</Project>
+      <Name>PdfiumViewer_Control</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIP06.ICO" />
+    <None Include="packages.config" />
     <None Include="Resources\mainExe.ico" />
     <None Include="Resources\task.ico" />
     <None Include="Resources\CUT.BMP" />
@@ -195,6 +237,12 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

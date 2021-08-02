@@ -11,9 +11,9 @@ namespace ClassDocuments.DocsTree
     public class ClassDocsTree
     {
         private int MasterDocumentId;
-        private System.Windows.Forms.TreeView DoscTreeView;
+        private TreeView DoscTreeView;
         private ArrayList DocsAL;
-        private AMAS_DBI.Class_syb_acc AMASacc;
+        private Class_syb_acc AMASacc;
 
         private class Document
         {
@@ -34,7 +34,7 @@ namespace ClassDocuments.DocsTree
             }
         }
 
-        public ClassDocsTree( System.Windows.Forms.TreeView TV, AMAS_DBI.Class_syb_acc ACC)
+        public ClassDocsTree(TreeView TV, Class_syb_acc ACC)
         {
             DoscTreeView = TV;
             AMASacc = ACC;

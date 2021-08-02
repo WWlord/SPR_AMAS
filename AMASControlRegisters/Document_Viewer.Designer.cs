@@ -60,7 +60,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -71,9 +70,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabMetadata);
-            this.splitContainer1.Size = new System.Drawing.Size(572, 447);
-            this.splitContainer1.SplitterDistance = 289;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(429, 363);
+            this.splitContainer1.SplitterDistance = 234;
             this.splitContainer1.TabIndex = 0;
             // 
             // tabDocument
@@ -83,20 +81,18 @@
             this.tabDocument.Controls.Add(this.tabPage2);
             this.tabDocument.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDocument.Location = new System.Drawing.Point(0, 0);
-            this.tabDocument.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabDocument.Name = "tabDocument";
             this.tabDocument.SelectedIndex = 0;
-            this.tabDocument.Size = new System.Drawing.Size(572, 289);
+            this.tabDocument.Size = new System.Drawing.Size(429, 234);
             this.tabDocument.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.OdcBrowser);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(564, 260);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(421, 208);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -104,20 +100,18 @@
             // OdcBrowser
             // 
             this.OdcBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OdcBrowser.Location = new System.Drawing.Point(4, 4);
-            this.OdcBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.OdcBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.OdcBrowser.Location = new System.Drawing.Point(3, 3);
+            this.OdcBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.OdcBrowser.Name = "OdcBrowser";
-            this.OdcBrowser.Size = new System.Drawing.Size(556, 252);
+            this.OdcBrowser.Size = new System.Drawing.Size(415, 202);
             this.OdcBrowser.TabIndex = 1;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(564, 260);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(421, 209);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -128,20 +122,18 @@
             this.tabMetadata.Controls.Add(this.tabPage4);
             this.tabMetadata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMetadata.Location = new System.Drawing.Point(0, 0);
-            this.tabMetadata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMetadata.Name = "tabMetadata";
             this.tabMetadata.SelectedIndex = 0;
-            this.tabMetadata.Size = new System.Drawing.Size(572, 153);
+            this.tabMetadata.Size = new System.Drawing.Size(429, 125);
             this.tabMetadata.TabIndex = 1;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.listView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage3.Size = new System.Drawing.Size(564, 124);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(421, 99);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -149,20 +141,19 @@
             // listView1
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(4, 4);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(556, 116);
+            this.listView1.Size = new System.Drawing.Size(415, 93);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(564, 124);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(421, 98);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -189,9 +180,8 @@
             this.panelLockDoc.Controls.Add(this.label1);
             this.panelLockDoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLockDoc.Location = new System.Drawing.Point(0, 0);
-            this.panelLockDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLockDoc.Name = "panelLockDoc";
-            this.panelLockDoc.Size = new System.Drawing.Size(572, 447);
+            this.panelLockDoc.Size = new System.Drawing.Size(429, 363);
             this.panelLockDoc.TabIndex = 1;
             this.panelLockDoc.Visible = false;
             // 
@@ -199,33 +189,29 @@
             // 
             this.listBoxSteps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxSteps.FormattingEnabled = true;
-            this.listBoxSteps.ItemHeight = 16;
-            this.listBoxSteps.Location = new System.Drawing.Point(9, 74);
-            this.listBoxSteps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxSteps.Location = new System.Drawing.Point(7, 60);
             this.listBoxSteps.Name = "listBoxSteps";
-            this.listBoxSteps.Size = new System.Drawing.Size(549, 272);
+            this.listBoxSteps.Size = new System.Drawing.Size(412, 221);
             this.listBoxSteps.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 25);
+            this.label1.Size = new System.Drawing.Size(181, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Загрузка документа";
             // 
             // Document_Viewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelLockDoc);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Document_Viewer";
-            this.Size = new System.Drawing.Size(572, 447);
+            this.Size = new System.Drawing.Size(429, 363);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

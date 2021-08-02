@@ -11,7 +11,7 @@ namespace AMASControlRegisters
 {
     public partial class ContragentAttributes : UserControl
     {
-        private AMAS_DBI.Class_syb_acc ACC;
+        private Class_syb_acc ACC;
 
         private DataTable Phones;
         private DataTable Emails;
@@ -34,7 +34,7 @@ namespace AMASControlRegisters
             dataGridViewEmail.AllowUserToDeleteRows = true;
         }
 
-        public void Conect(AMAS_DBI.Class_syb_acc AACC)
+        public void Conect(Class_syb_acc AACC)
         {
             ACC = AACC;
         }

@@ -459,7 +459,7 @@
             this.btnFindEmpDep.Name = "btnFindEmpDep";
             this.btnFindEmpDep.Size = new System.Drawing.Size(23, 22);
             this.btnFindEmpDep.Text = "toolStripButton1";
-            this.btnFindEmpDep.Click += new System.EventHandler(this.btnFindEmpDep_Click);
+            this.btnFindEmpDep.Click += new System.EventHandler(this.BtnFindEmpDep_Click);
             // 
             // toolStripSeparator2
             // 
@@ -623,7 +623,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tvDocsTree);
             this.splitContainer2.Size = new System.Drawing.Size(305, 447);
-            this.splitContainer2.SplitterDistance = 338;
+            this.splitContainer2.SplitterDistance = 337;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -633,7 +633,7 @@
             this.tvDocsTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDocsTree.Location = new System.Drawing.Point(0, 0);
             this.tvDocsTree.Name = "tvDocsTree";
-            this.tvDocsTree.Size = new System.Drawing.Size(303, 104);
+            this.tvDocsTree.Size = new System.Drawing.Size(303, 105);
             this.tvDocsTree.TabIndex = 2;
             // 
             // treeViewDepts
@@ -817,7 +817,7 @@
             this.btDot.TabIndex = 11;
             this.btDot.Text = "Шаблон";
             this.btDot.UseVisualStyleBackColor = true;
-            this.btDot.Click += new System.EventHandler(this.btDot_Click);
+            this.btDot.Click += new System.EventHandler(this.BtDot_Click);
             // 
             // btEditor
             // 
@@ -827,7 +827,7 @@
             this.btEditor.TabIndex = 10;
             this.btEditor.Text = "Редактор";
             this.btEditor.UseVisualStyleBackColor = true;
-            this.btEditor.Click += new System.EventHandler(this.btEditor_Click);
+            this.btEditor.Click += new System.EventHandler(this.BtEditor_Click);
             // 
             // btRemFile
             // 
@@ -837,7 +837,7 @@
             this.btRemFile.TabIndex = 9;
             this.btRemFile.Text = "Удалить файл";
             this.btRemFile.UseVisualStyleBackColor = true;
-            this.btRemFile.Click += new System.EventHandler(this.btRemFile_Click_1);
+            this.btRemFile.Click += new System.EventHandler(this.BtRemFile_Click_1);
             // 
             // btAddFile
             // 
@@ -847,7 +847,7 @@
             this.btAddFile.TabIndex = 8;
             this.btAddFile.Text = "Добавить файл";
             this.btAddFile.UseVisualStyleBackColor = true;
-            this.btAddFile.Click += new System.EventHandler(this.btAddFile_Click_1);
+            this.btAddFile.Click += new System.EventHandler(this.BtAddFile_Click_1);
             // 
             // btExit
             // 
@@ -857,7 +857,7 @@
             this.btExit.TabIndex = 7;
             this.btExit.Text = "Завершить ввод документа";
             this.btExit.UseVisualStyleBackColor = true;
-            this.btExit.Click += new System.EventHandler(this.btExit_Click_1);
+            this.btExit.Click += new System.EventHandler(this.BtExit_Click_1);
             // 
             // btClear
             // 
@@ -876,7 +876,7 @@
             this.btSave.TabIndex = 5;
             this.btSave.Text = "Сохранить документ";
             this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
+            this.btSave.Click += new System.EventHandler(this.BtSave_Click_1);
             // 
             // label2
             // 

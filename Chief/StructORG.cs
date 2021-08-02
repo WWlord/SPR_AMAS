@@ -15,10 +15,10 @@ namespace Chief
 {
     public partial class StructORG : Form
     {
-        private AMAS_DBI.Class_syb_acc AMASacc;
-        private ClassStructure.Structure StructMyOrg;
-        private ClassStructure.Structure StructForInstructions;
-        private ClassStructure.Structure StructWithDegree;
+        private Class_syb_acc AMASacc;
+        private Structure StructMyOrg;
+        private Structure StructForInstructions;
+        private Structure StructWithDegree;
         private degree_ids Degree_Listing;
         private TreeNode thisNode = null;
         private TreeNode instrNode = null;
@@ -28,7 +28,7 @@ namespace Chief
 
         ArrayList MetaInstruct = new ArrayList();
         
-        public StructORG(AMAS_DBI.Class_syb_acc ACC)
+        public StructORG(Class_syb_acc ACC)
         {
             InitializeComponent();
             AMASacc = ACC;
@@ -171,8 +171,10 @@ namespace Chief
                     groups_listing = new Groups(AMASacc, treeViewGroups,false);
                     break;
                 case "PageStructure":
-                    StructMyOrg = new Structure(AMASacc, treeViewDepts, false);
-                    StructMyOrg.Drag_drop = true;
+                    StructMyOrg = new Structure(AMASacc, treeViewDepts, false)
+                    {
+                        Drag_drop = true
+                    };
                     Degree_Listing = new degree_ids(AMASacc, Degreelist);
                     listViewDegDep.Items.Clear();
                     thisNode = null; 
@@ -214,10 +216,10 @@ namespace Chief
             int[] Ident = null;
             string[] Naming = null;
 
-            private System.Windows.Forms.ListBox Degreelist;
-            private AMAS_DBI.Class_syb_acc AMASacc;
+            private ListBox Degreelist;
+            private Class_syb_acc AMASacc;
 
-            public degree_ids(AMAS_DBI.Class_syb_acc SybAcc, System.Windows.Forms.ListBox list)
+            public degree_ids(Class_syb_acc SybAcc, ListBox list)
             {
                 AMASacc = SybAcc;
                 Degreelist = list;
@@ -501,8 +503,10 @@ namespace Chief
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            StructMyOrg = new Structure(AMASacc, treeViewDepts, false);
-            StructMyOrg.Drag_drop = true;
+            StructMyOrg = new Structure(AMASacc, treeViewDepts, false)
+            {
+                Drag_drop = true
+            };
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
@@ -535,8 +539,10 @@ namespace Chief
 
         private void ïåðåðèñîâàòüÑòðóêòóðóToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            StructMyOrg = new Structure(AMASacc, treeViewDepts, false);
-            StructMyOrg.Drag_drop = true;
+            StructMyOrg = new Structure(AMASacc, treeViewDepts, false)
+            {
+                Drag_drop = true
+            };
         }
 
         private void ðàçâåðíóòüÑòðóêòóðóToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -776,8 +782,10 @@ namespace Chief
 
         private void ïåðåðèñîâàòüÑòðóêòóðóToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StructMyOrg = new Structure(AMASacc, treeViewDepts, false);
-            StructMyOrg.Drag_drop = true;
+            StructMyOrg = new Structure(AMASacc, treeViewDepts, false)
+            {
+                Drag_drop = true
+            };
         }
 
         private void ðàçâåðíóòüÑòðóêòóðóToolStripMenuItem_Click(object sender, EventArgs e)
@@ -792,8 +800,10 @@ namespace Chief
 
         private void toolStripButton26_Click(object sender, EventArgs e)
         {
-            StructMyOrg = new Structure(AMASacc, treeViewDepts, false);
-            StructMyOrg.Drag_drop = true;
+            StructMyOrg = new Structure(AMASacc, treeViewDepts, false)
+            {
+                Drag_drop = true
+            };
         }
 
         private void toolStripButton27_Click(object sender, EventArgs e)
