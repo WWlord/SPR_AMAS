@@ -1065,6 +1065,10 @@ namespace Chief
             FindDeartmentOREmployee.ShowDialog();
         }
 
+        private void tsSendToSign_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Sign_ids

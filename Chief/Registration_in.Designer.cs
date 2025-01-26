@@ -569,7 +569,7 @@ namespace Chief
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(775, 509);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Сведения";
@@ -591,7 +591,7 @@ namespace Chief
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(761, 222);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Население";
@@ -601,8 +601,8 @@ namespace Chief
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(763, 225);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(761, 222);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Организации";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -834,7 +834,7 @@ namespace Chief
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(775, 514);
+            this.tabPage6.Size = new System.Drawing.Size(775, 509);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Содержание";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -843,7 +843,7 @@ namespace Chief
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(775, 514);
+            this.tabPage4.Size = new System.Drawing.Size(775, 509);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Контрагенты";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -913,7 +913,7 @@ namespace Chief
             this.listViewDocs.FormattingEnabled = true;
             this.listViewDocs.ItemHeight = 17;
             this.listViewDocs.Location = new System.Drawing.Point(0, 0);
-            this.listViewDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewDocs.Margin = new System.Windows.Forms.Padding(2);
             this.listViewDocs.Name = "listViewDocs";
             this.listViewDocs.Size = new System.Drawing.Size(259, 150);
             this.listViewDocs.TabIndex = 5;

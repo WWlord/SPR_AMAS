@@ -171,6 +171,7 @@ namespace Chief
             }
         }
 
+        int CurrentKind = -1;
         void KLSelect()
         {
             int Id = (int)KindList.LISTofKT.SelectedIndex;
@@ -178,6 +179,7 @@ namespace Chief
                 try
                 {
                     CommonClass.Arraysheet ASh = (CommonClass.Arraysheet)KindList.RList[Id];
+                    CurrentKind= Convert.ToInt32(ASh.Id);
                     int WellInOut = AMASCommand.CorrespondenTyp((int)Convert.ToInt32(ASh.Id));
                     switch (WellInOut)
                     {
@@ -944,7 +946,8 @@ namespace Chief
             if (radioButton5.Checked) wiodoc = 1;
             if (radioButton4.Checked) wiodoc = 2;
 
-            AMASCommand.AddCorrWIO(wiodoc, 1);
+            if(CurrentKind>=0)
+            AMASCommand.AddCorrWIO(CurrentKind,wiodoc);
         }
 
         public bool ResWIO = true;

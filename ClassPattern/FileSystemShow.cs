@@ -123,6 +123,7 @@ namespace ClassPattern
                             else
                                 KT_ROWS = AMAS_DBI.AMASCommand.MySubKindTema_list((int)Convert.ToInt32(Nod.Name.Substring(1)));
 
+                            if(KT_ROWS!=null)
                             foreach (CommonClass.ArrayThree t in KT_ROWS)
                             {
                                 nnn = Nod.Nodes.Add("t" + t.Id, t.Name);

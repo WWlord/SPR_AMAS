@@ -118,67 +118,73 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BINOCULR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BINOCULR.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Web_XSLT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Web_XSLT.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ARW05LT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ARW05LT.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FOLDRS02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FOLDRS02.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DISK03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DISK03.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MINUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MINUS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIP03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CLIP03.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LABELS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LABELS.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLOSED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CLOSED.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OPEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OPEN.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIP071" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CLIP071.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1380_wall_clockFINAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1380_wall_clockFINAL.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BINOCULR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BINOCULR.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ARW05RT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ARW05RT.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MSGBOX01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MSGBOX01.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-редактировать-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-редактировать-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PLUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PLUS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Utility_VBScript" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Utility_VBScript.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CLIP07" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CLIP07.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WASTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WASTE.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LABELS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LABELS.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Messages" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Messages.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Code_Component" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Code_Component.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OPEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OPEN.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Web_XSLT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Web_XSLT.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CLIP03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CLIP03.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CLOSED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CLOSED.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CLIP07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CLIP07.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SingleMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SingleMessage.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Utility_VBScript" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Utility_VBScript.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CLIP071" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CLIP071.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MSGBOX01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MSGBOX01.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Code_Component" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Code_Component.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLUS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FOLDRS02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FOLDRS02.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1380_wall_clockFINAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1380_wall_clockFINAL.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WASTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WASTE.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MINUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MINUS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DISK03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DISK03.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-документ-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-документ-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

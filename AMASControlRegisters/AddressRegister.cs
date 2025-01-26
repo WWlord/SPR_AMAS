@@ -121,7 +121,7 @@ namespace AMASControlRegisters
             }
             try
             {
-                SelectedAddress();
+                //SelectedAddress();
             }
             catch { }
         }
@@ -135,7 +135,7 @@ namespace AMASControlRegisters
                 Select_Cities();
                 city_ids.get_index_by_text(adrname);
              }
-                SelectedAddress();
+                //SelectedAddress();
        }
 
         public void Street_LostFocus(object sender, EventArgs e)
@@ -147,7 +147,7 @@ namespace AMASControlRegisters
                 Select_Streets();
                 street_ids.get_index_by_text(adrname);
             }
-                 SelectedAddress();
+                 //SelectedAddress();
        }
 
         public void House_LostFocus(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace AMASControlRegisters
                 Select_Houses();
                 house_ids.get_index_by_text(adrname);
             }
-                SelectedAddress();
+               // SelectedAddress();
         }
 
         public void Flat_LostFocus(object sender, EventArgs e)
@@ -171,7 +171,7 @@ namespace AMASControlRegisters
                 Select_Flats();
                 flat_ids.get_index_by_text(adrname);
             }
-                SelectedAddress();
+               // SelectedAddress();
         }
 
         public void District_LostFocus(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace AMASControlRegisters
                 Select_Districts();
                 district_ids.get_index_by_text(adrname);
             }
-                SelectedAddress();
+              //  SelectedAddress();
         }
 
         public void Areal_LostFocus(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace AMASControlRegisters
                 Select_Areals();
                 areal_ids.get_index_by_text(adrname);
             }
-                SelectedAddress();
+               // SelectedAddress();
         }
 
         public void Trc_LostFocus(object sender, EventArgs e)
@@ -207,7 +207,7 @@ namespace AMASControlRegisters
                 Select_Trcs();
                 trc_ids.get_index_by_text(adrname);
             }
-                SelectedAddress();
+               // SelectedAddress();
         }
 
         private void add_address()

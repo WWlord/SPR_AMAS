@@ -288,7 +288,7 @@ namespace AMASControlRegisters
 
                             lbl = "q7";
                             mark = lbl;
-                            txt = AMASCommand.OutDocAnnotation(OutDocId); //Аннотация
+                            txt = AMASCommand.OutDocAnnotation(Doc_ID);  //(OutDocId); //Аннотация
                             Word_App.ActiveWindow.Selection.GoTo(ref what, ref missing, ref missing, ref mark);
                             Word_App.ActiveWindow.Selection.InsertAfter(txt);
                         }

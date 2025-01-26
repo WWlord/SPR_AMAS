@@ -887,7 +887,8 @@ namespace ClassPattern
                     Name = "Formular",
                     Size = new Size(121, 97),
                     TabIndex = 0,
-                    UseCompatibleStateImageBehavior = false
+                    UseCompatibleStateImageBehavior = false,
+                    BackColor = Color.Aqua
                 };
                 Formular.Dock = DockStyle.Fill;
                 ConLoc.Controls.Add(Formular);
@@ -908,119 +909,120 @@ namespace ClassPattern
 
                 ConLoc.Controls.Add(tsFormular);
             }
-
         }
 
         public Formularing(Control ConFormul)
         {
             ListFormular(ConFormul);
-            Formular = new ListView();
-            Formular.Items.Clear();
-            Formular.Columns.Clear();
+            if (Formular != null)
+            {
+                Formular.Items.Clear();
+                Formular.Columns.Clear();
 
-            FormularToolStrip();
+                FormularToolStrip();
 
-            // 
-            // Formular
-            // 
-            this.columnHeaderName = new ColumnHeader();
-            this.columnHeaderPage = new ColumnHeader();
-            this.columnHeaderNote = new ColumnHeader();
-            this.Formular.Columns.AddRange(new ColumnHeader[] {
+                // 
+                // Formular
+                // 
+                this.columnHeaderName = new ColumnHeader();
+                this.columnHeaderPage = new ColumnHeader();
+                this.columnHeaderNote = new ColumnHeader();
+                this.Formular.Columns.AddRange(new ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderPage,
             this.columnHeaderNote});
-            this.Formular.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Formular.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Formular.LabelEdit = true;
-            this.Formular.Location = new Point(0, 0);
-            this.Formular.MultiSelect = false;
-            this.Formular.Name = "Formular";
-            this.Formular.ShowGroups = false;
-            this.Formular.Size = new Size(630, 492);
-            this.Formular.TabIndex = 0;
-            this.Formular.UseCompatibleStateImageBehavior = false;
-            this.Formular.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderName
-            // 
-            this.columnHeaderName.Text = "Наименование приложения";
-            this.columnHeaderName.Width = 174;
-            // 
-            // columnHeaderPage
-            // 
-            this.columnHeaderPage.Text = "Листов";
-            this.columnHeaderPage.Width = 64;
-            // 
-            // columnHeaderNote
-            // 
-            this.columnHeaderNote.Text = "Описание";
-            this.columnHeaderNote.Width = 376;
+                this.Formular.Dock = System.Windows.Forms.DockStyle.Fill;
+                this.Formular.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                this.Formular.LabelEdit = true;
+                this.Formular.Location = new Point(0, 0);
+                this.Formular.MultiSelect = false;
+                this.Formular.Name = "Formular";
+                this.Formular.ShowGroups = false;
+                this.Formular.Size = new Size(630, 492);
+                this.Formular.TabIndex = 0;
+                this.Formular.UseCompatibleStateImageBehavior = false;
+                this.Formular.View = System.Windows.Forms.View.Details;
+                // 
+                // columnHeaderName
+                // 
+                this.columnHeaderName.Text = "Наименование приложения";
+                this.columnHeaderName.Width = 174;
+                // 
+                // columnHeaderPage
+                // 
+                this.columnHeaderPage.Text = "Листов";
+                this.columnHeaderPage.Width = 64;
+                // 
+                // columnHeaderNote
+                // 
+                this.columnHeaderNote.Text = "Описание";
+                this.columnHeaderNote.Width = 376;
 
-            DocumentID = 0;
-            this.contextMenuStripFormular = new ContextMenuStrip();
-            this.добавитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
-            this.редактироватьЗаписьToolStripMenuItem = new ToolStripMenuItem();
-            this.удалитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
-            this.contextMenuStripFormular.SuspendLayout();
-            Formular.ContextMenuStrip = this.contextMenuStripFormular;
-            try { FormularPicture.Visible = false; }
-            catch { }
+                DocumentID = 0;
+                this.contextMenuStripFormular = new ContextMenuStrip();
+                this.добавитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+                this.редактироватьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+                this.удалитьЗаписьToolStripMenuItem = new ToolStripMenuItem();
+                this.contextMenuStripFormular.SuspendLayout();
+                Formular.ContextMenuStrip = this.contextMenuStripFormular;
+                try { FormularPicture.Visible = false; }
+                catch { }
 
-            Formular.Controls.Add(FormularPicture);
-            // 
-            // contextMenuStripFormular
-            // 
-            this.contextMenuStripFormular.Items.AddRange(new ToolStripItem[] {
+                Formular.Controls.Add(FormularPicture);
+                // 
+                // contextMenuStripFormular
+                // 
+                this.contextMenuStripFormular.Items.AddRange(new ToolStripItem[] {
                 this.добавитьЗаписьToolStripMenuItem,
                 this.редактироватьЗаписьToolStripMenuItem,
                 this.удалитьЗаписьToolStripMenuItem});
-            this.contextMenuStripFormular.Name = "contextMenuStrip1";
-            this.contextMenuStripFormular.Size = new Size(173, 70);
-            // 
-            // добавитьЗаписьToolStripMenuItem
-            // 
-            this.добавитьЗаписьToolStripMenuItem.Name = "добавитьЗаписьToolStripMenuItem";
-            this.добавитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
-            this.добавитьЗаписьToolStripMenuItem.Text = "Добавить запись";
-            // 
-            // редактироватьЗаписьToolStripMenuItem
-            // 
-            this.редактироватьЗаписьToolStripMenuItem.Name = "редактироватьЗаписьToolStripMenuItem";
-            this.редактироватьЗаписьToolStripMenuItem.Size = new Size(172, 22);
-            this.редактироватьЗаписьToolStripMenuItem.Text = "Редактировать запись";
-            // 
-            // удалитьЗаписьToolStripMenuItem
-            // 
-            this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
-            this.удалитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
-            this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись";
+                this.contextMenuStripFormular.Name = "contextMenuStrip1";
+                this.contextMenuStripFormular.Size = new Size(173, 70);
+                // 
+                // добавитьЗаписьToolStripMenuItem
+                // 
+                this.добавитьЗаписьToolStripMenuItem.Name = "добавитьЗаписьToolStripMenuItem";
+                this.добавитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
+                this.добавитьЗаписьToolStripMenuItem.Text = "Добавить запись";
+                // 
+                // редактироватьЗаписьToolStripMenuItem
+                // 
+                this.редактироватьЗаписьToolStripMenuItem.Name = "редактироватьЗаписьToolStripMenuItem";
+                this.редактироватьЗаписьToolStripMenuItem.Size = new Size(172, 22);
+                this.редактироватьЗаписьToolStripMenuItem.Text = "Редактировать запись";
+                // 
+                // удалитьЗаписьToolStripMenuItem
+                // 
+                this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
+                this.удалитьЗаписьToolStripMenuItem.Size = new Size(172, 22);
+                this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись";
 
-            this.contextMenuStripFormular.ResumeLayout(false);
+                this.contextMenuStripFormular.ResumeLayout(false);
 
-            TextFormular = new TextBox[3];
-            FormularPicture = new PictureBox();
-            TextFormular[0] = new TextBox();
-            TextFormular[1] = new TextBox();
-            TextFormular[2] = new TextBox();
-            TextFormular[0].BackColor = Color.LightSeaGreen;
-            TextFormular[1].BackColor = Color.LightSeaGreen;
-            TextFormular[2].BackColor = Color.LightSeaGreen;
-            FormularPicture.Controls.Add(TextFormular[0]);
-            FormularPicture.Controls.Add(TextFormular[1]);
-            FormularPicture.Controls.Add(TextFormular[2]);
-            FormularPicture.Visible = false;
-            this.Formular.Controls.Add(FormularPicture);
+                TextFormular = new TextBox[3];
+                FormularPicture = new PictureBox();
+                TextFormular[0] = new TextBox();
+                TextFormular[1] = new TextBox();
+                TextFormular[2] = new TextBox();
+                TextFormular[0].BackColor = Color.LightSeaGreen;
+                TextFormular[1].BackColor = Color.LightSeaGreen;
+                TextFormular[2].BackColor = Color.LightSeaGreen;
+                FormularPicture.Controls.Add(TextFormular[0]);
+                FormularPicture.Controls.Add(TextFormular[1]);
+                FormularPicture.Controls.Add(TextFormular[2]);
+                FormularPicture.Visible = false;
+                this.Formular.Controls.Add(FormularPicture);
 
-            this.добавитьЗаписьToolStripMenuItem.Click += new EventHandler(this.добавитьЗаписьToolStripMenuItem_Click);
-            this.удалитьЗаписьToolStripMenuItem.Click += new EventHandler(this.удалитьЗаписьToolStripMenuItem_Click);
-            this.редактироватьЗаписьToolStripMenuItem.Click += new EventHandler(this.редактироватьЗаписьToolStripMenuItem_Click);
-            TextFormular[0].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
-            TextFormular[1].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
-            TextFormular[2].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
-            TextFormular[0].KeyPress += new KeyPressEventHandler(Formularing_KeyPressN0);
-            TextFormular[1].KeyPress += new KeyPressEventHandler(Formularing_KeyPressN1);
-            TextFormular[2].KeyPress += new KeyPressEventHandler(Formularing_KeyPress);
+                this.добавитьЗаписьToolStripMenuItem.Click += new EventHandler(this.добавитьЗаписьToolStripMenuItem_Click);
+                this.удалитьЗаписьToolStripMenuItem.Click += new EventHandler(this.удалитьЗаписьToolStripMenuItem_Click);
+                this.редактироватьЗаписьToolStripMenuItem.Click += new EventHandler(this.редактироватьЗаписьToolStripMenuItem_Click);
+                TextFormular[0].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
+                TextFormular[1].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
+                TextFormular[2].MouseDoubleClick += new MouseEventHandler(Formularing_MouseDoubleClick);
+                TextFormular[0].KeyPress += new KeyPressEventHandler(Formularing_KeyPressN0);
+                TextFormular[1].KeyPress += new KeyPressEventHandler(Formularing_KeyPressN1);
+                TextFormular[2].KeyPress += new KeyPressEventHandler(Formularing_KeyPress);
+            }
         }
 
         private void Draw_Controls()
@@ -1189,17 +1191,23 @@ namespace ClassPattern
 
         public void Save_formular(int DocId)
         {
-            Array formularrray = Array.CreateInstance(typeof(string), Formular.Items.Count, 3);
-
-            for (int i = 0; i < Formular.Items.Count; i++)
+            if (Formular != null)
             {
+                try
+                {
+                    Array formularrray = Array.CreateInstance(typeof(string), Formular.Items.Count, 3);
 
-                formularrray.SetValue(Formular.Items[i].Text, i, 0);
-                formularrray.SetValue(Formular.Items[i].SubItems[1].Text, i, 1);
-                formularrray.SetValue(Formular.Items[i].SubItems[2].Text, i, 2);
+                    for (int i = 0; i < Formular.Items.Count; i++)
+                    {
+
+                        formularrray.SetValue(Formular.Items[i].Text, i, 0);
+                        formularrray.SetValue(Formular.Items[i].SubItems[1].Text, i, 1);
+                        formularrray.SetValue(Formular.Items[i].SubItems[2].Text, i, 2);
+                    }
+                    AMAS_DBI.AMASCommand.Append_formular(DocId, formularrray);
+                }
+                catch { }
             }
-            AMAS_DBI.AMASCommand.Append_formular(DocId, formularrray);
-
         }
     }
 

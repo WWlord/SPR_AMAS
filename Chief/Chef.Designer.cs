@@ -544,6 +544,7 @@
             this.tsSendToSign.Name = "tsSendToSign";
             this.tsSendToSign.Size = new System.Drawing.Size(23, 22);
             this.tsSendToSign.Text = "Направить на визирование";
+            this.tsSendToSign.Click += new System.EventHandler(this.tsSendToSign_Click_1);
             // 
             // tsSendInfo
             // 

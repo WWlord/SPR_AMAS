@@ -251,6 +251,42 @@ namespace AMAS_Query
             }
         }
 
+        public static string GetBaseStateList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_state where id=sinonim order by state";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_state where id=sinonim order by state";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullStateList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_state where id=sinonim order by state";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_state where id=sinonim and not exists (select * from dbo.adr_trc where sta_id=adr_state.id and adr_trc.Region is null)";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
         public static string GetAddressIds(int flat)
         {
             {
@@ -298,6 +334,41 @@ namespace AMAS_Query
             }
         }
 
+        public static string GetBaseTrcList(int sta_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + sta_id.ToString() + " order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_trc where id=sinonim  order by Region";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullTrcList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim  order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_trc where id=sinonim  and not exists (select * from dbo.adr_areal where trc_id=adr_trc.id and adr_areal.areal is null)";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
         public static string GetArealList(int trc_id)
         {
             {
@@ -315,6 +386,42 @@ namespace AMAS_Query
             }
         }
 
+        public static string GetBaseArealList(int trc_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + trc_id.ToString() + " order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_areal where id=sinonim  order by areal";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullArealList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim  order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_areal where id=sinonim and id not in (select areal_id from dbo.adr_city where name_city is null)";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+
         public static string GetCityList (int areal_id)
         {
             {
@@ -326,6 +433,41 @@ namespace AMAS_Query
                         break;
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
                         Sql = "select * from AMAS.adr_city where id=sinonim and areal_id=" + areal_id.ToString() + " order by name_city";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetBaseCityList(int areal_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim and sta_id=" + areal_id.ToString() + " order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_city where id=sinonim  order by name_city";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullCityList
+        {
+           get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_city where id=sinonim  order by name_city";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_city where id=sinonim  and id not in (select cit_id from dbo.adr_district where district is null)";
                         break;
                 }
                 return Sql;
@@ -349,6 +491,41 @@ namespace AMAS_Query
             }
         }
 
+        public static string GetBaseDistrictList(int cit_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_street where id=sinonim and cit_id=" + cit_id.ToString() + " order by streetname";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_district where id=sinonim and order by district";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullDistrictList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_street where id=sinonim  order by streetname";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_district where id=sinonim and not exists (select * from dbo.adr_street where streetName is null)";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
         public static string GetStreetList(int district_id)
         {
             {
@@ -360,6 +537,41 @@ namespace AMAS_Query
                         break;
                     case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
                         Sql = "select * from AMAS.adr_street where id=sinonim and district_id=" + district_id.ToString() + " order by streetname";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetBaseStreetList(int district_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_street where id=sinonim and cit_id=" + district_id.ToString() + " order by streetname";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_street where id=sinonim  order by streetname";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullStreetList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_street where id=sinonim order by streetname";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_street where id=sinonim and id not in (select str_id from dbo.adr_house where house is null)";
                         break;
                 }
                 return Sql;
@@ -383,6 +595,41 @@ namespace AMAS_Query
             }
         }
 
+        public static string GetBaseHouseList(int str_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_house where id=sinonim and str_id=" + str_id.ToString() + " order by h_int";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_house where id=sinonim order by h_int";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullHouseList
+        {
+            get
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_house where id=sinonim order by h_int";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_house where id=sinonim and id not in (select hou_id from dbo.adr_flat where flat is null)";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
         public static string GetFlatList(int hou_id)
         {
             {
@@ -399,6 +646,41 @@ namespace AMAS_Query
                 return Sql;
             }
         }
+
+        public static string GetBaseFlatList(int hou_id)
+        {
+            {
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_flat where id=sinonim and hou_id=" + hou_id.ToString() + " order by f_int";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_flat where id=sinonim and hou_id=" + hou_id.ToString() + " order by f_int";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
+        public static string GetNullFlatList
+        {
+            get{
+                string Sql = "";
+                switch ((Class_syb_acc.AMAS_connections)AMAS_DBI.Class_syb_acc.AMAS_Base)
+                {
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.Sybase:
+                        Sql = "select * from dba.pip_flat where id=sinonim order by f_int";
+                        break;
+                    case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
+                        Sql = "select * from dbo.adr_flat where id=sinonim  and flat is null";
+                        break;
+                }
+                return Sql;
+            }
+        }
+
 
         //Start Setup
         public static string Get_Current_user
@@ -661,7 +943,7 @@ namespace AMAS_Query
                     sql = "call dba.main_exec_docs(@document=" + (string)Convert.ToString(Doc_id) + ")";
                     break;
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
-                    sql = "call dbo.rkk_main_exec_docs(@document=" + (string)Convert.ToString(Doc_id) + ")";
+                    sql = "exec dbo.rkk_main_exec_docs @document=" + (string)Convert.ToString(Doc_id) + "";
                     break;
             }
             return sql;
@@ -691,7 +973,7 @@ namespace AMAS_Query
                     sql = "call dba.main_vizing_docs(@document=" + Convert.ToString(Doc_id) + ")";
                     break;
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
-                    sql = "call dbo.rkk_main_vizing_docs(@document=" + Convert.ToString(Doc_id) + ")";
+                    sql = "exec dbo.rkk_main_vizing_docs(@document=" + Convert.ToString(Doc_id) + ")";
                     break;
             }
             return sql;
@@ -721,7 +1003,7 @@ namespace AMAS_Query
                     sql = "call dba.main_news_docs(@document=" + Convert.ToString(Doc_id) + ")";
                     break;
                 case AMAS_DBI.Class_syb_acc.AMAS_connections.MSSQL:
-                    sql = "call dbo.rkk_main_news_docs(@document=" + Convert.ToString(Doc_id) + ")";
+                    sql = "exec dbo.rkk_main_news_docs(@document=" + Convert.ToString(Doc_id) + ")";
                     break;
             }
             return sql;
@@ -2995,18 +3277,20 @@ namespace AMAS_Query
         private static string sql_moving = "select count(*) as cnt from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_vizing = "select count(*) as cnt from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_news = "select count(*) as cnt from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
+        private static string sql_own = "select count(*) as cnt from dbo.RKK_own_Docs";
         private string sql_new = "select count(*) as cnt from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
 
-        private static string sql_CurrentmovingYear = "select DATEPART (year, rkk_moving.time_m) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_CurrentvizingYear = "select DATEPART (year, rkk_vizing.time_v) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_CurrentnewsYear = "select DATEPART (year, rkk_news.time_n) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_ExecutedmovingYear = "select DATEPART (year, rkk_moving.executed) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_ExecutedvizingYear = "select DATEPART (year, rkk_vizing.executed) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_ExecutednewsYear = "select DATEPART (year, rkk_news.newed) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_SendedmovingYear = "select DATEPART (year, rkk_moving.when_m) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_SendedvizingYear = "select DATEPART (year, rkk_vizing.when_v) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_SendednewsYear = "select DATEPART (year, rkk_news.when_n) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_newYear = "select  DATEPART (year, rkk_flow_document.date_f) as year from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
+        private static string sql_CurrentmovingYear = "select DATEPART (year, rkk_moving.time_m) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_CurrentvizingYear = "select DATEPART (year, rkk_vizing.time_v) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_CurrentnewsYear = "select DATEPART (year, rkk_news.time_n) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_ExecutedmovingYear = "select DATEPART (year, rkk_moving.executed) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() and rkk_moving.executed is not null";
+        private static string sql_ExecutedvizingYear = "select DATEPART (year, rkk_vizing.executed) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_ExecutednewsYear = "select DATEPART (year, rkk_news.newed) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_SendedmovingYear = "select DATEPART (year, rkk_moving.when_m) as year from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_SendedvizingYear = "select DATEPART (year, rkk_vizing.when_v) as year from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_SendednewsYear = "select DATEPART (year, rkk_news.when_n) as year from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident()";
+        private static string sql_newYear = "select  DATEPART (year, rkk_flow_document.date_f) as year from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident())";
+        private static string sql_OwnYear = "select  DATEPART (year, RKK_own_Docs.date_f) as year from dbo.RKK_own_Docs";
 
         private static string sql_CurrentmovingMoonth = "select DATEPART (month, rkk_moving.time_m) as month from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_CurrentvizingMoonth = "select DATEPART (month, rkk_vizing.time_v) as month from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
@@ -3018,6 +3302,7 @@ namespace AMAS_Query
         private static string sql_SendedvizingMoonth = "select DATEPART (month, rkk_vizing.when_v) as month from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_SendednewsMoonth = "select DATEPART (month, rkk_news.when_n) as month from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_newMoonth = "select  DATEPART (month, rkk_flow_document.date_f) as month from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
+        private static string sql_OwnMoonth = "select  DATEPART (month, RKK_own_Docs.date_f) as month from dbo.RKK_own_Docs ";
 
         private static string sql_CurrentmovingDay = "select DATEPART (Day, rkk_moving.time_m) as Day from dbo.rkk_moving join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_CurrentvizingDay = "select DATEPART (Day, rkk_vizing.time_v) as Day from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
@@ -3029,12 +3314,14 @@ namespace AMAS_Query
         private static string sql_SendedvizingDay = "select DATEPART (Day, rkk_vizing.when_v) as Day from dbo.rkk_vizing join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_SendednewsDay = "select DATEPART (Day, rkk_news.when_n) as Day from dbo.rkk_news join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
         private static string sql_newDay = "select  DATEPART (Day, rkk_flow_document.date_f) as Day from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
+        private static string sql_OwnDay = "select  DATEPART (Day, RKK_own_Docs.date_f) as Day from dbo.RKK_own_Docs ";
 
-        private static string sql_movingID = "select rkk_flow_document.* from dbo.rkk_flow_document join dbo.rkk_moving on rkk_flow_document.kod=rkk_moving.document join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_vizingID = "select rkk_flow_document.* from dbo.rkk_flow_document join dbo.rkk_vizing on rkk_flow_document.kod=rkk_vizing.document join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_newsID = "select rkk_flow_document.* from dbo.rkk_flow_document join dbo.rkk_news on rkk_flow_document.kod=rkk_news.document join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
-        private static string sql_newID = "select rkk_flow_document.* from dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
-        
+        private static string sql_movingID = "select rkk_flow_document.*, 1 as img from dbo.rkk_flow_document join dbo.rkk_moving on rkk_flow_document.kod=rkk_moving.document join dbo.emp_dep_degrees on rkk_moving.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
+        private static string sql_vizingID = "select rkk_flow_document.*, 2 as img from   dbo.rkk_flow_document join dbo.rkk_vizing on rkk_flow_document.kod=rkk_vizing.document join dbo.emp_dep_degrees on rkk_vizing.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
+        private static string sql_newsID = "select rkk_flow_document.*, 3 as img from   dbo.rkk_flow_document join dbo.rkk_news on rkk_flow_document.kod=rkk_news.document join dbo.emp_dep_degrees on rkk_news.for_= emp_dep_degrees.cod where emp_dep_degrees.employee=dbo.user_ident() ";
+        private static string sql_newID = "select rkk_flow_document.*, 4 as img from   dbo.rkk_flow_document where rkk_flow_document.typist =dbo.user_ident() ";
+        private static string sql_OwnID = "select *, 5 as img from  dbo.RKK_own_Docs ";
+
         public DocTipGrow(int maxDocs)
         {
             MacsCnt = maxDocs;
@@ -3046,6 +3333,7 @@ namespace AMAS_Query
             string Tree_SQL_Cast_date_moving = "";
             string Tree_SQL_Cast_date_vizing = "";
             string Tree_SQL_Cast_date_news = "";
+            string Tree_SQL_Cast_date_Own = "";
 
             switch (cron)
             {
@@ -3069,9 +3357,26 @@ namespace AMAS_Query
                     Tree_SQL_Cast_date_vizing = "rkk_flow_document.date_f";
                     Tree_SQL_Cast_date_news = "rkk_flow_document.date_f";
                     break;
+                case "ow":
+                    Tree_SQL_Cast_date_Own=  "RKK_own_Docs.date_f";
+                    break;
             }
 
-            if (cron.CompareTo("nw") != 0)
+            if (cron.ToLower().CompareTo("nw") == 0)
+                sql_add_Q = sql_newID + " and datepart( year ," + Tree_SQL_Cast_date_moving + ") =" + (string)Convert.ToString(year) + SelectByStateDoc(cron, "m");
+            else if (cron.ToLower().CompareTo("ow") == 0)
+            {
+                if (year > 0)
+                {
+                    sql_add_Q = sql_OwnID + " where datepart( year ," + Tree_SQL_Cast_date_Own + ") =" + (string)Convert.ToString(year);
+                    if (month > 0)
+                    {
+                        sql_add_Q += " and datepart( month ," + Tree_SQL_Cast_date_Own + ") =" + (string)Convert.ToString(month);
+                        if (day > 0)  sql_add_Q += " and datepart( day ," + Tree_SQL_Cast_date_Own + ") =" + (string)Convert.ToString(day) + SelectByStateDoc(cron, "m");
+                    }
+                }
+            }
+            else
             {
                 if (day > 0)
                 {
@@ -3108,18 +3413,17 @@ namespace AMAS_Query
                 }
                 else
                 {
-                    sql_add_Q = sql_movingID ;
+                    sql_add_Q = sql_movingID;
                     sql_add_Q += SelectByStateDoc(cron, "m");
                     sql_add_Q += " union ";
                     sql_add_Q += sql_vizingID;
                     sql_add_Q += SelectByStateDoc(cron, "v");
                     sql_add_Q += " union ";
-                    sql_add_Q += sql_newsID ;
+                    sql_add_Q += sql_newsID;
                     sql_add_Q += SelectByStateDoc(cron, "n");
                 }
             }
-            else sql_add_Q = sql_movingID + " and datepart( year ," + Tree_SQL_Cast_date_moving + ") =" + (string)Convert.ToString(year) +  SelectByStateDoc(cron, "m");
-            ;
+             ;
             
             return sql_add_Q;
         }
@@ -3127,113 +3431,129 @@ namespace AMAS_Query
         private string SelectByStateDoc(string cron, string stat)
     {
         string sql="";
-        switch (cron)
-        {
-            case "ct":
-                switch (stat)
-                {
-                    case "m":
-                        sql = CurrentmovingID();
-                        break;
-                    case "v":
-                        sql = CurrentvizingID();
-                        break;
-                    case "n":
-                        sql = CurrentnewsID();
-                        break;
-                }
-                break;
-            case "ed":
-                switch (stat)
-                {
-                    case "m":
-                        sql = ExecutedmovingID();
-                        break;
-                    case "v":
-                        sql = ExecutedvizingID();
-                        break;
-                    case "n":
-                        sql = ExecutednewsID();
-                        break;
-                }
-                break;
-            case "sd":
-                switch (stat)
-                {
-                    case "m":
-                        sql = SendedmovingID();
-                        break;
-                    case "v":
-                        sql = SendedvizingID();
-                        break;
-                    case "n":
-                        sql = SendednewsID();
-                        break;
-                }
-                break;
-            case "nw":
-                switch (stat)
-                {
-                    case "m":
-                    case "v":
-                    case "n":
-                        sql = NewID();
-                        break;
-               }
-                break;
-        }
-        return sql;
+            switch (cron)
+            {
+                case "ct":
+                    switch (stat)
+                    {
+                        case "m":
+                            sql = CurrentmovingID();
+                            break;
+                        case "v":
+                            sql = CurrentvizingID();
+                            break;
+                        case "n":
+                            sql = CurrentnewsID();
+                            break;
+                    }
+                    break;
+                case "ed":
+                    switch (stat)
+                    {
+                        case "m":
+                            sql = ExecutedmovingID();
+                            break;
+                        case "v":
+                            sql = ExecutedvizingID();
+                            break;
+                        case "n":
+                            sql = ExecutednewsID();
+                            break;
+                    }
+                    break;
+                case "sd":
+                    switch (stat)
+                    {
+                        case "m":
+                            sql = SendedmovingID();
+                            break;
+                        case "v":
+                            sql = SendedvizingID();
+                            break;
+                        case "n":
+                            sql = SendednewsID();
+                            break;
+                    }
+                    break;
+                case "nw":
+                    switch (stat)
+                    {
+                        case "m":
+                        case "v":
+                        case "n":
+                            sql = NewID();
+                            break;
+                    }
+                    break;
+                case "ow":
+                    switch (stat)
+                    {
+                        case "m":
+                        case "v":
+                        case "n":
+                            sql = "";
+                            break;
+                    }
+                    break;
+            }
+            return sql;
     }
         //Года
 
         public string YearsCountCurrentmoving() 
         {
-            return sql_moving + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())"; 
+            //return sql_moving + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            return sql_moving + " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving.moving = rkk_moving.moving and  moving.parent = dbo.user_ident())";
         }
 
         public string YearsCurrentmovingID()
         {
-            return sql_CurrentmovingYear + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            //return sql_CurrentmovingYear + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            return sql_CurrentmovingYear + " and rkk_moving.exe_doc is null and not exists (select * from dbo.rkk_moving as moving where moving.moving= rkk_moving.moving and moving.parent = dbo.user_ident())   group by  DATEPART (year, rkk_moving.time_m)";
         }
 
         public string YearsCountCurrentvizing()
         {
-            return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            //return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            return sql_vizing + " and rkk_vizing.viza is null and  not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and vizing.parent = dbo.user_ident())";
         }
 
         public string YearsCurrentvizingID()
         {
-            return sql_CurrentvizingYear + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            //return sql_CurrentvizingYear + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            return sql_CurrentvizingYear + " and rkk_vizing.viza is null and  not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and vizing.parent = dbo.user_ident())   group by DATEPART (year, rkk_vizing.when_v)";
         }
 
         public string YearsCountCurrentnews()
         {
-            return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            //return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            return sql_news + " and rkk_news.newed is null and  not exists (select * from dbo.rkk_news as news where news.news=rkk_news.news and news.typist = dbo.user_ident())";
         }
 
         public string YearsCurrentnewsID()
         {
-            return sql_CurrentnewsYear + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            //return sql_CurrentnewsYear + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            return sql_CurrentnewsYear + " and rkk_news.newed is null and  not exists (select * from dbo.rkk_news as news where news.news=rkk_news.news and news.typist = dbo.user_ident())  group by DATEPART (year, rkk_news.time_n)";
         }
 
         public string YearsCountExecutedmoving() 
         {
-            return sql_moving + " and rkk_moving.exe_doc is not null"; 
+            return sql_moving + " and rkk_moving.exe_doc is not null "; 
         }
 
         public string YearsExecutedmovingID()
         {
-            return sql_ExecutedmovingYear + " and rkk_moving.exe_doc is not null";
+            return sql_ExecutedmovingYear  /* and rkk_moving.exe_doc is not null */  +" group by DATEPART (year, rkk_moving.executed)";
         }
 
         public string YearsCountExecutedvizing()
         {
-            return sql_vizing + " and rkk_vizing.viza is not null";
+            return sql_vizing; // + " and rkk_vizing.viza is not null";
         }
 
         public string YearsExecutedvizingID()
         {
-            return sql_ExecutedvizingYear + " and rkk_vizing.viza is not null";
+            return sql_ExecutedvizingYear; // + " and rkk_vizing.viza is not null   group by DATEPART (year, rkk_vizing.executed)";
         }
 
         public string YearsCountExecutednews()
@@ -3243,17 +3563,18 @@ namespace AMAS_Query
 
         public string YearsExecutednewsID()
         {
-            return sql_ExecutednewsYear + " and rkk_news.newed is not null";
+            return sql_ExecutednewsYear + " and rkk_news.newed is not null  group by DATEPART (year, rkk_news.newed)";
         }
 
         public string YearsCountSendedmoving() 
         {
-            return sql_moving + "  and rkk_moving.exe_doc is null and rkk_moving.moving in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())"; 
+            //return sql_moving + "  and rkk_moving.exe_doc is null and rkk_moving.moving in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            return sql_moving + "  and rkk_moving.exe_doc is null and rkk_moving.moving in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
         }
 
         public string YearsSendedmovingID()
         {
-            return sql_SendedmovingYear + "  and rkk_moving.exe_doc is null and rkk_moving.moving in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            return sql_SendedmovingYear + "  and rkk_moving.exe_doc is null and rkk_moving.moving in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())   group by DATEPART (year, rkk_moving.when_m)";
         }
 
         public string YearsCountSendedvizing()
@@ -3263,7 +3584,7 @@ namespace AMAS_Query
 
         public string YearsSendedvizingID()
         {
-            return sql_SendedvizingYear + "  and rkk_vizing.viza is null and rkk_vizing.id in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            return sql_SendedvizingYear + "  and rkk_vizing.viza is null and rkk_vizing.id in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())  group by  DATEPART (year, rkk_vizing.when_v)";
         }
 
         public string YearsCountSendednews()
@@ -3273,79 +3594,95 @@ namespace AMAS_Query
 
         public string YearsSendednewsID()
         {
-            return sql_SendednewsYear + "  and rkk_news.newed is null and rkk_news.news in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            return sql_SendednewsYear + "  and rkk_news.newed is null and rkk_news.news in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())  group by DATEPART (year, rkk_news.when_n)";
         }
 
         public string YearsCountNew() 
         {
-            return sql_newYear + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news)"; 
+            //return sql_newYear + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news)";
+            return sql_newYear + " and  not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod)  group by DATEPART (year, rkk_flow_document.date_f";
+        }
+
+        public string YearsCountOwn()
+        {
+            return sql_OwnYear; //   + "  group by DATEPART (year, RKK_own_Docs.date_f)";
         }
 
         public string YearsNewID()
         {
-            return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news)";
+            //return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news)";
+            return sql_new + " and  not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod)";
+        }
+
+        public string YearsOwnID()
+        {
+            return sql_OwnYear; // sql_new + "";  + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod)";
         }
 
         //Месяцы
 
         public string MoonthCountCurrentmoving(int year)
         {
-            return sql_moving + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString();
+            return sql_moving + " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving=rkk_moving.moving and moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString();
         }
 
         public string MoonthCurrentmovingID(int year)
         {
-            return sql_CurrentmovingMoonth + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString();
+            //return sql_CurrentmovingMoonth + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString();
+            return sql_CurrentmovingMoonth + " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving=rkk_moving.moving and moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString();
         }
 
         public string MoonthCountCurrentvizing(int year)
         {
-            return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString();
+            //return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.when_v) =" + year.ToString();
+            return sql_vizing + " and rkk_vizing.viza is null and  not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and  vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString();
         }
 
         public string MoonthCurrentvizingID(int year)
         {
-            return sql_CurrentvizingMoonth + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString();
+            //return sql_CurrentvizingMoonth + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.when_v) =" + year.ToString();
+            return sql_CurrentvizingMoonth + " and rkk_vizing.viza is null and not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id  and vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString();
         }
 
         public string MoonthCountCurrentnews(int year)
         {
-            return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString();
+            //return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString();
+            return sql_news + " and rkk_news.newed is null and  not exists (select * from dbo.rkk_news as news where news.typist = dbo.user_ident() and rkk_news.news=news.news) and  DATEPART (year, rkk_news.time_n) =" + year.ToString();
         }
 
         public string MoonthCurrentnewsID(int year)
         {
-            return sql_CurrentnewsMoonth + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString();
+            return sql_CurrentnewsMoonth + " and rkk_news.newed is null and  not exists (select * from dbo.rkk_news as news where news.news=rkk_news.news and news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString();
         }
 
         public string MoonthCountExecutedmoving(int year)
         {
-            return sql_moving + " and rkk_moving.exe_doc is not null and  DATEPART (year, rkk_moving.executed) =" + year.ToString();
+            return sql_moving + " and rkk_moving.exe_doc is not null and  DATEPART (year, rkk_moving.executed) =" + year.ToString() ;
         }
 
         public string MoonthExecutedmovingID(int year)
         {
-            return sql_ExecutedmovingMoonth + " and rkk_moving.exe_doc is not null and  DATEPART (year, rkk_moving.executed) =" + year.ToString();
+            return sql_ExecutedmovingMoonth + " and rkk_moving.exe_doc is not null and  DATEPART (year, rkk_moving.executed) =" + year.ToString() + " group by DATEPART (month, rkk_moving.executed)";
         }
 
         public string MoonthCountExecutedvizing(int year)
         {
-            return sql_vizing + " and rkk_vizing.viza is not null and  DATEPART (year, rkk_vizing.executed) =" + year.ToString();
+            return sql_vizing + " and rkk_vizing.viza is not null and  DATEPART (year, rkk_vizing.executed) =" + year.ToString() ;
         }
 
         public string MoonthExecutedvizingID(int year)
         {
-            return sql_ExecutedvizingMoonth + " and rkk_vizing.viza is not null and  DATEPART (year, rkk_vizing.executed) =" + year.ToString();
+            return sql_ExecutedvizingMoonth + " and rkk_vizing.viza is not null and  DATEPART (year, rkk_vizing.executed) =" + year.ToString() + " group by DATEPART (month, rkk_vizing.executed)";
         }
 
         public string MoonthCountExecutednews(int year)
         {
-            return sql_news + " and rkk_news.newed is not null and  DATEPART (year, rkk_news.newed) =" + year.ToString();
+            return sql_news + " and rkk_news.newed is not null and  DATEPART (year, rkk_news.newed) =" + year.ToString() ;
         }
 
         public string MoonthExecutednewsID(int year)
         {
-            return sql_ExecutednewsMoonth + " and rkk_news.newed is not null and  DATEPART (year, rkk_news.newed) =" + year.ToString();
+            return sql_ExecutednewsMoonth + " and rkk_news.newed is not null and  DATEPART (year, rkk_news.newed) =" + year.ToString() + " group by DATEPART (month, rkk_news.newed)";
         }
 
         public string MoonthCountSendedmoving(int year)
@@ -3380,44 +3717,62 @@ namespace AMAS_Query
 
         public string MoonthCountNew(int year)
         {
-            return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString(); ;
+            //return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString(); ;
+            return sql_new + " and  not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString(); ;
+        }
+
+        public string MoonthCountOwn(int year)
+        {
+            //return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString(); ;
+            return sql_own + " where  DATEPART (year, RKK_own_Docs.date_f) =" + year.ToString(); 
         }
 
         public string MoonthNewID(int year)
         {
-            return sql_newMoonth + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString(); 
+            //return sql_newMoonth + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString();
+            return sql_newMoonth + " and  not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and not exists (select * from dbo.rkk_vizing as vizing where document= rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString();
         }
 
-        //Дни
-
-        public string DayCountCurrentmoving(int year, int month)
+        public string MoonthOwnID(int year)
         {
-            return sql_moving + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
+            return sql_OwnMoonth + " where  DATEPART (year, RKK_own_Docs.date_f) =" + year.ToString() + " group by DATEPART (month, RKK_own_Docs.date_f)";
+        }
+            //Дни
+
+            public string DayCountCurrentmoving(int year, int month)
+        {
+            //return sql_moving + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
+            return sql_moving + " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving.moving=rkk_moving.moving and moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
         }
 
         public string DayCurrentmovingID(int year, int month)
         {
-            return sql_CurrentmovingDay + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
+            //return sql_CurrentmovingDay + " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
+            return sql_CurrentmovingDay + " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving.moving=rkk_moving.moving and moving.parent = dbo.user_ident()) and  DATEPART (year, rkk_moving.time_m) =" + year.ToString() + "  and  DATEPART (month, rkk_moving.time_m) =" + month.ToString();
         }
 
         public string DayCountCurrentvizing(int year, int month)
         {
-            return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.time_v) =" + month.ToString();
+            //return sql_vizing + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.when_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.when_v) =" + month.ToString();
+            return sql_vizing + " and rkk_vizing.viza is null and  not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.time_v) =" + month.ToString();
         }
 
         public string DayCurrentvizingID(int year, int month)
         {
-            return sql_CurrentvizingDay + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.time_v) =" + month.ToString();
+            //return sql_CurrentvizingDay + " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.when_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.when_v) =" + month.ToString();
+            return sql_CurrentvizingDay + " and rkk_vizing.viza is null and  not exists (select id from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and vizing.parent = dbo.user_ident()) and  DATEPART (year, rkk_vizing.time_v) =" + year.ToString() + "  and  DATEPART (month, rkk_vizing.time_v) =" + month.ToString();
         }
 
         public string DayCountCurrentnews(int year, int month)
         {
-            return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
+            //return sql_news + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
+            return sql_news + " and rkk_news.newed is null and  not exists (select news from dbo.rkk_news as news where news.news=rkk_news.news and news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
         }
 
         public string DayCurrentnewsID(int year, int month)
         {
-            return sql_CurrentnewsDay + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
+            //return sql_CurrentnewsDay + " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
+            return sql_CurrentnewsDay + " and rkk_news.newed is null and  not exists (select news from dbo.rkk_news as news where news.news=rkk_news.news and news.typist = dbo.user_ident()) and  DATEPART (year, rkk_news.time_n) =" + year.ToString() + " and  DATEPART (month, rkk_news.time_n) =" + month.ToString();
         }
 
         public string DayCountExecutedmoving(int year, int month)
@@ -3482,29 +3837,42 @@ namespace AMAS_Query
 
         public string DayCountNew(int year, int month)
         {
-            return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString(); 
+            //return sql_new + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString();
+            return sql_new + " and rkk_flow_document.kod not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString();
+        }
+
+
+        public string DayCountOwn(int year, int month)
+        {
+            return sql_own + "  where DATEPART (year, RKK_own_Docs.date_f) =" + year.ToString() + " and DATEPART(month, RKK_own_Docs.date_f) = " + month.ToString();
+        }
+
+        public string DayOwnID(int year, int month)
+        {
+            return sql_OwnDay + "  where DATEPART (year, RKK_own_Docs.date_f) =" + year.ToString() + " and DATEPART (month, RKK_own_Docs.date_f) =" + month.ToString();
         }
 
         public string DayNewID(int year, int month)
         {
-            return sql_newDay + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString();
+            //return sql_newDay + " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString();
+            return sql_newDay + " and  not exists (select * from dbo.rkk_moving as moving where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod) and  DATEPART (year, rkk_flow_document.date_f) =" + year.ToString() + " and  DATEPART (month, rkk_flow_document.date_f) =" + month.ToString();
         }
 
         // Документы
 
         public string CurrentmovingID()
         {
-            return  " and rkk_moving.exe_doc is null and rkk_moving.moving not in (select moving from dbo.rkk_moving as moving where moving.parent = dbo.user_ident())";
+            return " and rkk_moving.exe_doc is null and  not exists (select * from dbo.rkk_moving as moving where moving.moving=rkk_moving.moving and moving.parent = dbo.user_ident())";
         }
 
         public string CurrentvizingID()
         {
-            return  " and rkk_vizing.viza is null and rkk_vizing.id not in (select id from dbo.rkk_vizing as vizing where vizing.parent = dbo.user_ident())";
+            return " and rkk_vizing.viza is null and  not exists (select * from dbo.rkk_vizing as vizing where vizing.id=rkk_vizing.id and vizing.parent = dbo.user_ident())";
         }
 
         public string CurrentnewsID()
         {
-            return  " and rkk_news.newed is null and rkk_news.news not in (select news from dbo.rkk_news as news where news.typist = dbo.user_ident())";
+            return " and rkk_news.newed is null and  not exists (select * from dbo.rkk_news as news where news.news = rkk_news.news and news.typist = dbo.user_ident())";
         }
 
         public string ExecutedmovingID()
@@ -3539,7 +3907,7 @@ namespace AMAS_Query
 
         public string NewID()
         {
-            return  " and rkk_flow_document.kod not in (select document from dbo.rkk_moving as moving) and rkk_flow_document.kod not in (select document from dbo.rkk_vizing as vizing) and rkk_flow_document.kod not in (select document from dbo.rkk_news as news)";
+            return " and  not exists (select * from dbo.rkk_moving as moving where moving.document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_vizing as vizing where document=rkk_flow_document.kod) and  not exists (select * from dbo.rkk_news as news where document=rkk_flow_document.kod)";
         }
 
     }

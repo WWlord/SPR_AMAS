@@ -86,6 +86,7 @@ namespace Chief
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.panelDocsValue = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
             this.tcJW.SuspendLayout();
@@ -111,6 +112,7 @@ namespace Chief
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelDocsValue.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcJW
@@ -121,7 +123,7 @@ namespace Chief
             this.tcJW.Location = new System.Drawing.Point(0, 0);
             this.tcJW.Name = "tcJW";
             this.tcJW.SelectedIndex = 0;
-            this.tcJW.Size = new System.Drawing.Size(942, 495);
+            this.tcJW.Size = new System.Drawing.Size(942, 455);
             this.tcJW.TabIndex = 0;
             // 
             // tpRecordDoc
@@ -132,7 +134,7 @@ namespace Chief
             this.tpRecordDoc.Location = new System.Drawing.Point(4, 22);
             this.tpRecordDoc.Name = "tpRecordDoc";
             this.tpRecordDoc.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRecordDoc.Size = new System.Drawing.Size(934, 469);
+            this.tpRecordDoc.Size = new System.Drawing.Size(934, 429);
             this.tpRecordDoc.TabIndex = 0;
             this.tpRecordDoc.Text = "Регистрация документа";
             this.tpRecordDoc.UseVisualStyleBackColor = true;
@@ -144,7 +146,7 @@ namespace Chief
             this.panelRegistrator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegistrator.Location = new System.Drawing.Point(3, 155);
             this.panelRegistrator.Name = "panelRegistrator";
-            this.panelRegistrator.Size = new System.Drawing.Size(928, 239);
+            this.panelRegistrator.Size = new System.Drawing.Size(928, 199);
             this.panelRegistrator.TabIndex = 23;
             // 
             // panel1
@@ -154,7 +156,7 @@ namespace Chief
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(928, 226);
+            this.panel1.Size = new System.Drawing.Size(928, 186);
             this.panel1.TabIndex = 22;
             // 
             // tbContent
@@ -165,7 +167,7 @@ namespace Chief
             this.tbContent.Location = new System.Drawing.Point(122, 0);
             this.tbContent.Name = "tbContent";
             this.tbContent.SelectedIndex = 0;
-            this.tbContent.Size = new System.Drawing.Size(806, 226);
+            this.tbContent.Size = new System.Drawing.Size(806, 186);
             this.tbContent.TabIndex = 24;
             // 
             // tpImages
@@ -175,7 +177,7 @@ namespace Chief
             this.tpImages.Location = new System.Drawing.Point(4, 22);
             this.tpImages.Name = "tpImages";
             this.tpImages.Padding = new System.Windows.Forms.Padding(3);
-            this.tpImages.Size = new System.Drawing.Size(798, 200);
+            this.tpImages.Size = new System.Drawing.Size(798, 160);
             this.tpImages.TabIndex = 1;
             this.tpImages.Text = "Файлы";
             this.tpImages.UseVisualStyleBackColor = true;
@@ -188,7 +190,7 @@ namespace Chief
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(768, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(768, 154);
             this.dataGridView1.TabIndex = 2;
             // 
             // toolStrip1
@@ -200,7 +202,7 @@ namespace Chief
             this.tsbScanning});
             this.toolStrip1.Location = new System.Drawing.Point(771, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(24, 194);
+            this.toolStrip1.Size = new System.Drawing.Size(24, 154);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -239,7 +241,7 @@ namespace Chief
             this.tpFormular.Location = new System.Drawing.Point(4, 22);
             this.tpFormular.Name = "tpFormular";
             this.tpFormular.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFormular.Size = new System.Drawing.Size(798, 200);
+            this.tpFormular.Size = new System.Drawing.Size(798, 160);
             this.tpFormular.TabIndex = 0;
             this.tpFormular.Text = "Формуляр";
             this.tpFormular.UseVisualStyleBackColor = true;
@@ -250,7 +252,7 @@ namespace Chief
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(122, 226);
+            this.panel2.Size = new System.Drawing.Size(122, 186);
             this.panel2.TabIndex = 21;
             // 
             // buttonContent
@@ -259,7 +261,7 @@ namespace Chief
             this.buttonContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContent.Location = new System.Drawing.Point(0, 0);
             this.buttonContent.Name = "buttonContent";
-            this.buttonContent.Size = new System.Drawing.Size(122, 226);
+            this.buttonContent.Size = new System.Drawing.Size(122, 186);
             this.buttonContent.TabIndex = 24;
             this.buttonContent.Text = "Содержание";
             this.buttonContent.UseVisualStyleBackColor = false;
@@ -282,7 +284,7 @@ namespace Chief
             this.panelRKK.Controls.Add(this.panel3);
             this.panelRKK.Controls.Add(this.buttonSave);
             this.panelRKK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelRKK.Location = new System.Drawing.Point(3, 394);
+            this.panelRKK.Location = new System.Drawing.Point(3, 354);
             this.panelRKK.Name = "panelRKK";
             this.panelRKK.Size = new System.Drawing.Size(928, 72);
             this.panelRKK.TabIndex = 22;
@@ -641,7 +643,7 @@ namespace Chief
             this.tpListDocs.Location = new System.Drawing.Point(4, 22);
             this.tpListDocs.Name = "tpListDocs";
             this.tpListDocs.Padding = new System.Windows.Forms.Padding(3);
-            this.tpListDocs.Size = new System.Drawing.Size(934, 469);
+            this.tpListDocs.Size = new System.Drawing.Size(934, 429);
             this.tpListDocs.TabIndex = 1;
             this.tpListDocs.Text = "Списки документов";
             this.tpListDocs.UseVisualStyleBackColor = true;
@@ -656,8 +658,12 @@ namespace Chief
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.listViewNewDocs);
-            this.splitContainer1.Size = new System.Drawing.Size(928, 410);
-            this.splitContainer1.SplitterDistance = 309;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(928, 303);
+            this.splitContainer1.SplitterDistance = 122;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -673,7 +679,7 @@ namespace Chief
             this.listViewNewDocs.LargeImageList = this.imageListLarge;
             this.listViewNewDocs.Location = new System.Drawing.Point(0, 0);
             this.listViewNewDocs.Name = "listViewNewDocs";
-            this.listViewNewDocs.Size = new System.Drawing.Size(309, 410);
+            this.listViewNewDocs.Size = new System.Drawing.Size(122, 303);
             this.listViewNewDocs.TabIndex = 5;
             this.listViewNewDocs.UseCompatibleStateImageBehavior = false;
             // 
@@ -701,11 +707,21 @@ namespace Chief
             // 
             // panelDocsValue
             // 
+            this.panelDocsValue.Controls.Add(this.statusStrip1);
             this.panelDocsValue.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDocsValue.Location = new System.Drawing.Point(3, 413);
+            this.panelDocsValue.Location = new System.Drawing.Point(3, 306);
             this.panelDocsValue.Name = "panelDocsValue";
-            this.panelDocsValue.Size = new System.Drawing.Size(928, 53);
+            this.panelDocsValue.Size = new System.Drawing.Size(928, 120);
             this.panelDocsValue.TabIndex = 0;
+            this.panelDocsValue.Visible = false;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 98);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(928, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // openFileDialog1
             // 
@@ -726,7 +742,7 @@ namespace Chief
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 495);
+            this.ClientSize = new System.Drawing.Size(942, 455);
             this.Controls.Add(this.tcJW);
             this.Name = "JournalWelcome";
             this.Text = "Журнал регистрации входящей корреспонденции";
@@ -761,6 +777,8 @@ namespace Chief
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelDocsValue.ResumeLayout(false);
+            this.panelDocsValue.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -825,5 +843,6 @@ namespace Chief
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

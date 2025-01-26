@@ -167,7 +167,7 @@
             // 
             this.coming.Location = new System.Drawing.Point(4, 40);
             this.coming.Name = "coming";
-            this.coming.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.coming.Padding = new System.Windows.Forms.Padding(3);
             this.coming.Size = new System.Drawing.Size(698, 504);
             this.coming.TabIndex = 0;
             this.coming.Text = "Вид доставки";
@@ -188,7 +188,7 @@
             this.correspondence.Controls.Add(this.panelCorrAttributes);
             this.correspondence.Location = new System.Drawing.Point(4, 40);
             this.correspondence.Name = "correspondence";
-            this.correspondence.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.correspondence.Padding = new System.Windows.Forms.Padding(3);
             this.correspondence.Size = new System.Drawing.Size(698, 504);
             this.correspondence.TabIndex = 1;
             this.correspondence.Text = "Корреспонденция";
@@ -499,20 +499,22 @@
             // tbJourDescr
             // 
             this.tbJourDescr.Location = new System.Drawing.Point(10, 29);
-            this.tbJourDescr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbJourDescr.Margin = new System.Windows.Forms.Padding(2);
             this.tbJourDescr.Multiline = true;
             this.tbJourDescr.Name = "tbJourDescr";
             this.tbJourDescr.Size = new System.Drawing.Size(251, 62);
             this.tbJourDescr.TabIndex = 41;
+            this.tbJourDescr.Visible = false;
             // 
             // cbJournal
             // 
             this.cbJournal.FormattingEnabled = true;
             this.cbJournal.Location = new System.Drawing.Point(59, 5);
-            this.cbJournal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbJournal.Margin = new System.Windows.Forms.Padding(2);
             this.cbJournal.Name = "cbJournal";
             this.cbJournal.Size = new System.Drawing.Size(200, 21);
             this.cbJournal.TabIndex = 27;
+            this.cbJournal.Visible = false;
             this.cbJournal.SelectedIndexChanged += new System.EventHandler(this.cbJournal_SelectedIndexChanged);
             // 
             // label4
@@ -568,6 +570,7 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Журнал";
+            this.label1.Visible = false;
             // 
             // Suffix
             // 
@@ -671,7 +674,7 @@
             // tbJourTemaDescr
             // 
             this.tbJourTemaDescr.Location = new System.Drawing.Point(10, 33);
-            this.tbJourTemaDescr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbJourTemaDescr.Margin = new System.Windows.Forms.Padding(2);
             this.tbJourTemaDescr.Multiline = true;
             this.tbJourTemaDescr.Name = "tbJourTemaDescr";
             this.tbJourTemaDescr.Size = new System.Drawing.Size(251, 62);
@@ -682,7 +685,7 @@
             // 
             this.cbJournalTema.FormattingEnabled = true;
             this.cbJournalTema.Location = new System.Drawing.Point(59, 9);
-            this.cbJournalTema.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbJournalTema.Margin = new System.Windows.Forms.Padding(2);
             this.cbJournalTema.Name = "cbJournalTema";
             this.cbJournalTema.Size = new System.Drawing.Size(202, 21);
             this.cbJournalTema.TabIndex = 39;

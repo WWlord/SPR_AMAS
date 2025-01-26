@@ -85,6 +85,7 @@ namespace Chief
                 RegProperty.PropertyChanged += new PropertyChangedEventHandler(RegProperty_PropertyChanged);
             }
             this.Text = AMAS_access.UserName ;
+            //this.Text = Application.ProductVersion;
             if (Application.ProductVersion.Trim().CompareTo(AMAS_access.ApplicationVersion.Trim()) != 0)
             {
                 MessageBox.Show("Необходимо обновить версию клиентской программы AMAS в соответствии с версией сервера AMAS.При запуске программы установки выберите режим ОБНОВИТЬ", "Обновите версию программы");
@@ -662,7 +663,7 @@ namespace Chief
         private void DocsFolder()
         {
             splitContainer1.BringToFront();
-            //panelFind.BringToFront();
+            panelFind.BringToFront();
             DocsTree.BringToFront();
             panelALARM.BringToFront();
             document_one_View.BringToFront();
@@ -865,7 +866,7 @@ namespace Chief
             this.lvALARM.Size = new Size(510, 493);
             this.lvALARM.SmallImageList = this.imageListSmall;
             this.lvALARM.TabIndex = 12;
-            this.lvALARM.View = System.Windows.Forms.View.LargeIcon;
+            this.lvALARM.View = System.Windows.Forms.View.List; // .LargeIcon;
             this.lvALARM.SelectedIndexChanged += new EventHandler(this.lvALARM_SelectedIndexChanged);
             this.lvALARM.DoubleClick += new EventHandler(lvALARM_DoubleClick);
             lvALARM.Sorting = SortOrder.Ascending;
@@ -1067,7 +1068,7 @@ namespace Chief
                 if (sql.Length > 0)
                 {
                     RefreshLevel2();
-                    lvALARM.Items.Add("Return", " К списку каталогов", 0);
+                    lvALARM.Items.Add("Return", "  К списку каталогов", 0);
                     if (AMAS_access.Set_table("MST7", sql, null))
                     {
                         int firstkod = 0;
@@ -1085,7 +1086,7 @@ namespace Chief
                         //if (tcALARM.TabPages.Count > 0) Show_document(tcALARM.TabPages[0]);
                         AMAS_access.ReturnTable();
                     }
-                    lvALARM.Items.Add("Answer", "Дать ответ", 5);
+                    lvALARM.Items.Add("Answer", "  Дать ответ", 5);
                 }
                 else
                 {
@@ -1095,68 +1096,7 @@ namespace Chief
                             RefreshLevel1();
                             break;
                         case "Answer":
-                            if (DocumentAnswer != null) this.lvALARM.Controls.Remove(DocumentAnswer);
-                            if (document_View != null)
-                            {
-                                try
-                                {
-                                    int Answer_count = 0;
-                                    int[] Movings = null;
-                                    if (AMAS_access.Set_table("MST71", "select * from dbo.rkk_moving where document= " + document_View.Doc_ID.ToString() + " and for_  in (select cod from dbo.emp_dep_degrees where employee=dbo.user_ident() and executed is null)", null))
-                                    {
-                                        Answer_count = AMAS_access.Rows_count;
-                                        Movings = new int[Answer_count];
-                                        for (int i = 0; i < AMAS_access.Rows_count; i++)
-                                        {
-                                            AMAS_access.Find_Field("moving");
-                                            Movings[i] = (int)AMAS_access.get_current_Field();
-                                        }
-                                        AMAS_access.ReturnTable();
-                                    }
-
-                                    if (Answer_count >0)
-                                    {
-                                        int movId = 0;
-                                        if (Answer_count > 1)
-                                        {
-                                            FormMovingList MovList = new FormMovingList(AMAS_access, document_View.Doc_ID);
-                                            MovList.ShowDialog();
-                                            movId = MovList.movId[0];
-                                        }
-                                        else movId=Movings[0];
-                                        if (document_New != null) document_View.Controls.Remove(document_New);
-                                        document_New = new Document_Viewer(AMAS_access, null);
-                                        document_View.Controls.Add(document_New);
-                                        document_New.Dock = DockStyle.Fill;
-                                        document_New.Visible = false;
-                                        document_New.Sender = movId;
-
-                                        if (document_New.Sender > 0)
-                                        {
-                                            DocumentAnswer = new UCNewDocument(AMAS_access, document_New, document_View.Doc_ID,true);
-                                            this.lvALARM.Controls.Add(DocumentAnswer);
-                                            DocumentAnswer.Dock = DockStyle.Fill;
-                                            DocumentAnswer.Visible = true;
-                                            DocumentAnswer.BringToFront();
-                                            DocumentAnswer.answer("Ответ на поручение по документу " + this.document_View.DocumentNumber);
-
-                                            document_New.New_document = true;
-                                            document_New.Doc_ID = 0;
-                                            document_New.Refresh();
-                                            document_New.Visible = true;
-                                            document_New.BringToFront();
-                                        }
-                                    }
-                                    else if (Answer_count == 0)
-                                    {
-                                        AMAS_access.AddError("Вы не можете дать ответ, поскольку отсутствует поручение по данному документу", "Master - 11.3", "");
-                                        MessageBox.Show("Вы не можете дать ответ, поскольку отсутствует поручение по данному документу.");
-                                        document_New.Visible = false;
-                                        document_View.Controls.Remove(document_New);
-                                    }
-                               }
-                                catch { document_View.Controls.Remove(document_New); }
-                            }
+                            Get_Answer_to_Doc(DocumentAnswer, document_View);
                             break;
                         default:
                             if (lvi.Name.Substring(0, 3).ToLower().CompareTo("doc") == 0)
@@ -1170,6 +1110,73 @@ namespace Chief
             }
         }
  
+        private void Get_Answer_to_Doc(UCNewDocument DocumentAnswer, Document_Viewer document_View)
+        {
+            if (DocumentAnswer != null) this.lvALARM.Controls.Remove(DocumentAnswer);
+            if (document_View != null)
+            {
+                try
+                {
+                    int Answer_count = 0;
+                    int[] Movings = null;
+                    if (AMAS_access.Set_table("MST71", "select * from dbo.rkk_moving where document= " + document_View.Doc_ID.ToString() + " and for_  in (select cod from dbo.emp_dep_degrees where employee=dbo.user_ident() and executed is null)", null))
+                    {
+                        Answer_count = AMAS_access.Rows_count;
+                        Movings = new int[Answer_count];
+                        for (int i = 0; i < AMAS_access.Rows_count; i++)
+                        {
+                            AMAS_access.Find_Field("moving");
+                            Movings[i] = (int)AMAS_access.get_current_Field();
+                        }
+                        AMAS_access.ReturnTable();
+                    }
+
+                    if (Answer_count > 0)
+                    {
+                        int movId = 0;
+                        if (Answer_count > 1)
+                        {
+                            FormMovingList MovList = new FormMovingList(AMAS_access, document_View.Doc_ID);
+                            MovList.ShowDialog();
+                            movId = MovList.movId[0];
+                        }
+                        else movId = Movings[0];
+                        if (document_New != null) document_View.Controls.Remove(document_New);
+                        document_New = new Document_Viewer(AMAS_access, null);
+                        document_View.Controls.Add(document_New);
+                        document_New.Dock = DockStyle.Fill;
+                        document_New.Visible = false;
+                        document_New.Sender = movId;
+
+                        if (document_New.Sender > 0)
+                        {
+                            DocumentAnswer = new UCNewDocument(AMAS_access, document_New, document_View.Doc_ID, true);
+                            this.lvALARM.Controls.Add(DocumentAnswer);
+                            DocumentAnswer.Dock = DockStyle.Fill;
+                            DocumentAnswer.Visible = true;
+                            DocumentAnswer.BringToFront();
+                            DocumentAnswer.answer("Ответ на поручение по документу " + this.document_View.DocumentNumber);
+
+                            document_New.New_document = true;
+                            document_New.Doc_ID = 0;
+                            document_New.Refresh();
+                            document_New.Visible = true;
+                            document_New.BringToFront();
+                        }
+                    }
+                    else if (Answer_count == 0)
+                    {
+                        AMAS_access.AddError("Вы не можете дать ответ, поскольку отсутствует поручение по данному документу", "Master - 11.3", "");
+                        MessageBox.Show("Вы не можете дать ответ, поскольку отсутствует поручение по данному документу.");
+                        document_New.Visible = false;
+                        document_View.Controls.Remove(document_New);
+                    }
+                }
+                catch { document_View.Controls.Remove(document_New); }
+            }
+
+        }
+
         private UCNewDocument DocumentAnswer;
         private int DocId=0;
 

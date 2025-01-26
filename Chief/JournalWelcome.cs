@@ -217,7 +217,8 @@ namespace Chief
                 panelRKK.Enabled = false;
                 panelId.Enabled = false;
                 labelRKK.Text = AMAS_DBI.AMASCommand.ShowDocumentFK(RegIdRKK);
-                
+                //ListViewItem Ritem = listViewNewDocs.Items.Add(labelRKK.Text.Trim());
+                //Ritem.Name = "IDoc" + RegIdRKK.ToString();
                 buttonGetNumber.BackColor = Color.Gray;
                 buttonContent.BackColor = Color.YellowGreen;
                 buttonSave.BackColor = Color.Gray;
@@ -428,6 +429,11 @@ namespace Chief
                 document_Show.Edit_document = false;
                 document_Show.Refresh();
             }
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

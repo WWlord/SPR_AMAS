@@ -727,6 +727,7 @@ namespace AMASDocuments
 
         ~ClassDocsItem()
         {
+            if(Node!=null)
             try
             {
                 if (Node.PrevVisibleNode != null)
@@ -779,6 +780,8 @@ namespace AMASDocuments
             else
                 sql = AMAS_Query.Class_AMAS_Query.Get_movies_of_doc(Docid);
 
+            if (!SybAcc.GetRights.Workflow)
+                sql = AMAS_Query.Class_AMAS_Query.Get_own_movies_of_doc(Docid);
 
             if (SybAcc.Set_table("TCDoc10", sql, null))
             {
@@ -889,7 +892,7 @@ namespace AMASDocuments
                 }
                 catch (Exception ex)
                 {
-                    SybAcc.EBBLP.AddError(ex.Message, "Document - 10.2", ex.StackTrace);
+                    //SybAcc.EBBLP.AddError(ex.Message, "Document - 10.2", ex.StackTrace);
                 }
                 SybAcc.ReturnTable();
             }

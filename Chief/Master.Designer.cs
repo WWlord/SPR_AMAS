@@ -55,8 +55,6 @@
             this.tsbErrLog = new System.Windows.Forms.ToolStripButton();
             this.tsMail = new System.Windows.Forms.ToolStripButton();
             this.tsbProperty = new System.Windows.Forms.ToolStripButton();
-            this.tsbCargo = new System.Windows.Forms.ToolStripButton();
-            this.tsbCargoRoutes = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainerCED = new System.Windows.Forms.SplitContainer();
             this.treeViewCED = new System.Windows.Forms.TreeView();
@@ -273,9 +271,7 @@
             this.tsbPassword,
             this.tsbErrLog,
             this.tsMail,
-            this.tsbProperty,
-            this.tsbCargo,
-            this.tsbCargoRoutes});
+            this.tsbProperty});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(920, 25);
@@ -538,26 +534,6 @@
             this.tsbProperty.Text = "Свойства";
             this.tsbProperty.Click += new System.EventHandler(this.tsbProperty_Click);
             // 
-            // tsbCargo
-            // 
-            this.tsbCargo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCargo.Image = global::Chief.Properties.Resources.Box;
-            this.tsbCargo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCargo.Name = "tsbCargo";
-            this.tsbCargo.Size = new System.Drawing.Size(23, 22);
-            this.tsbCargo.Text = "Cargo";
-            this.tsbCargo.Click += new System.EventHandler(this.tsbCargo_Click);
-            // 
-            // tsbCargoRoutes
-            // 
-            this.tsbCargoRoutes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCargoRoutes.Image = global::Chief.Properties.Resources.Publish;
-            this.tsbCargoRoutes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCargoRoutes.Name = "tsbCargoRoutes";
-            this.tsbCargoRoutes.Size = new System.Drawing.Size(23, 22);
-            this.tsbCargoRoutes.Text = "Маршруты";
-            this.tsbCargoRoutes.Click += new System.EventHandler(this.tsbCargoRoutes_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.SteelBlue;
@@ -632,7 +608,7 @@
             // 
             this.lvALARM.HideSelection = false;
             this.lvALARM.Location = new System.Drawing.Point(0, 0);
-            this.lvALARM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvALARM.Margin = new System.Windows.Forms.Padding(2);
             this.lvALARM.Name = "lvALARM";
             this.lvALARM.Size = new System.Drawing.Size(92, 80);
             this.lvALARM.TabIndex = 2;
@@ -824,7 +800,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabPage1.Size = new System.Drawing.Size(526, 369);
             this.tabPage1.TabIndex = 1;
@@ -836,9 +812,9 @@
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tabPage2.Size = new System.Drawing.Size(526, 375);
+            this.tabPage2.Size = new System.Drawing.Size(526, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1072,7 +1048,7 @@
             // 
             this.getMailAMAS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getMailAMAS.Location = new System.Drawing.Point(0, 0);
-            this.getMailAMAS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.getMailAMAS.Margin = new System.Windows.Forms.Padding(4);
             this.getMailAMAS.Name = "getMailAMAS";
             this.getMailAMAS.Password = "";
             this.getMailAMAS.ServerSMTP = "";
@@ -1119,7 +1095,7 @@
             this.tpProperty.Controls.Add(this.toolStrip1);
             this.tpProperty.Location = new System.Drawing.Point(4, 22);
             this.tpProperty.Name = "tpProperty";
-            this.tpProperty.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpProperty.Padding = new System.Windows.Forms.Padding(3);
             this.tpProperty.Size = new System.Drawing.Size(912, 369);
             this.tpProperty.TabIndex = 0;
             this.tpProperty.Text = "Свойства";
@@ -1177,8 +1153,8 @@
             this.tpDots.Controls.Add(this.splitContainer2);
             this.tpDots.Location = new System.Drawing.Point(4, 22);
             this.tpDots.Name = "tpDots";
-            this.tpDots.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDots.Size = new System.Drawing.Size(912, 375);
+            this.tpDots.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDots.Size = new System.Drawing.Size(912, 369);
             this.tpDots.TabIndex = 1;
             this.tpDots.Text = "Шаблоны";
             this.tpDots.UseVisualStyleBackColor = true;
@@ -1196,7 +1172,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(906, 369);
+            this.splitContainer2.Size = new System.Drawing.Size(906, 363);
             this.splitContainer2.SplitterDistance = 383;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -1206,7 +1182,7 @@
             this.treeViewFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewFiles.Location = new System.Drawing.Point(0, 0);
             this.treeViewFiles.Name = "treeViewFiles";
-            this.treeViewFiles.Size = new System.Drawing.Size(383, 369);
+            this.treeViewFiles.Size = new System.Drawing.Size(383, 363);
             this.treeViewFiles.TabIndex = 1;
             // 
             // splitContainer3
@@ -1223,8 +1199,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.webBrowserPattern);
-            this.splitContainer3.Size = new System.Drawing.Size(519, 369);
-            this.splitContainer3.SplitterDistance = 173;
+            this.splitContainer3.Size = new System.Drawing.Size(519, 363);
+            this.splitContainer3.SplitterDistance = 170;
             this.splitContainer3.TabIndex = 0;
             // 
             // treeViewKT
@@ -1233,7 +1209,7 @@
             this.treeViewKT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewKT.Location = new System.Drawing.Point(0, 0);
             this.treeViewKT.Name = "treeViewKT";
-            this.treeViewKT.Size = new System.Drawing.Size(519, 173);
+            this.treeViewKT.Size = new System.Drawing.Size(519, 170);
             this.treeViewKT.TabIndex = 1;
             // 
             // webBrowserPattern
@@ -1242,7 +1218,7 @@
             this.webBrowserPattern.Location = new System.Drawing.Point(0, 0);
             this.webBrowserPattern.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPattern.Name = "webBrowserPattern";
-            this.webBrowserPattern.Size = new System.Drawing.Size(519, 192);
+            this.webBrowserPattern.Size = new System.Drawing.Size(519, 189);
             this.webBrowserPattern.TabIndex = 1;
             // 
             // tpResolutions
@@ -1251,7 +1227,7 @@
             this.tpResolutions.Controls.Add(this.toolStrip3);
             this.tpResolutions.Location = new System.Drawing.Point(4, 22);
             this.tpResolutions.Name = "tpResolutions";
-            this.tpResolutions.Size = new System.Drawing.Size(912, 375);
+            this.tpResolutions.Size = new System.Drawing.Size(912, 369);
             this.tpResolutions.TabIndex = 2;
             this.tpResolutions.Text = "Резолюции";
             this.tpResolutions.UseVisualStyleBackColor = true;
@@ -1264,7 +1240,7 @@
             this.listBoxResolutions.ItemHeight = 16;
             this.listBoxResolutions.Location = new System.Drawing.Point(0, 0);
             this.listBoxResolutions.Name = "listBoxResolutions";
-            this.listBoxResolutions.Size = new System.Drawing.Size(912, 350);
+            this.listBoxResolutions.Size = new System.Drawing.Size(912, 344);
             this.listBoxResolutions.TabIndex = 1;
             // 
             // toolStrip3
@@ -1275,7 +1251,7 @@
             this.tsDelete,
             this.toolStripSeparator1,
             this.tsResolution});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 350);
+            this.toolStrip3.Location = new System.Drawing.Point(0, 344);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Size = new System.Drawing.Size(912, 25);
             this.toolStrip3.TabIndex = 0;
@@ -1713,8 +1689,6 @@
         private System.Windows.Forms.ToolStripButton tsbJournalsIn;
         private System.Windows.Forms.ToolStripButton tsbBusynessProcesses;
         private System.Windows.Forms.ToolStripMenuItem TSMBizProc;
-        private System.Windows.Forms.ToolStripButton tsbCargo;
-        private System.Windows.Forms.ToolStripButton tsbCargoRoutes;
         private System.Windows.Forms.ToolStripButton tsbExecutions;
         private System.Windows.Forms.ToolStripMenuItem TSMIJourIn;
         private System.Windows.Forms.ImageList imageListLarge;
