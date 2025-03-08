@@ -21,7 +21,7 @@ namespace CommonValues
         public static class CommonDocumentLibrary
         {
             public static DataTable Documents;
-            private static int Rows = 0;
+            //private static int Rows = 0;
 
             public static int SaveDocument(string InputFile)
             {

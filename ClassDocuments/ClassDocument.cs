@@ -892,7 +892,7 @@ namespace AMASDocuments
                 }
                 catch (Exception ex)
                 {
-                    //SybAcc.EBBLP.AddError(ex.Message, "Document - 10.2", ex.StackTrace);
+                    SybAcc.EBBLP.AddError(ex.Message, "Document - 10.2", ex.StackTrace);
                 }
                 SybAcc.ReturnTable();
             }

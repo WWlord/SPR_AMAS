@@ -373,6 +373,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GRAPH14.ICO" />
+    <Content Include="Resources\indoor1.wav" />
+    <Content Include="Resources\indoor2.wav" />
+    <Content Include="Resources\indoor3.wav" />
+    <Content Include="Resources\interview1.wav" />
+    <Content Include="Resources\interview2.wav" />
     <None Include="Resources\bee-g82669e7a8_640.jpg" />
     <None Include="Resources\r130_00133664_scaled_thumb_102x46.png" />
     <None Include="Resources\Annotate_Complete.ico" />
@@ -434,6 +439,10 @@
     <ProjectReference Include="..\AMASControlRegisters\AMASControlRegisters.csproj">
       <Project>{24F36A18-373B-45C4-A3FC-5EB4054F2C54}</Project>
       <Name>AMASControlRegisters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AMASSounds\AMASSounds.csproj">
+      <Project>{a60f1b53-a74a-4868-abe9-1eb3c5232cb8}</Project>
+      <Name>AMASSounds</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClassAMAS_API\ClassAMAS_DBI.csproj">
       <Project>{7CE4D617-C525-4097-813B-F9DCC2D4B4BE}</Project>
@@ -509,6 +518,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="stream\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

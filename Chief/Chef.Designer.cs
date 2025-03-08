@@ -738,7 +738,7 @@
             this.labelViza.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.labelViza.Location = new System.Drawing.Point(0, 431);
             this.labelViza.Name = "labelViza";
-            this.labelViza.Size = new System.Drawing.Size(112, 16);
+            this.labelViza.Size = new System.Drawing.Size(111, 16);
             this.labelViza.TabIndex = 1;
             this.labelViza.Text = "                          ";
             // 

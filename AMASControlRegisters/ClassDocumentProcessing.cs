@@ -26,7 +26,7 @@ namespace AMASControlRegisters
         private Timer timer2;
         public Class_syb_acc SYB_acc;
         private bool ReadyState = false;
-        private bool From_Pattern = false;
+        //private bool From_Pattern = false;
 
         public DocumentProcessing(Class_syb_acc ACC, Document_Viewer docum)
         {

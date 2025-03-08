@@ -960,7 +960,7 @@ namespace ClassStructure
 
         private class NoEmplWebS
         {
-            public string name;
+            //public string name;
             public string degree = "";
             public string fio = "";
             public NoEmplWebS first;

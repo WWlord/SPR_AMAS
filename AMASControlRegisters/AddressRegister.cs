@@ -21,7 +21,7 @@ namespace AMASControlRegisters
         private Class_syb_acc AMASacc;
 
         public delegate void AlterAddress();
-        public event AlterAddress SelectedAddress;
+        //public event AlterAddress SelectedAddress;
 
         private Address_ids flat_ids;
         private Address_ids house_ids;

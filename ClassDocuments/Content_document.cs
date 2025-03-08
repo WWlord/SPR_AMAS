@@ -985,7 +985,7 @@ namespace ClassDocuments
             }
             if (PDFiles == null)
             {
-                string DefaultPrinter;
+                //string DefaultPrinter;
 
                 //PDFCreator.clsPDFCreatorOptions opt;
 
