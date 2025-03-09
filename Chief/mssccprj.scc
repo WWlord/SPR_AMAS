@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[Chief.csproj]
+SCC_Aux_Path = "C:\AMAS\saveSource\BBL"
+SCC_Project_Name = "$/amas_API.root/amas_API/Chief", JBAAAAAA
+
+[Chef.csproj]
+SCC_Aux_Path = "C:\AMAS\SSF"
+SCC_Project_Name = "$/AMAS/amas_API/AMASecurity/Chief", OVAAAAAA

@@ -1,0 +1,10 @@
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASecurity\bin\Release\AMASecurity.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASecurity\bin\Release\AMASecurity.pdb
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASecurity\obj\Release\AMASecurity.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASecurity\obj\Release\AMASecurity.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\bin\Release\AMASecurity.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\bin\Release\AMASecurity.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.csproj.CoreCompileInputs.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.csproj.AssemblyReference.cache

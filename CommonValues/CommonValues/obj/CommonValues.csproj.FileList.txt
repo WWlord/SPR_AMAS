@@ -1,0 +1,10 @@
+bin\Release\CommonValues.dll
+bin\Release\CommonValues.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\CommonValues.dll
+obj\Release\CommonValues.pdb
+bin\Debug\CommonValues.dll
+bin\Debug\CommonValues.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CommonValues.dll
+obj\Debug\CommonValues.pdb

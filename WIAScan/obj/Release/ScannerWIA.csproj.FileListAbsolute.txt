@@ -1,0 +1,13 @@
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\bin\Release\ScannerDemo.dll.config
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\bin\Release\ScannerDemo.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\bin\Release\ScannerDemo.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\bin\Release\Interop.WIA.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\Interop.WIA.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerWIA.csproj.ResolveComReference.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerDemo.ScanningForm.resources
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerDemo.Properties.Resources.resources
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerWIA.csproj.GenerateResource.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerWIA.csproj.CoreCompileInputs.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerDemo.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerDemo.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\WIAScan\obj\Release\ScannerWIA.csproj.AssemblyReference.cache

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="amas_API">
+</Property><Property Name="Файл решения" Value="C:\Users\VAIO\Documents\AMAS\sourse\amas_API\amas_API.sln">
+</Property><Property Name="Date" Value="26 апреля 2012 г.">
+</Property><Property Name="Time" Value="13:42:51">
+</Property><Property Name="Номер записи" Value="5">
+</Property></Properties><Event ErrorLevel="0" Project="WFAS" Source="WFAS\WFAS\WFAS.csproj" Description="Проект успешно преобразован">
+</Event><Event ErrorLevel="3" Project="WFAS" Source="WFAS\WFAS\WFAS.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WFAS" Source="WFAS\WFAS\WFAS.csproj" Description="Сканирование завершено: обновление для файлов проекта не требуется.">
+</Event></UpgradeLog>

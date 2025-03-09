@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{F679DC03-66DB-44E3-9FEF-40662B232FED}|Default">
+  <MonoDevelop.Ide.ItemProperties.Chef PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../app/lib/mono/msbuild/15.0/bin/Microsoft.Common.CurrentVersion.targets">
+    <Files>
+      <File FileName="CommonValues/CommonValues/ClassCommon.cs" Line="24" Column="32" />
+      <File FileName="../../../../../../app/lib/mono/msbuild/15.0/bin/Microsoft.Common.CurrentVersion.targets" Line="2618" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>WpfControlLibrary1/WpfControlLibraryAMAS.csproj</String>
+    <String>RoutePath/RoutePath.csproj</String>
+    <String>SetupAMAS/SetupAMAS.vdproj</String>
+  </DisabledProjects>
+</Properties>

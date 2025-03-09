@@ -1,0 +1,10 @@
+bin\Debug\AMASecurity.dll
+bin\Debug\AMASecurity.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\AMASecurity.dll
+obj\Debug\AMASecurity.pdb
+bin\Release\AMASecurity.dll
+bin\Release\AMASecurity.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\AMASecurity.dll
+obj\Release\AMASecurity.pdb

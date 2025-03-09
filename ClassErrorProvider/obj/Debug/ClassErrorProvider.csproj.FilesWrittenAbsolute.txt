@@ -1,0 +1,1 @@
+/home/wlord/Документы/amas/AMAS/amas_API/ClassErrorProvider/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs

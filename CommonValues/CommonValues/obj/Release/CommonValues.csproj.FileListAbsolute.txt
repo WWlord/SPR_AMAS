@@ -1,0 +1,10 @@
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\CommonValues\CommonValues\bin\Release\CommonValues.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\CommonValues\CommonValues\bin\Release\CommonValues.pdb
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\bin\Release\CommonValues.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\bin\Release\CommonValues.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.csproj.CoreCompileInputs.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\CommonValues\CommonValues\obj\Release\CommonValues.csproj.AssemblyReference.cache

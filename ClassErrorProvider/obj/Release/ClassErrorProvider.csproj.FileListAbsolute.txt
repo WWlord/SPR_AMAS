@@ -1,0 +1,9 @@
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\ClassErrorProvider\bin\Release\ClassErrorProvider.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\ClassErrorProvider\bin\Release\ClassErrorProvider.pdb
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\ClassErrorProvider\obj\Release\ClassErrorProvider.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\ClassErrorProvider\obj\Release\ClassErrorProvider.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\ClassErrorProvider\bin\Release\ClassErrorProvider.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\ClassErrorProvider\bin\Release\ClassErrorProvider.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\ClassErrorProvider\obj\Release\ClassErrorProvider.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\ClassErrorProvider\obj\Release\ClassErrorProvider.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\ClassErrorProvider\obj\Release\ClassErrorProvider.csproj.CoreCompileInputs.cache

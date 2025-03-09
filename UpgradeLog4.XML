@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="amas_API">
+</Property><Property Name="Файл решения" Value="C:\Users\VAIO\Documents\AMAS\sourse\amas_API\amas_API.sln">
+</Property><Property Name="Date" Value="16 сентября 2011 г.">
+</Property><Property Name="Time" Value="21:09:48">
+</Property><Property Name="Номер записи" Value="4">
+</Property></Properties><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\AMASWebService\AMASWebService.csproj" Description="Проект успешно преобразован">
+</Event><Event ErrorLevel="3" Project="AMASWebService" Source="AMASWebService\AMASWebService\AMASWebService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\AMASWebService\AMASWebService.csproj" Description="Сканирование завершено: обновление для файлов проекта не требуется.">
+</Event></UpgradeLog>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AMASWebService">
+</Property><Property Name="Файл решения" Value="C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\AMASWebService.sln">
+</Property><Property Name="Файл параметров пользователя" Value="C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\AMASWebService.suo">
+</Property><Property Name="Date" Value="23 октября 2011 г.">
+</Property><Property Name="Time" Value="13:42">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="AMASWebService.sln" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService.sln">
+</Event><Event ErrorLevel="0" Project="" Source="AMASWebService.suo" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService.suo">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\AMASWebService.csproj" Description="Успешно создана резервная копия файла проекта: C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\AMASWebService.csproj">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\AMASWebService.csproj.user" Description="Резервная копия проекта успешно создана как C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\AMASWebService.csproj.user">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\Service1.asmx.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\Service1.asmx.cs">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\Properties\AssemblyInfo.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\Service1.asmx" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\Service1.asmx">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\Web.config" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\AMASWebService\Backup\AMASWebService\Web.config">
+</Event><Event ErrorLevel="0" Project="AMASWebService" Source="AMASWebService\AMASWebService.csproj" Description="Файл проекта не нуждается в преобразовании.">
+</Event><Event ErrorLevel="3" Project="AMASWebService" Source="AMASWebService\AMASWebService.csproj" Description="Преобразование не требуется">
+</Event><Event ErrorLevel="0" Project="" Source="AMASWebService.sln" Description="Преобразование решения успешно завершено">
+</Event><Event ErrorLevel="3" Project="" Source="AMASWebService.sln" Description="Converted">
+</Event></UpgradeLog>

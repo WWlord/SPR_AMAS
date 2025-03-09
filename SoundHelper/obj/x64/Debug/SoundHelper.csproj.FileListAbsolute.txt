@@ -1,0 +1,1 @@
+D:\WLord\Documents\AMAS\amas_API\SoundHelper\obj\x64\Debug\SoundHelper.csproj.CoreCompileInputs.cache

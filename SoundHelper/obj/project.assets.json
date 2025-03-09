@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "targets": {
+    "UAP,Version=v10.0.15063": {},
+    "UAP,Version=v10.0.15063/win10-arm": {},
+    "UAP,Version=v10.0.15063/win10-arm-aot": {},
+    "UAP,Version=v10.0.15063/win10-arm64-aot": {},
+    "UAP,Version=v10.0.15063/win10-x64": {},
+    "UAP,Version=v10.0.15063/win10-x64-aot": {},
+    "UAP,Version=v10.0.15063/win10-x86": {},
+    "UAP,Version=v10.0.15063/win10-x86-aot": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "UAP,Version=v10.0.15063": []
+  },
+  "packageFolders": {
+    "C:\\Users\\JakCOM\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\WLord\\Documents\\AMAS\\amas_API\\SoundHelper\\SoundHelper.csproj",
+      "projectName": "SoundHelper",
+      "projectPath": "D:\\WLord\\Documents\\AMAS\\amas_API\\SoundHelper\\SoundHelper.csproj",
+      "packagesPath": "C:\\Users\\JakCOM\\.nuget\\packages\\",
+      "outputPath": "D:\\WLord\\Documents\\AMAS\\amas_API\\SoundHelper\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\JakCOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "uap10.0.15063"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\JakCOM\\Downloads": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "uap10.0.15063": {
+          "projectReferences": {}
+        }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "uap10.0.15063": {}
+    },
+    "runtimes": {
+      "win10-arm": {
+        "#import": []
+      },
+      "win10-arm-aot": {
+        "#import": []
+      },
+      "win10-arm64-aot": {
+        "#import": []
+      },
+      "win10-x64": {
+        "#import": []
+      },
+      "win10-x64-aot": {
+        "#import": []
+      },
+      "win10-x86": {
+        "#import": []
+      },
+      "win10-x86-aot": {
+        "#import": []
+      }
+    }
+  }
+}

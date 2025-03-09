@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="amas_API">
+</Property><Property Name="Файл решения" Value="C:\Users\VAIO\Documents\AMAS\sourse\amas_API\amas_API.sln">
+</Property><Property Name="Date" Value="27 апреля 2011 г.">
+</Property><Property Name="Time" Value="17:51:29">
+</Property><Property Name="Номер записи" Value="3">
+</Property></Properties><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WpfControlLibrary1.csproj" Description="Успешно создана резервная копия файла проекта: C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\WpfControlLibrary1.csproj">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WPFEditBox.xaml.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\WPFEditBox.xaml.cs">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Properties\AssemblyInfo.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Properties\Resources.Designer.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Properties\Settings.Designer.cs" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Properties\Settings.settings" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Bear.wmv" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Bear.wmv">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\Properties\Resources.resx" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WPFEditBox.xaml" Description="Успешно создана резервная копия файла C:\Users\VAIO\Documents\AMAS\sourse\amas_API\Backup\WPFEditBox.xaml">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WpfControlLibrary1.csproj" Description="Проект успешно преобразован">
+</Event><Event ErrorLevel="3" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WpfControlLibrary1.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WpfControlLibrary1" Source="WpfControlLibrary1\WpfControlLibrary1.csproj" Description="Сканирование завершено: обновление для файлов проекта не требуется.">
+</Event></UpgradeLog>

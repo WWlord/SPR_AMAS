@@ -1,0 +1,6 @@
+D:\WLord\Documents\AMAS\amas_API\SundCouch\bin\Debug\SundCouch.dll
+D:\WLord\Documents\AMAS\amas_API\SundCouch\bin\Debug\SundCouch.pdb
+D:\WLord\Documents\AMAS\amas_API\SundCouch\obj\Debug\SundCouch.csproj.AssemblyReference.cache
+D:\WLord\Documents\AMAS\amas_API\SundCouch\obj\Debug\SundCouch.csproj.CoreCompileInputs.cache
+D:\WLord\Documents\AMAS\amas_API\SundCouch\obj\Debug\SundCouch.dll
+D:\WLord\Documents\AMAS\amas_API\SundCouch\obj\Debug\SundCouch.pdb

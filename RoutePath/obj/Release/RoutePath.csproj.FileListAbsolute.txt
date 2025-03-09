@@ -1,0 +1,13 @@
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\RoutePath\bin\Release\RoutePath.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\RoutePath\bin\Release\RoutePath.pdb
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\RoutePath\obj\Release\RoutePath.dll
+C:\Users\VAIO\Documents\AMAS\sourse\amas_API\RoutePath\obj\Release\RoutePath.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\bin\Release\RoutePath.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\bin\Release\RoutePath.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\obj\Release\RoutePath.csproj.CopyComplete
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\obj\Release\RoutePath.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\obj\Release\RoutePath.pdb
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\bin\Release\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\obj\Release\RoutePath.csproj.CoreCompileInputs.cache
+C:\Users\JakCOM\Documents\AMAS\amas_API\RoutePath\obj\Release\RoutePath.csproj.AssemblyReference.cache

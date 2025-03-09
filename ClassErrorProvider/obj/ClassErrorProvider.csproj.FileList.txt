@@ -1,0 +1,10 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ClassErrorProvider.pdb
+bin\Debug\ClassErrorProvider.dll
+bin\Debug\ClassErrorProvider.pdb
+obj\Debug\ClassErrorProvider.dll
+bin\Release\ClassErrorProvider.dll
+bin\Release\ClassErrorProvider.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\ClassErrorProvider.dll
+obj\Release\ClassErrorProvider.pdb

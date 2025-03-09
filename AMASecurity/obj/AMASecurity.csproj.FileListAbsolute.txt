@@ -1,0 +1,10 @@
+C:\AMAS\amas_API\AMASecurity\bin\Debug\AMASecurity.dll
+C:\AMAS\amas_API\AMASecurity\bin\Debug\AMASecurity.pdb
+C:\AMAS\amas_API\AMASecurity\obj\Debug\ResolveAssemblyReference.cache
+C:\AMAS\amas_API\AMASecurity\obj\Debug\AMASecurity.dll
+C:\AMAS\amas_API\AMASecurity\obj\Debug\AMASecurity.pdb
+C:\AMAS\amas_API\AMASecurity\bin\Release\AMASecurity.dll
+C:\AMAS\amas_API\AMASecurity\bin\Release\AMASecurity.pdb
+C:\AMAS\amas_API\AMASecurity\obj\Release\ResolveAssemblyReference.cache
+C:\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.dll
+C:\AMAS\amas_API\AMASecurity\obj\Release\AMASecurity.pdb
