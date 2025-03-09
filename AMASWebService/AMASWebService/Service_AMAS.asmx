@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="C#" CodeBehind="Service_AMAS.asmx.cs" Class="AMASWebService.Service_AMAS" %>
